@@ -414,3 +414,13 @@ td.price small{display:inline}
 .tile-img img{opacity:0;transform:scale(1.03);transition:opacity 1.8s cubic-bezier(.45,0,.25,1),transform 2.6s cubic-bezier(.2,.6,.3,1)}
 .tile-img img.on{opacity:1;transform:none}
 .tile:hover .tile-img img.on{transform:scale(1.05)}
+/* Kontakt */
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:8px 0 8px}
+.kt-box{border:1.5px solid var(--ink);background:var(--card);padding:16px 18px}
+.kt-box h2{font-size:16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;text-transform:uppercase}
+.kt-box p{margin:4px 0}
+.kt-h{font-size:21px;margin:28px 0 6px}
+.kt{max-width:900px}
+.legal,.kt{max-width:none}
+.legal>*{max-width:820px}.kt>*{max-width:900px}.kt>.kt-grid{max-width:none}
+.legal a,.kt a{color:var(--red)}
