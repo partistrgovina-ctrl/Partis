@@ -5,7 +5,7 @@ const D={HOSES,SPRAYS,ITEMS,CATS,IMG,KATS:(typeof KATS!=="undefined"?KATS:[]),HI
 const pr=(p,price)=>price==null?"":PARTIS.priceHTML(price,PARTIS.rebateFor(p,window.REBATE));
 const cardEl=(r,i)=>{const t=document.createElement("template");t.innerHTML=PARTIS.cardHTML(r,i).trim();return t.content.firstElementChild;};
 
-const addBtn=(k,vi)=>`<span class="addq"><input class="aq" type="number" min="1" max="999" value="1" inputmode="numeric" aria-label="Količina" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()"><button class="add" type="button" onclick="event.stopPropagation();cartAdd('${k}',${vi},this.previousElementSibling.value)">+ U korpu</button></span>`;
+const addBtn=(k,vi)=>`<span class="addq"><input class="aq" type="number" min="1" max="99999" value="1" inputmode="numeric" aria-label="Količina" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()"><button class="add" type="button" onclick="event.stopPropagation();cartAdd('${k}',${vi},this.previousElementSibling.value)">+ U korpu</button></span>`;
 const overlay=document.getElementById("overlay"), modal=document.getElementById("modal");
 
 function openHose(p){

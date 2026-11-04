@@ -30,12 +30,12 @@
   let tt;function say(t){toast.textContent=t;toast.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("on"),1800);}
 
   window.cartAdd=function(k,vi,q){
-    q=Math.max(1,Math.min(999,parseInt(q,10)||1));
+    q=Math.max(1,Math.min(99999,parseInt(q,10)||1));
     const p=REG[k];if(!p)return;
     let l="";
     if(p.kind==="crevo")l=p.variants[vi].dim;else if(p.kind==="sprej")l=p.opts[vi].pack;else if(p.gal)l=p.gal[vi].label;
     const ex=cart.find(c=>c.n===p.name&&c.l===l);
-    if(ex)ex.q=Math.min(999,ex.q+q);else cart.push({n:p.name,l,q});
+    if(ex)ex.q=Math.min(99999,ex.q+q);else cart.push({n:p.name,l,q});
     save();badge();say(q>1?`Dodato u korpu: ${q} kom ✓`:"Dodato u korpu ✓");
   };
 
