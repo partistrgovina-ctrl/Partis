@@ -115,10 +115,16 @@
     const KS=D.KATS||[];
     if(KS.length){
       const eh=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-      const tabs=KS.map(k=>`<a href="${k.file}"${pg.id===k.id?' class="on" aria-current="page"':""}>${eh(k.naziv)}</a>`).join("");
-      s=s.replace("</div></div></nav>",()=>tabs+"</div></div></nav>");
       s=s.replace(/(<div class="foot-nav">[\s\S]*?)(\n\s*<\/div>)/,(_,a,b)=>a+KS.map(k=>`<a href="${k.file}">${eh(k.naziv)}</a>`).join("")+b);
     }
+    /* gornji meni: Početna · Proizvodi · Kontakt · Informacije; kategorije su u levom padajućem meniju */
+    const home=pg.id==="home",on=(c)=>c?' class="on" aria-current="page"':"";
+    const tabs=`<div class="tabs"><a href="index.html"${on(home)}>Početna</a><a href="index.html#kat"${on(!home&&pg.id!=="pretraga"&&pg.id!=="privatnost")}>Proizvodi</a><a href="#kontakt">Kontakt</a><a href="${home?"":"index.html"}#informacije">Informacije</a></div>`;
+    const btn=`<button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sideMenu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>Kategorije</span></button>`;
+    const side=`<div class="side-ov" id="sideOv"></div><aside class="side-menu" id="sideMenu" aria-label="Kategorije proizvoda" aria-hidden="true"><div class="side-head"><b>Kategorije</b><button type="button" class="side-x" id="sideX" aria-label="Zatvori meni">&times;</button></div>${PARTIS.menuHTML(D)}</aside><script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("sideMenu"),o=document.getElementById("sideOv"),x=document.getElementById("sideX");if(!b)return;function t(v){document.body.classList.toggle("side-open",v);b.setAttribute("aria-expanded",v);m.setAttribute("aria-hidden",!v);}b.onclick=function(){t(!document.body.classList.contains("side-open"));};o.onclick=x.onclick=function(){t(false);};document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});m.addEventListener("click",function(e){if(e.target.closest("a"))t(false);});})();</script>`;
+    s=s.replace(/(<nav class="navbar"[^>]*><div class="nav-inner">)<div class="tabs">[\s\S]*?<\/div>(<form class="search"|<\/div><\/nav>)/,(_,a,b)=>a+btn+tabs+b);
+    s=s.replace("</nav>",()=>"</nav>"+side);
+    s=s.replace("<footer>",'<footer id="kontakt">').replace('<section class="info-strip">','<section class="info-strip" id="informacije">');
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};
   }
   /* stranice novih kategorija iz šablona templates/_kategorija.html */

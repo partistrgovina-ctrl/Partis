@@ -107,6 +107,10 @@
   function tilesHTML0(D){
     return tiles(D).map(t=>`<div class="tile" data-pool="${t.pool.join(",")}"><a class="tile-main" href="${t.u}"><div class="tile-img"><img class="on" src="${esc(t.src||(D.IMG&&D.IMG[t.img])||"")}" alt="${esc(t.t)}"></div><div class="tile-body"><h3>${t.t}</h3><p>${t.d}</p><span class="tile-n">${t.n} proizvoda</span></div></a>${t.subs?`<div class="tile-subs">${t.subs.map(s=>`<a href="${s[1]}">${s[0]}</a>`).join("")}</div>`:""}</div>`).join("");
   }
+  function menuHTML(D){
+    const li=tiles(D).map(t=>`<li><a class="s-top" href="${t.u}"><span>${t.t}</span><i>${t.n}</i></a>${t.subs?`<div class="s-subs">${t.subs.map(x=>`<a href="${x[1]}">${x[0]}</a>`).join("")}</div>`:""}</li>`).join("");
+    return rename(D,`<ul>${li}</ul>`);
+  }
   /* ----- rabati kupaca (po grupi artikala) ----- */
   const GROUPS=[["pneumatika","Pneumatika"],["hema","HEMA aerosol"],["creva","Armirana creva i oprema"],["traktorski","Traktorski program"],["mazalice","Nastavci mazalica"],["ostalo","Ostale (nove) kategorije"]];
   function groupOf(p){
@@ -128,5 +132,5 @@
   function priceHTML(price,r){
     return r>0?`<s class="old">${fmt(price)}</s> <b class="newp">${fmt(discounted(price,r))}</b> <span class="rb">\u2212${r}%</span>`:fmt(price);
   }
-  return {GROUPS,groupOf,rebateFor,discounted,priceHTML,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,totalProducts,rename,OLDN};
+  return {GROUPS,groupOf,rebateFor,discounted,priceHTML,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,menuHTML,totalProducts,rename,OLDN};
 });
