@@ -1,0 +1,16 @@
+{
+  "title": "Prah za krpljenje hladnjaka",
+  "eng": "Cooling System Stop Leak",
+  "order": 130,
+  "in_stock": true,
+  "image": "/assets/img/radiator.jpg",
+  "card_text": "Opis u pripremi.",
+  "description": "Opis u pripremi.",
+  "use": "Opis u pripremi.",
+  "packs": [
+    {
+      "pack": "15 gr",
+      "price": 70
+    }
+  ]
+}

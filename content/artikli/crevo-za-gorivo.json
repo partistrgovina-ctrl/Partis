@@ -1,0 +1,223 @@
+{
+  "title": "Crevo za gorivo",
+  "category": "gotova",
+  "order": 450,
+  "in_stock": true,
+  "image": "/assets/img/gc_oo.jpg",
+  "description": "Standard DIN 73379 Tip 2A. Radni pritisak 10 bar, temperatura od −40°C do +90°C.",
+  "promo": false,
+  "col_label": "Dužina i nastavci",
+  "variants": [
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x300 mm · Oko-Oko",
+      "price": 330
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x350 mm · Oko-Oko",
+      "price": 340
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x400 mm · Oko-Oko",
+      "price": 350
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x450 mm · Oko-Oko",
+      "price": 365
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x500 mm · Oko-Oko",
+      "price": 375
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x600 mm · Oko-Oko",
+      "price": 385
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x650 mm · Oko-Oko",
+      "price": 395
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x800 mm · Oko-Oko",
+      "price": 425
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x1000 mm · Oko-Oko",
+      "price": 465
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x300 mm · Holender-Holender",
+      "price": 310,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x350 mm · Holender-Holender",
+      "price": 320,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x400 mm · Holender-Holender",
+      "price": 330,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x450 mm · Holender-Holender",
+      "price": 345,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x500 mm · Holender-Holender",
+      "price": 355,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x600 mm · Holender-Holender",
+      "price": 365,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x650 mm · Holender-Holender",
+      "price": 375,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x800 mm · Holender-Holender",
+      "price": 410,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x1000 mm · Holender-Holender",
+      "price": 450,
+      "image": "/assets/img/gc_hh.jpg"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x300 mm · Oko-Holender",
+      "price": 320,
+      "image": "/assets/img/gc_oh.jpg"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x350 mm · Oko-Holender",
+      "price": 330,
+      "image": "/assets/img/gc_oh.jpg",
+      "note": "IMT 539 (rotaciona pumpa, od filtera do pumpe) · kat. br. 802392 ili 702505"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x400 mm · Oko-Holender",
+      "price": 340,
+      "image": "/assets/img/gc_oh.jpg"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x450 mm · Oko-Holender",
+      "price": 355,
+      "image": "/assets/img/gc_oh.jpg"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x500 mm · Oko-Holender",
+      "price": 365,
+      "image": "/assets/img/gc_oh.jpg",
+      "note": "IMT 539 (rotaciona pumpa, od filtera do pumpe) · kat. br. 802392 ili 702505"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x600 mm · Oko-Holender",
+      "price": 375,
+      "image": "/assets/img/gc_oh.jpg"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x650 mm · Oko-Holender",
+      "price": 385,
+      "image": "/assets/img/gc_oh.jpg"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x800 mm · Oko-Holender",
+      "price": 415,
+      "image": "/assets/img/gc_oh.jpg"
+    },
+    {
+      "group": "Oko - Holender 14 - M16x1.5",
+      "label": "8x1000 mm · Oko-Holender",
+      "price": 455,
+      "image": "/assets/img/gc_oh.jpg"
+    },
+    {
+      "group": "Oko - Oko 12x14",
+      "label": "8x600 mm · UTB 445",
+      "price": 400,
+      "image": "/assets/img/gc_utb.jpg"
+    },
+    {
+      "group": "Oko - Oko 12x14",
+      "label": "8x600 mm · Tomo Vinković",
+      "price": 400,
+      "image": "/assets/img/gc_tomo.jpg"
+    }
+  ],
+  "aliases": [
+    "IMT 558",
+    "IMT 560",
+    "IMT 577",
+    "UTB 445",
+    "Tomo Vinković",
+    "traktorsko crevo goriva",
+    "crevo goriva traktor",
+    "Ursus",
+    "Ursus C-330",
+    "Ursus C-360",
+    "C-330",
+    "C-360",
+    "cev goriva",
+    "cevi goriva",
+    "cev za gorivo",
+    "cevi za gorivo",
+    "cijev goriva",
+    "cijevi goriva",
+    "crijevo goriva",
+    "crijeva goriva",
+    "gumena cev goriva",
+    "802392",
+    "702505",
+    "702506",
+    "704032",
+    "IMT 539 802392",
+    "IMT 539 702505",
+    "savitljiva cev za gorivo",
+    "savitljivo crevo goriva",
+    "802509",
+    "Rakovica 60",
+    "R60",
+    "R60 Super",
+    "IMR Rakovica 60",
+    "Rakovica 60 802509",
+    "803430",
+    "803431",
+    "IMR 76S",
+    "IMT 577 8x300",
+    "IMT 558 8x300",
+    "GC8X350EF",
+    "GC8X500EF"
+  ]
+}

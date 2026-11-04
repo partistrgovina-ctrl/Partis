@@ -1,0 +1,27 @@
+{
+  "title": "Mazalica 180°",
+  "category": "mazalice",
+  "order": 90,
+  "in_stock": true,
+  "image": "/assets/img/maz180.jpg",
+  "description": "Nastavak za mazalice",
+  "col_label": "Navoj",
+  "variants": [
+    {
+      "label": "M6",
+      "price": 10,
+      "in_stock": true
+    },
+    {
+      "label": "M8",
+      "price": 10,
+      "in_stock": true
+    },
+    {
+      "label": "M10",
+      "price": 10,
+      "in_stock": true
+    }
+  ],
+  "promo": false
+}

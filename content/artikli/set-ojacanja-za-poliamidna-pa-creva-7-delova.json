@@ -1,0 +1,31 @@
+{
+  "title": "Set ojačanja za Poliamidna (PA) creva 7 delova",
+  "category": "mesing",
+  "order": 80,
+  "in_stock": true,
+  "image": "/assets/img/set6.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "6mm",
+      "price": 115
+    },
+    {
+      "label": "8mm",
+      "price": 125,
+      "image": "/assets/img/set8.jpg"
+    },
+    {
+      "label": "10mm",
+      "price": 150,
+      "image": "/assets/img/set10.jpg"
+    },
+    {
+      "label": "12mm",
+      "price": 175,
+      "image": "/assets/img/set12.jpg"
+    }
+  ]
+}

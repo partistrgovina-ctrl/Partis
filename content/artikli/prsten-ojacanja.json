@@ -1,0 +1,41 @@
+{
+  "title": "Prsten ojačanja",
+  "category": "mesing",
+  "order": 60,
+  "in_stock": true,
+  "image": "/assets/img/pr4.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "4x2mm",
+      "price": 10
+    },
+    {
+      "label": "8x5mm",
+      "price": 12,
+      "image": "/assets/img/pr8.jpg"
+    },
+    {
+      "label": "6x4mm",
+      "price": 12,
+      "image": "/assets/img/pr6.jpg"
+    },
+    {
+      "label": "8x6mm",
+      "price": 13,
+      "image": "/assets/img/pr8_6.jpg"
+    },
+    {
+      "label": "10x8mm",
+      "price": 15,
+      "image": "/assets/img/pr10.jpg"
+    },
+    {
+      "label": "12x9mm",
+      "price": 18,
+      "image": "/assets/img/pr12.jpg"
+    }
+  ]
+}

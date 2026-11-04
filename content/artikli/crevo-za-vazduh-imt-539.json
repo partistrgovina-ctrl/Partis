@@ -1,0 +1,65 @@
+{
+  "title": "Crevo za vazduh IMT 539",
+  "category": "gotova",
+  "order": 490,
+  "in_stock": true,
+  "image": "/assets/img/gc_hh.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija i nastavci",
+  "variants": [
+    {
+      "group": "Holender - Holender M12x1.5",
+      "label": "5x500 mm",
+      "note": "kat. br. 55597930"
+    },
+    {
+      "group": "Holender - Holender M12x1.5",
+      "label": "5x800 mm",
+      "note": "kat. br. 58597107"
+    },
+    {
+      "group": "Holender - Holender M12x1.5",
+      "label": "5x1000 mm",
+      "note": "IMT 539 · kat. br. 52736053"
+    },
+    {
+      "group": "Holender - Holender M12x1.5",
+      "label": "5x1150 mm",
+      "note": "IMT 539 · kat. br. 52736054"
+    },
+    {
+      "group": "Holender - Holender M12x1.5",
+      "label": "5x1650 mm",
+      "note": "kat. br. 52736026"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x1280 mm",
+      "note": "IMT 539 · kat. br. 52736039"
+    },
+    {
+      "group": "Holender - Holender M16x1.5",
+      "label": "8x1750 mm",
+      "note": "kat. br. 52736132"
+    }
+  ],
+  "aliases": [
+    "IMT 539",
+    "pneumatska instalacija",
+    "vazdusno crevo traktor",
+    "crevo za vazduh traktor",
+    "cev za vazduh",
+    "cevi za vazduh",
+    "cijev za vazduh",
+    "crijevo za vazduh",
+    "crevo kocnice traktor",
+    "55597930",
+    "58597107",
+    "52736053",
+    "52736054",
+    "52736026",
+    "52736039",
+    "52736132"
+  ]
+}

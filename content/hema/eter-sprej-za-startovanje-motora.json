@@ -1,0 +1,16 @@
+{
+  "title": "Eter sprej za startovanje motora",
+  "eng": "Ether Spray",
+  "order": 100,
+  "in_stock": true,
+  "image": "/assets/img/ether.png",
+  "card_text": "Potpomaže i ubrzava startovanje motora pri niskim temperaturama.",
+  "description": "Sredstvo koje potpomaže i ubrzava startovanje motora. Idealno rešenje za nesmetano paljenje motora pri niskim temperaturama i visokoj vlažnosti. Obezbeđuje start i u slučaju vlažnih svećica i slabog akumulatora.",
+  "use": "Hladan start motora, vlažne svećice, slab akumulator.",
+  "packs": [
+    {
+      "pack": "400 ml",
+      "price": 290
+    }
+  ]
+}

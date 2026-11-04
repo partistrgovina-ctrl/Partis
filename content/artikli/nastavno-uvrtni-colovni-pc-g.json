@@ -1,0 +1,105 @@
+{
+  "title": "Nastavno-uvrtni colovni (PC-G)",
+  "category": "spojnice",
+  "order": 260,
+  "in_stock": true,
+  "image": "/assets/img/sp_navoj_o.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "variants": [
+    {
+      "group": "M5",
+      "label": "M5 × 4 mm"
+    },
+    {
+      "group": "M5",
+      "label": "M5 × 6 mm"
+    },
+    {
+      "group": "1/8\"",
+      "label": "1/8\" × 4 mm",
+      "price": 35
+    },
+    {
+      "group": "1/8\"",
+      "label": "1/8\" × 6 mm",
+      "price": 40
+    },
+    {
+      "group": "1/8\"",
+      "label": "1/8\" × 8 mm",
+      "price": 42
+    },
+    {
+      "group": "1/8\"",
+      "label": "1/8\" × 10 mm"
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 4 mm"
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 6 mm"
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 8 mm",
+      "price": 42
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 10 mm"
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 12 mm",
+      "price": 80
+    },
+    {
+      "group": "3/8\"",
+      "label": "3/8\" × 6 mm"
+    },
+    {
+      "group": "3/8\"",
+      "label": "3/8\" × 8 mm"
+    },
+    {
+      "group": "3/8\"",
+      "label": "3/8\" × 10 mm"
+    },
+    {
+      "group": "3/8\"",
+      "label": "3/8\" × 12 mm"
+    },
+    {
+      "group": "3/8\"",
+      "label": "3/8\" × 16 mm"
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 6 mm"
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 8 mm"
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 10 mm"
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 12 mm",
+      "price": 115
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 14 mm"
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 16 mm"
+    }
+  ]
+}

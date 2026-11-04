@@ -1,0 +1,21 @@
+{
+  "title": "Utikač pneumatske spojnice",
+  "category": "pneu",
+  "order": 380,
+  "in_stock": true,
+  "image": "/assets/img/mes_01.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "col_label": "Tip / navoj",
+  "variants": [
+    {
+      "label": "1/4 muški",
+      "price": 50
+    },
+    {
+      "label": "3/8 ženski",
+      "price": 80,
+      "image": "/assets/img/mes_02.jpg"
+    }
+  ]
+}

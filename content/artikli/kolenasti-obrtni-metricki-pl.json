@@ -1,0 +1,91 @@
+{
+  "title": "Kolenasti obrtni metrički (PL)",
+  "category": "spojnice",
+  "order": 290,
+  "in_stock": true,
+  "image": "/assets/img/sp_koleno.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "variants": [
+    {
+      "group": "M10x1.5",
+      "label": "M10x1.5 × 10 mm",
+      "price": 80
+    },
+    {
+      "group": "M10x1.5",
+      "label": "M10x1.5 × 12 mm",
+      "price": 90
+    },
+    {
+      "group": "M12x1.5",
+      "label": "M12x1.5 × 6 mm",
+      "price": 55
+    },
+    {
+      "group": "M12x1.5",
+      "label": "M12x1.5 × 8 mm",
+      "price": 60
+    },
+    {
+      "group": "M12x1.5",
+      "label": "M12x1.5 × 10 mm",
+      "price": 80
+    },
+    {
+      "group": "M12x1.5",
+      "label": "M12x1.5 × 12 mm",
+      "price": 100
+    },
+    {
+      "group": "M14x1.5",
+      "label": "M14x1.5 × 6 mm",
+      "price": 65
+    },
+    {
+      "group": "M14x1.5",
+      "label": "M14x1.5 × 8 mm",
+      "price": 70
+    },
+    {
+      "group": "M14x1.5",
+      "label": "M14x1.5 × 10 mm",
+      "price": 85
+    },
+    {
+      "group": "M14x1.5",
+      "label": "M14x1.5 × 12 mm",
+      "price": 105
+    },
+    {
+      "group": "M16x1.5",
+      "label": "M16x1.5 × 8 mm",
+      "price": 75
+    },
+    {
+      "group": "M16x1.5",
+      "label": "M16x1.5 × 10 mm",
+      "price": 85
+    },
+    {
+      "group": "M16x1.5",
+      "label": "M16x1.5 × 12 mm",
+      "price": 115
+    },
+    {
+      "group": "M22x1.5",
+      "label": "M22x1.5 × 8 mm",
+      "price": 125
+    },
+    {
+      "group": "M22x1.5",
+      "label": "M22x1.5 × 10 mm",
+      "price": 135
+    },
+    {
+      "group": "M22x1.5",
+      "label": "M22x1.5 × 12 mm",
+      "price": 145
+    }
+  ]
+}

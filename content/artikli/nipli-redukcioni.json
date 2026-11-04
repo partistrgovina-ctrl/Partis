@@ -1,0 +1,59 @@
+{
+  "title": "Nipli redukcioni",
+  "category": "mesing",
+  "order": 430,
+  "in_stock": true,
+  "image": "/assets/img/mes_35.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "col_label": "Navoj",
+  "variants": [
+    {
+      "group": "3/8",
+      "label": "3/8x1/8",
+      "price": 50,
+      "image": "/assets/img/mes_36.jpg"
+    },
+    {
+      "group": "3/8",
+      "label": "3/8x1/4",
+      "price": 50,
+      "image": "/assets/img/mes_37.jpg"
+    },
+    {
+      "group": "1/2",
+      "label": "1/2x3/8",
+      "price": 60,
+      "image": "/assets/img/mes_38.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4x3/8",
+      "price": 70,
+      "image": "/assets/img/mes_39.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4x1/2",
+      "price": 70,
+      "image": "/assets/img/mes_40.jpg"
+    },
+    {
+      "group": "1\"",
+      "label": "1\"x1/2",
+      "price": 85,
+      "image": "/assets/img/mes_41.jpg"
+    },
+    {
+      "group": "1\"",
+      "label": "1\"x3/4",
+      "price": 85,
+      "image": "/assets/img/mes_42.jpg"
+    },
+    {
+      "group": "Ostalo",
+      "label": "Dimenzija u pripremi",
+      "price": 40
+    }
+  ]
+}

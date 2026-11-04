@@ -1,0 +1,49 @@
+{
+  "title": "Šuplji vijak",
+  "category": "traktor",
+  "order": 30,
+  "in_stock": true,
+  "image": "/assets/img/sv6.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "M6x1",
+      "price": 18
+    },
+    {
+      "label": "M8x1",
+      "price": 20,
+      "image": "/assets/img/sv8.jpg"
+    },
+    {
+      "label": "M8x1.5",
+      "price": 20,
+      "image": "/assets/img/sv8_15.jpg"
+    },
+    {
+      "label": "M10x1",
+      "price": 25,
+      "image": "/assets/img/sv10.jpg"
+    },
+    {
+      "label": "M12x1.5",
+      "price": 32,
+      "image": "/assets/img/sv12.jpg"
+    },
+    {
+      "label": "M14x1.5",
+      "price": 35,
+      "image": "/assets/img/sv14.jpg"
+    },
+    {
+      "label": "M16x1.5",
+      "price": 50,
+      "image": "/assets/img/sv16.jpg"
+    }
+  ],
+  "aliases": [
+    "banjo vijak"
+  ]
+}

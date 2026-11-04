@@ -1,0 +1,29 @@
+{
+  "title": "Oko",
+  "category": "traktor",
+  "order": 20,
+  "in_stock": true,
+  "image": "/assets/img/oko14.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "14x7.5mm",
+      "price": 60
+    },
+    {
+      "label": "12x7.5mm",
+      "price": 55,
+      "image": "/assets/img/oko12.jpg"
+    },
+    {
+      "label": "8x5.5mm",
+      "price": 50,
+      "image": "/assets/img/oko8.jpg"
+    }
+  ],
+  "aliases": [
+    "banjo oko"
+  ]
+}

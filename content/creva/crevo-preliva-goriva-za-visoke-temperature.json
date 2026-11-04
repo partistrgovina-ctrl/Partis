@@ -1,0 +1,35 @@
+{
+  "title": "Crevo preliva goriva za visoke temperature",
+  "hose_type": "Crevo preliva goriva",
+  "order": 30,
+  "in_stock": true,
+  "image": "/assets/img/hose_preliv.png",
+  "card_text": "Nitrilna guma formulisana za primenu pri visokim temperaturama, do +150°C.",
+  "temp": "−40°C / +150°C  (−25°F / +302°F)",
+  "material": "Nitrilna guma, formulacije podesne za primenu pri visokim temperaturama.",
+  "reinforce": "Sintetičko ojačanje radi postizanja dugovečnosti.",
+  "cover": "Guma otporna na ozon, vremenske prilike, habanje, goriva i ulja.",
+  "standard": "—",
+  "use": "Protok goriva, ulja i maziva kod vozila i mehanizacije.",
+  "variants": [
+    {
+      "dim": "3.2 × 6 mm",
+      "wp": "—",
+      "burst": "—",
+      "flex": "—",
+      "weight": "0.03",
+      "price": 70
+    }
+  ],
+  "aliases": [
+    "cev goriva",
+    "cevi goriva",
+    "cev za gorivo",
+    "cevi za gorivo",
+    "cijev goriva",
+    "cijevi goriva",
+    "crijevo goriva",
+    "crijeva goriva",
+    "gumena cev goriva"
+  ]
+}

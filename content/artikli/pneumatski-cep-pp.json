@@ -1,0 +1,35 @@
+{
+  "title": "Pneumatski čep (PP)",
+  "category": "spojnice",
+  "order": 350,
+  "in_stock": true,
+  "image": "/assets/img/sp_pp.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "variants": [
+    {
+      "label": "4 mm",
+      "price": 15
+    },
+    {
+      "label": "6 mm",
+      "price": 15
+    },
+    {
+      "label": "8 mm",
+      "price": 17
+    },
+    {
+      "label": "10 mm",
+      "price": 20
+    },
+    {
+      "label": "12 mm",
+      "price": 26
+    },
+    {
+      "label": "16 mm",
+      "price": 80
+    }
+  ]
+}

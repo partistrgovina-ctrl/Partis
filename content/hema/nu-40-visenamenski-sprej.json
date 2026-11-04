@@ -1,0 +1,34 @@
+{
+  "title": "NU-40 univerzalni sprej",
+  "eng": "Multi Purpose Care Spray",
+  "order": 10,
+  "in_stock": true,
+  "image": "/assets/img/nu40.png",
+  "card_text": "Univerzalni sprej — opušta zarđale spojeve, čisti, podmazuje i štiti od korozije.",
+  "description": "Univerzalni sprej za radionicu, vozilo i domaćinstvo. Brzo prodire u zarđale i zalepljene navoje i spojeve i opušta ih, istiskuje vlagu, uklanja rđu i prljavštinu, a zatim podmazuje spoj i štiti metal od korozije, čime produžava vek tretiranog predmeta. Neutralan je prema plastičnim i lakiranim površinama i metalima.",
+  "use": "Opuštanje zarđalih i zaglavljenih navoja, istiskivanje vlage, čišćenje i podmazivanje spojeva, brava, šarki i lanaca, zaštita od korozije.",
+  "packs": [
+    {
+      "pack": "200 ml",
+      "price": 190
+    },
+    {
+      "pack": "400 ml",
+      "price": 270
+    }
+  ],
+  "aliases": [
+    "wd 40",
+    "wd-40",
+    "wd40",
+    "m 40",
+    "m-40",
+    "k2 40",
+    "k2-40",
+    "nu40",
+    "nu 40",
+    "višenamenski sprej",
+    "multi sprej",
+    "sprej za zarđale navoje"
+  ]
+}

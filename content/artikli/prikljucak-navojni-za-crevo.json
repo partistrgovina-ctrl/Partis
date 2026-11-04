@@ -1,0 +1,95 @@
+{
+  "title": "Priključak navojni za crevo",
+  "category": "mesing",
+  "order": 410,
+  "in_stock": true,
+  "image": "/assets/img/mes_17.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "col_label": "Navoj i crevo",
+  "variants": [
+    {
+      "group": "1/8",
+      "label": "1/8 za crevo 6 mm",
+      "price": 45
+    },
+    {
+      "group": "1/8",
+      "label": "1/8 za crevo 10 mm",
+      "price": 45,
+      "image": "/assets/img/mes_18.jpg"
+    },
+    {
+      "group": "1/4",
+      "label": "1/4 za crevo 8 mm",
+      "price": 60,
+      "image": "/assets/img/mes_19.jpg"
+    },
+    {
+      "group": "1/4",
+      "label": "1/4 za crevo 10 mm",
+      "price": 60,
+      "image": "/assets/img/mes_20.jpg"
+    },
+    {
+      "group": "3/8",
+      "label": "3/8 za crevo 6 mm",
+      "price": 65,
+      "image": "/assets/img/mes_21.jpg"
+    },
+    {
+      "group": "3/8",
+      "label": "3/8 za crevo 10 mm",
+      "price": 65,
+      "image": "/assets/img/mes_22.jpg"
+    },
+    {
+      "group": "3/8",
+      "label": "3/8 za crevo 16 mm",
+      "price": 65,
+      "image": "/assets/img/mes_23.jpg"
+    },
+    {
+      "group": "1/2",
+      "label": "1/2 za crevo 16 mm",
+      "price": 90,
+      "image": "/assets/img/mes_24.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4 za crevo 10 mm",
+      "price": 150,
+      "image": "/assets/img/mes_25.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4 za crevo 12 mm",
+      "price": 150,
+      "image": "/assets/img/mes_26.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4 za crevo 16 mm",
+      "price": 165,
+      "image": "/assets/img/mes_27.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4 za crevo 20 mm",
+      "price": 165,
+      "image": "/assets/img/mes_28.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4 za crevo 27 mm",
+      "price": 200,
+      "image": "/assets/img/mes_29.jpg"
+    },
+    {
+      "group": "1\"",
+      "label": "1\" za crevo 33 mm",
+      "price": 225,
+      "image": "/assets/img/mes_30.jpg"
+    }
+  ]
+}

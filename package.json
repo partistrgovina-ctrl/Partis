@@ -1,0 +1,9 @@
+{
+  "name": "partis-sajt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PARTIS Niš — katalog proizvoda (statički sajt + Decap CMS editor)",
+  "scripts": { "build": "node build/build.mjs" },
+  "dependencies": { "sharp": "^0.33.5" },
+  "engines": { "node": ">=18" }
+}

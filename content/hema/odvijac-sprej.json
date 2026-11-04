@@ -1,0 +1,20 @@
+{
+  "title": "Odvijač sprej",
+  "eng": "Penetrating Spray · MoS₂",
+  "order": 40,
+  "in_stock": true,
+  "image": "/assets/img/rust.png",
+  "card_text": "Uklanja rđu sa svih metalnih površina, efikasan kod jake korozije.",
+  "description": "Upotrebljava se za uklanjanje rđe sa svih metalnih površina i efikasan je kod jake korozije. Najefektivniji je u oslobađanju zarđalih matica i šrafova, a pokazuje izuzetne rezultate i u restauraciji ručnog alata, opreme za lov i ribolov, bicikala, motocikala, šarki vrata i sličnih metalnih delova.",
+  "use": "Zarđale matice i šrafovi, ručni alat, oprema, šarke, restauracija.",
+  "packs": [
+    {
+      "pack": "200 ml",
+      "price": 200
+    },
+    {
+      "pack": "400 ml",
+      "price": 285
+    }
+  ]
+}

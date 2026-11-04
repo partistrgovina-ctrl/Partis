@@ -1,0 +1,16 @@
+{
+  "title": "Sprej za podmazivanje lanaca",
+  "eng": "Chain Spray",
+  "order": 90,
+  "in_stock": true,
+  "image": "/assets/img/chain.png",
+  "card_text": "Lubrikant za lance pod jakim dinamičkim silama, dugotrajno podmazivanje.",
+  "description": "Lubrikant za primenu na lancima koji su pod uticajem jakih dinamičkih sila. Pogodan za lance liftova, poljoprivrednih mašina, bicikala i motocikala, cilindre lanaca, sajle, ležajeve i ostale elemente kojima je neophodna lubrikacija za nesmetanu upotrebu. Zadržava se na tretiranoj površini i omogućava dugotrajno podmazivanje.",
+  "use": "Lanci liftova i mašina, bicikli, motocikli, sajle, ležajevi.",
+  "packs": [
+    {
+      "pack": "400 ml",
+      "price": 340
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+# PARTIS — podešavanje editora artikala (Decap CMS)
+# JEDINA stvar koju treba promeniti: u liniji "repo" upišite GitHub korisnika i ime repozitorijuma.
+
+backend:
+  name: github
+  repo: VASE-GITHUB-IME/partis-sajt   # <-- npr. natalija123/partis-sajt
+  branch: main
+
+locale: hr
+publish_mode: simple
+media_folder: static/assets/img/uploads
+public_folder: /assets/img/uploads
+
+collections:
+  # ------------------------------------------------------------------ ARTIKLI
+  - name: artikli
+    label: Artikli
+    label_singular: Artikal
+    description: "Pneumatika, spojnice, ojačanja, traktorski program, mazalice, prateća oprema."
+    folder: content/artikli
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} — {{category}}"
+    sortable_fields: [title, category, order]
+    fields:
+      - { label: "Naziv artikla", name: title, widget: string }
+      - label: "Kategorija"
+        name: category
+        widget: select
+        options:
+          - { label: "Pneumatika › Pneumatski alat i nastavci", value: pneu }
+          - { label: "Pneumatika › Ojačanja creva", value: mesing }
+          - { label: "Pneumatika › Spojnice pneumatike", value: spojnice }
+          - { label: "Traktorski program › Traktorska roba", value: traktor }
+          - { label: "Traktorski program › Gotova creva", value: gotova }
+          - { label: "Nastavci mazalica", value: mazalice }
+          - { label: "Armirana creva › Prateća oprema", value: crevo }
+      - { label: "Na stanju", name: in_stock, widget: boolean, default: true, hint: "Isključite kada artikla nema — nestaje sa sajta, iz pretrage i iz brojača, a ostaje sačuvan ovde pa ga možete vratiti." }
+      - { label: "Slika", name: image, widget: image, required: false, hint: "Najbolje: artikal na beloj pozadini, JPG ili PNG. Sajt sam smanjuje sliku." }
+      - { label: "Opis", name: description, widget: text, required: false, default: "Opis u pripremi." }
+      - { label: "Kratak tekst na kartici", name: card_text, widget: string, required: false, hint: "Jedna kratka rečenica ispod naziva. Ako ostane prazno, koristi se opis." }
+      - { label: "Navoj / oznaka (kratko)", name: spec, widget: string, required: false, hint: "Npr. M14x1.5 ili 1/4 — prikazuje se ispod naziva." }
+      - { label: "Naziv oznake (ako nije Navoj)", name: spec_label, widget: string, required: false }
+      - { label: "Cena (RSD, bez PDV-a)", name: price, widget: number, value_type: float, min: 0, required: false, hint: "Samo za artikal sa JEDNOM cenom. Ako artikal ima više dimenzija, cene unesite dole u tabelu. Prazno = „Cena na upit“." }
+      - label: "Dimenzije / varijante (tabela sa cenama)"
+        label_singular: "Varijanta"
+        name: variants
+        widget: list
+        required: false
+        collapsed: true
+        summary: "{{fields.group}} {{fields.label}} — {{fields.price}}"
+        hint: "Dodajte red za svaku dimenziju. Svaki red se računa kao poseban proizvod u brojaču."
+        fields:
+          - { label: "Na stanju", name: in_stock, widget: boolean, default: true }
+          - { label: "Grupa (neobavezno)", name: group, widget: string, required: false, hint: "Npr. navoj M14x1.5 — pravi dugmad za izbor iznad tabele." }
+          - { label: "Dimenzija / naziv", name: label, widget: string, hint: "Npr. 6 mm  ili  M14x1.5 × 8 mm" }
+          - { label: "Cena (RSD, bez PDV-a)", name: price, widget: number, value_type: float, min: 0, required: false, hint: "Prazno = „Cena na upit“." }
+          - { label: "Napomena (neobavezno)", name: note, widget: string, required: false }
+          - { label: "Slika za ovu varijantu (neobavezno)", name: image, widget: image, required: false }
+      - { label: "Akcijske cene (oznaka „Akcija“)", name: promo, widget: boolean, default: true, hint: "Isključite ako cene nisu akcijske." }
+      - { label: "Naslov prve kolone tabele", name: col_label, widget: string, required: false, hint: "Podrazumevano „Dimenzija“." }
+      - { label: "Redosled", name: order, widget: number, value_type: int, required: false, hint: "Manji broj = ranije na stranici. Prazno = na kraju." }
+      - label: "Alternativni nazivi (kupci ih ne vide)"
+        name: aliases
+        widget: list
+        required: false
+        field: { label: "Naziv", name: alias, widget: string }
+        hint: "Nazivi pod kojima kupci traže artikal, npr. „navrtka“. Služe samo pretrazi."
+
+  # ------------------------------------------------------------------ HEMA
+  - name: hema
+    label: HEMA aerosol
+    label_singular: HEMA sprej
+    folder: content/hema
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}}"
+    sortable_fields: [title, order]
+    fields:
+      - { label: "Naziv", name: title, widget: string }
+      - { label: "Na stanju", name: in_stock, widget: boolean, default: true, hint: "Isključite kada nema na stanju — sakriva se sa sajta, ostaje sačuvan." }
+      - { label: "Engleski naziv", name: eng, widget: string, required: false }
+      - { label: "Slika", name: image, widget: image, required: false, hint: "Uspravna slika flaše na beloj pozadini." }
+      - { label: "Kratak tekst na kartici", name: card_text, widget: string, required: false }
+      - { label: "Opis", name: description, widget: text, required: false }
+      - { label: "Namena", name: use, widget: text, required: false }
+      - label: "Pakovanja i cene"
+        label_singular: "Pakovanje"
+        name: packs
+        widget: list
+        summary: "{{fields.pack}} — {{fields.price}}"
+        fields:
+          - { label: "Na stanju", name: in_stock, widget: boolean, default: true }
+          - { label: "Pakovanje", name: pack, widget: string, hint: "Npr. 400 ml" }
+          - { label: "Cena (RSD, bez PDV-a)", name: price, widget: number, value_type: float, min: 0 }
+      - { label: "Redosled", name: order, widget: number, value_type: int, required: false }
+      - label: "Alternativni nazivi (kupci ih ne vide)"
+        name: aliases
+        widget: list
+        required: false
+        field: { label: "Naziv", name: alias, widget: string }
+
+  # ------------------------------------------------------------------ CREVA
+  - name: creva
+    label: Armirana gumena creva
+    label_singular: Armirano crevo
+    folder: content/creva
+    extension: json
+    format: json
+    create: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}}"
+    sortable_fields: [title, order]
+    fields:
+      - { label: "Naziv", name: title, widget: string }
+      - { label: "Na stanju", name: in_stock, widget: boolean, default: true }
+      - { label: "Tip", name: hose_type, widget: string, required: false, hint: "Npr. Tip 2A" }
+      - { label: "Slika", name: image, widget: image, required: false }
+      - { label: "Kratak tekst na kartici", name: card_text, widget: string, required: false }
+      - { label: "Radna temperatura", name: temp, widget: string, required: false }
+      - { label: "Materijal creva", name: material, widget: text, required: false }
+      - { label: "Ojačanje zida", name: reinforce, widget: text, required: false }
+      - { label: "Spoljni omotač", name: cover, widget: text, required: false }
+      - { label: "Standard", name: standard, widget: string, required: false }
+      - { label: "Primena", name: use, widget: text, required: false }
+      - label: "Dimenzije i cene"
+        label_singular: "Dimenzija"
+        name: variants
+        widget: list
+        summary: "{{fields.dim}} — {{fields.price}}"
+        fields:
+          - { label: "Na stanju", name: in_stock, widget: boolean, default: true }
+          - { label: "Dimenzija", name: dim, widget: string, hint: "Npr. 5 × 11 mm" }
+          - { label: "Radni pritisak", name: wp, widget: string, required: false }
+          - { label: "Tačka prskanja", name: burst, widget: string, required: false }
+          - { label: "Savitljivost", name: flex, widget: string, required: false }
+          - { label: "Težina (g/m)", name: weight, widget: string, required: false }
+          - { label: "Cena po metru (RSD, bez PDV-a)", name: price, widget: number, value_type: float, min: 0 }
+      - { label: "Redosled", name: order, widget: number, value_type: int, required: false }
+      - label: "Alternativni nazivi (kupci ih ne vide)"
+        name: aliases
+        widget: list
+        required: false
+        field: { label: "Naziv", name: alias, widget: string }

@@ -1,0 +1,47 @@
+{
+  "title": "Reducir žensko-muški navoj",
+  "category": "mesing",
+  "order": 390,
+  "in_stock": true,
+  "image": "/assets/img/mes_05.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "col_label": "Navoj",
+  "variants": [
+    {
+      "group": "3/8",
+      "label": "3/8x1/8",
+      "price": 70
+    },
+    {
+      "group": "3/8",
+      "label": "3/8x1/4",
+      "price": 70,
+      "image": "/assets/img/mes_07.jpg"
+    },
+    {
+      "group": "1/2",
+      "label": "1/2x1/4",
+      "price": 80,
+      "image": "/assets/img/mes_08.jpg"
+    },
+    {
+      "group": "3/4",
+      "label": "3/4x1/2",
+      "price": 120,
+      "image": "/assets/img/mes_06.jpg"
+    },
+    {
+      "group": "1\"",
+      "label": "1\"x1/2",
+      "price": 250,
+      "image": "/assets/img/mes_09.jpg"
+    },
+    {
+      "group": "1\"",
+      "label": "1\"x3/4",
+      "price": 250,
+      "image": "/assets/img/mes_10.jpg"
+    }
+  ]
+}

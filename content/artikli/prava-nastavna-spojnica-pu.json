@@ -1,0 +1,51 @@
+{
+  "title": "Prava nastavna spojnica (PU)",
+  "category": "spojnice",
+  "order": 250,
+  "in_stock": true,
+  "image": "/assets/img/sp_ravna.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "variants": [
+    {
+      "label": "4 mm",
+      "price": 27
+    },
+    {
+      "label": "5 mm",
+      "price": 30
+    },
+    {
+      "label": "6 mm",
+      "price": 30
+    },
+    {
+      "label": "8 mm",
+      "price": 33
+    },
+    {
+      "label": "9 mm",
+      "price": 40
+    },
+    {
+      "label": "10 mm",
+      "price": 40
+    },
+    {
+      "label": "12 mm",
+      "price": 45
+    },
+    {
+      "label": "14 mm",
+      "price": 100
+    },
+    {
+      "label": "15 mm",
+      "price": 120
+    },
+    {
+      "label": "16 mm",
+      "price": 125
+    }
+  ]
+}

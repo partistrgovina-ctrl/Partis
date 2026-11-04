@@ -1,0 +1,27 @@
+{
+  "title": "Mazalica 45°",
+  "category": "mazalice",
+  "order": 110,
+  "in_stock": true,
+  "image": "/assets/img/maz45.jpg",
+  "description": "Nastavak za mazalice",
+  "col_label": "Navoj",
+  "variants": [
+    {
+      "label": "M6",
+      "price": 13.5,
+      "in_stock": true
+    },
+    {
+      "label": "M8",
+      "price": 13.5,
+      "in_stock": true
+    },
+    {
+      "label": "M10",
+      "price": 13.5,
+      "in_stock": true
+    }
+  ],
+  "promo": false
+}

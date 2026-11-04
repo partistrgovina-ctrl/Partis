@@ -1,0 +1,25 @@
+{
+  "title": "Crevo kompresora za pumpanje guma",
+  "category": "gotova",
+  "order": 490,
+  "in_stock": true,
+  "image": "/assets/img/gc_guma.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "6x11 mm · 9 m",
+      "price": 900,
+      "note": "Leptir 6mm - Štipaljka za pumpanje guma 6mm"
+    }
+  ],
+  "aliases": [
+    "cev kompresora",
+    "cevi kompresora",
+    "cijev kompresora",
+    "crijevo kompresora",
+    "cev za kompresor",
+    "cev od kompresora"
+  ]
+}

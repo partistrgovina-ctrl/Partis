@@ -1,0 +1,25 @@
+{
+  "title": "Crevo od kompresora do boce",
+  "category": "gotova",
+  "order": 460,
+  "in_stock": true,
+  "image": "/assets/img/gc_boca.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "8x1300 mm",
+      "price": 500,
+      "note": "Holender - Holender M16x1.5 - M16x1.5"
+    }
+  ],
+  "aliases": [
+    "cev kompresora",
+    "cevi kompresora",
+    "cijev kompresora",
+    "crijevo kompresora",
+    "cev za kompresor",
+    "cev od kompresora"
+  ]
+}

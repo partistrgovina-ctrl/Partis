@@ -1,0 +1,31 @@
+{
+  "title": "Muf navoj",
+  "category": "mesing",
+  "order": 420,
+  "in_stock": true,
+  "image": "/assets/img/mes_31.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "col_label": "Navoj",
+  "variants": [
+    {
+      "label": "1/8",
+      "price": 40
+    },
+    {
+      "label": "1/2",
+      "price": 150,
+      "image": "/assets/img/mes_32.jpg"
+    },
+    {
+      "label": "3/4",
+      "price": 165,
+      "image": "/assets/img/mes_33.jpg"
+    },
+    {
+      "label": "1\"",
+      "price": 240,
+      "image": "/assets/img/mes_34.jpg"
+    }
+  ]
+}

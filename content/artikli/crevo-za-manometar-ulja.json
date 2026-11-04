@@ -1,0 +1,61 @@
+{
+  "title": "Crevo za manometar ulja",
+  "category": "gotova",
+  "order": 480,
+  "in_stock": true,
+  "image": "/assets/img/gc_man900.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija i nastavci",
+  "variants": [
+    {
+      "label": "5x900 mm",
+      "price": 405,
+      "note": "Oko - Holender 8 - M10x1 · IMT 533, 539, 542, 558 · kat. br.: IMT 533 – 533.06.350, 533.06.340; IMT 539 – 800.049"
+    },
+    {
+      "label": "5x1100 mm",
+      "price": 420,
+      "note": "Oko - Holender 10 - M10x1 · IMT 577/Ursus · kat. br. 800049/1",
+      "image": "/assets/img/gc_man1100.jpg"
+    },
+    {
+      "label": "5x1000 mm",
+      "price": 435,
+      "note": "Holender M10x1.5 - Holender M10x1.5",
+      "image": "/assets/img/gc_man1000.jpg"
+    }
+  ],
+  "aliases": [
+    "IMT 533",
+    "IMT 539",
+    "IMT 542",
+    "IMT 558",
+    "IMT 560",
+    "IMT 577",
+    "IMR",
+    "Ursus",
+    "manometar ulja traktor",
+    "crevo pritiska ulja",
+    "Ursus C-330",
+    "Ursus C-360",
+    "C-330",
+    "C-360",
+    "cev manometra ulja",
+    "cevi manometra ulja",
+    "cijev manometra ulja",
+    "crijevo manometra ulja",
+    "cev pritiska ulja",
+    "cev ulja",
+    "533.06.350",
+    "533.06.340",
+    "IMT 533.06.350",
+    "IMT 533.06.340",
+    "827 626 M91",
+    "827626M91",
+    "800049",
+    "800.049",
+    "IMT 539 800.049",
+    "800049/1"
+  ]
+}

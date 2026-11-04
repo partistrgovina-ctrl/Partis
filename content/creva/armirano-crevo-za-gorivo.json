@@ -1,0 +1,59 @@
+{
+  "title": "Armirano crevo za gorivo",
+  "hose_type": "Tip 2A",
+  "order": 10,
+  "in_stock": true,
+  "image": "/assets/img/hose_gorivo.png",
+  "card_text": "Glatka nitrilna guma otporna na gorivo i ulje, sa sintetičkim tekstilnim ojačanjem.",
+  "temp": "−40°C / +90°C  (−25°F / +194°F)",
+  "material": "Prirodno glatka nitrilna guma, otporna na gorivo i ulje.",
+  "reinforce": "Sintetički tekstil visoke čvrstoće.",
+  "cover": "Posebno formulisana CR guma otporna na ulje, gorivo, oštećenja, ozon i vremenske prilike.",
+  "standard": "DIN 73379:1997 · Tip 2A",
+  "use": "Za protok goriva u motorima sa unutrašnjim sagorevanjem, kao i za protok lubrikanata kod motornih vozila i mehanizacije.",
+  "variants": [
+    {
+      "dim": "5 × 11 mm",
+      "wp": "10 bar / 145 psi",
+      "burst": "30 bar / 435 psi",
+      "flex": "45 mm",
+      "weight": "0.111",
+      "price": 115
+    },
+    {
+      "dim": "6 × 12 mm",
+      "wp": "10 bar / 145 psi",
+      "burst": "30 bar / 435 psi",
+      "flex": "60 mm",
+      "weight": "0.125",
+      "price": 125
+    },
+    {
+      "dim": "8 × 14 mm",
+      "wp": "10 bar / 145 psi",
+      "burst": "30 bar / 435 psi",
+      "flex": "70 mm",
+      "weight": "0.152",
+      "price": 145
+    },
+    {
+      "dim": "10 × 17 mm",
+      "wp": "10 bar / 145 psi",
+      "burst": "30 bar / 435 psi",
+      "flex": "80 mm",
+      "weight": "0.219",
+      "price": 185
+    }
+  ],
+  "aliases": [
+    "cev goriva",
+    "cevi goriva",
+    "cev za gorivo",
+    "cevi za gorivo",
+    "cijev goriva",
+    "cijevi goriva",
+    "crijevo goriva",
+    "crijeva goriva",
+    "gumena cev goriva"
+  ]
+}

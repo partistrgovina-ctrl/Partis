@@ -1,0 +1,16 @@
+{
+  "title": "Mast u spreju",
+  "eng": "Grease Spray",
+  "order": 20,
+  "in_stock": true,
+  "image": "/assets/img/grease.png",
+  "card_text": "Lubrikant široke primene sa specijalnim uljima i aditivima.",
+  "description": "Lubrikant u spreju široke primene. U svom sastavu sadrži specijalna ulja i aditive koji omogućavaju brzo dejstvo i prijanjanje na površinu. Nalazi široku primenu kod vozila i u industriji, kao i u domovima i na radnim mestima, kad god se pojavi potreba za podmazivanjem.",
+  "use": "Vozila, industrija, domaćinstvo — opšte podmazivanje.",
+  "packs": [
+    {
+      "pack": "400 ml",
+      "price": 300
+    }
+  ]
+}

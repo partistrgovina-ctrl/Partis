@@ -1,0 +1,20 @@
+{
+  "title": "Kontakt sprej za čišćenje električnih kola",
+  "eng": "Contact Cleaner · Circuit Cleaning",
+  "order": 120,
+  "in_stock": true,
+  "image": "/assets/img/contact.png",
+  "card_text": "Čisti i odmašćuje korodirane električne kablove, poboljšava provodljivost.",
+  "description": "Specijalno sredstvo za brzo i efikasno čišćenje i odmašćivanje svih vrsta korodiranih električnih kablova. Otklanja okside, prljavštinu i maziva, poboljšava provodljivost kablova i stabilizuje napon. Otklanja vlagu i formira zaštitni vodootporni sloj. Neutralan je prema plastičnim i lakiranim površinama. Primenjuje se na svim elektrokomponentama vozila i ostalih električnih uređaja.",
+  "use": "Elektrokomponente vozila, kablovi, konektori, električni uređaji.",
+  "packs": [
+    {
+      "pack": "200 ml",
+      "price": 210
+    },
+    {
+      "pack": "400 ml",
+      "price": 305
+    }
+  ]
+}

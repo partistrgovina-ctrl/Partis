@@ -1,0 +1,37 @@
+{
+  "title": "Redukciona spojnica (PG)",
+  "category": "spojnice",
+  "order": 300,
+  "in_stock": true,
+  "image": "/assets/img/sp_pg.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "variants": [
+    {
+      "label": "6-4 mm"
+    },
+    {
+      "label": "8-4 mm"
+    },
+    {
+      "label": "8-6 mm",
+      "price": 40
+    },
+    {
+      "label": "10-6 mm"
+    },
+    {
+      "label": "10-8 mm"
+    },
+    {
+      "label": "12-8 mm"
+    },
+    {
+      "label": "12-10 mm",
+      "price": 50
+    },
+    {
+      "label": "16-12 mm"
+    }
+  ]
+}

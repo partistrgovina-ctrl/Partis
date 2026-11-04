@@ -1,0 +1,30 @@
+{
+  "title": "Crevo kompresora IMT 539",
+  "category": "gotova",
+  "order": 470,
+  "in_stock": true,
+  "image": "/assets/img/gc_imt.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "5x600 mm",
+      "price": 300,
+      "note": "Oko - Oko 8 - 8 · IMT 539 · kat. br. 55597980"
+    }
+  ],
+  "aliases": [
+    "IMT 539",
+    "IMT539",
+    "crevo kompresora traktor",
+    "cev kompresora",
+    "cevi kompresora",
+    "cijev kompresora",
+    "crijevo kompresora",
+    "cev za kompresor",
+    "cev od kompresora",
+    "55597980",
+    "IMT 539 55597980"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Usečni prsten",
+  "category": "mesing",
+  "order": 70,
+  "in_stock": true,
+  "image": "/assets/img/us6.jpg",
+  "description": "Opis u pripremi.",
+  "promo": false,
+  "col_label": "Dimenzija",
+  "variants": [
+    {
+      "label": "6mm",
+      "price": 12
+    },
+    {
+      "label": "8mm",
+      "price": 13,
+      "image": "/assets/img/us8.jpg"
+    },
+    {
+      "label": "10mm",
+      "price": 15,
+      "image": "/assets/img/us10.jpg"
+    },
+    {
+      "label": "12mm",
+      "price": 18,
+      "image": "/assets/img/us12.jpg"
+    }
+  ]
+}

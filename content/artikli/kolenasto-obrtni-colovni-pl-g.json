@@ -1,0 +1,56 @@
+{
+  "title": "Kolenasto obrtni colovni (PL-G)",
+  "category": "spojnice",
+  "order": 280,
+  "in_stock": true,
+  "image": "/assets/img/sp_plg.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "variants": [
+    {
+      "group": "M5",
+      "label": "M5 × 6 mm",
+      "price": 45
+    },
+    {
+      "group": "1/8\"",
+      "label": "1/8\" × 6 mm",
+      "price": 40
+    },
+    {
+      "group": "1/8\"",
+      "label": "1/8\" × 8 mm",
+      "price": 45
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 6 mm",
+      "price": 50
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 8 mm",
+      "price": 55
+    },
+    {
+      "group": "1/4\"",
+      "label": "1/4\" × 12 mm",
+      "price": 100
+    },
+    {
+      "group": "3/8\"",
+      "label": "3/8\" × 8 mm",
+      "price": 70
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 10 mm",
+      "price": 115
+    },
+    {
+      "group": "1/2\"",
+      "label": "1/2\" × 12 mm",
+      "price": 120
+    }
+  ]
+}

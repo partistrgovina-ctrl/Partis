@@ -1,0 +1,16 @@
+{
+  "title": "Prigušnik buke-podesivi 1/4",
+  "category": "pneu",
+  "order": 440,
+  "in_stock": true,
+  "image": "/assets/img/mes_43.jpg",
+  "description": "Opis u pripremi.",
+  "promo": true,
+  "col_label": "Navoj",
+  "variants": [
+    {
+      "label": "1/4",
+      "price": 125
+    }
+  ]
+}

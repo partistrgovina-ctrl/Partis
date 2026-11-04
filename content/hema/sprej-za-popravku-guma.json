@@ -1,0 +1,16 @@
+{
+  "title": "Sprej za popravku guma",
+  "eng": "Tyre Repair Spray",
+  "order": 80,
+  "in_stock": true,
+  "image": "/assets/img/tyre.png",
+  "card_text": "Hitna popravka gume pored puta, bez skidanja točka.",
+  "description": "Sprej za popravku guma koristi se na svim putničkim vozilima, motociklima, biciklima i komercijalnim vozilima slabijeg opterećenja. Dizajniran je za hitne slučajeve kada je neophodno krpljenje gume pored puta. Brzo dejstvo zahvaljujući specijalizovanoj formuli koja se odmah vezuje za gumu pri kontaktu, bez skidanja točka. Praktičan i lak za upotrebu, bez oštećivanja gume.",
+  "use": "Putnička vozila, motocikli, bicikli, laka komercijalna vozila.",
+  "packs": [
+    {
+      "pack": "400 ml",
+      "price": 355
+    }
+  ]
+}

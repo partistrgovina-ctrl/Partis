@@ -1,0 +1,32 @@
+{
+  "title": "Armirano crevo za vazduh",
+  "hose_type": "Pneumatika",
+  "order": 20,
+  "in_stock": true,
+  "image": "/assets/img/hose_vazduh.png",
+  "card_text": "Glatka guma otporna na ulja, za laka do umerena opterećenja u pneumatskim sistemima.",
+  "temp": "−25°C / +70°C  (−13°F / +158°F)",
+  "material": "Prirodno glatka guma, otporna na ulja.",
+  "reinforce": "Sintetički tekstil visoke čvrstoće.",
+  "cover": "Prirodno glatka sintetička guma povećane otpornosti na ogrebotine, ozon i vremenske uslove, kao i mrlje od ulja.",
+  "standard": "EN ISO 2398 · ISO 1307",
+  "use": "Laka do umerena opterećenja u pneumatskim sistemima, opremi i alatima kod vozila, mašina i mehanizacije.",
+  "variants": [
+    {
+      "dim": "6 × 11 mm",
+      "wp": "10 bar / 145 psi",
+      "burst": "40 bar / 580 psi",
+      "flex": "60 mm",
+      "weight": "0.082",
+      "price": 65
+    },
+    {
+      "dim": "10 × 18 mm",
+      "wp": "20 bar / 290 psi",
+      "burst": "60 bar / 870 psi",
+      "flex": "100 mm",
+      "weight": "0.226",
+      "price": 125
+    }
+  ]
+}
