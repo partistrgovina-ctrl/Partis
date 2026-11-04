@@ -448,3 +448,9 @@ td.price small{display:inline}
 .tile-img img.on{opacity:1;transform:none}
 .tile-img img.out{opacity:0;transform:translateX(-42px);transition:opacity .5s ease-in,transform .55s ease-in}
 .tile:hover .tile-img img.on{transform:scale(1.04)}
+
+/* izbor jezika */
+html.i18n-wait body{opacity:0}
+.lang-wrap{order:4;margin-left:auto;display:flex;align-items:center}
+.lang-sel{font-family:'IBM Plex Mono',monospace;font-size:14.2px;font-weight:600;border:1.5px solid var(--ink);background:var(--paper,#f3f0e8);color:var(--ink);padding:7px 8px;cursor:pointer;max-width:150px}
+@media(max-width:1000px){.lang-wrap{order:2;margin-left:0}}

@@ -125,6 +125,7 @@
     const side=`<div class="side-ov" id="sideOv"></div><aside class="side-menu" id="sideMenu" aria-label="Kategorije proizvoda" aria-hidden="true"><div class="side-head"><b>Kategorije</b><button type="button" class="side-x" id="sideX" aria-label="Zatvori meni">&times;</button></div>${PARTIS.menuHTML(D)}</aside><script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("sideMenu"),o=document.getElementById("sideOv"),x=document.getElementById("sideX");if(!b)return;function t(v){document.body.classList.toggle("side-open",v);b.setAttribute("aria-expanded",v);m.setAttribute("aria-hidden",!v);}b.onclick=function(){t(!document.body.classList.contains("side-open"));};o.onclick=x.onclick=function(){t(false);};document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});m.addEventListener("click",function(e){if(e.target.closest("a"))t(false);});})();</script>`;
     s=s.replace(/(<nav class="navbar"[^>]*><div class="nav-inner">)<div class="tabs">[\s\S]*?<\/div>(<form class="search"|<\/div><\/nav>)/,(_,a,b)=>a+btn+tabs+b);
     s=s.replace("</nav>",()=>"</nav>"+side);
+    if(!s.includes("assets/i18n.js"))s=s.replace("</head>",'<script src="assets/i18n.js"></script></head>');
     s=s.replace("<footer>",'<footer id="kontakt">').replace('<section class="info-strip">','<section class="info-strip" id="informacije">');
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};
   }
