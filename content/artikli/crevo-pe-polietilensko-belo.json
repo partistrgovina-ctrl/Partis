@@ -29,7 +29,7 @@
     },
     {
       "label": "3x5 mm",
-      "price": 18,
+      "price": 19,
       "note": "po metru"
     },
     {
@@ -44,62 +44,62 @@
     },
     {
       "label": "6x8 mm",
-      "price": 22,
+      "price": 23,
       "note": "po metru"
     },
     {
       "label": "6.5x10 mm",
-      "price": 35,
+      "price": 36,
       "note": "po metru"
     },
     {
       "label": "7.5x10 mm",
-      "price": 32,
-      "note": "po metru"
-    },
-    {
-      "label": "8x10 mm",
-      "price": 28,
-      "note": "po metru"
-    },
-    {
-      "label": "8x12 mm",
-      "price": 40,
-      "note": "po metru"
-    },
-    {
-      "label": "9x12 mm",
-      "price": 63,
-      "note": "po metru"
-    },
-    {
-      "label": "10x12 mm",
       "price": 33,
       "note": "po metru"
     },
     {
+      "label": "8x10 mm",
+      "price": 29,
+      "note": "po metru"
+    },
+    {
+      "label": "8x12 mm",
+      "price": 41,
+      "note": "po metru"
+    },
+    {
+      "label": "9x12 mm",
+      "price": 64,
+      "note": "po metru"
+    },
+    {
+      "label": "10x12 mm",
+      "price": 34,
+      "note": "po metru"
+    },
+    {
       "label": "12x15 mm",
-      "price": 66,
+      "price": 68,
       "note": "po metru"
     },
     {
       "label": "13x16 mm",
-      "price": 76,
+      "price": 78,
       "note": "po metru"
     },
     {
       "label": "16x20 mm",
-      "price": 112,
+      "price": 115,
       "note": "po metru"
     },
     {
       "label": "19x23 mm",
-      "price": 139,
+      "price": 142,
       "note": "po metru"
     },
     {
       "label": "25x32 mm",
-      "price": 216,
+      "price": 222,
       "note": "po metru"
     }
   ]

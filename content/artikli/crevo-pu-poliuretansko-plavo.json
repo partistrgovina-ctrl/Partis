@@ -19,12 +19,12 @@
   "variants": [
     {
       "label": "2x3 mm",
-      "price": 22,
+      "price": 23,
       "note": "po metru"
     },
     {
       "label": "2x4 mm",
-      "price": 16,
+      "price": 17,
       "note": "po metru"
     },
     {
@@ -34,52 +34,52 @@
     },
     {
       "label": "3x5 mm",
-      "price": 37,
-      "note": "po metru"
-    },
-    {
-      "label": "4x6 mm",
-      "price": 33,
-      "note": "po metru"
-    },
-    {
-      "label": "5x8 mm",
       "price": 38,
       "note": "po metru"
     },
     {
+      "label": "4x6 mm",
+      "price": 34,
+      "note": "po metru"
+    },
+    {
+      "label": "5x8 mm",
+      "price": 39,
+      "note": "po metru"
+    },
+    {
       "label": "6x8 mm",
-      "price": 33,
+      "price": 34,
       "note": "po metru"
     },
     {
       "label": "6.5x10 mm",
-      "price": 53,
+      "price": 54,
       "note": "po metru"
     },
     {
       "label": "7x10 mm",
-      "price": 50,
+      "price": 51,
       "note": "po metru"
     },
     {
       "label": "8x12 mm",
-      "price": 80,
+      "price": 82,
       "note": "po metru"
     },
     {
       "label": "9x12 mm",
-      "price": 66,
+      "price": 68,
       "note": "po metru"
     },
     {
       "label": "10x14 mm",
-      "price": 100,
+      "price": 102,
       "note": "po metru"
     },
     {
       "label": "12x16 mm",
-      "price": 111,
+      "price": 113,
       "note": "po metru"
     }
   ]
