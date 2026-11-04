@@ -460,3 +460,10 @@ html.i18n-wait body{opacity:0}
 .cart-sum .cs-r span{color:#555}
 .cart-sum .cs-t{margin-top:6px;padding-top:6px;border-top:2px solid var(--ink);font-size:20px}
 .cart-sum .cs-t span{color:var(--ink);font-weight:700}
+.card-foot{flex-wrap:wrap;gap:12px}
+.card-foot .opts{flex:1 1 100%}
+.card-foot .card-go{margin-left:auto}
+.opt{flex-wrap:wrap;column-gap:12px;row-gap:0}
+.opt b{white-space:nowrap}
+.opt span:first-child:not(.vat){min-width:52px}
+.opt .vat{display:inline;font-size:14px}
