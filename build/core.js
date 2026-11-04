@@ -15,7 +15,7 @@
 
   /* inp: {creva,hema,artikli:[{file,data}], categories:{id:naziv}, imgFiles:[imena iz static/assets/img], uploadFiles:[imena iz uploads]} */
   const HIDE={
-    pneumatika:{cats:["pneu","mesing","spojnice"],files:["pneumatika.html","pneumatski-alat-i-nastavci.html","ojacanja-creva.html","spojnice-pneumatike.html"]},
+    pneumatika:{cats:["pneu","crevapn","mesing","spojnice"],files:["pneumatika.html","pneumatski-alat-i-nastavci.html","creva-pneumatike.html","ojacanja-creva.html","spojnice-pneumatike.html"]},
     hema:{sprays:1,files:["hema-aerosol.html"]},
     creva:{hoses:1,cats:["crevo"],files:["armirana-creva.html"]},
     traktorski:{cats:["traktor","gotova"],files:["traktorski-program.html","traktorska-roba.html","gotova-creva.html"]},
@@ -63,7 +63,7 @@
     const items=live(inp.artikli.map(e=>({...e.data,_file:e.file}))).filter(a=>{const all=(a.variants||[]).filter(v=>txt(v.label));return !all.length||all.some(v=>v.in_stock!==false);}).map(a=>{
       const main=img(a.image),vs=(a.variants||[]).filter(v=>txt(v.label)&&v.in_stock!==false);
       const extra=(Array.isArray(a.categories)?a.categories:[]).map(String).filter(c=>c&&c!==a.category&&CATNAME[c]);
-      const o={cat:a.category,cats:extra.length?extra:undefined,catName:CATNAME[a.category]||a.category,name:a.title,img:main,price:vs.length?null:num(a.price),desc:txt(a.description,"Opis u pripremi."),
+      const o={tnote:txt(a.table_note)||undefined,cat:a.category,cats:extra.length?extra:undefined,catName:CATNAME[a.category]||a.category,name:a.title,img:main,price:vs.length?null:num(a.price),desc:txt(a.description,"Opis u pripremi."),
         spec:txt(a.spec)||null,short:txt(a.card_text)||undefined,colLabel:txt(a.col_label)||undefined,specLabel:txt(a.spec_label)||undefined,_a:a.aliases};
       if(vs.length){o.promo=a.promo!==false;o.gal=vs.map(v=>({grp:txt(v.group)||undefined,label:txt(v.label),price:num(v.price),note:txt(v.note)||undefined,img:img(v.image)||main}));}
       if(!CATNAME[a.category])warn.push(`Artikal "${a.title}": nepoznata kategorija "${a.category}"`);

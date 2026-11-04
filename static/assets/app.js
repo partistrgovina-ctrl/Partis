@@ -103,6 +103,7 @@ function openGal(p){
         ${grouped?`<div class="seg" id="seg">${p._groups.map((g,k)=>`<button class="seg-btn${k?"":" on"}" onclick="selGalGroup(${k})">${g}</button>`).join("")}</div>`:""}
         <div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>
         ${p.gal.some(g=>g.price==null)?`<div class="note">Za cene pozovite 018-553-800 / 065-2553-800 ili pišite na <a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a> / partis.trgovina@gmail.com.</div>`:""}
+        ${p.tnote?`<div class="note note-import">${esc(p.tnote)}</div>`:""}
         <div class="note" id="gal-note">Slike menjate strelicama, sličicama ili klikom na red u tabeli.</div>
       </div>
     </div>`;
@@ -147,9 +148,9 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 
 
 /* ================= PAGE LOGIC ================= */
-const PAGE_OF={pneu:"pneumatski-alat-i-nastavci.html",mesing:"ojacanja-creva.html",spojnice:"spojnice-pneumatike.html",crevo:"armirana-creva.html",gotova:"gotova-creva.html",traktor:"traktorska-roba.html",mazalice:"nastavci-mazalica.html"};
+const PAGE_OF={pneu:"pneumatski-alat-i-nastavci.html",crevapn:"creva-pneumatike.html",mesing:"ojacanja-creva.html",spojnice:"spojnice-pneumatike.html",crevo:"armirana-creva.html",gotova:"gotova-creva.html",traktor:"traktorska-roba.html",mazalice:"nastavci-mazalica.html"};
 const pageOf=r=>r.kind==="sprej"?"hema-aerosol.html":r.kind==="crevo"?"armirana-creva.html":PAGE_OF[r.cat]||"kategorija-"+r.cat+".html";
-const GROUP_OF=r=>r.kind==="sprej"?"HEMA aerosol":r.kind==="crevo"?"Armirana gumena creva":["pneu","mesing","spojnice"].includes(r.cat)?"Pneumatika":["traktor","gotova"].includes(r.cat)?"Traktorski program":r.catName||"";
+const GROUP_OF=r=>r.kind==="sprej"?"HEMA aerosol":r.kind==="crevo"?"Armirana gumena creva":["pneu","crevapn","mesing","spojnice"].includes(r.cat)?"Pneumatika":["traktor","gotova"].includes(r.cat)?"Traktorski program":r.catName||"";
 const openFor=r=>r.kind==="crevo"?openHose(r):r.kind==="sprej"?openSpray(r):openItem(r);
 const cardFor=(r,i)=>cardEl(r,i);
 document.addEventListener("click",e=>{

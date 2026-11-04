@@ -1,0 +1,106 @@
+{
+  "title": "Polietilensko (PE) crevo, belo",
+  "category": "crevapn",
+  "order": 22,
+  "in_stock": true,
+  "image": "/assets/img/crevo_pe.png",
+  "description": "Belo polietilensko (PE) crevo za vazdušne instalacije i opštu primenu. Prodaje se po metru, a u koturu od 100 metara.",
+  "promo": false,
+  "col_label": "Unutrašnji x spoljni (mm)",
+  "table_note": "Cene su po metru, bez PDV-a. Uvoz iz Turske vršimo jednom nedeljno, za kotur od 100 metara. Za manje dimenzije postoji i opcija uvoza iz Kine, u roku od 1 do 3 dana.",
+  "aliases": [
+    "polietilensko crevo",
+    "pe crevo",
+    "belo crevo",
+    "pneumatsko crevo",
+    "crevo za vazduh",
+    "pe cev"
+  ],
+  "variants": [
+    {
+      "label": "2x4 mm",
+      "price": 18,
+      "note": "po metru"
+    },
+    {
+      "label": "2.5x4 mm",
+      "price": 18,
+      "note": "po metru"
+    },
+    {
+      "label": "3x5 mm",
+      "price": 18,
+      "note": "po metru"
+    },
+    {
+      "label": "4x6 mm",
+      "price": 17,
+      "note": "po metru"
+    },
+    {
+      "label": "5x8 mm",
+      "price": 27,
+      "note": "po metru"
+    },
+    {
+      "label": "6x8 mm",
+      "price": 22,
+      "note": "po metru"
+    },
+    {
+      "label": "6.5x10 mm",
+      "price": 35,
+      "note": "po metru"
+    },
+    {
+      "label": "7.5x10 mm",
+      "price": 32,
+      "note": "po metru"
+    },
+    {
+      "label": "8x10 mm",
+      "price": 28,
+      "note": "po metru"
+    },
+    {
+      "label": "8x12 mm",
+      "price": 40,
+      "note": "po metru"
+    },
+    {
+      "label": "9x12 mm",
+      "price": 63,
+      "note": "po metru"
+    },
+    {
+      "label": "10x12 mm",
+      "price": 33,
+      "note": "po metru"
+    },
+    {
+      "label": "12x15 mm",
+      "price": 66,
+      "note": "po metru"
+    },
+    {
+      "label": "13x16 mm",
+      "price": 76,
+      "note": "po metru"
+    },
+    {
+      "label": "16x20 mm",
+      "price": 112,
+      "note": "po metru"
+    },
+    {
+      "label": "19x23 mm",
+      "price": 139,
+      "note": "po metru"
+    },
+    {
+      "label": "25x32 mm",
+      "price": 216,
+      "note": "po metru"
+    }
+  ]
+}

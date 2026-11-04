@@ -50,12 +50,13 @@
   function sectionList(D,id){
     if(id==="crevo")return [...D.HOSES,...D.ITEMS.filter(x=>inCat(x,"crevo"))];
     if(id==="sprej")return D.SPRAYS;
+    if(id==="crevapn")return [...D.ITEMS.filter(x=>inCat(x,id)),...D.HOSES.filter(h=>/vazduh/i.test(h.name))];
     return D.ITEMS.filter(x=>inCat(x,id));
   }
   const gridHTML=(D,id)=>sectionList(D,id).map((p,i)=>cardHTML(p,i)).join("");
 
   /* brojači */
-  const PNEU=["pneu","mesing","spojnice"],TRAK=["traktor","gotova"],TOPCOUNT=5;
+  const PNEU=["pneu","crevapn","mesing","spojnice"],TRAK=["traktor","gotova"],TOPCOUNT=5;
   function secTitle(D,id){
     if(id==="crevo")return "Armirana gumena creva i prateća oprema";
     if(id==="sprej")return "HEMA aerosol";
@@ -86,7 +87,7 @@
   function metaHTML(P,D){return rename(D,metaHTML0(P,D));}
   function metaHTML0(P,D){
     if(P.id==="home")return `<span><b>${totalProducts(D)}</b> Proizvoda</span><span><b>${tiles(D).length}</b> Kategorija</span>`;
-    if(P.id==="pneumatika"){const t=groupN(D,PNEU);return `<span><b>${t}</b> Proizvoda u kategoriji Pneumatika</span><span><b>3</b> Potkategorije</span>`;}
+    if(P.id==="pneumatika"){const t=groupN(D,PNEU);return `<span><b>${t}</b> Proizvoda u kategoriji Pneumatika</span><span><b>4</b> Potkategorije</span>`;}
     if(P.id==="traktorski"){const t=groupN(D,TRAK);return `<span><b>${t}</b> Proizvoda u kategoriji Traktorski program</span><span><b>2</b> Potkategorije</span>`;}
     const id=P.secs[0];
     return `<span><b>${secN(D,id)}</b> Proizvoda u ${PNEU.includes(id)||TRAK.includes(id)?"potkategoriji":"kategoriji"} ${secTitle(D,id)}${PNEU.includes(id)?" (Pneumatika)":TRAK.includes(id)?" (Traktorski program)":""}</span>`;
@@ -95,7 +96,7 @@
   function tiles(D){
     const sum=ids=>groupN(D,ids);
     return [
-     {t:"Pneumatika",pool:PNEU,u:"pneumatika.html",img:"pist_gume",d:((D.POC&&D.POC.opisi&&D.POC.opisi.pneumatika)||"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike."),n:sum(PNEU),subs:[["Pneumatski alat i nastavci","pneumatski-alat-i-nastavci.html"],["Ojačanja creva","ojacanja-creva.html"],["Spojnice pneumatike","spojnice-pneumatike.html"]]},
+     {t:"Pneumatika",pool:PNEU,u:"pneumatika.html",img:"pist_gume",d:((D.POC&&D.POC.opisi&&D.POC.opisi.pneumatika)||"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike."),n:sum(PNEU),subs:[["Pneumatski alat i nastavci","pneumatski-alat-i-nastavci.html"],["Creva pneumatike","creva-pneumatike.html"],["Ojačanja creva","ojacanja-creva.html"],["Spojnice pneumatike","spojnice-pneumatike.html"]]},
      {t:"HEMA aerosol",pool:["sprej"],u:"hema-aerosol.html",img:"nu40",d:((D.POC&&D.POC.opisi&&D.POC.opisi.hema)||"Podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke."),n:secN(D,"sprej")},
      {t:"Armirana gumena creva i prateća oprema",pool:["crevo"],u:"armirana-creva.html",img:"hose_gorivo",d:((D.POC&&D.POC.opisi&&D.POC.opisi.creva)||"Creva za gorivo, vodu, vazduh i ulje — kotur 50 m, sečenje po potrebi."),n:secN(D,"crevo")},
      {t:"Traktorski program",pool:TRAK,u:"traktorski-program.html",img:"oko14",d:((D.POC&&D.POC.opisi&&D.POC.opisi.traktorski)||"Traktorska roba (okca, šuplji vijci) i gotova creva sa montiranim nastavcima."),n:sum(TRAK),subs:[["Traktorska roba","traktorska-roba.html"],["Gotova creva","gotova-creva.html"]]},
@@ -116,9 +117,9 @@
   function groupOf(p){
     if(p.kind==="sprej")return "hema";
     if(p.kind==="crevo"||p.cat==="crevo")return "creva";
-    if(["pneu","mesing","spojnice"].includes(p.cat))return "pneumatika";
+    if(["pneu","crevapn","mesing","spojnice"].includes(p.cat))return "pneumatika";
     if(["traktor","gotova"].includes(p.cat))return "traktorski";
-    return p.cat==="mazalice"?"mazalice":(["pneu","mesing","spojnice","crevo","traktor","gotova"].includes(p.cat)?"pneumatika":"ostalo");
+    return p.cat==="mazalice"?"mazalice":(["pneu","crevapn","mesing","spojnice","crevo","traktor","gotova"].includes(p.cat)?"pneumatika":"ostalo");
   }
   /* procenat rabata za artikal: rabat grupe, a ako nije upisan — opšti rabat ("svi") */
   function rebateFor(p,R){

@@ -210,7 +210,7 @@ $("#bFolder").onclick=()=>{$("#app").hidden=true;$("#start").hidden=false;["bPus
 const GRP_LABEL={pneumatika:"Pneumatika",hema:"HEMA aerosol",creva:"Armirana creva i oprema",traktorski:"Traktorski program",mazalice:"Nastavci mazalica"};
 function tabsDef(){
   const t=[
-    {id:"pneu",g:"pneumatika",label:NAZ.pneumatika||"Pneumatika",parts:[{col:"artikli",cats:["pneu","mesing","spojnice"]}]},
+    {id:"pneu",g:"pneumatika",label:NAZ.pneumatika||"Pneumatika",parts:[{col:"artikli",cats:["pneu","crevapn","mesing","spojnice"]}]},
     {id:"hema",g:"hema",label:NAZ.hema||"HEMA aerosol",parts:[{col:"hema"}]},
     {id:"crevo",g:"creva",label:NAZ.creva||"Armirana creva i oprema",parts:[{col:"creva",h:"Armirana creva"},{col:"artikli",cats:["crevo"],h:"Prateća oprema"}]},
     {id:"trak",g:"traktorski",label:NAZ.traktorski||"Traktorski program",parts:[{col:"artikli",cats:["traktor","gotova"]}]},
@@ -433,7 +433,7 @@ function openKat(){
   if(!CORE||!CORE.katPages){say("Folder sajta nije ažuran","Za ovo dugme je potrebna novija verzija fajlova sajta. Raspakujte najnoviji <b>partis-sajt-program.zip</b> preko vašeg foldera sajta (sačuvajte rezervnu kopiju foldera <b>content</b>), pa ponovo otvorite program.");return;}
   const used=id=>DB.artikli.filter(e=>catsOf(e.data).includes(id)).length;
   const T=tabsDef().filter(t=>t.g);
-  const SUB={pneumatika:["pneu","mesing","spojnice"],creva:["crevo"],traktorski:["traktor","gotova"]};
+  const SUB={pneumatika:["pneu","crevapn","mesing","spojnice"],creva:["crevo"],traktorski:["traktor","gotova"]};
   const inp=(key,val)=>`<input data-nk="${key}" value="${esc(val)}" style="flex:1;min-width:140px;padding:6px;font:inherit;border:1.5px solid #16140f">`;
   const built=T.map(t=>{const hid=SKR.includes(t.g);return `<div style="padding:10px 0;border-bottom:1px solid #ddd"><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${inp(t.g,t.label)}<button data-ren="${t.g}">Preimenuj</button><button data-hide="${t.g}" class="${hid?"":"red"}">${hid?"Prikaži":"Sakrij"}</button><button data-gdel="${t.g}" class="red">Obriši</button></div><small>artikala: ${tabRows(t).length}${hid?' · <span style="color:#c3231f">sakrivena sa sajta</span>':""}</small>${(SUB[t.g]||[]).map(c=>`<div style="display:flex;gap:8px;align-items:center;margin:6px 0 0 24px">↳ ${inp(c,CATS[c]||c)}<button data-ren="${c}">Preimenuj</button></div>`).join("")}</div>`;}).join("");
   const rows=KAT.length?KAT.map((k,i)=>`<div style="display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #ddd"><div style="flex:1"><b>${esc(k.naziv)}</b><br><small>${esc(k.opis||"")} · artikala: ${used(k.id)}</small></div><button data-del="${i}" class="red">Ukloni</button></div>`).join(""):"<p>Još nema novih kategorija.</p>";
