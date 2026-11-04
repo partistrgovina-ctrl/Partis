@@ -4,8 +4,8 @@
   "order": 90,
   "in_stock": true,
   "image": "/assets/img/chain.png",
-  "card_text": "Lubrikant za lance pod jakim dinamičkim silama, dugotrajno podmazivanje.",
-  "description": "Lubrikant za primenu na lancima koji su pod uticajem jakih dinamičkih sila. Pogodan za lance liftova, poljoprivrednih mašina, bicikala i motocikala, cilindre lanaca, sajle, ležajeve i ostale elemente kojima je neophodna lubrikacija za nesmetanu upotrebu. Zadržava se na tretiranoj površini i omogućava dugotrajno podmazivanje.",
+  "card_text": "Lubrikant za lance izložene jakim silama, dugotrajno podmazivanje.",
+  "description": "Lubrikant za lance koji su izloženi jakim dinamičkim silama. Pogodan za lance liftova, poljoprivrednih mašina, bicikala i motocikala, sajle, ležajeve i druge delove kojima je potrebno podmazivanje za nesmetan rad. Zadržava se na tretiranoj površini i omogućava dugotrajno podmazivanje.",
   "use": "Lanci liftova i mašina, bicikli, motocikli, sajle, ležajevi.",
   "packs": [
     {

@@ -4,8 +4,8 @@
   "order": 100,
   "in_stock": true,
   "image": "/assets/img/ether.png",
-  "card_text": "Potpomaže i ubrzava startovanje motora pri niskim temperaturama.",
-  "description": "Sredstvo koje potpomaže i ubrzava startovanje motora. Idealno rešenje za nesmetano paljenje motora pri niskim temperaturama i visokoj vlažnosti. Obezbeđuje start i u slučaju vlažnih svećica i slabog akumulatora.",
+  "card_text": "Olakšava i ubrzava startovanje motora pri niskim temperaturama.",
+  "description": "Sredstvo koje olakšava i ubrzava startovanje motora. Idealno za pouzdano paljenje motora pri niskim temperaturama i velikoj vlažnosti. Omogućava start i kada su svećice vlažne ili je akumulator slab.",
   "use": "Hladan start motora, vlažne svećice, slab akumulator.",
   "packs": [
     {

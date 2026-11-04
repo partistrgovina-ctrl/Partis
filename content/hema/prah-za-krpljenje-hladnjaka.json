@@ -5,11 +5,11 @@
   "in_stock": true,
   "image": "/assets/img/radiator.jpg",
   "card_text": "Hitna popravka sitnih curenja hladnjaka.",
-  "description": "Prah za krpljenje hladnjaka koristi se kao hitna popravka sitnih curenja u sistemu hlađenja motora. Sipa se u rashladnu tečnost u hladnjaku.",
+  "description": "Prah za krpljenje hladnjaka koristi se za hitnu popravku sitnih curenja u sistemu hlađenja motora. Sipa se u rashladnu tečnost u hladnjaku.",
   "use": "Sistem hlađenja motora — sitna curenja hladnjaka.",
   "packs": [
     {
-      "pack": "15 gr",
+      "pack": "15 g",
       "price": 70
     }
   ],

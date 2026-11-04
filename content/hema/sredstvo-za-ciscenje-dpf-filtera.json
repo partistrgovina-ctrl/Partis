@@ -5,7 +5,7 @@
   "in_stock": true,
   "image": "/assets/img/dpf.png",
   "card_text": "Čisti DPF filter bez skidanja, smanjuje čađ i emisiju gasova.",
-  "description": "Sredstvo namenjeno čišćenju DPF filtera bez njegovog skidanja, pogodno za sva vozila. Ne utiče na inicijalnu strukturu filtera i time doprinosi izbegavanju velikih troškova popravki. Smanjuje nakupljanje čađi i emisiju gasova, sprečava gašenje motora izazvano čađu, održava nivo dima i emulzije, a primenom se uklanjaju CANbus greške sistema.",
+  "description": "Sredstvo namenjeno čišćenju DPF filtera bez njegovog skidanja, pogodno za sva vozila. Ne menja prvobitnu strukturu filtera i tako pomaže da se izbegnu veliki troškovi popravke. Smanjuje nakupljanje čađi i emisiju gasova, sprečava gašenje motora izazvano čađu i održava nizak nivo dima, a njegovom primenom se uklanjaju i CANbus greške sistema.",
   "use": "Čišćenje DPF filtera, smanjenje čađi, otklanjanje CANbus grešaka.",
   "packs": [
     {

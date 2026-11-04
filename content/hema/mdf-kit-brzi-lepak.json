@@ -4,12 +4,12 @@
   "order": 110,
   "in_stock": true,
   "image": "/assets/img/mdf.png",
-  "card_text": "Dvokomponentni brzodejstvujući lepak sa aktivatorom.",
-  "description": "Dvokomponentni brzodejstvujući lepak. Aktivator sprečava upijanje od strane podloge i time ubrzava vezivanje elemenata. Idealan za spajanje drvenih profila, MDF-a, plastike i gume, kao i za spajanje drvenih delova.",
-  "use": "Drveni profili, MDF, plastika, guma i spajanje drvenih delova.",
+  "card_text": "Dvokomponentni lepak brzog vezivanja sa aktivatorom.",
+  "description": "Dvokomponentni lepak brzog vezivanja. Aktivator sprečava da podloga upije lepak i time ubrzava vezivanje. Idealan za spajanje drvenih profila i delova, MDF-a, plastike i gume.",
+  "use": "Drveni profili i delovi, MDF, plastika, guma.",
   "packs": [
     {
-      "pack": "Aktivator 200 ml + lepak 50 gr",
+      "pack": "Aktivator 200 ml + lepak 50 g",
       "price": 250
     }
   ],
