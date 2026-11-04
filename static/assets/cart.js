@@ -47,7 +47,7 @@
   function orderText(){
     const t=totals();
     const rows=lines().map((x,i)=>`${i+1}. ${x.p.name}${x.label?" — "+x.label:""} — ${x.c.q} ${x.unit}`+(x.price==null?" — cena na upit":` × ${fmt(x.eff)}${x.rb?` (cenovnik ${fmt(x.price)}, rabat ${x.rb}%)`:""} = ${fmt(x.eff*x.c.q)} RSD`));
-    return rows.join("\n")+`\n\nOkvirno bez PDV-a${hasR()?" (sa rabatom)":""}: ${fmt(t.sum)} RSD`+(t.upit?` (+ ${t.upit} ${(n=>{const m=n%100,d=n%10;return (d===1&&m!==11)?"stavka":(d>=2&&d<=4&&(m<12||m>14))?"stavke":"stavki"})(t.upit)} sa cenom na upit)`:"");
+    const pd=PARTIS.gross(t.sum)-t.sum;return rows.join("\n")+`\n\nIznos bez PDV-a${hasR()?" (sa rabatom)":""}: ${fmt(t.sum)} RSD\nPDV (${PARTIS.VAT}%): ${fmt(pd)} RSD\nUkupno sa PDV-om: ${fmt(t.sum+pd)} RSD`+(t.upit?` (+ ${t.upit} ${(n=>{const m=n%100,d=n%10;return (d===1&&m!==11)?"stavka":(d>=2&&d<=4&&(m<12||m>14))?"stavke":"stavki"})(t.upit)} sa cenom na upit)`:"");
   }
   const hasR=()=>lines().some(x=>x.rb>0);
   function acctLine(){
@@ -64,7 +64,7 @@
     if(!L.length)return `<p class="cart-empty">Korpa je prazna. Izaberite artikal i kliknite „+ U korpu".</p>`;
     const t=totals();
     return `<div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody>${L.map((x,i)=>`<tr><td><b>${esc(x.p.name)}</b>${x.label?`<small class="cart-l">${esc(x.label)}</small>`:""}</td><td><div class="qty"><button type="button" onclick="cartQty(${i},-1)" aria-label="Manje">−</button><span>${x.c.q} ${x.unit}</span><button type="button" onclick="cartQty(${i},1)" aria-label="Više">+</button></div></td><td class="price">${x.price==null?"Cena na upit":x.rb?`<s class="old">${fmt(x.price*x.c.q)}</s> <b class="newp">${fmt(x.eff*x.c.q)}</b> <small>RSD · −${x.rb}%</small>`:`${fmt(x.price*x.c.q)} <small>RSD</small>`}</td><td><button type="button" class="cart-x" onclick="cartDel(${i})" aria-label="Ukloni">✕</button></td></tr>`).join("")}</tbody></table></div>
-    ${acctLine()}<div class="cart-sum">Okvirno bez PDV-a${hasR()?" (sa vašim rabatom)":""}: <b>${fmt(t.sum)} RSD</b>${t.upit?`<small>+ ${t.upit} ${(n=>{const m=n%100,d=n%10;return (d===1&&m!==11)?"stavka":(d>=2&&d<=4&&(m<12||m>14))?"stavke":"stavki"})(t.upit)} sa cenom na upit — cenu potvrđujemo u odgovoru.</small>`:""}</div>`;
+    ${acctLine()}<div class="cart-sum"><div class="cs-r"><span>Iznos bez PDV-a${hasR()?" (sa vašim rabatom)":""}</span><b>${fmt(t.sum)} RSD</b></div><div class="cs-r"><span>PDV (${PARTIS.VAT}%)</span><b>${fmt(PARTIS.gross(t.sum)-t.sum)} RSD</b></div><div class="cs-r cs-t"><span>Ukupno sa PDV-om</span><b>${fmt(PARTIS.gross(t.sum))} RSD</b></div>${t.upit?`<small>+ ${t.upit} ${(n=>{const m=n%100,d=n%10;return (d===1&&m!==11)?"stavka":(d>=2&&d<=4&&(m<12||m>14))?"stavke":"stavki"})(t.upit)} sa cenom na upit — cenu potvrđujemo u odgovoru.</small>`:""}</div>`;
   }
   const lineIdx=i=>{const L=lines();return L[i]?cart.indexOf(L[i].c):-1;};
   window.cartQty=function(i,d){const j=lineIdx(i);if(j<0)return;cart[j].q=Math.max(1,cart[j].q+d);save();badge();refresh();};

@@ -10,7 +10,7 @@ const overlay=document.getElementById("overlay"), modal=document.getElementById(
 
 function openHose(p){
   modal.className="modal hose";
-  const rows=p.variants.map((v,vi)=>`<tr><td><b>${esc(v.dim)}</b></td><td data-l="Radni pritisak">${esc(v.wp)}</td><td data-l="Tačka prsk.">${esc(v.burst)}</td><td data-l="Savitljivost">${esc(v.flex)}</td><td data-l="Težina">${esc(v.weight)} g/m</td><td class="price">${pr(p,v.price)} <small>RSD/m bez PDV-a</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("");
+  const rows=p.variants.map((v,vi)=>`<tr><td><b>${esc(v.dim)}</b></td><td data-l="Radni pritisak">${esc(v.wp)}</td><td data-l="Tačka prsk.">${esc(v.burst)}</td><td data-l="Savitljivost">${esc(v.flex)}</td><td data-l="Težina">${esc(v.weight)} g/m</td><td class="price">${pr(p,v.price)} <small>RSD/m</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("");
   modal.innerHTML=`
     <button class="m-close" onclick="closeModal()">\u2715</button>
     <div class="split">
@@ -27,9 +27,9 @@ function openHose(p){
           <div class="prop"><div class="k">Primena</div><div class="v">${esc(p.use)}</div></div>
         </div>
         ${p.variants.length===1?`<div class="m-sub">Dimenzija i cena</div>
-        <div class="props"><div class="prop"><div class="k">Dimenzija</div><div class="v"><b>${esc(p.variants[0].dim)}</b></div></div><div class="prop"><div class="k">Cena</div><div class="v"><b>${pr(p,p.variants[0].price)}</b> RSD/m bez PDV-a</div></div></div>
+        <div class="props"><div class="prop"><div class="k">Dimenzija</div><div class="v"><b>${esc(p.variants[0].dim)}</b></div></div><div class="prop"><div class="k">Cena</div><div class="v"><b>${pr(p,p.variants[0].price)}</b> RSD/m</div></div></div>
         <div class="add-wrap">${addBtn(p._k,0)}</div>`:`<div class="m-sub">Dimenzije i cene</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Dimenzija</th><th>Radni prit.</th><th>Tačka prsk.</th><th>Savitlj.</th><th>Težina</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Dimenzija</th><th>Radni prit.</th><th>Tačka prsk.</th><th>Savitlj.</th><th>Težina</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
         <div class="note">Cene su izražene po metru, bez PDV-a. Standardna dužina kotura je 50 m.</div>`}
       </div>
     </div>`;
@@ -53,7 +53,7 @@ function openSpray(p){
                     <div class="prop"><div class="k">Brend</div><div class="v">HEMA Aerosol</div></div>
         </div>
         <div class="m-sub">Ambalaža i cena</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr${o.img?` class="gal-row" onclick="spSet(${vi})"`:""}><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD bez PDV-a</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr${o.img?` class="gal-row" onclick="spSet(${vi})"`:""}><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
       </div>
     </div>`;
   show();
@@ -71,7 +71,7 @@ function openItem(p){
         <p class="m-lead">${esc(p.desc)}</p>
         ${p.spec?`<div class="props"><div class="prop"><div class="k">${esc(p.specLabel||"Navoj")}</div><div class="v">${esc(p.spec)}</div></div></div>`:""}
         <div class="m-sub">Cena</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Artikal</th><th>Cena (bez PDV-a)</th></tr></thead><tbody><tr><td><b>${esc(p.name)}</b></td><td class="price">${p.price==null?`Cena na upit <small>kontakt: 018-553-800 / 065-2553-800</small>`:`${pr(p,p.price)} <small>RSD bez PDV-a</small>`}</td></tr></tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Artikal</th><th>Cena bez PDV-a (sa PDV-om)</th></tr></thead><tbody><tr><td><b>${esc(p.name)}</b></td><td class="price">${p.price==null?`Cena na upit <small>kontakt: 018-553-800 / 065-2553-800</small>`:`${pr(p,p.price)} <small>RSD</small>`}</td></tr></tbody></table></div>
         <div class="add-wrap">${addBtn(p._k,-1)}</div>
       </div>
     </div>`;
@@ -101,7 +101,7 @@ function openGal(p){
         <p class="m-lead">${esc(p.desc)}</p>
         <div class="m-sub">${(p.promo===false||!PARTIS.priced(p))?(n>1?"Dimenzije i cene":"Cena"):(n>1?"Dimenzije i akcijske cene":"Akcijska cena")}</div>
         ${grouped?`<div class="seg" id="seg">${p._groups.map((g,k)=>`<button class="seg-btn${k?"":" on"}" onclick="selGalGroup(${k})">${g}</button>`).join("")}</div>`:""}
-        <div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>
         ${p.gal.some(g=>g.price==null)?`<div class="note">Za cene pozovite 018-553-800 / 065-2553-800 ili pišite na <a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a> / partis.trgovina@gmail.com.</div>`:""}
         ${p.tnote?`<div class="note note-import">${esc(p.tnote)}</div>`:""}
         <div class="note" id="gal-note">Slike menjate strelicama, sličicama ili klikom na red u tabeli.</div>
@@ -113,7 +113,7 @@ function renderGalView(){
   const p=curItem,v=p._v,n=v.length;
   const multi=new Set(v.map(gi=>p.gal[gi].img)).size>1;
   document.getElementById("gal-thumbs").innerHTML=multi?v.map((gi,k)=>`<button class="gal-th" onclick="galSet(${k})" aria-label="${p.gal[gi].label}"><img src="${p.gal[gi].img}" alt=""></button>`).join(""):"";
-  document.getElementById("gal-tbody").innerHTML=v.map((gi,k)=>{const g=p.gal[gi];return `<tr class="gal-row" onclick="galSet(${k})"><td><b>${g.label}</b>${g.note?`<small class="gal-note">${g.note}</small>`:""}</td><td class="price">${g.price==null?"Cena na upit":`${pr(p,g.price)} <small>RSD bez PDV-a</small>`}</td><td class="addc">${addBtn(p._k,gi)}</td></tr>`}).join("");
+  document.getElementById("gal-tbody").innerHTML=v.map((gi,k)=>{const g=p.gal[gi];return `<tr class="gal-row" onclick="galSet(${k})"><td><b>${g.label}</b>${g.note?`<small class="gal-note">${g.note}</small>`:""}</td><td class="price">${g.price==null?"Cena na upit":`${pr(p,g.price)} <small>RSD</small>`}</td><td class="addc">${addBtn(p._k,gi)}</td></tr>`}).join("");
   document.querySelectorAll(".gal-nav").forEach(b=>b.hidden=!multi);
   document.getElementById("gal-note").hidden=!multi;
   document.querySelector(".gal-cap").hidden=!multi;

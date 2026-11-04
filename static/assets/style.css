@@ -454,3 +454,9 @@ html.i18n-wait body{opacity:0}
 .lang-wrap{order:4;margin-left:auto;display:flex;align-items:center}
 .lang-sel{font-family:'IBM Plex Mono',monospace;font-size:14.2px;font-weight:600;border:1.5px solid var(--ink);background:var(--paper,#f3f0e8);color:var(--ink);padding:7px 8px;cursor:pointer;max-width:150px}
 @media(max-width:1000px){.lang-wrap{order:2;margin-left:0}}
+.vat{font-weight:500;color:var(--muted);font-size:.85em;white-space:nowrap}
+.opt .vat{display:block;font-size:14px}
+.cart-sum .cs-r{display:flex;justify-content:flex-end;gap:18px}
+.cart-sum .cs-r span{color:#555}
+.cart-sum .cs-t{margin-top:6px;padding-top:6px;border-top:2px solid var(--ink);font-size:20px}
+.cart-sum .cs-t span{color:var(--ink);font-weight:700}

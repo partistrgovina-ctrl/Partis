@@ -4,6 +4,7 @@
   if(typeof module==="object"&&module.exports)module.exports=factory();
   else root.PARTIS=factory();
 })(typeof self!=="undefined"?self:this,function(){
+  const VAT=20,gross=n=>Math.round(n*(100+VAT))/100;
   const fmt=n=>n.toLocaleString("sr-RS",{minimumFractionDigits:2,maximumFractionDigits:2});
   const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
   const priced=p=>!!(p.gal&&p.gal.some(g=>g.price!=null));
@@ -23,7 +24,7 @@
     <div class="card-top spray"><span class="badge">HEMA</span>${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
     <div class="card-body">
       <div class="eng">${esc(p.eng)}</div><h3>${esc(p.name)}</h3><p class="desc">${esc(p.short)}</p>
-      <div class="card-foot"><div class="opts">${p.opts.map(o=>`<div class="opt"><span>${esc(o.pack)}</span><b>${fmt(o.price)} RSD</b></div>`).join("")}<span class="pdv">cena bez PDV-a</span></div><div class="card-go">Detalji →</div></div>
+      <div class="card-foot"><div class="opts">${p.opts.map(o=>`<div class="opt"><span>${esc(o.pack)}</span><b>${fmt(o.price)} RSD</b> <span class="vat">(${fmt(gross(o.price))} sa PDV-om)</span></div>`).join("")}<span class="pdv">cena bez PDV-a</span></div><div class="card-go">Detalji →</div></div>
     </div></div>`;
   }
   function itemCardHTML(p,i){
@@ -31,10 +32,10 @@
     let price;
     if(p.gal){
       if(!pr)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: 018-553-800</span>`;
-      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${p.gal.length} ${plr(p.gal.length,"dimenzija","dimenzije","dimenzija")}</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD</b></div><span class="pdv">cena bez PDV-a</span>`;
+      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${p.gal.length} ${plr(p.gal.length,"dimenzija","dimenzije","dimenzija")}</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD</b> <span class="vat">(${fmt(gross(p.gal[0].price))} sa PDV-om)</span></div><span class="pdv">cena bez PDV-a</span>`;
       else price=`<div class="opt"><b class="promo-t">Akcijske cene</b></div><span class="pdv">cene u detaljima</span>`;
     }else if(p.price==null)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: 018-553-800</span>`;
-    else price=`<div class="opt"><b>${fmt(p.price)} RSD</b></div><span class="pdv">cena bez PDV-a</span>`;
+    else price=`<div class="opt"><b>${fmt(p.price)} RSD</b> <span class="vat">(${fmt(gross(p.price))} sa PDV-om)</span></div><span class="pdv">cena bez PDV-a</span>`;
     return `<div class="card" data-k="${p._k}" style="animation-delay:${(i*0.04).toFixed(2)}s">
     <div class="card-top item"><span class="badge">${esc(p.catName)}</span>${promo?`<span class="badge promo">Akcija</span>`:""}${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
     <div class="card-body">
@@ -52,6 +53,10 @@
   function sectionList(D,id){
     if(id==="crevo")return [...D.HOSES,...D.ITEMS.filter(x=>inCat(x,"crevo"))];
     if(id==="sprej")return D.SPRAYS;
+    if(id==="istaknuto"){
+      const pick=[[D.HOSES,/preliv/i],[D.SPRAYS,/^NU-40/i],[D.SPRAYS,/Brake Cleaner/i],[D.HOSES,/za gorivo/i]];
+      return pick.map(([L,re])=>L.find(x=>re.test(x.name))).filter(Boolean);
+    }
     if(id==="crevapn")return [...D.ITEMS.filter(x=>inCat(x,id)),...D.HOSES.filter(h=>/vazduh/i.test(h.name))];
     return D.ITEMS.filter(x=>inCat(x,id));
   }
@@ -135,5 +140,6 @@
   function priceHTML(price,r){
     return r>0?`<s class="old">${fmt(price)}</s> <b class="newp">${fmt(discounted(price,r))}</b> <span class="rb">\u2212${r}%</span>`:fmt(price);
   }
-  return {GROUPS,groupOf,rebateFor,discounted,priceHTML,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,menuHTML,totalProducts,rename,OLDN};
+  function priceHTML2(price,r){const n=r>0?discounted(price,r):price;return priceHTML(price,r)+` <span class="vat">(${fmt(gross(n))})</span>`;}
+  return {GROUPS,groupOf,rebateFor,discounted,priceHTML:priceHTML2,gross,VAT,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,menuHTML,totalProducts,rename,OLDN};
 });
