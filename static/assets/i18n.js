@@ -3,7 +3,7 @@
 (function(){
   var LANGS=[["sr","Srpski"],["en","English"],["de","Deutsch"],["it","Italiano"],["fr","Français"],["hu","Magyar"],["ro","Română"],["bg","Български"],["mk","Македонски"],["sq","Shqip"],["el","Ελληνικά"],["tr","Türkçe"],["pl","Polski"],["sl","Slovenščina"]];
   var KEY="partis_lang",cur="sr",dict=null,H=document.documentElement;
-  var AV=["sr","en","de","it","fr","hu","ro","pl","sl","tr","bg","mk","sq"];
+  var AV=["sr","en","de","it","fr","hu","ro","pl","sl","tr","bg","mk","sq","el"];
   LANGS=LANGS.filter(function(l){return AV.indexOf(l[0])>=0;});
   var codes=LANGS.map(function(l){return l[0];});
   try{var m=/[?&]lang=([a-z]{2})/.exec(location.search);if(m&&codes.indexOf(m[1])>=0){localStorage.setItem(KEY,m[1]);}
