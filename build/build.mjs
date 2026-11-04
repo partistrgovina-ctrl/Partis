@@ -85,7 +85,3 @@ const total = PARTIS.totalProducts(D);
 console.log(`PARTIS izrada: ${total} proizvoda (${items.length} artikala, ${hoses.length} creva, ${sprays.length} HEMA), ${pages.length} stranica -> dist/`);
 if (SITE.includes("VASDOMEN")) console.log("NAPOMENA: u fajlu site.json još nije upisan pravi domen.");
 warn.forEach(w => console.log("UPOZORENJE:", w));
-
-/* offline katalog (jedan fajl za slanje mejlom) */
-try { await import("./katalog.mjs"); }
-catch (e) { console.log("UPOZORENJE: offline katalog nije napravljen:", e.message); }
