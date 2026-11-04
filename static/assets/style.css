@@ -437,3 +437,8 @@ td.price small{display:inline}
   .nav-inner .search{order:3;flex:1 1 100%;max-width:none;margin:4px 0 10px}
 }
 .wa-float{right:auto;left:max(18px,env(safe-area-inset-left,0px))}
+
+/* prelaz slika na pločicama: utapanje stare pa pojavljivanje nove, bez preklapanja */
+.tile-img img{transform:none;transition:opacity .7s ease}
+.tile-img img.on{transform:none}
+.tile:hover .tile-img img.on{transform:none}

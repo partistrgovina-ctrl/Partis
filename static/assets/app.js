@@ -189,11 +189,14 @@ function startRotation(){
       const url=opts[Math.floor(Math.random()*opts.length)];
       const nx=new Image();
       nx.onload=()=>{
-        nx.alt=el.querySelector("h3").textContent;box.appendChild(nx);
-        requestAnimationFrame(()=>requestAnimationFrame(()=>{
-          nx.classList.add("on");
-          setTimeout(()=>box.querySelectorAll("img").forEach(i=>{if(i!==nx)i.remove();}),2200);
-        }));
+        nx.alt=el.querySelector("h3").textContent;
+        /* prvo se stara slika potpuno utopi, tek onda se pojavi nova (bez preklapanja) */
+        box.querySelectorAll("img").forEach(i=>i.classList.remove("on"));
+        setTimeout(()=>{
+          box.querySelectorAll("img").forEach(i=>i.remove());
+          box.appendChild(nx);
+          requestAnimationFrame(()=>requestAnimationFrame(()=>nx.classList.add("on")));
+        },750);
       };
       nx.dataset.p=url;nx.src=IMGU(url);
     },6500)),ti*900));
