@@ -4,7 +4,7 @@
   "order": 70,
   "in_stock": true,
   "image": "/assets/img/us6.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Usečni prsten (steznik) deo je spoja za navojne priključke na crevu: kad se matica pritegne, prsten se useče u crevo i drži ga. Prečnik prstena bira se prema prečniku creva.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -27,5 +27,22 @@
       "price": 18,
       "image": "/assets/img/us12.jpg"
     }
+  ],
+  "aliases": [
+    "stezni prsten",
+    "prsten za crevo",
+    "prsten stezni",
+    "olive prsten",
+    "oliva",
+    "oliva za crevo",
+    "usečni prsten creva",
+    "prsten ojačanja",
+    "prsten 6 mm",
+    "prsten 8 mm",
+    "prsten 10 mm",
+    "prsten 12 mm",
+    "stezna oliva",
+    "uvrtni prsten",
+    "cutting ring"
   ]
 }

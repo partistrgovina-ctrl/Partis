@@ -4,7 +4,7 @@
   "order": 250,
   "in_stock": true,
   "image": "/assets/img/sp_ravna.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Prava spojnica za brzo spajanje dva pneumatska creva istog prečnika (PU). Creva se samo uguraju sa obe strane, a vade pritiskom na prsten. Služi i za nastavljanje creva.",
   "promo": true,
   "variants": [
     {
@@ -47,5 +47,22 @@
       "label": "16 mm",
       "price": 125
     }
+  ],
+  "aliases": [
+    "PU spojnica",
+    "nastavak za crevo",
+    "spojnica za crevo",
+    "spojnica za nastavljanje creva",
+    "prava spojnica",
+    "ravna spojnica",
+    "push in spojnica",
+    "nastavna spojnica",
+    "spojnica creva",
+    "pneumatski nastavak",
+    "spojka za crevo",
+    "spojnica 6 mm",
+    "spojnica 8 mm",
+    "spojnica 10 mm",
+    "spojnica 12 mm"
   ]
 }

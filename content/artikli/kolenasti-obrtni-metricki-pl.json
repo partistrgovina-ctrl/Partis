@@ -4,7 +4,7 @@
   "order": 290,
   "in_stock": true,
   "image": "/assets/img/sp_koleno.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Kolenasta (ugaona, 90°) obrtna spojnica sa metričkim navojem za brzo spajanje pneumatskog creva. Creva se uguraju u spojnicu bez alata, a obrtni deo omogućava okretanje creva u poziciji.",
   "promo": true,
   "variants": [
     {
@@ -87,5 +87,22 @@
       "label": "M22x1.5 × 12 mm",
       "price": 145
     }
+  ],
+  "aliases": [
+    "PL spojnica",
+    "kolenasta spojnica",
+    "ugaona spojnica",
+    "kolenasti nastavak",
+    "koleno za crevo",
+    "koleno obrtno",
+    "spojnica pod uglom 90",
+    "90 stepeni spojnica",
+    "push in koleno",
+    "L spojnica metrički",
+    "koleno M10",
+    "koleno M12",
+    "koleno M14",
+    "koleno M16",
+    "pneumatsko koleno"
   ]
 }

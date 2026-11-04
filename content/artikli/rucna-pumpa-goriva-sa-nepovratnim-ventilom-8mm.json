@@ -4,6 +4,23 @@
   "order": 130,
   "in_stock": true,
   "image": "/assets/img/pumpa.jpg",
-  "description": "Opis u pripremi.",
-  "price": 300
+  "description": "Ručna pumpa za gorivo sa nepovratnim ventilom, za crevo 8 mm. Služi za ručno upumpavanje goriva i odzračivanje (izbacivanje vazduha) iz sistema za gorivo, posebno posle zamene filtera.",
+  "price": 300,
+  "aliases": [
+    "ručna pumpica za gorivo",
+    "pumpica za gorivo",
+    "pumpica goriva",
+    "pumpica za odzračivanje",
+    "pumpica za dizel",
+    "ručna pumpa za dizel",
+    "ručna pumpica 8mm",
+    "pumpica za pumpanje goriva",
+    "kruška za gorivo",
+    "kruška goriva",
+    "balon za gorivo",
+    "pumpica sa ventilom",
+    "primer pumpa",
+    "pumpica traktor",
+    "odzračna pumpica"
+  ]
 }

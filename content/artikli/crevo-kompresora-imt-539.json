@@ -4,7 +4,7 @@
   "order": 470,
   "in_stock": true,
   "image": "/assets/img/gc_imt.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Gotovo crevo sa montiranim nastavcima (oko – oko) za kompresor traktora IMT 539. Izrađeno od vazdušnog creva sa ojačanjem. Kataloški broj je naveden uz varijantu.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -33,6 +33,10 @@
     "GC5X600BB",
     "5x600BB",
     "5x60BB",
-    "5x60 BB"
+    "5x60 BB",
+    "cev kompresora IMT",
+    "crevo kompresora",
+    "kompresorska cev IMT",
+    "IMT 539 kompresor crevo"
   ]
 }

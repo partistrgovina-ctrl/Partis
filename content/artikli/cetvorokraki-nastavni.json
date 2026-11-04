@@ -4,7 +4,7 @@
   "order": 330,
   "in_stock": true,
   "image": "/assets/img/sp_krst.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Pneumatski četvorokraki nastavak (križ) za brzo spajanje creva: spaja četiri creva istog prečnika u jednoj tački. Creva se samo uguraju u nastavak, a vade pritiskom na prsten.",
   "promo": true,
   "variants": [
     {
@@ -15,5 +15,18 @@
       "label": "12 mm",
       "price": 90
     }
+  ],
+  "aliases": [
+    "križ spojnica",
+    "krst spojnica",
+    "spojnica u obliku krsta",
+    "cross spojnica",
+    "4-way spojnica",
+    "cetvorokraki",
+    "križ za crevo",
+    "push in križ",
+    "pneumatski križ",
+    "spojnica 4 crevo",
+    "četvorostruka spojnica"
   ]
 }

@@ -4,7 +4,7 @@
   "order": 270,
   "in_stock": true,
   "image": "/assets/img/sp_metr.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Ravna uvrtna spojnica sa metričkim navojem za brzo spajanje pneumatskog creva. Uvrće se u priključak sa metričkim navojem, a crevo se samo uguraju u spojnicu bez alata.",
   "promo": true,
   "variants": [
     {
@@ -101,5 +101,21 @@
       "label": "M22x1.5 × 12 mm",
       "price": 130
     }
+  ],
+  "aliases": [
+    "PC spojnica",
+    "uvrtna spojnica metrička",
+    "ravna uvrtna spojnica",
+    "nastavno uvrtna metrička",
+    "ravni priključak metrički",
+    "pravi priključak",
+    "push in spojnica metrička",
+    "PC metrička",
+    "brza spojnica za crevo",
+    "pneumatska spojnica M10",
+    "pneumatska spojnica M12",
+    "pneumatska spojnica M14",
+    "pneumatska spojnica M16",
+    "nastavak uvrtni"
   ]
 }

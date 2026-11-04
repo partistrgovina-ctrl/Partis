@@ -4,6 +4,21 @@
   "order": 180,
   "in_stock": true,
   "image": "/assets/img/hvatac.jpg",
-  "description": "Opis u pripremi.",
-  "price": 250
+  "description": "Hvatač (ženski deo brze spojnice) za pneumatska creva, za crevo 10 mm. Sa utikačem čini brzu spojnicu za priključivanje alata i creva na kompresor.",
+  "price": 250,
+  "aliases": [
+    "hvatač 10",
+    "hvatač 10 mm",
+    "hvatac 10",
+    "kuglica 10",
+    "brza spojnica 10",
+    "brza spojnica ženski",
+    "hvatač kuglica",
+    "kupler 10",
+    "quick coupler",
+    "ženski kupler",
+    "nipl hvatač",
+    "spojnica za kompresor 10",
+    "brza spojnica hvatač"
+  ]
 }

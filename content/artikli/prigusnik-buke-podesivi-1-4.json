@@ -4,7 +4,7 @@
   "order": 440,
   "in_stock": true,
   "image": "/assets/img/mes_43.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Podesivi prigušnik buke sa navojem 1/4\" za izduvni otvor pneumatskih elemenata. Smanjuje buku izduvanja vazduha, a podešavanjem se reguliše protok izduvnog vazduha.",
   "promo": true,
   "col_label": "Navoj",
   "variants": [
@@ -12,5 +12,20 @@
       "label": "1/4",
       "price": 125
     }
+  ],
+  "aliases": [
+    "prigušivač",
+    "prigušivač buke",
+    "prigušnik",
+    "prigusnik",
+    "auspuh pneumatika",
+    "izduv pneumatika",
+    "prigušivač izduva",
+    "tihi izduv",
+    "prigušnik 1/4",
+    "regulator izduva",
+    "prigušivač vazduha",
+    "tihilica",
+    "prigušnik sa regulacijom"
   ]
 }

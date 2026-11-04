@@ -4,7 +4,7 @@
   "order": 50,
   "in_stock": true,
   "image": "/assets/img/mat10.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Matica ojačanja (matica sa navojem) je deo spoja uz prsten ojačanja i usečni prsten za pravljenje navojnih priključaka na creva. Prečnik ojačanja bira se prema prečniku creva.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -34,6 +34,18 @@
     }
   ],
   "aliases": [
-    "navrtka"
+    "navrtka",
+    "matica za ojačanje",
+    "matica ojačanja creva",
+    "matica za crevo",
+    "navrtka ojačanja",
+    "matica sa navojem",
+    "navrtka za crevo",
+    "matica za prsten",
+    "matica M10x1",
+    "matica M14x1.5",
+    "matica M16x1.5",
+    "matica M18x1.5",
+    "matica M22x1.5"
   ]
 }

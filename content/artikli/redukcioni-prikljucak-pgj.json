@@ -4,7 +4,7 @@
   "order": 320,
   "in_stock": true,
   "image": "/assets/img/sp_redukcija2.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Redukcioni priključak (PGJ) za brzo spajanje pneumatskog creva većeg prečnika na priključak (nastavak) manjeg prečnika. Crevo se uguraju u spojnicu, a mali priključak se uguraju u drugi kraj.",
   "promo": true,
   "variants": [
     {
@@ -27,5 +27,19 @@
       "label": "12-8 mm",
       "price": 110
     }
+  ],
+  "aliases": [
+    "PGJ spojnica",
+    "PGJ",
+    "redukcija sa priključkom",
+    "reducir priključak",
+    "spojnica sa nastavkom",
+    "push in redukcija",
+    "redukcioni nastavak",
+    "nastavak sa redukcijom",
+    "priključak za crevo redukcija",
+    "pneumatska redukcija sa nastavkom",
+    "reducir 10-6",
+    "reducir 8-4"
   ]
 }

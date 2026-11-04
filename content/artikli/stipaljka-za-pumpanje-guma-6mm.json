@@ -4,6 +4,20 @@
   "order": 220,
   "in_stock": true,
   "image": "/assets/img/stipaljka.jpg",
-  "description": "Opis u pripremi.",
-  "price": 100
+  "description": "Štipaljka za pumpanje guma za crevo 6 mm. Čvrsto se prihvata na ventil gume za pumpanje iz sistema kompresora. Koristi se uz crevo za pumpanje guma.",
+  "price": 100,
+  "aliases": [
+    "štipaljka",
+    "stipaljka",
+    "štipaljka za ventil",
+    "štipaljka za gume",
+    "štipaljka 6mm",
+    "hvataljka za ventil",
+    "kvačica za ventil",
+    "klešta za ventil",
+    "nastavak za pumpanje guma",
+    "štipaljka za pumpanje",
+    "štipaljka kompresor",
+    "štipaljka za ventil gume"
+  ]
 }

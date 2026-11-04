@@ -4,7 +4,7 @@
   "order": 490,
   "in_stock": true,
   "image": "/assets/img/gc_guma.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Gotovo crevo za pumpanje guma sa traktora: priključuje se na kompresor, sa leptirom na jednom i štipaljkom za ventil na drugom kraju. Prodaje se u dužini od 9 metara.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -26,6 +26,16 @@
     "6x11 900 cm",
     "6x11x900",
     "9 m",
-    "900 cm"
+    "900 cm",
+    "crevo za pumpanje guma",
+    "crevo za gume traktor",
+    "cev za pumpanje guma",
+    "crevo za napumpavanje guma",
+    "crevo sa štipaljkom",
+    "crevo sa leptirom",
+    "traktorsko crevo za gume",
+    "crevo 9 m",
+    "crevo za duvanje guma",
+    "cev za gume"
   ]
 }

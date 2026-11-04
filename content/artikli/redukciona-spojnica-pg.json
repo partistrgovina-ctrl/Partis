@@ -4,7 +4,7 @@
   "order": 300,
   "in_stock": true,
   "image": "/assets/img/sp_pg.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Redukciona prava spojnica (PG) za brzo spajanje dva pneumatska creva različitog prečnika, npr. 10 mm na 8 mm. Creva se samo uguraju sa obe strane.",
   "promo": true,
   "variants": [
     {
@@ -33,5 +33,20 @@
     {
       "label": "16-12 mm"
     }
+  ],
+  "aliases": [
+    "PG spojnica",
+    "redukcija za crevo",
+    "reducir za crevo",
+    "spojnica za razlicita creva",
+    "spojnica sa redukcijom",
+    "reduktor creva",
+    "push in redukcija",
+    "prelaz sa creva na crevo",
+    "redukcioni nastavak za crevo",
+    "spojnica 10-8",
+    "spojnica 8-6",
+    "spojnica 12-10",
+    "pneumatska redukcija"
   ]
 }

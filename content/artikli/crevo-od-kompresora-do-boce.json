@@ -4,7 +4,7 @@
   "order": 460,
   "in_stock": true,
   "image": "/assets/img/gc_boca.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Gotovo crevo od kompresora do boce (rezervoara) vazduha, sa montiranim nastavcima (holender – holender). Dužina 1300 mm.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -28,6 +28,16 @@
     "GC8X1300AA",
     "8x1300AA",
     "8x130AA",
-    "8x130 AA"
+    "8x130 AA",
+    "cev kompresor boca",
+    "crevo kompresor rezervoar",
+    "cev do boce",
+    "crevo do boce",
+    "crevo vazdušne boce",
+    "cev kompresora do boce",
+    "crevo od kompresora",
+    "crevo za vazdušnu bocu",
+    "cev za rezervoar vazduha",
+    "crevo 8x1300"
   ]
 }

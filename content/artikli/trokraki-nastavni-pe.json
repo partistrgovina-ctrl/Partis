@@ -4,7 +4,7 @@
   "order": 310,
   "in_stock": true,
   "image": "/assets/img/sp_t1.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Pneumatska T-spojnica (trokraka, PE) za brzo spajanje tri creva istog prečnika u jednoj tački. Creva se samo uguraju u spojnicu, a vade pritiskom na prsten.",
   "promo": true,
   "variants": [
     {
@@ -27,5 +27,22 @@
       "label": "12 mm",
       "price": 60
     }
+  ],
+  "aliases": [
+    "T spojnica",
+    "T-spojnica",
+    "tri kraka",
+    "trokraka spojnica",
+    "trokraki",
+    "T razvodnik",
+    "PE spojnica",
+    "push in T",
+    "razdelnik",
+    "T komad",
+    "T nastavak",
+    "pneumatski T",
+    "T za crevo",
+    "razvodnik T",
+    "trostruka spojnica"
   ]
 }

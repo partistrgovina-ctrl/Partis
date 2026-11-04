@@ -4,6 +4,20 @@
   "order": 170,
   "in_stock": true,
   "image": "/assets/img/pist_veliki.jpg",
-  "description": "Opis u pripremi.",
-  "price": 350
+  "description": "Metalni pištolj za vazduh veće veličine. Služi za produvavanje i čišćenje od prašine, strugotine i prljavštine, uz kompresor.",
+  "price": 350,
+  "aliases": [
+    "pištolj za produvavanje",
+    "pistolj za produvavanje",
+    "pištolj za duvanje",
+    "vazdušni pištolj",
+    "duvaljka",
+    "pištolj za čišćenje vazduhom",
+    "pištolj za vazduh",
+    "air gun",
+    "pištolj za kompresor",
+    "pištolj za prašinu",
+    "veliki pištolj za vazduh",
+    "produvač"
+  ]
 }

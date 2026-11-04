@@ -4,7 +4,7 @@
   "order": 490,
   "in_stock": true,
   "image": "/assets/img/gc_hh.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Gotova vazdušna creva sa holenderima na oba kraja za traktor IMT 539 (sistem kočenja i pneumatike). Dostupna u dve dimenzije creva i više dužina, sa kataloškim brojevima uz varijante.",
   "promo": false,
   "col_label": "Dimenzija i nastavci",
   "variants": [
@@ -116,6 +116,14 @@
     "GC8X1750AA",
     "8x1750AA",
     "8x175AA",
-    "8x175 AA"
+    "8x175 AA",
+    "cev za vazduh IMT 539",
+    "vazdušno crevo IMT",
+    "pneumatsko crevo IMT 539",
+    "crevo kočnice vazduh",
+    "cev vazduha traktor",
+    "crevo vazdušni sistem",
+    "IMT 539 vazdušno crevo",
+    "crevo za vazduh sa holenderima"
   ]
 }

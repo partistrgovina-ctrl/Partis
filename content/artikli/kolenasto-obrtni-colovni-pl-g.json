@@ -4,7 +4,7 @@
   "order": 280,
   "in_stock": true,
   "image": "/assets/img/sp_plg.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Kolenasta (ugaona, 90°) obrtna spojnica sa colovnim (cevnim) navojem za brzo spajanje pneumatskog creva. Creva se uguraju u spojnicu bez alata, a obrtni deo omogućava okretanje creva u poziciji.",
   "promo": true,
   "variants": [
     {
@@ -52,5 +52,20 @@
       "label": "1/2\" × 12 mm",
       "price": 120
     }
+  ],
+  "aliases": [
+    "PL-G spojnica",
+    "PLG",
+    "kolenasta spojnica colovna",
+    "koleno colovno",
+    "ugaona spojnica colovni navoj",
+    "koleno 1/8",
+    "koleno 1/4",
+    "koleno 3/8",
+    "koleno 1/2",
+    "push in koleno cola",
+    "L spojnica colovna",
+    "pneumatsko koleno cola",
+    "koleno obrtno cola"
   ]
 }

@@ -4,7 +4,7 @@
   "order": 340,
   "in_stock": true,
   "image": "/assets/img/sp_pk.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Pneumatska petokraka spojnica (PK) za brzo spajanje creva: spaja pet creva istog prečnika u jednoj tački. Creva se samo uguraju u spojnicu, a vade pritiskom na prsten.",
   "promo": true,
   "variants": [
     {
@@ -23,5 +23,19 @@
       "label": "10 mm",
       "price": 110
     }
+  ],
+  "aliases": [
+    "petokraka",
+    "PK spojnica",
+    "spojnica za pet creva",
+    "pet creva spojnica",
+    "push in petokraka",
+    "petostruka spojnica",
+    "petokraka za crevo",
+    "razvodnik petokraki",
+    "5-way spojnica",
+    "pneumatski razvodnik",
+    "razvodna spojnica",
+    "pet kraka"
   ]
 }

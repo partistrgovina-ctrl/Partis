@@ -4,6 +4,21 @@
   "order": 190,
   "in_stock": true,
   "image": "/assets/img/utikac.jpg",
-  "description": "Opis u pripremi.",
-  "price": 45
+  "description": "Utikač (muški deo brze spojnice) za pneumatska creva, za crevo 10 mm. Sa hvatačem čini brzu spojnicu za priključivanje alata i creva na kompresor.",
+  "price": 45,
+  "aliases": [
+    "utikač 10",
+    "utikač 10 mm",
+    "utikac 10",
+    "brza spojnica 10",
+    "brza spojnica muški",
+    "utikač za crevo",
+    "utikač spojnice",
+    "nipl utikač",
+    "quick coupler utikač",
+    "muški kupler",
+    "utikač za kompresor",
+    "brza spojnica utikač",
+    "kupler utikač"
+  ]
 }

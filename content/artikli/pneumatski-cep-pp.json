@@ -4,7 +4,7 @@
   "order": 350,
   "in_stock": true,
   "image": "/assets/img/sp_pp.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Čep (zaslepka) koji se uguraju u pneumatski priključak da ga zatvori, pogodan za duže zatvaranje. Dostupan za creva od 4 do 16 mm.",
   "promo": true,
   "variants": [
     {
@@ -31,5 +31,19 @@
       "label": "16 mm",
       "price": 80
     }
+  ],
+  "aliases": [
+    "PP čep",
+    "čep za spojnicu",
+    "zaslepka spojnice",
+    "slepi čep",
+    "čep za priključak",
+    "push in čep",
+    "pneumatski čep",
+    "čep za brzu spojnicu",
+    "zaslepka priključka",
+    "čep PP",
+    "čep 6 mm",
+    "zatvarač priključka"
   ]
 }

@@ -4,7 +4,7 @@
   "order": 80,
   "in_stock": true,
   "image": "/assets/img/set6.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Komplet od sedam delova za pravljenje navojnog spoja na poliamidnom (PA) crevu, u jednom setu. Veličina seta bira se prema prečniku creva.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -27,5 +27,18 @@
       "price": 175,
       "image": "/assets/img/set12.jpg"
     }
+  ],
+  "aliases": [
+    "set ojačanja",
+    "set za PA crevo",
+    "set za poliamidno crevo",
+    "komplet ojačanja",
+    "komplet za PA creva",
+    "set za spajanje PA creva",
+    "ojačanje poliamidno crevo",
+    "set ojačanja 7 delova",
+    "komplet 7 delova",
+    "set za pneumatsko crevo",
+    "set poliamid"
   ]
 }

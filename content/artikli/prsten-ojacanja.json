@@ -4,7 +4,7 @@
   "order": 60,
   "in_stock": true,
   "image": "/assets/img/pr4.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Prsten ojačanja je deo za pravljenje navojnog spoja na poliamidnom (PA) crevu. Veličina se bira prema dimenzijama creva.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -37,5 +37,21 @@
       "price": 18,
       "image": "/assets/img/pr12.jpg"
     }
+  ],
+  "aliases": [
+    "ojačanje creva",
+    "ojačanje za crevo",
+    "prsten za ojačanje",
+    "umetak ojačanja",
+    "tuljak",
+    "tuljak za crevo",
+    "ojačanje PA creva",
+    "ojačanje poliamid",
+    "ojačanje 6 mm",
+    "ojačanje 8 mm",
+    "ojačanje 10 mm",
+    "ojačanje 12 mm",
+    "ojačivač creva",
+    "čaura ojačanja"
   ]
 }

@@ -4,7 +4,7 @@
   "order": 20,
   "in_stock": true,
   "image": "/assets/img/oko14.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Oko je okruglo okce za montažu creva na šuplji vijak. Navlači se i presuje na crevo, a vijkom se pričvršćuje na priključak. Dostupno u tri dimenzije.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -24,6 +24,21 @@
     }
   ],
   "aliases": [
-    "banjo oko"
+    "banjo oko",
+    "okce",
+    "oko za crevo",
+    "okce za crevo",
+    "oko za gorivo",
+    "oko 14",
+    "oko 12",
+    "oko 8",
+    "okce goriva",
+    "oko holender",
+    "okce IMT",
+    "okce traktor",
+    "oko za šuplji vijak",
+    "okaste",
+    "naglavak oko",
+    "okce za šuplji vijak"
   ]
 }

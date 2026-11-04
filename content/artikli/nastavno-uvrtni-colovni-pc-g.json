@@ -4,7 +4,7 @@
   "order": 260,
   "in_stock": true,
   "image": "/assets/img/sp_navoj_o.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Ravna uvrtna spojnica sa colovnim (cevnim) navojem za brzo spajanje pneumatskog creva. Uvrće se u priključak sa odgovarajućim navojem, a crevo se samo uguraju u spojnicu bez alata.",
   "promo": true,
   "variants": [
     {
@@ -101,5 +101,22 @@
       "group": "1/2\"",
       "label": "1/2\" × 16 mm"
     }
+  ],
+  "aliases": [
+    "PC-G spojnica",
+    "PCG",
+    "uvrtna spojnica colovna",
+    "ravna uvrtna spojnica",
+    "nastavno uvrtna cola",
+    "ravni priključak cola",
+    "pravi priključak",
+    "push in spojnica cola",
+    "PC colovna",
+    "brza spojnica za crevo",
+    "pneumatska spojnica 1/4",
+    "pneumatska spojnica 1/8",
+    "pneumatska spojnica 3/8",
+    "pneumatska spojnica 1/2",
+    "nastavak uvrtni"
   ]
 }

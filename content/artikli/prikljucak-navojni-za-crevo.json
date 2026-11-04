@@ -4,7 +4,7 @@
   "order": 410,
   "in_stock": true,
   "image": "/assets/img/mes_17.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Navojni priključak za crevo (šiljak sa navojem): jedan kraj ima navoj, a drugi je rebrasti nastavak na koji se navlači crevo i učvršćuje obujmicom. Dostupan u više dimenzija navoja i creva.",
   "promo": true,
   "col_label": "Navoj i crevo",
   "variants": [
@@ -91,5 +91,24 @@
       "price": 225,
       "image": "/assets/img/mes_30.jpg"
     }
+  ],
+  "aliases": [
+    "šiljak",
+    "siljak",
+    "priključak za crevo",
+    "priključak sa navojem",
+    "šiljak sa navojem",
+    "šiljak za crevo",
+    "navojni šiljak",
+    "nastavak sa navojem za crevo",
+    "nipl za crevo",
+    "štucna",
+    "štuc",
+    "priključak 1/4",
+    "priključak 3/8",
+    "priključak 1/8",
+    "rebrasti nastavak",
+    "olive",
+    "crevni nastavak"
   ]
 }

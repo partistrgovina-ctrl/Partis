@@ -4,7 +4,7 @@
   "order": 370,
   "in_stock": true,
   "image": "/assets/img/mes_00.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Hvatač (ženski deo brze spojnice) sa navojem za pneumatski sistem. Sa utikačem čini brzu spojnicu za priključivanje alata, creva i pištolja na kompresor. Dostupan sa ženskim i muškim navojem.",
   "promo": true,
   "col_label": "Tip / navoj",
   "variants": [
@@ -22,5 +22,19 @@
       "price": 250,
       "image": "/assets/img/mes_04.jpg"
     }
+  ],
+  "aliases": [
+    "hvatač",
+    "hvatac",
+    "kuglica",
+    "brza spojnica",
+    "brza spojnica ženski deo",
+    "kupler",
+    "quick coupler",
+    "hvatač 1/4",
+    "hvatač 3/8",
+    "brza spojnica navoj",
+    "spojnica za kompresor",
+    "brza spojnica sa navojem"
   ]
 }

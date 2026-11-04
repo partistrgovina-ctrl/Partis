@@ -4,7 +4,7 @@
   "order": 360,
   "in_stock": true,
   "image": "/assets/img/sp_cep.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Čep (zaslepka) za kraj pneumatskog creva: crevo se uguraju u čep i kraj se zatvara. Pogodan za privremeno zatvaranje creva.",
   "promo": true,
   "variants": [
     {
@@ -27,5 +27,20 @@
       "label": "12 mm",
       "price": 125
     }
+  ],
+  "aliases": [
+    "PFF čep",
+    "PPF čep",
+    "čep za crevo",
+    "zaslepka creva",
+    "zaslepka za crevo",
+    "slepi čep",
+    "čep za kraj creva",
+    "push in čep",
+    "pneumatski čep",
+    "čep za pneumatsko crevo",
+    "čep creva 6 mm",
+    "zatvarač creva",
+    "završni čep"
   ]
 }

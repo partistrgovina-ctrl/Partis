@@ -4,6 +4,20 @@
   "order": 200,
   "in_stock": true,
   "image": "/assets/img/nastavak_gume.jpg",
-  "description": "Opis u pripremi.",
-  "price": 300
+  "description": "Nastavak za pumpanje guma sa unutrašnjim točkom (duplih točkova). Omogućava da se dođe do ventila na unutrašnjem točku kod traktora i teških vozila.",
+  "price": 300,
+  "aliases": [
+    "nastavak za pumpanje",
+    "nastavak za ventil unutrašnjeg točka",
+    "produžetak ventila",
+    "produžetak za ventil",
+    "nastavak za duple gume",
+    "nastavak za duple točkove",
+    "nastavak za traktorske gume",
+    "nastavak za unutrašnju gumu",
+    "produžni nastavak za gume",
+    "nastavak ventila za gume",
+    "nastavak za dual",
+    "nastavak za pumpanje duplih guma"
+  ]
 }

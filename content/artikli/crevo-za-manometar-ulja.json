@@ -4,7 +4,7 @@
   "order": 480,
   "in_stock": true,
   "image": "/assets/img/gc_man900.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Gotovo crevo sa nastavcima za manometar pritiska ulja na traktorima. Izrađuje se u više dužina, a kataloški brojevi su navedeni uz varijante.",
   "promo": false,
   "col_label": "Dimenzija i nastavci",
   "variants": [
@@ -88,6 +88,15 @@
     "GC5X1000AA",
     "5x1000AA",
     "5x100AA",
-    "5x100 AA"
+    "5x100 AA",
+    "crevo manometra",
+    "cev manometra",
+    "crevo za pritisak ulja",
+    "cev za pritisak ulja",
+    "crevo za merač pritiska ulja",
+    "crevo manometar IMT",
+    "crevo uljnog manometra",
+    "manometar ulja crevo",
+    "crevo za uljni manometar"
   ]
 }

@@ -4,7 +4,7 @@
   "order": 420,
   "in_stock": true,
   "image": "/assets/img/mes_31.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Muf je spojnica sa ženskim navojem na oba kraja, za međusobno spajanje dva dela sa muškim navojem. Dostupan u više colovnih dimenzija.",
   "promo": true,
   "col_label": "Navoj",
   "variants": [
@@ -27,5 +27,19 @@
       "price": 240,
       "image": "/assets/img/mes_34.jpg"
     }
+  ],
+  "aliases": [
+    "muf",
+    "muf spojnica",
+    "spojnica sa ženskim navojem",
+    "dupli ženski",
+    "muf 1/2",
+    "muf 3/4",
+    "muf 1 col",
+    "muf 1/8",
+    "dupla spojnica navoj",
+    "navojni muf",
+    "spojnica muf",
+    "ženski muf"
   ]
 }

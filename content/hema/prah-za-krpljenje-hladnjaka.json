@@ -4,13 +4,29 @@
   "order": 130,
   "in_stock": true,
   "image": "/assets/img/radiator.jpg",
-  "card_text": "Opis u pripremi.",
-  "description": "Opis u pripremi.",
-  "use": "Opis u pripremi.",
+  "card_text": "Hitna popravka sitnih curenja hladnjaka.",
+  "description": "Prah za krpljenje hladnjaka koristi se kao hitna popravka sitnih curenja u sistemu hlađenja motora. Sipa se u rashladnu tečnost u hladnjaku.",
+  "use": "Sistem hlađenja motora — sitna curenja hladnjaka.",
   "packs": [
     {
       "pack": "15 gr",
       "price": 70
     }
+  ],
+  "aliases": [
+    "prah za hladnjak",
+    "krpljenje hladnjaka",
+    "sredstvo za krpljenje hladnjaka",
+    "zatvaranje pukotina hladnjaka",
+    "hladnjak prah",
+    "radiator stop leak",
+    "stop leak",
+    "sredstvo protiv curenja hladnjaka",
+    "curenje hladnjaka",
+    "krpež za hladnjak",
+    "hladnjak popravka",
+    "prah za curenje vode",
+    "lepak za hladnjak",
+    "brtvilo hladnjaka"
   ]
 }

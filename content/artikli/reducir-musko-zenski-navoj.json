@@ -4,7 +4,7 @@
   "order": 400,
   "in_stock": true,
   "image": "/assets/img/mes_11.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Reducir sa muškim navojem na jednom i ženskim na drugom kraju različitih dimenzija. Služi za smanjenje ili povećanje dimenzije priključka. Spoljašnji navoj je veći, a unutrašnji manji.",
   "promo": true,
   "col_label": "Navoj",
   "variants": [
@@ -43,5 +43,21 @@
       "price": 150,
       "image": "/assets/img/mes_16.jpg"
     }
+  ],
+  "aliases": [
+    "reducir",
+    "reduktor",
+    "redukcija",
+    "redukcija navoja",
+    "muško ženski reducir",
+    "reducir M-Ž",
+    "reducir spoljni unutrašnji",
+    "adapter navoja",
+    "reducir 1/2x1/4",
+    "reducir 3/4x1/8",
+    "reducir 1x1/2",
+    "reducir 3/8x1/8",
+    "prelaz sa navoja",
+    "redukcioni nastavak"
   ]
 }

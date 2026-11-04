@@ -4,7 +4,7 @@
   "order": 30,
   "in_stock": true,
   "image": "/assets/img/sv6.jpg",
-  "description": "Opis u pripremi.",
+  "description": "Šuplji vijak (banjo vijak) služi za povezivanje creva sa okom na hidraulične ili gorivne instalacije. Kroz vijak protiče tečnost, a pri montaži se zaptiva podloškama. Dostupan u više dimenzija navoja.",
   "promo": false,
   "col_label": "Dimenzija",
   "variants": [
@@ -44,6 +44,18 @@
     }
   ],
   "aliases": [
-    "banjo vijak"
+    "banjo vijak",
+    "banjo",
+    "šuplji vijak",
+    "suplji vijak",
+    "šuplji šraf",
+    "šuplji šaraf",
+    "vijak za crevo",
+    "vijak sa rupom",
+    "šuplji vijak goriva",
+    "vijak za oko",
+    "banjo bolt",
+    "hollow bolt",
+    "hollow screw"
   ]
 }
