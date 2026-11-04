@@ -16,12 +16,14 @@
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x350 mm · Oko-Oko",
-      "price": 340
+      "price": 340,
+      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660"
     },
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x400 mm · Oko-Oko",
-      "price": 350
+      "price": 350,
+      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660"
     },
     {
       "group": "Oko - Oko 14 - 14",
@@ -398,6 +400,15 @@
     "GC8X1000BA",
     "8x1000BA",
     "8x100BA",
-    "8x100 BA"
+    "8x100 BA",
+    "46408660",
+    "46408650",
+    "42152020",
+    "Ursus 46408660",
+    "Ursus 46408650",
+    "Ursus 42152020",
+    "Ursus C-360 pumpa filter",
+    "Ursus C-330 preliv",
+    "C-360 crevo goriva"
   ]
 }
