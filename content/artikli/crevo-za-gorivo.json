@@ -23,12 +23,18 @@
       "group": "Oko - Oko 14 - 14",
       "label": "8x400 mm · Oko-Oko",
       "price": 350,
-      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660"
+      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660 · MTZ kat. br. GMP HH-027/14/40"
     },
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x450 mm · Oko-Oko",
       "price": 365
+    },
+    {
+      "group": "Oko - Oko 14 - 14",
+      "label": "8x460 mm · Oko-Oko",
+      "price": 370,
+      "note": "MTZ · kat. br. GMP HH-027/14/46"
     },
     {
       "group": "Oko - Oko 14 - 14",
@@ -38,7 +44,8 @@
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x600 mm · Oko-Oko",
-      "price": 385
+      "price": 385,
+      "note": "MTZ · kat. br. GMP HH-027/14/60"
     },
     {
       "group": "Oko - Oko 14 - 14",
@@ -53,7 +60,8 @@
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x1000 mm · Oko-Oko",
-      "price": 465
+      "price": 465,
+      "note": "MTZ · kat. br. GMP HH-027/14/100"
     },
     {
       "group": "Holender - Holender M16x1.5",
