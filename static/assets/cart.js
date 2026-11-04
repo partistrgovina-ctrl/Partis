@@ -84,6 +84,7 @@
         <div class="f-grid">
           <label>Ime i prezime *<input name="ime" required autocomplete="name" value="${esc((window.CUSTOMER||{}).ime||"")}"></label>
           <label>Firma (neobavezno)<input name="firma" autocomplete="organization" value="${esc((window.CUSTOMER||{}).firma||"")}"></label>
+          <label>PIB (neobavezno)<input name="pib" inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
           <label>Telefon *<input name="telefon" type="tel" required autocomplete="tel" value="${esc((window.CUSTOMER||{}).telefon||"")}"></label>
           <label>Mejl *<input name="email" type="email" required autocomplete="email" value="${esc((window.CUSTOMER||{}).email||"")}"></label>
           <label class="wide">Adresa za isporuku *<input name="adresa" required autocomplete="street-address" value="${esc((window.CUSTOMER||{}).adresa||"")}" placeholder="Ulica i broj, mesto, poštanski broj"></label>
@@ -103,7 +104,7 @@
     if(!cart.length)return false;
     if(fd.get("bot-field"))return false;
     const text=orderText();
-    const data={"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:fd.get("napomena")||"","bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
+    const data={"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:fd.get("napomena")||"","bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
     if(window.PARTIS_OFFLINE){offlineSend(data,text);return false;}
     b.disabled=true;b.textContent="Šaljem…";err.hidden=true;
     fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data).toString()})
@@ -111,7 +112,7 @@
       cart=[];save();badge();
       document.querySelector(".cart-box").innerHTML=`<div class="eng">Upit za ponudu</div><h2>Hvala!</h2><p class="m-lead">Vaš upit je poslat. Javićemo vam se na broj ${esc(data.telefon)} ili na ${esc(data.email)} sa potvrdom cena i dostupnosti.</p><button class="cart-send" type="button" onclick="closeModal()">Zatvori</button>`;})
     .catch(()=>{
-      const mail="mailto:partis.trgovina@gmail.com?subject="+encodeURIComponent("Upit sa sajta — "+data.ime)+"&body="+encodeURIComponent(`${text}\n\nIme: ${data.ime}\nFirma: ${data.firma}\nTelefon: ${data.telefon}\nMejl: ${data.email}\nAdresa: ${data.adresa}\nNapomena: ${data.napomena}`);
+      const mail="mailto:partis.trgovina@gmail.com?subject="+encodeURIComponent("Upit sa sajta — "+data.ime)+"&body="+encodeURIComponent(`${text}\n\nIme: ${data.ime}\nFirma: ${data.firma}\nPIB: ${data.pib}\nTelefon: ${data.telefon}\nMejl: ${data.email}\nAdresa: ${data.adresa}\nNapomena: ${data.napomena}`);
       err.innerHTML=`Slanje nije uspelo. Pokušajte ponovo, pozovite <a href="tel:+38118553800">018-553-800</a> ili <a href="${mail}">pošaljite upit iz vašeg mejla</a>.`;err.hidden=false;
       b.disabled=false;b.textContent="Pošalji upit";
     });
@@ -122,7 +123,7 @@
   const SHOP="partis.trgovina@gmail.com";
   function offlineBody(d,text,short){
     return `Poštovani,\n\nŠaljem upit za ponudu iz PARTIS kataloga.\n\n`+
-      `Ime: ${d.ime}\nFirma: ${d.firma}\nTelefon: ${d.telefon}\nMejl: ${d.email}\nAdresa: ${d.adresa}\nNapomena: ${d.napomena}\n\n`+
+      `Ime: ${d.ime}\nFirma: ${d.firma}\nPIB: ${d.pib||""}\nTelefon: ${d.telefon}\nMejl: ${d.email}\nAdresa: ${d.adresa}\nNapomena: ${d.napomena}\n\n`+
       (short?`Spisak artikala je u priloženom fajlu PARTIS-upit.txt (molim vas da ga priložite uz ovaj mejl) ili ga nalepite ovde (Ctrl+V).\n`:`UPIT:\n${text}\n`)+`\nHvala.`;
   }
   function offlineSend(d,text){
