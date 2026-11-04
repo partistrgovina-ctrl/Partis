@@ -442,3 +442,9 @@ td.price small{display:inline}
 .tile-img img{transform:none;transition:opacity .7s ease}
 .tile-img img.on{transform:none}
 .tile:hover .tile-img img.on{transform:none}
+
+/* prelaz slika na pločicama: fade out + swipe nove slike */
+.tile-img img{opacity:0;transform:translateX(42px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.22,.8,.3,1);will-change:opacity,transform}
+.tile-img img.on{opacity:1;transform:none}
+.tile-img img.out{opacity:0;transform:translateX(-42px);transition:opacity .5s ease-in,transform .55s ease-in}
+.tile:hover .tile-img img.on{transform:scale(1.04)}

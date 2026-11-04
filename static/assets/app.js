@@ -190,13 +190,13 @@ function startRotation(){
       const nx=new Image();
       nx.onload=()=>{
         nx.alt=el.querySelector("h3").textContent;
-        /* prvo se stara slika potpuno utopi, tek onda se pojavi nova (bez preklapanja) */
-        box.querySelectorAll("img").forEach(i=>i.classList.remove("on"));
+        /* stara slika se utopi i odjuri ulevo, tek onda nova uklizi sdesna (bez preklapanja) */
+        box.querySelectorAll("img").forEach(i=>{i.classList.remove("on");i.classList.add("out");});
         setTimeout(()=>{
           box.querySelectorAll("img").forEach(i=>i.remove());
           box.appendChild(nx);
           requestAnimationFrame(()=>requestAnimationFrame(()=>nx.classList.add("on")));
-        },750);
+        },600);
       };
       nx.dataset.p=url;nx.src=IMGU(url);
     },6500)),ti*900));
