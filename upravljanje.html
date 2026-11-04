@@ -92,7 +92,8 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   <button id="bCust" hidden>Kupci</button>
   <button id="bSettings" hidden>Domen</button>
   <button id="bFolder" hidden>Promeni folder</button>
-  <button id="bBuild" class="red" hidden>Napravi sajt za objavu</button>
+  <button id="bPush" class="red" hidden>Objavi na sajt</button>
+  <button id="bBuild" hidden>Napravi sajt za objavu</button>
 </header>
 <main>
   <div id="start">
@@ -104,7 +105,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
   </div>
   <div id="app" hidden>
     <div class="tabs" id="tabs"></div>
-    <div class="note" id="note"><b>Izmene su sačuvane u folderu, ali još nisu na sajtu.</b> Kada završite, kliknite „Napravi sajt za objavu" pa otpremite folder <b>dist</b> (uputstvo je u fajlu UPUTSTVO.md).</div>
+    <div class="note" id="note"><b>Izmene su sačuvane u folderu, ali još nisu na sajtu.</b> Kada završite, kliknite „Objavi na sajt“ — sajt se sam osveži za oko minut.</div>
     <div class="bar">
       <input type="search" id="q" placeholder="Pretraga artikala…">
       <select id="fCat"></select>
@@ -137,7 +138,8 @@ let ROOT=null;
 async function dirAt(path,create){let d=ROOT;for(const p of path.split("/").filter(Boolean))d=await d.getDirectoryHandle(p,{create:!!create});return d;}
 async function readText(path){const parts=path.split("/"),n=parts.pop();const d=await dirAt(parts.join("/"));return (await (await d.getFileHandle(n)).getFile()).text();}
 async function readFile(path){const parts=path.split("/"),n=parts.pop();const d=await dirAt(parts.join("/"));return (await d.getFileHandle(n)).getFile();}
-async function writeFile(path,data){const parts=path.split("/"),n=parts.pop();const d=await dirAt(parts.join("/"),true);const fh=await d.getFileHandle(n,{create:true});const w=await fh.createWritable();await w.write(data);await w.close();}
+const CHG=new Set(),DELS=new Set();
+async function writeFile(path,data){if(!path.startsWith("dist/")){CHG.add(path);DELS.delete(path);}const parts=path.split("/"),n=parts.pop();const d=await dirAt(parts.join("/"),true);const fh=await d.getFileHandle(n,{create:true});const w=await fh.createWritable();await w.write(data);await w.close();}
 async function listFiles(path){const out=[];try{const d=await dirAt(path);for await(const [n,h] of d.entries())if(h.kind==="file"&&!n.startsWith("."))out.push(n);}catch(e){}return out;}
 async function exists(path){try{await readFile(path);return true;}catch(e){return false;}}
 
@@ -188,7 +190,7 @@ async function enter(handle){
   if(!CORE.pocMerge||!CORE.katPages||!CORE.MULTI||!(await exists("templates/_kategorija.html"))){
     say("Folder sajta nije ažuran","Ovaj program je noviji od fajlova u izabranom folderu, pa dugmad <b>Tekst početne</b>, <b>Kategorije</b> i izrada sajta neće raditi kako treba.<br><br><b>Rešenje:</b> raspakujte najnoviji ZIP (<b>partis-sajt-program.zip</b>) i njegov sadržaj prekopirajte preko vašeg foldera sajta (na pitanje „Zameni“ odgovorite sa DA). Folderi <b>content</b> i vaši artikli ostaju, ali pre kopiranja napravite rezervnu kopiju foldera <b>content</b>.");
   }
-  ["bBuild","bFolder","bSettings","bCust","bKat","bPoc"].forEach(i=>$("#"+i).hidden=false);
+  ["bPush","bBuild","bFolder","bSettings","bCust","bKat","bPoc"].forEach(i=>$("#"+i).hidden=false);
   buildTabs();render();counts();
 }
 $("#bPick").onclick=async()=>{
@@ -197,7 +199,7 @@ $("#bPick").onclick=async()=>{
   try{await enter(await showDirectoryPicker({mode:"readwrite"}));}
   catch(e){if(e.name!=="AbortError")$("#startErr").textContent=e.message;}
 };
-$("#bFolder").onclick=()=>{$("#app").hidden=true;$("#start").hidden=false;["bBuild","bFolder","bSettings","bCust","bKat","bPoc"].forEach(i=>$("#"+i).hidden=true);};
+$("#bFolder").onclick=()=>{$("#app").hidden=true;$("#start").hidden=false;["bPush","bBuild","bFolder","bSettings","bCust","bKat","bPoc"].forEach(i=>$("#"+i).hidden=true);};
 (async()=>{
   const h=await idb.get();
   if(h){$("#bResume").hidden=false;$("#bResume").textContent="Nastavi sa folderom „"+h.name+"“";
@@ -408,7 +410,7 @@ $("#dSave").onclick=async()=>{
 };
 $("#dDel").onclick=async()=>{
   if(!confirm("Trajno obrisati „"+EDIT.entry.data.title+"“?\nBezbednije je samo isključiti „Na stanju“ (parkirati)."))return;
-  try{const d=await dirAt(COLS[cur].dir);await d.removeEntry(EDIT.entry.file);DB[cur]=DB[cur].filter(e=>e!==EDIT.entry);markDirty();$("#dlg").close();buildTabs();render();counts();}
+  try{const d=await dirAt(COLS[cur].dir);await d.removeEntry(EDIT.entry.file);{const pp=COLS[cur].dir+"/"+EDIT.entry.file;CHG.delete(pp);DELS.add(pp);}DB[cur]=DB[cur].filter(e=>e!==EDIT.entry);markDirty();$("#dlg").close();buildTabs();render();counts();}
   catch(e){$("#dErr").textContent="Nije obrisano: "+e.message;}
 };
 $("#dCancel").onclick=$("#dX").onclick=()=>$("#dlg").close();
@@ -491,6 +493,44 @@ $("#bSettings").onclick=async()=>{
    [["Sačuvaj",async()=>{let v=$("#domIn").value.trim().replace(/\/+$/,"");if(v&&!/^https?:\/\//.test(v))v="https://"+v;cfg.domen=v||"https://VASDOMEN.rs";await writeFile("site.json",JSON.stringify(cfg,null,2)+"\n");markDirty();$("#dlg2").close();},1],["Otkaži",()=>$("#dlg2").close(),0]]);
 };
 
+
+/* ---------- objava na GitHub (Netlify objavljuje sam) ---------- */
+const GH_DEF={repo:"partistrgovina-ctrl/Partis",branch:"main"};
+const ghTok=()=>{try{return localStorage.getItem("partis_gh")||"";}catch(e){return "";}};
+const b64=buf=>{let s="";const u=new Uint8Array(buf);for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s);};
+async function gh(tok,repo,path,opt){
+  const r=await fetch("https://api.github.com/repos/"+repo+path,Object.assign({headers:{"Authorization":"Bearer "+tok,"Accept":"application/vnd.github+json","Content-Type":"application/json"}},opt||{}));
+  if(!r.ok){let m="";try{m=(await r.json()).message;}catch(e){}throw new Error("GitHub "+r.status+(m?": "+m:""));}
+  return r.status===204?null:r.json();
+}
+async function doPush(tok){
+  let cfg={};try{cfg=JSON.parse(await readText("site.json"));}catch(e){}
+  const repo=cfg.github_repo||GH_DEF.repo,br=cfg.github_branch||GH_DEF.branch;
+  const files=[...CHG],dels=[...DELS];
+  say("Objavljujem…","Šaljem izmene ("+(files.length+dels.length)+" fajlova)…",[]);
+  const ref=await gh(tok,repo,"/git/ref/heads/"+br);
+  const baseCommit=await gh(tok,repo,"/git/commits/"+ref.object.sha);
+  const tree=[];
+  for(const f of files){
+    const buf=await (await readFile(f)).arrayBuffer();
+    const bl=await gh(tok,repo,"/git/blobs",{method:"POST",body:JSON.stringify({content:b64(buf),encoding:"base64"})});
+    tree.push({path:f,mode:"100644",type:"blob",sha:bl.sha});
+  }
+  for(const f of dels)tree.push({path:f,mode:"100644",type:"blob",sha:null});
+  const nt=await gh(tok,repo,"/git/trees",{method:"POST",body:JSON.stringify({base_tree:baseCommit.tree.sha,tree})});
+  const nc=await gh(tok,repo,"/git/commits",{method:"POST",body:JSON.stringify({message:"Izmene iz programa za upravljanje",tree:nt.sha,parents:[ref.object.sha]})});
+  await gh(tok,repo,"/git/refs/heads/"+br,{method:"PATCH",body:JSON.stringify({sha:nc.sha})});
+  CHG.clear();DELS.clear();dirty=false;$("#note").classList.remove("show");
+  say("Objavljeno",'<span class="ok">Gotovo.</span> Izmene su poslate. Netlify ih objavljuje na sajt za oko minut (osvežite stranicu sajta posle toga).');
+}
+$("#bPush").onclick=async()=>{
+  if(!CHG.size&&!DELS.size){say("Nema izmena","Od poslednje objave nema novih izmena za slanje.");return;}
+  const tok=ghTok();
+  if(tok){try{await doPush(tok);}catch(e){say("Greška pri objavi",esc(e.message)+"<br><br>Ako piše 401 ili 403, ključ je istekao ili nema dozvolu. Kliknite „Novi ključ“.",[["Novi ključ",()=>{try{localStorage.removeItem("partis_gh");}catch(x){}$("#bPush").click();},1],["Zatvori",()=>$("#dlg2").close(),0]]);}return;}
+  say("Povezivanje sa GitHub-om",`Prvi put je potreban ključ (token) da program sme da šalje izmene. Nalog na GitHub-u: Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate. Izaberite samo repozitorijum <b>Partis</b>, a pod Permissions → Contents postavite <b>Read and write</b>. Ključ se čuva samo u ovom pregledaču.<br><br><input type="password" id="ghT" style="width:100%;padding:8px;font:inherit;border:1.5px solid #999" placeholder="github_pat_…">`,
+   [["Sačuvaj i objavi",async()=>{const v=$("#ghT").value.trim();if(v.length<20)return;try{localStorage.setItem("partis_gh",v);}catch(e){}try{await doPush(v);}catch(e){say("Greška pri objavi",esc(e.message));}},1],["Otkaži",()=>$("#dlg2").close(),0]]);
+};
+
 /* ---------- izrada sajta ---------- */
 async function copyTree(src,dst,skip){
   for await(const [n,h] of src.entries()){
@@ -516,29 +556,9 @@ $("#bBuild").onclick=async()=>{
     if(M.D.KATS&&M.D.KATS.length){for(const k of CORE.katPages(await readText("templates/_kategorija.html"),M.D,site,SHARED)){await writeFile("dist/"+k.file,k.html);pages.push({file:k.file,noindex:k.noindex});}}
     for(const [f,c] of Object.entries(CORE.sitemapRobots(pages,site)))await writeFile("dist/"+f,c);
     let katMsg="";
-    if(BUNDLE){
-      try{
-        say("Pravim sajt…","Pravim i offline katalog (jedan fajl za slanje mejlom)…",[]);
-        const pg={};for(const f of pages)pg[f.file]=await readText("dist/"+f.file);
-        const as={};for(const n of ["style.css","app.js","cart.js","shared.js"])as[n]=await readText("dist/assets/"+n);
-        as["data.js"]=await readText("dist/assets/data.js");as["aliases.js"]=await readText("dist/assets/aliases.js");
-        const imgs={},sdir=await dirAt("static");
-        for(const u of BUNDLE.collect({pages:pg,assets:as})){
-          try{
-            let h=sdir;for(const part of u.replace(/^assets\//,"assets/").split("/"))h=part.includes(".")?await h.getFileHandle(part):await h.getDirectoryHandle(part);
-            const bmp=await createImageBitmap(await h.getFile());
-            const sc=Math.min(1,560/Math.max(bmp.width,bmp.height)),w=Math.round(bmp.width*sc),hh=Math.round(bmp.height*sc);
-            const c=document.createElement("canvas");c.width=w;c.height=hh;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,w,hh);x.drawImage(bmp,0,0,w,hh);
-            imgs[u]=c.toDataURL("image/jpeg",.72);
-          }catch(e){}
-        }
-        await writeFile("dist/PARTIS-katalog.html",BUNDLE.build({pages:pg,assets:as,imgs}));
-        katMsg="\n\nNapravljen je i <b>PARTIS-katalog.html</b> (u folderu dist) — jedan fajl koji kupcima šaljete mejlom.";
-      }catch(e){katMsg="\n\n(Offline katalog nije napravljen: "+esc(e.message)+")";}
-    }
     const miss=[];for(const p of [...M.D.HOSES,...M.D.SPRAYS,...M.D.ITEMS])for(const f of new Set([p.img,...(p.gal||[]).map(g=>g.img)].filter(Boolean)))if(!(await exists("dist/"+f)))miss.push(`„${p.name}“: slika ${f} ne postoji`);
     dirty=false;$("#note").classList.remove("show");
-    say("Sajt je napravljen",`<span class="ok">Gotovo.</span> U glavnom folderu je napravljen folder <b>dist</b> (${SHARED.totalProducts(M.D)} proizvoda, ${pages.length} stranica).${katMsg}\n\nSledeće: otpremite <b>sadržaj foldera dist</b> na hosting (npr. prevlačenjem na app.netlify.com/drop). Detalji su u UPUTSTVO.md.\n\nZa pregled pre otpremanja otvorite dist\\index.html (dvoklik).`+(miss.length||M.warn.length?`\n\n<span class="warn">Upozorenja:\n${esc([...M.warn,...miss].join("\n"))}</span>`:""));
+    say("Sajt je napravljen",`<span class="ok">Gotovo.</span> U glavnom folderu je napravljen folder <b>dist</b> (${SHARED.totalProducts(M.D)} proizvoda, ${pages.length} stranica).${katMsg}\n\nOvo je samo za probu na računaru. Za objavu na internetu koristite dugme „Objavi na sajt“.\n\nZa pregled pre otpremanja otvorite dist\\index.html (dvoklik).`+(miss.length||M.warn.length?`\n\n<span class="warn">Upozorenja:\n${esc([...M.warn,...miss].join("\n"))}</span>`:""));
   }catch(e){say("Greška",esc(e.message));}
 };
 
