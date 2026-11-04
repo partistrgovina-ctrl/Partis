@@ -80,7 +80,7 @@
       <div id="cart-list">${listHTML()}</div>
       <form id="cart-form" class="cart-form" ${cart.length?"":"hidden"} onsubmit="return cartSend(event)">
         <div class="m-sub">Podaci za odgovor i isporuku</div>
-        <p class="cart-note">Ovo je upit, ne i obavezujuća kupovina. Javljamo vam se sa potvrdom cena i dostupnosti.</p>
+        <p class="cart-note">Ovo je upit, ne i obavezujuća kupovina. Javljamo vam se sa potvrdom cena i dostupnosti. Poštarinu plaćamo za pošiljke čija vrednost prelazi 3.000 dinara.</p>
         <div class="f-grid">
           <label>Ime i prezime *<input name="ime" required autocomplete="name" value="${esc((window.CUSTOMER||{}).ime||"")}"></label>
           <label>Firma (neobavezno)<input name="firma" autocomplete="organization" value="${esc((window.CUSTOMER||{}).firma||"")}"></label>
