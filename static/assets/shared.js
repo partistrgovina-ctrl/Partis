@@ -31,7 +31,7 @@
     let price;
     if(p.gal){
       if(!pr)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: 018-553-800</span>`;
-      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${p.gal.length} dimenzije</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD</b></div><span class="pdv">cena bez PDV-a</span>`;
+      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${p.gal.length} ${plr(p.gal.length,"dimenzija","dimenzije","dimenzija")}</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD</b></div><span class="pdv">cena bez PDV-a</span>`;
       else price=`<div class="opt"><b class="promo-t">Akcijske cene</b></div><span class="pdv">cene u detaljima</span>`;
     }else if(p.price==null)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: 018-553-800</span>`;
     else price=`<div class="opt"><b>${fmt(p.price)} RSD</b></div><span class="pdv">cena bez PDV-a</span>`;
@@ -42,6 +42,8 @@
       <div class="card-foot"><div class="opts">${price}</div><div class="card-go">Detalji →</div></div>
     </div></div>`;
   }
+  /* srpski množinski oblici: 1, 21 → jednina; 2–4, 22–24 → paukal; ostalo → genitiv množine */
+  const plr=(n,a,b,c)=>{const m=n%100,d=n%10;return (d===1&&m!==11)?a:(d>=2&&d<=4&&(m<12||m>14))?b:c;};
   const cardHTML=(r,i)=>r.kind==="crevo"?hoseCardHTML(r,i):r.kind==="sprej"?sprayCardHTML(r,i):itemCardHTML(r,i);
 
   /* artikal može biti u više kategorija: glavna (cat) + dodatne (cats) */
@@ -106,7 +108,7 @@
   }
   function tilesHTML(D){return rename(D,tilesHTML0(D));}
   function tilesHTML0(D){
-    return tiles(D).map(t=>`<div class="tile" data-pool="${t.pool.join(",")}"><a class="tile-main" href="${t.u}"><div class="tile-img"><img class="on" src="${esc(t.src||(D.IMG&&D.IMG[t.img])||"")}" alt="${esc(t.t)}"></div><div class="tile-body"><h3>${t.t}</h3><p>${t.d}</p><span class="tile-n">${t.n} proizvoda</span></div></a>${t.subs?`<div class="tile-subs">${t.subs.map(s=>`<a href="${s[1]}">${s[0]}</a>`).join("")}</div>`:""}</div>`).join("");
+    return tiles(D).map(t=>`<div class="tile" data-pool="${t.pool.join(",")}"><a class="tile-main" href="${t.u}"><div class="tile-img"><img class="on" src="${esc(t.src||(D.IMG&&D.IMG[t.img])||"")}" alt="${esc(t.t)}"></div><div class="tile-body"><h3>${t.t}</h3><p>${t.d}</p><span class="tile-n">${t.n} ${plr(t.n,"proizvod","proizvoda","proizvoda")}</span></div></a>${t.subs?`<div class="tile-subs">${t.subs.map(s=>`<a href="${s[1]}">${s[0]}</a>`).join("")}</div>`:""}</div>`).join("");
   }
   function menuHTML(D){
     const li=tiles(D).map(t=>`<li><a class="s-top" href="${t.u}"><span>${t.t}</span><i>${t.n}</i></a>${t.subs?`<div class="s-subs">${t.subs.map(x=>`<a href="${x[1]}">${x[0]}</a>`).join("")}</div>`:""}</li>`).join("");

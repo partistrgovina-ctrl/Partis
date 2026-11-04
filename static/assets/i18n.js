@@ -20,6 +20,9 @@
     if(/\d/.test(t)){
       var nums=t.match(NUM),k=t.replace(NUM,"#");
       if(Object.prototype.hasOwnProperty.call(dict,k)){var i=0;return dict[k].replace(/#/g,function(){return nums[i++]||"";});}
+      /* srpski brojni oblici (dimenzija/dimenzije, stavka/stavki, proizvod/proizvoda) — isti prevod */
+      var k2=k.replace(/^# dimenzija$/,"# dimenzije").replace(/(\+ #) stavka sa/,"$1 stavki sa").replace(/^# proizvod$/,"# proizvoda");
+      if(k2!==k&&Object.prototype.hasOwnProperty.call(dict,k2)){var j=0;return dict[k2].replace(/#/g,function(){return nums[j++]||"";});}
     }
     return null;
   }
