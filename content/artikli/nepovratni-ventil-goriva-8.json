@@ -4,12 +4,19 @@
   "order": 120,
   "in_stock": true,
   "image": "/assets/img/nepov.jpg",
-  "description": "Kataloški broj IMT 539: 813114 (nepovratni ventil goriva).",
+  "description": "Nepovratni ventil za gorivo, za crevo 8 mm. Propušta gorivo samo u jednom smeru i sprečava vraćanje goriva unazad.",
   "price": 225,
   "aliases": [
-    "813114",
-    "IMT 539 813114",
-    "IMT 539",
-    "nepovratni ventil"
+    "nepovratni ventil",
+    "ventil nepovratni",
+    "nepovratni ventil goriva",
+    "nepovratni ventil za gorivo",
+    "povratni ventil goriva",
+    "jednosmerni ventil goriva",
+    "jednosmerni ventil",
+    "check valve",
+    "ventil za gorivo 8mm",
+    "nepovratni ventil 8 mm",
+    "ventil protiv povrata goriva"
   ]
 }
