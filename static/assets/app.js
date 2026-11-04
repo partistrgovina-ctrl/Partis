@@ -192,12 +192,11 @@ function startRotation(){
         nx.alt=el.querySelector("h3").textContent;box.appendChild(nx);
         requestAnimationFrame(()=>requestAnimationFrame(()=>{
           nx.classList.add("on");
-          box.querySelectorAll("img.on").forEach(i=>{if(i!==nx)i.classList.remove("on");});
-          setTimeout(()=>box.querySelectorAll("img:not(.on)").forEach(i=>i.remove()),1400);
+          setTimeout(()=>box.querySelectorAll("img").forEach(i=>{if(i!==nx)i.remove();}),2200);
         }));
       };
       nx.dataset.p=url;nx.src=IMGU(url);
-    },5000)),ti*800));
+    },6500)),ti*900));
   });
 }
 /* ================= FUZZY SEARCH ================= */

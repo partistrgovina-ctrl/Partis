@@ -410,3 +410,7 @@ td.price small{display:inline}
 .side-open{overflow:hidden}
 .nav-inner .search{flex:0 1 460px;min-width:300px}
 @media(max-width:1130px){.nav-inner .search{flex:1 1 100%;margin:4px 0 10px}}
+/* blago preliv slika na pločicama: nova slika se utapa preko stare */
+.tile-img img{opacity:0;transform:scale(1.03);transition:opacity 1.8s cubic-bezier(.45,0,.25,1),transform 2.6s cubic-bezier(.2,.6,.3,1)}
+.tile-img img.on{opacity:1;transform:none}
+.tile:hover .tile-img img.on{transform:scale(1.05)}
