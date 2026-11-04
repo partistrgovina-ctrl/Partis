@@ -24,7 +24,7 @@
     <div class="card-top spray"><span class="badge">HEMA</span>${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
     <div class="card-body">
       <div class="eng">${esc(p.eng)}</div><h3>${esc(p.name)}</h3><p class="desc">${esc(p.short)}</p>
-      <div class="card-foot"><div class="opts">${p.opts.map(o=>`<div class="opt"><span>${esc(o.pack)}</span><b>${fmt(o.price)} RSD</b> <span class="vat">(${fmt(gross(o.price))} sa PDV-om)</span></div>`).join("")}<span class="pdv">cena bez PDV-a</span></div><div class="card-go">Detalji →</div></div>
+      <div class="card-foot"><div class="opts">${p.opts.map(o=>`<div class="opt"><span>${esc(o.pack)}</span><b>${fmt(o.price)} RSD</b> <span class="vat">(${fmt(gross(o.price))} sa PDV-om)</span></div>`).join("")}<span class="pdv">cena bez PDV-a (u zagradi sa PDV-om)</span></div><div class="card-go">Detalji →</div></div>
     </div></div>`;
   }
   function itemCardHTML(p,i){
@@ -32,10 +32,10 @@
     let price;
     if(p.gal){
       if(!pr)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: 018-553-800</span>`;
-      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${p.gal.length} ${plr(p.gal.length,"dimenzija","dimenzije","dimenzija")}</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD</b> <span class="vat">(${fmt(gross(p.gal[0].price))} sa PDV-om)</span></div><span class="pdv">cena bez PDV-a</span>`;
+      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${p.gal.length} ${plr(p.gal.length,"dimenzija","dimenzije","dimenzija")}</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD</b> <span class="vat">(${fmt(gross(p.gal[0].price))} sa PDV-om)</span></div><span class="pdv">cena bez PDV-a (u zagradi sa PDV-om)</span>`;
       else price=`<div class="opt"><b class="promo-t">Akcijske cene</b></div><span class="pdv">cene u detaljima</span>`;
     }else if(p.price==null)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: 018-553-800</span>`;
-    else price=`<div class="opt"><b>${fmt(p.price)} RSD</b> <span class="vat">(${fmt(gross(p.price))} sa PDV-om)</span></div><span class="pdv">cena bez PDV-a</span>`;
+    else price=`<div class="opt"><b>${fmt(p.price)} RSD</b> <span class="vat">(${fmt(gross(p.price))} sa PDV-om)</span></div><span class="pdv">cena bez PDV-a (u zagradi sa PDV-om)</span>`;
     return `<div class="card" data-k="${p._k}" style="animation-delay:${(i*0.04).toFixed(2)}s">
     <div class="card-top item"><span class="badge">${esc(p.catName)}</span>${promo?`<span class="badge promo">Akcija</span>`:""}${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
     <div class="card-body">

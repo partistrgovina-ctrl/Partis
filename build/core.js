@@ -29,7 +29,7 @@
     opis:"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike, HEMA aerosol program (podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke), armirana gumena creva i prateća oprema, traktorski program (traktorska roba i gotova creva) i nastavci mazalica — za vozila, mašine i mehanizaciju.",
     kategorije:"Kategorije",
     info1_naslov:"Cene i porudžbine",
-    info1_tekst:"Sve cene su bez PDV-a. Za artikle sa oznakom „Cena na upit“ pozovite 018-553-800 / 065-2553-800 ili pišite na WhatsApp.",
+    info1_tekst:"Sve cene su bez PDV-a. U zagradi je iznos sa PDV-om. Za artikle sa oznakom „Cena na upit“ pozovite 018-553-800 / 065-2553-800 ili pišite na WhatsApp.",
     info2_naslov:"Sečenje creva po meri",
     info2_tekst:"Armirana gumena creva prodajemo u koturu od 50 m ili sečemo po potrebi.",
     opisi:{pneumatika:"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike.",hema:"Podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke.",creva:"Creva za gorivo, vodu, vazduh i ulje — kotur 50 m, sečenje po potrebi.",traktorski:"Traktorska roba (okca, šuplji vijci) i gotova creva sa montiranim nastavcima.",mazalice:"Nastavci za mazalice pod uglom od 45°, 90° i 180°."}
