@@ -57,7 +57,7 @@
       variants:(h.variants||[]).filter(v=>v.in_stock!==false).map(v=>({dim:txt(v.dim),wp:txt(v.wp,"—"),burst:txt(v.burst,"—"),flex:txt(v.flex,"—"),weight:txt(v.weight,"—"),price:num(v.price)??0})),_a:h.aliases
     })).filter(h=>h.variants.length);
     const sprays=live(inp.hema.map(e=>({...e.data,_file:e.file}))).map(s=>strip({
-      kind:"sprej",id:base(s._file),name:s.title,eng:txt(s.eng),img:img(s.image),opts:(s.packs||[]).filter(o=>o.in_stock!==false).map(o=>({pack:txt(o.pack),price:num(o.price)??0})),
+      kind:"sprej",id:base(s._file),name:s.title,eng:txt(s.eng),img:img(s.image),opts:(s.packs||[]).filter(o=>o.in_stock!==false).map(o=>({pack:txt(o.pack),price:num(o.price)??0,img:img(o.image)||undefined})),
       short:txt(s.card_text),desc:txt(s.description,"Opis u pripremi."),use:txt(s.use,"—"),_a:s.aliases
     })).filter(s=>s.opts.length);
     const items=live(inp.artikli.map(e=>({...e.data,_file:e.file}))).filter(a=>{const all=(a.variants||[]).filter(v=>txt(v.label));return !all.length||all.some(v=>v.in_stock!==false);}).map(a=>{

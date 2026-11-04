@@ -10,11 +10,13 @@
   "packs": [
     {
       "pack": "200 ml",
-      "price": 190
+      "price": 190,
+      "image": "/assets/img/nu40-200.png"
     },
     {
       "pack": "400 ml",
-      "price": 270
+      "price": 270,
+      "image": "/assets/img/nu40.png"
     }
   ],
   "aliases": [
@@ -29,6 +31,9 @@
     "nu 40",
     "višenamenski sprej",
     "multi sprej",
-    "sprej za zarđale navoje"
+    "sprej za zarđale navoje",
+    "nu-147",
+    "nu147",
+    "nu 147"
   ]
 }

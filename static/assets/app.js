@@ -35,12 +35,14 @@ function openHose(p){
     </div>`;
   show();
 }
+window.spSet=function(i){const c=window._spCur,o=c&&c.opts[i];const ph=document.getElementById("sp-photo");if(o&&o.img&&ph)ph.innerHTML=`<img src="${o.img}" alt="${esc(c.name)}">`;};
 function openSpray(p){
+  window._spCur=p;
   modal.className="modal spray";
   modal.innerHTML=`
     <button class="m-close" onclick="closeModal()">\u2715</button>
     <div class="split">
-      <div class="m-photo sp">${p.img?`<img src="${p.img}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
+      <div class="m-photo sp" id="sp-photo">${p.img?`<img src="${p.img}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
       <div class="m-content">
         <div class="eng">${esc(p.eng)}</div>
         <h2>${esc(p.name)}</h2>
@@ -51,7 +53,7 @@ function openSpray(p){
                     <div class="prop"><div class="k">Brend</div><div class="v">HEMA Aerosol</div></div>
         </div>
         <div class="m-sub">Ambalaža i cena</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD bez PDV-a</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr${o.img?` class="gal-row" onclick="spSet(${vi})"`:""}><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD bez PDV-a</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
       </div>
     </div>`;
   show();
