@@ -122,7 +122,7 @@
       const {error}=await c.auth.signInWithPassword({email:fd.get("email").trim(),password:fd.get("pass")});
       if(error)throw error;
       const p=await fetchProfile();
-      if(!p||!p.odobren){await c.auth.signOut();apply(null);busy(f,false,"Prijavi me");err("Vaš nalog još nije odobren. Javićemo vam se čim ga aktiviramo, ili nas pozovite: 018-553-800.");return false;}
+      if(!p||!p.odobren){await c.auth.signOut();apply(null);busy(f,false,"Prijavi me");err("Vaš nalog još nije odobren. Javićemo vam se čim ga aktiviramo, ili nas pozovite: +381 18 553 800.");return false;}
       apply(p);closeModal();
     }catch(x){busy(f,false,"Prijavi me");err(nice(x.message||String(x)));}
     return false;

@@ -72,7 +72,7 @@ function openItem(p){
         ${p.hint?`<p class="m-hint">${esc(p.hint)}</p>`:""}
         ${p.spec?`<div class="props"><div class="prop"><div class="k">${esc(p.specLabel||"Navoj")}</div><div class="v">${esc(p.spec)}</div></div></div>`:""}
         <div class="m-sub">Cena</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Artikal</th><th>Cena bez PDV-a (sa PDV-om)</th></tr></thead><tbody><tr><td><b>${esc(p.name)}</b></td><td class="price">${p.price==null?`Cena na upit <small>kontakt: 018-553-800 / 065-2553-800</small>`:`${pr(p,p.price)} <small>RSD</small><sup class="ast">*</sup>`}</td></tr></tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Artikal</th><th>Cena bez PDV-a (sa PDV-om)</th></tr></thead><tbody><tr><td><b>${esc(p.name)}</b></td><td class="price">${p.price==null?`Cena na upit <small>kontakt: +381 18 553 800 / +381 65 2553 800</small>`:`${pr(p,p.price)} <small>RSD</small><sup class="ast">*</sup>`}</td></tr></tbody></table></div>
         <div class="add-wrap">${addBtn(p._k,-1)}</div>
       </div>
     </div>`;
@@ -104,7 +104,7 @@ function openGal(p){
         <div class="m-sub">${(p.promo===false||!PARTIS.priced(p))?(n>1?"Dimenzije i cene":"Cena"):(n>1?"Dimenzije i akcijske cene":"Akcijska cena")}</div>
         ${grouped?`<div class="seg" id="seg">${p._groups.map((g,k)=>`<button class="seg-btn${k?"":" on"}" onclick="selGalGroup(${k})">${g}</button>`).join("")}</div>`:""}
         <div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>
-        ${p.gal.some(g=>g.price==null)?`<div class="note">Za cene pozovite 018-553-800 / 065-2553-800 ili pišite na <a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a> / partis.trgovina@gmail.com.</div>`:""}
+        ${p.gal.some(g=>g.price==null)?`<div class="note">Za cene pozovite +381 18 553 800 / +381 65 2553 800 ili pišite na <a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a> / partis.trgovina@gmail.com.</div>`:""}
         ${p.tnote?`<div class="note note-import">${esc(p.tnote)}</div>`:""}
         <div class="note" id="gal-note">Slike menjate strelicama, sličicama ili klikom na red u tabeli.</div>
       </div>
@@ -318,7 +318,7 @@ function renderSearchPage(){
   if(!q.trim()){info.textContent="Unesite naziv artikla, dimenziju ili kategoriju.";return;}
   const res=search(q);
   const total=res.exact.length+res.partial.length;
-  if(!total){info.innerHTML=`Nema rezultata za „<b>${q.replace(/</g,"&lt;")}</b>". Probajte kraći naziv ili dimenziju (npr. „spojnica", „M14", „8mm"), ili pozovite <a href="tel:+38118553800">018-553-800</a>.`;return;}
+  if(!total){info.innerHTML=`Nema rezultata za „<b>${q.replace(/</g,"&lt;")}</b>". Probajte kraći naziv ili dimenziju (npr. „spojnica", „M14", „8mm"), ili pozovite <a href="tel:+38118553800">+381 18 553 800</a>.`;return;}
   info.innerHTML=res.exact.length?`<b>${res.exact.length}</b> rezultata za „${q.replace(/</g,"&lt;")}"`:`Nema tačnog podudaranja za „${q.replace(/</g,"&lt;")}" — prikazani su slični artikli.`;
   res.exact.forEach((r,i)=>g.appendChild(cardFor(r,i)));
   if(res.partial.length&&res.exact.length){

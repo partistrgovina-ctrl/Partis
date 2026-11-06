@@ -23,13 +23,13 @@
   };
   const POC_DEF={
     seo_naslov:"PARTIS Niš",
-    seo_opis:"PARTIS Niš, Bulevar Nemanjića 103, lokal 8. Tel. 018-553-800, 065-2553-800.",
+    seo_opis:"PARTIS Niš, Bulevar Nemanjića 103, lokal 8. Tel. +381 18 553 800, +381 65 2553 800.",
     tag:"Niš · Za vozila, mašine i mehanizaciju",
     naslov:"Sve što je potrebno *vozilu* i mašini",
     opis:"Delovi i oprema za vozila, mašine i mehanizaciju, na jednom mestu. Ako ne nađete šta vam treba, pozovite — rado ćemo potražiti.",
     kategorije:"Kategorije",
     info1_naslov:"Cene i porudžbine",
-    info1_tekst:"Sve cene su bez PDV-a. U zagradi je iznos sa PDV-om. Za artikle sa oznakom „Cena na upit“ pozovite 018-553-800 / 065-2553-800 ili pišite na WhatsApp.",
+    info1_tekst:"Sve cene su bez PDV-a. U zagradi je iznos sa PDV-om. Za artikle sa oznakom „Cena na upit“ pozovite +381 18 553 800 / +381 65 2553 800 ili pišite na WhatsApp.",
     info2_naslov:"Sečenje creva po meri",
     info2_tekst:"Armirana gumena creva prodajemo u koturu od 50 m ili sečemo po potrebi.",
     opisi:{pneumatika:"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike.",hema:"Podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke.",creva:"Creva za gorivo, vodu, vazduh i ulje — kotur 50 m, sečenje po potrebi.",traktorski:"Traktorska roba (okca, šuplji vijci) i gotova creva sa montiranim nastavcima.",mazalice:"Nastavci za mazalice pod uglom od 45°, 90° i 180°."}
@@ -42,7 +42,7 @@
   }
   function pocFill(s,P){
     const e=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    const link=t=>e(t).replace(/018-553-800/g,'<a href="tel:+38118553800">018-553-800</a>').replace(/065-2553-800/g,'<a href="tel:+381652553800">065-2553-800</a>').replace(/WhatsApp/g,'<a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a>');
+    const link=t=>e(t).replace(/\+381 18 553 800/g,'<a href="tel:+38118553800">+381 18 553 800</a>').replace(/\+381 65 2553 800/g,'<a href="tel:+381652553800">+381 65 2553 800</a>').replace(/WhatsApp/g,'<a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a>');
     const h1=e(P.naslov).replace(/\*(.+?)\*/g,"<em>$1</em>");
     const M={SEOT:e(P.seo_naslov),SEOD:e(P.seo_opis),TAG:e(P.tag),H1:h1,P:e(P.opis),KAT:e(P.kategorije),I1N:e(P.info1_naslov),I1T:link(P.info1_tekst),I2N:e(P.info2_naslov),I2T:link(P.info2_tekst)};
     return s.replace(/\{\{POC_(\w+)\}\}/g,(_,k)=>M[k]!==undefined?M[k]:"");
@@ -137,8 +137,8 @@
       const VB="viber://chat?number=%2B381652553800";
       const vsvg='<svg class="vb-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>';
       s=s.replace(/(<a class="wa-float"[^>]*>[\s\S]*?<\/a>)/,(m)=>m+'<a class="vb-float" href="'+VB+'" aria-label="Pišite nam na Viber">'+vsvg+'</a>');
-      s=s.replace(/(<a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">065-2553-800<\/a>)(<\/div>)/,(_,a,b)=>a+' &middot; <a href="'+VB+'">Viber</a>'+b);
-      s=s.replace(/(<div><a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">WhatsApp 065-2553-800<\/a><\/div>)/g,(m)=>m+'<div><a href="'+VB+'">Viber 065-2553-800</a></div>');
+      s=s.replace(/(<a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">+381 65 2553 800<\/a>)(<\/div>)/,(_,a,b)=>a+' &middot; <a href="'+VB+'">Viber</a>'+b);
+      s=s.replace(/(<div><a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">WhatsApp +381 65 2553 800<\/a><\/div>)/g,(m)=>m+'<div><a href="'+VB+'">Viber +381 65 2553 800</a></div>');
     }
     s=PARTIS.rename(D,s);
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};
@@ -172,7 +172,7 @@
        if(prices.length){const lo=Math.min(...prices),hi=Math.max(...prices),u=site+"/"+p.u.replace(/\.html$/,"");
          ld.offers=lo===hi?{"@type":"Offer",url:u,priceCurrency:"RSD",price:lo.toFixed(2),availability:"https://schema.org/InStock",priceSpecification:{"@type":"PriceSpecification",price:lo.toFixed(2),priceCurrency:"RSD",valueAddedTaxIncluded:false}}
          :{"@type":"AggregateOffer",url:u,priceCurrency:"RSD",lowPrice:lo.toFixed(2),highPrice:hi.toFixed(2),offerCount:prices.length,availability:"https://schema.org/InStock"};}}
-      const stat=`<h1>${eh(p.name)}</h1>${p.img?`<img src="${eh(p.img)}" alt="${eh(p.name)}" width="400">`:""}<p>${eh(desc)}</p>`+(p.hint?`<p>${eh(p.hint)}</p>`:"")+(vlist.length?`<ul>${vlist.map(v=>`<li>${eh(v)}</li>`).join("")}</ul>`:"")+`<p>Cena na upit: <a href="tel:+38118553800">018-553-800</a> / <a href="tel:+381652553800">065-2553-800</a></p>`;
+      const stat=`<h1>${eh(p.name)}</h1>${p.img?`<img src="${eh(p.img)}" alt="${eh(p.name)}" width="400">`:""}<p>${eh(desc)}</p>`+(p.hint?`<p>${eh(p.hint)}</p>`:"")+(vlist.length?`<ul>${vlist.map(v=>`<li>${eh(v)}</li>`).join("")}</ul>`:"")+`<p>Cena na upit: <a href="tel:+38118553800">+381 18 553 800</a> / <a href="tel:+381652553800">+381 65 2553 800</a></p>`;
       const t=tpl.replace(/\{\{P_KEY\}\}/g,p._k).replace(/\{\{P_FILE\}\}/g,p.u).replace(/\{\{P_TITLE\}\}/g,()=>eh(p.name)).replace(/\{\{P_DESC\}\}/g,()=>eh(dsc)).replace(/\{\{P_IMG\}\}/g,()=>eh(img||site+"/assets/img/nu40.jpg"))
         .replace(/\{\{P_PARENT\}\}/g,PAR[catFile]?'<a href="'+PAR[catFile][0]+'">'+PAR[catFile][1]+'</a> &rsaquo; ':(/^kategorija-/.test(catFile)&&catFile!=="kategorija-tork.html"?'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ':"")).replace(/\{\{P_CATNAME\}\}/g,()=>eh(catName)).replace(/\{\{P_CATFILE\}\}/g,catFile).replace(/\{\{P_LD\}\}/g,()=>`<script type="application/ld+json">${j(ld).replace(/</g,"\\u003c")}</script>`).replace(/\{\{P_STATIC\}\}/g,()=>stat);
       const r=renderPage(t,D,site,PARTIS);return {file:p.u,html:r.html,noindex:false};

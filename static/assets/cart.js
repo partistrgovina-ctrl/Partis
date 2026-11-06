@@ -119,7 +119,7 @@ const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
       document.querySelector(".cart-box").innerHTML=`<div class="eng">Upit za ponudu</div><h2>Hvala!</h2><p class="m-lead">Vaš upit je poslat. Javićemo vam se na broj ${esc(data.telefon)} ili na ${esc(data.email)} sa potvrdom cena i dostupnosti.</p><button class="cart-send" type="button" onclick="closeModal()">Zatvori</button>`;})
     .catch(()=>{
       const mail="mailto:partis.trgovina@gmail.com?subject="+encodeURIComponent("Upit sa sajta — "+data.ime)+"&body="+encodeURIComponent(`${text}\n\nIme: ${data.ime}\nFirma: ${data.firma}\nPIB: ${data.pib}\nTelefon: ${data.telefon}\nMejl: ${data.email}\nAdresa: ${data.adresa}\nNapomena: ${data.napomena}`);
-      err.innerHTML=`Slanje nije uspelo. Pokušajte ponovo, pozovite <a href="tel:+38118553800">018-553-800</a> ili <a href="${mail}">pošaljite upit iz vašeg mejla</a>.`;err.hidden=false;
+      err.innerHTML=`Slanje nije uspelo. Pokušajte ponovo, pozovite <a href="tel:+38118553800">+381 18 553 800</a> ili <a href="${mail}">pošaljite upit iz vašeg mejla</a>.`;err.hidden=false;
       b.disabled=false;b.textContent="Pošalji upit";
     });
     return false;
@@ -150,7 +150,7 @@ const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
       <p class="cart-alt-t">Ako se ništa ne otvori:</p>
       <div class="cart-alts"><button type="button" onclick="offlineCopy()">Kopiraj tekst upita</button><button type="button" onclick="offlineDownload()">Preuzmi upit (.txt)</button></div>
       ${tooLong?`<p class="m-lead" style="margin-top:10px">Upit je dugačak: preuzet je fajl <b>PARTIS-upit.txt</b> i tekst je kopiran. Priložite fajl uz mejl ili nalepite tekst (Ctrl+V).</p>`:""}
-      <p class="m-lead" style="margin-top:10px">Mejl ide na <b>${SHOP}</b>. Možete nas i pozvati: <a href="tel:+38118553800">018-553-800</a>.</p>
+      <p class="m-lead" style="margin-top:10px">Mejl ide na <b>${SHOP}</b>. Možete nas i pozvati: <a href="tel:+38118553800">+381 18 553 800</a>.</p>
       <div id="cart-note" class="m-lead" aria-live="polite"></div>
       <button class="cart-send" type="button" style="margin-top:10px;background:none;color:inherit;border:1px solid currentColor" onclick="closeModal()">Zatvori</button>`;
   }
