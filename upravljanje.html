@@ -132,6 +132,37 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
 .ct tr.wait:hover{background:#ffedaa}
 .imgbox img,.row .th img{transition:transform .25s var(--ease)}.row:hover .th img{transform:scale(1.06)}
 ::-webkit-scrollbar{width:11px;height:11px}::-webkit-scrollbar-thumb{background:#c4bca9;border-radius:8px;border:2px solid transparent;background-clip:content-box}::-webkit-scrollbar-thumb:hover{background:#a59d89;background-clip:content-box}
+/* ---------- kupci ---------- */
+#dlg3{max-width:980px}
+.cc-top{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.cc-top input{flex:1;min-width:220px;font:inherit;padding:9px 12px;border:1.5px solid #b9b19f;border-radius:8px;background:#fff}
+.cc-top input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,38,28,.15);outline:0}
+.cc-chips{display:flex;gap:6px}.cc-chips button{border-radius:999px;padding:6px 14px;font-size:13px;background:#fff;border-color:#cfc8b8}
+.cc-chips button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cc-hint{margin:0 0 14px;color:#555;font-size:13px}
+.cc-list{display:flex;flex-direction:column;gap:14px}
+.cc{background:#fff;border:1.5px solid #e1dbcb;border-radius:14px;box-shadow:var(--sh);padding:16px 18px;transition:box-shadow .2s var(--ease),border-color .2s}
+.cc:hover{box-shadow:var(--sh2)}
+.cc.wait{border-color:#e6c84a;background:linear-gradient(#fffbe8,#fff 70px)}
+.cc[hidden]{display:none}
+.cc-h{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px}
+.cc-who b{font-size:17px}.cc-f{margin-left:8px;color:#555;font-weight:600}
+.cc-c{color:#666;font-size:13px;margin-top:2px}
+.cc-st{font:inherit;font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;border:1.5px solid var(--ok);color:var(--ok);background:#eef8f1;cursor:pointer}
+.cc.wait .cc-st{border-color:#c9a400;color:#7a6200;background:#fff3c4}
+.cc-g{margin-top:12px}
+.cc-t{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:#555;margin-bottom:6px;padding-bottom:4px;border-bottom:1px solid #ece6d8}
+.cc-t small{font-weight:400;text-transform:none;letter-spacing:0;margin-left:6px;color:#888}
+.cc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px 12px}
+.rf{display:flex;flex-direction:column;gap:3px;font-size:12px;color:#444;font-weight:600}
+.rf span{line-height:1.2;min-height:2.4em;display:flex;align-items:flex-end}
+.rin{position:relative}
+.rin input{width:100%;font:inherit;font-weight:700;padding:8px 26px 8px 10px;border:1.5px solid #b9b19f;border-radius:8px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.rin input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,38,28,.15);outline:0}
+.rin input:not(:placeholder-shown){background:#fff6f5;border-color:var(--red);color:var(--red)}
+.rin i{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-style:normal;color:#888;pointer-events:none;font-size:13px}
+.cc-ft{display:flex;justify-content:flex-end;margin-top:14px}
+
 @keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -726,24 +757,38 @@ function custLogin(err){
 async function custList(){
   const {data,error}=await SB.from("profili").select("*").order("created_at",{ascending:false});
   if(error)return d3("<p class='warn'>Greška: "+esc(error.message)+"</p>",[["Zatvori",()=>$("#dlg3").close()]]);
-  const G=[["svi","Opšti"],...SHARED.GROUPS];
+  const base=SHARED.GROUPS,nove=(KAT||[]).map(k=>[k.id,k.naziv]);
+  const fld=([k,n])=>`<label class="rf"><span>${esc(n)}</span><div class="rin"><input type="number" inputmode="decimal" min="0" max="99" step="0.5" data-r="${k}" value="__V_${k}__" placeholder="—"><i>%</i></div></label>`;
   data.sort((a,b)=>(a.odobren-b.odobren)||String(a.ime).localeCompare(String(b.ime),"sr"));
-  const rows=data.map(p=>`<tr data-id="${p.id}" class="${p.odobren?"":"wait"}"><td><b>${esc(p.ime||"")}</b>${p.firma?`<small>${esc(p.firma)}</small>`:""}<small>${esc(p.email||"")}</small><small>${esc(p.telefon||"")}</small><small>${esc(p.adresa||"")}</small></td>
-    <td><select data-f="odobren"><option value="0" ${p.odobren?"":"selected"}>Čeka odobrenje</option><option value="1" ${p.odobren?"selected":""}>Odobren</option></select></td>
-    ${G.map(([k])=>`<td><input type="number" min="0" max="99" step="0.5" data-r="${k}" value="${(p.rabati||{})[k]??""}"></td>`).join("")}
-    <td><button type="button" data-save>Sačuvaj</button></td></tr>`).join("");
-  d3(`<p>Rabat u procentima. „Opšti" važi za sve grupe kojima nije upisan poseban rabat; prazno = bez rabata. Kupac se ne može prijaviti dok mu nalog nije <b>Odobren</b>. Čekaju odobrenje: <b>${data.filter(p=>!p.odobren).length}</b>.</p>
-    <div style="overflow:auto"><table class="ct"><thead><tr><th>Kupac</th><th>Status</th>${G.map(([,n])=>`<th>${esc(n)} %</th>`).join("")}<th></th></tr></thead><tbody>${rows||"<tr><td>Još nema registrovanih kupaca.</td></tr>"}</tbody></table></div>`,
-    [["Osveži",custList],["Odjava",async()=>{await SB.auth.signOut();$("#dlg3").close();}],["Zatvori",()=>$("#dlg3").close()]]);
-  $("#d3Body").querySelectorAll("[data-save]").forEach(b=>b.onclick=async()=>{
-    const tr=b.closest("tr"),rab={};
+  const card=p=>{const R=p.rabati||{},v=k=>esc(R[k]??"");
+    const g=a=>a.map(x=>fld(x).replace("__V_"+x[0]+"__",v(x[0]))).join("");
+    return `<div class="cc ${p.odobren?"":"wait"}" data-id="${p.id}" data-s="${esc((p.ime||"")+" "+(p.firma||"")+" "+(p.email||"")).toLowerCase()}">
+      <div class="cc-h"><div class="cc-who"><b>${esc(p.ime||"Bez imena")}</b>${p.firma?`<span class="cc-f">${esc(p.firma)}</span>`:""}
+        <div class="cc-c">${[p.email,p.telefon,p.adresa].filter(Boolean).map(esc).join(" · ")}</div></div>
+        <select data-f="odobren" class="cc-st"><option value="0" ${p.odobren?"":"selected"}>Čeka odobrenje</option><option value="1" ${p.odobren?"selected":""}>Odobren</option></select></div>
+      <div class="cc-g"><div class="cc-t">Opšti rabat <small>važi za sve što nema poseban rabat</small></div><div class="cc-grid">${g([["svi","Svi artikli"]])}</div></div>
+      <div class="cc-g"><div class="cc-t">Po grupama</div><div class="cc-grid">${g(base)}</div></div>
+      ${nove.length?`<div class="cc-g"><div class="cc-t">Po kategorijama</div><div class="cc-grid">${g(nove)}</div></div>`:""}
+      <div class="cc-ft"><button type="button" class="red" data-save>Sačuvaj</button></div></div>`;};
+  const wait=data.filter(p=>!p.odobren).length;
+  d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga kupaca…"><div class="cc-chips"><button type="button" class="on" data-flt="">Svi (${data.length})</button><button type="button" data-flt="wait">Čekaju odobrenje (${wait})</button></div></div>
+    <p class="cc-hint">Rabat je u procentima. Prazno polje = bez rabata (važi opšti). Kupac ne može da se prijavi dok mu nalog nije <b>Odobren</b>.</p>
+    <div class="cc-list">${data.map(card).join("")||"<p>Još nema registrovanih kupaca.</p>"}</div>`,
+    [["Osveži",custList],["Odjava",async()=>{try{localStorage.removeItem("partis_sb_cred");}catch(e){}await SB.auth.signOut();$("#dlg3").close();}],["Zatvori",()=>$("#dlg3").close()]]);
+  const body=$("#d3Body");let flt="";
+  const apply=()=>{const q=$("#ccQ").value.trim().toLowerCase();body.querySelectorAll(".cc").forEach(c=>{c.hidden=!((!q||c.dataset.s.includes(q))&&(flt!=="wait"||c.classList.contains("wait")));});};
+  $("#ccQ").oninput=apply;
+  body.querySelectorAll("[data-flt]").forEach(b=>b.onclick=()=>{flt=b.dataset.flt;body.querySelectorAll("[data-flt]").forEach(x=>x.classList.toggle("on",x===b));apply();});
+  body.querySelectorAll("[data-save]").forEach(b=>b.onclick=async()=>{
+    const tr=b.closest(".cc"),rab={};
     tr.querySelectorAll("[data-r]").forEach(i=>{const v=String(i.value).trim().replace(",",".");if(v!==""&&!isNaN(Number(v))&&Number(v)>0&&Number(v)<100)rab[i.dataset.r]=Number(v);});
     const odob=tr.querySelector("[data-f=odobren]").value==="1";
-    b.disabled=true;b.textContent="…";
+    b.disabled=true;b.textContent="Čuvam…";
     const {error}=await SB.from("profili").update({odobren:odob,rabati:rab}).eq("id",tr.dataset.id);
     b.disabled=false;b.textContent=error?"Greška":"Sačuvano ✓";if(error)alert(error.message);else tr.classList.toggle("wait",!odob);
-    setTimeout(()=>b.textContent="Sačuvaj",1500);
+    setTimeout(()=>b.textContent="Sačuvaj",1600);
   });
+  body.querySelectorAll(".cc-st").forEach(sel=>sel.onchange=()=>{sel.closest(".cc").classList.toggle("wait",sel.value!=="1");});
 }
 window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue="";}});
 </script>

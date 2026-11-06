@@ -123,13 +123,13 @@
     return rename(D,`<ul>${li}</ul>`);
   }
   /* ----- rabati kupaca (po grupi artikala) ----- */
-  const GROUPS=[["pneumatika","Pneumatika"],["hema","HEMA aerosol"],["creva","Armirana creva i oprema"],["traktorski","Traktorski program"],["mazalice","Nastavci mazalica"],["ostalo","Ostale (nove) kategorije"]];
+  const GROUPS=[["pneumatika","Pneumatika"],["hema","HEMA aerosol"],["creva","Armirana creva i oprema"],["traktorski","Traktorski program"],["mazalice","Nastavci mazalica"]];
   function groupOf(p){
     if(p.kind==="sprej")return "hema";
     if(p.kind==="crevo"||p.cat==="crevo")return "creva";
     if(["pneu","crevapn","mesing","spojnice"].includes(p.cat))return "pneumatika";
     if(["traktor","gotova"].includes(p.cat))return "traktorski";
-    return p.cat==="mazalice"?"mazalice":(["pneu","crevapn","mesing","spojnice","crevo","traktor","gotova"].includes(p.cat)?"pneumatika":"ostalo");
+    return p.cat==="mazalice"?"mazalice":(["pneu","crevapn","mesing","spojnice","crevo","traktor","gotova"].includes(p.cat)?"pneumatika":(p.cat||"ostalo"));
   }
   /* procenat rabata za artikal: rabat grupe, a ako nije upisan — opšti rabat ("svi") */
   function rebateFor(p,R){
