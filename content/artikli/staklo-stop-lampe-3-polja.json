@@ -4,7 +4,14 @@
   "order": 1040,
   "in_stock": true,
   "image": "/assets/img/kat/k040.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Zamensko staklo za štop lampu sa 3 polja.",
   "promo": false,
-  "price": 300.0
+  "price": 300.0,
+  "aliases": [
+    "staklo stop lampe",
+    "staklo zadnjeg svetla",
+    "staklo lampe",
+    "staklo za stop",
+    "staklo zadnje lampe"
+  ]
 }

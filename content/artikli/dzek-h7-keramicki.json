@@ -4,12 +4,20 @@
   "order": 1015,
   "in_stock": true,
   "image": "/assets/img/kat/k014.jpg",
-  "description": "Elektrika. Pakovanje: par.",
+  "description": "Keramički džek (utičnica) za sijalice H7, sa kablom. Prodaje se u paru.",
   "promo": false,
   "variants": [
     {
       "label": "Par",
       "price": 60.0
     }
+  ],
+  "aliases": [
+    "utikac h7",
+    "drzac sijalice h7",
+    "fasung h7",
+    "h7 prikljucak",
+    "patrona h7",
+    "konektor h7"
   ]
 }

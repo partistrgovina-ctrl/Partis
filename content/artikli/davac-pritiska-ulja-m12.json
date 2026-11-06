@@ -4,7 +4,14 @@
   "order": 1071,
   "in_stock": true,
   "image": "/assets/img/kat/k079.jpg",
-  "description": "Davači temperature i pritiska ulja.",
+  "description": "Davač pritiska ulja sa navojem M12 za instrument tablu motora.",
   "promo": false,
-  "price": 150.0
+  "price": 150.0,
+  "aliases": [
+    "senzor pritiska ulja m12",
+    "davac ulja m12",
+    "sonda pritiska ulja",
+    "davac manometra ulja",
+    "pritisak ulja m12"
+  ]
 }

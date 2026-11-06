@@ -4,7 +4,15 @@
   "order": 1037,
   "in_stock": true,
   "image": "/assets/img/kat/k037.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Par zadnjih štop lampi sa 3 polja za prikolice i teretna vozila.",
   "promo": false,
-  "price": 1400.0
+  "price": 1400.0,
+  "aliases": [
+    "stop lampe",
+    "zadnja svetla",
+    "zadnje lampe",
+    "stop svetla",
+    "svetla prikolice",
+    "stop lampa 3 polja"
+  ]
 }

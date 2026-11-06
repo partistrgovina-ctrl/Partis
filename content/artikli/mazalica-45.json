@@ -4,7 +4,7 @@
   "order": 110,
   "in_stock": true,
   "image": "/assets/img/maz45.jpg",
-  "description": "Nastavak za mazalice",
+  "description": "Mazalica (maznica) pod uglom 45° za podmazivanje ležajeva i zglobova mašina, traktora i vozila. Služi za utiskivanje masti iz mazalice (pumpe za mast).",
   "col_label": "Navoj",
   "variants": [
     {
@@ -23,5 +23,15 @@
       "in_stock": true
     }
   ],
-  "promo": false
+  "promo": false,
+  "aliases": [
+    "maznica",
+    "masnica",
+    "mazalica za mast",
+    "nipla za mast",
+    "grease nipple",
+    "podmazivanje",
+    "masinka",
+    "mazalice 45°"
+  ]
 }

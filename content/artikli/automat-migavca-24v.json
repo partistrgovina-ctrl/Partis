@@ -4,7 +4,15 @@
   "order": 1058,
   "in_stock": true,
   "image": "/assets/img/kat/k060.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Automat (flaser) migavaca za 24V instalacije. Daje ritmično treptanje pokazivača pravca na kamionima, autobusima i prikolicama.",
   "promo": false,
-  "price": 140.0
+  "price": 140.0,
+  "aliases": [
+    "flaser migavaca",
+    "rele migavaca",
+    "trepcuce",
+    "trepter migavaca",
+    "blinker 24v",
+    "relej migavca"
+  ]
 }

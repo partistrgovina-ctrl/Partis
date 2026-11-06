@@ -4,7 +4,15 @@
   "order": 1062,
   "in_stock": true,
   "image": "/assets/img/kat/k064.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Prekidač migavaca APU-8 za Mercedes.",
   "promo": false,
-  "price": 5000.0
+  "price": 5000.0,
+  "aliases": [
+    "migavac prekidac mercedes",
+    "prekidac pokazivaca pravca",
+    "ručica migavaca",
+    "prekidac migavaca",
+    "apu8",
+    "komandna rucica migavca"
+  ]
 }

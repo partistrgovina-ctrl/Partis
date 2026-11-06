@@ -4,7 +4,13 @@
   "order": 1069,
   "in_stock": true,
   "image": "/assets/img/kat/k071.jpg",
-  "description": "Termostati.",
+  "description": "Termostat za vozila Scania.",
   "promo": false,
-  "price": 2200.0
+  "price": 2200.0,
+  "aliases": [
+    "termostat skania",
+    "termostat motora scania",
+    "ventil rashladne tecnosti",
+    "scania termostat"
+  ]
 }

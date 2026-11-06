@@ -4,7 +4,15 @@
   "order": 1503,
   "in_stock": true,
   "image": "/assets/img/kat/k113.jpg",
-  "description": "Prateća oprema.",
+  "description": "Metalni poklopac rezervoara goriva sa ključem, prečnik 78 mm, za Mercedes.",
   "promo": false,
-  "price": 900.0
+  "price": 900.0,
+  "aliases": [
+    "cep rezervoara",
+    "poklopac tanka",
+    "zatvarac rezervoara",
+    "cep tanka mercedes",
+    "poklopac goriva sa kljucem",
+    "cep goriva"
+  ]
 }

@@ -4,7 +4,15 @@
   "order": 2004,
   "in_stock": true,
   "image": "/assets/img/kat/k096.jpg",
-  "description": "Program AK-SA.",
+  "description": "Prekidač mase (odvajanje akumulatora) 200A. Prekida strujno kolo kada vozilo ne radi.",
   "promo": false,
-  "price": 1200.0
+  "price": 1200.0,
+  "aliases": [
+    "glavni prekidac",
+    "odvajac akumulatora",
+    "prekidac akumulatora",
+    "masa prekidac",
+    "rastavljac akumulatora",
+    "prekidac struje 200a"
+  ]
 }

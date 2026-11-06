@@ -4,7 +4,14 @@
   "order": 1038,
   "in_stock": true,
   "image": "/assets/img/kat/k038.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Par zadnjih štop lampi sa 4 polja za Mercedes (MB) teretna vozila.",
   "promo": false,
-  "price": 2400.0
+  "price": 2400.0,
+  "aliases": [
+    "stop lampe mercedes",
+    "zadnja svetla mb",
+    "zadnje lampe mercedes",
+    "stop svetla",
+    "stop lampa 4 polja"
+  ]
 }

@@ -4,12 +4,21 @@
   "order": 1012,
   "in_stock": true,
   "image": "/assets/img/kat/k011.jpg",
-  "description": "Elektrika. Pakovanje: par.",
+  "description": "Akumulatorske kleme K50082 u crvenoj i crnoj boji, pakovanje par (plus i minus).",
   "promo": false,
   "variants": [
     {
       "label": "Par",
       "price": 65.0
     }
+  ],
+  "aliases": [
+    "klema akumulatora",
+    "akumulatorska klema",
+    "poklema",
+    "pol klema",
+    "klemne akumulatora",
+    "par klema",
+    "k50082"
   ]
 }

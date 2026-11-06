@@ -4,7 +4,14 @@
   "order": 1041,
   "in_stock": true,
   "image": "/assets/img/kat/k041.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Par zadnjih štop lampi za Iveco, sa 4 polja i katadioptarom.",
   "promo": false,
-  "price": 3200.0
+  "price": 3200.0,
+  "aliases": [
+    "stop lampe iveco",
+    "zadnja svetla iveco",
+    "zadnje lampe iveco",
+    "stop svetla",
+    "katadioptar iveco"
+  ]
 }

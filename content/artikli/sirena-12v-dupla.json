@@ -4,12 +4,20 @@
   "order": 1028,
   "in_stock": true,
   "image": "/assets/img/kat/k028.jpg",
-  "description": "Zvučna signalizacija. Pakovanje: par.",
+  "description": "Dvostruka sirena 12V, prodaje se u paru.",
   "promo": false,
   "variants": [
     {
       "label": "Par",
       "price": 360.0
     }
+  ],
+  "aliases": [
+    "truba",
+    "sirena 12v",
+    "dupla truba",
+    "sirena za auto",
+    "truba 12v",
+    "klakson"
   ]
 }

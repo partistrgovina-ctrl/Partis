@@ -4,7 +4,14 @@
   "order": 1057,
   "in_stock": true,
   "image": "/assets/img/kat/k059.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Automat migavaca sa 11 izvoda za vozila FAP i Mercedes.",
   "promo": false,
-  "price": 700.0
+  "price": 700.0,
+  "aliases": [
+    "flaser migavaca fap",
+    "rele migavaca mercedes",
+    "trepcuce fap",
+    "automat migavaca 11 pinova",
+    "fap mercedes flaser"
+  ]
 }

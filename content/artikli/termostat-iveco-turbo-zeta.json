@@ -4,7 +4,14 @@
   "order": 1068,
   "in_stock": true,
   "image": "/assets/img/kat/k070.jpg",
-  "description": "Termostati.",
+  "description": "Termostat za vozila Iveco i Turbo Zeta.",
   "promo": false,
-  "price": 700.0
+  "price": 700.0,
+  "aliases": [
+    "termostat iveco",
+    "termostat zeta",
+    "termostat turbo zeta",
+    "termostat motora",
+    "ventil rashladne tecnosti"
+  ]
 }

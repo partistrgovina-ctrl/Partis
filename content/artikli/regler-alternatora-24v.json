@@ -4,7 +4,15 @@
   "order": 1065,
   "in_stock": true,
   "image": "/assets/img/kat/k067.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Regler (regulator napona) alternatora za 24V.",
   "promo": false,
-  "price": 450.0
+  "price": 450.0,
+  "aliases": [
+    "regulator alternatora",
+    "regulator napona",
+    "regler napona",
+    "punjenje akumulatora",
+    "regler dinama",
+    "regulator struje punjenja"
+  ]
 }

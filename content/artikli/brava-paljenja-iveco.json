@@ -4,7 +4,14 @@
   "order": 1052,
   "in_stock": true,
   "image": "/assets/img/kat/k054.jpg",
-  "description": "Brave.",
+  "description": "Brava (kontakt brava) paljenja sa ključevima za vozila Iveco.",
   "promo": false,
-  "price": 3500.0
+  "price": 3500.0,
+  "aliases": [
+    "kontakt brava iveco",
+    "brava kontakta iveco",
+    "brava za paljenje iveco",
+    "kontakt iveco",
+    "bravica paljenja iveco"
+  ]
 }

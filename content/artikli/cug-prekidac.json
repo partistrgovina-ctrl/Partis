@@ -4,7 +4,14 @@
   "order": 2007,
   "in_stock": true,
   "image": "/assets/img/kat/k099.jpg",
-  "description": "Program AK-SA.",
+  "description": "Cug (vučni) prekidač za uključivanje svetala i potrošača na traktorima i radnim mašinama. Uključuje se izvlačenjem dugmeta.",
   "promo": false,
-  "price": 115.0
+  "price": 115.0,
+  "aliases": [
+    "vucni prekidac",
+    "cug dugme",
+    "prekidac na cug",
+    "izvlacni prekidac",
+    "cug taster"
+  ]
 }

@@ -4,7 +4,16 @@
   "order": 1017,
   "in_stock": true,
   "image": "/assets/img/kat/k016.jpg",
-  "description": "Elektrika.",
+  "description": "Kablovi za prespajanje (pozajmicu struje) akumulatora, 1500A, dužine 3,5 m. Za pokretanje vozila sa praznim akumulatorom.",
   "promo": false,
-  "price": 1050.0
+  "price": 1050.0,
+  "aliases": [
+    "kablovi za paljenje",
+    "kablovi za startovanje",
+    "kablovi za prespajanje",
+    "kablovi za pozajmicu struje",
+    "pozajmica struje",
+    "starter kablovi",
+    "1500a"
+  ]
 }

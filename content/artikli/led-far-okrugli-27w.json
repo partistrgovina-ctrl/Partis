@@ -4,7 +4,16 @@
   "order": 1032,
   "in_stock": true,
   "image": "/assets/img/kat/k032.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Okrugli LED far snage 27W, za radno i dopunsko osvetljenje traktora, kamiona i radnih mašina.",
   "promo": false,
-  "price": 350.0
+  "price": 350.0,
+  "aliases": [
+    "led reflektor",
+    "radni far",
+    "led radna lampa",
+    "far za traktor",
+    "reflektor 27w",
+    "led svetlo okruglo",
+    "work light"
+  ]
 }

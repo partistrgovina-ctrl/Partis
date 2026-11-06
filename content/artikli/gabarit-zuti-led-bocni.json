@@ -4,7 +4,15 @@
   "order": 1042,
   "in_stock": true,
   "image": "/assets/img/kat/k042.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Bočni LED gabarit žute boje za označavanje vozila i prikolica.",
   "promo": false,
-  "price": 100.0
+  "price": 100.0,
+  "aliases": [
+    "bocni gabarit",
+    "led gabarit zuti",
+    "pozicija svetlo bocno",
+    "gabaritno svetlo",
+    "bocna lampa",
+    "zuti gabarit"
+  ]
 }

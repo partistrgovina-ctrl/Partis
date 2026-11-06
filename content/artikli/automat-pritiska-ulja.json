@@ -4,7 +4,7 @@
   "order": 2100,
   "in_stock": true,
   "image": "/assets/img/kat/k102.jpg",
-  "description": "Program AK-SA. Navoj: M8x1, M10x1 ili M14x1.",
+  "description": "Automat (prekidač) pritiska ulja za kontrolnu lampicu pritiska ulja u motoru. Dostupan sa navojem M8x1, M10x1 i M14x1.",
   "promo": false,
   "variants": [
     {
@@ -23,5 +23,17 @@
       "price": 225.0
     }
   ],
-  "col_label": "Navoj"
+  "col_label": "Navoj",
+  "aliases": [
+    "prekidac pritiska ulja",
+    "presostat ulja",
+    "senzor pritiska ulja",
+    "kontakt pritiska ulja",
+    "davac pritiska ulja",
+    "lampica ulja",
+    "m8x1",
+    "m10x1",
+    "m14x1",
+    "traktorski automat ulja"
+  ]
 }

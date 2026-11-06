@@ -4,7 +4,15 @@
   "order": 2010,
   "in_stock": true,
   "image": "/assets/img/kat/k105.jpg",
-  "description": "Program AK-SA.",
+  "description": "Mali prekidač mase (odvajanje akumulatora) 100A.",
   "promo": false,
-  "price": 650.0
+  "price": 650.0,
+  "aliases": [
+    "glavni prekidac",
+    "odvajac akumulatora",
+    "prekidac akumulatora",
+    "masa prekidac mini",
+    "rastavljac akumulatora",
+    "prekidac struje 100a"
+  ]
 }

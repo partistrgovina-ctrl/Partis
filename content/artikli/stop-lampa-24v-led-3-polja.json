@@ -4,7 +4,14 @@
   "order": 1045,
   "in_stock": true,
   "image": "/assets/img/kat/k045.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "LED štop lampa 24V sa 3 polja, za kamione i autobuse.",
   "promo": false,
-  "price": 860.0
+  "price": 860.0,
+  "aliases": [
+    "led stop lampa 24v",
+    "zadnja led lampa",
+    "stop svetlo led",
+    "led zadnje svetlo kamion",
+    "stop lampa 3 polja"
+  ]
 }

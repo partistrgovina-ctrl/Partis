@@ -4,7 +4,14 @@
   "order": 1046,
   "in_stock": true,
   "image": "/assets/img/kat/k046.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "LED štop lampa 12V sa 3 polja.",
   "promo": false,
-  "price": 550.0
+  "price": 550.0,
+  "aliases": [
+    "led stop lampa",
+    "zadnja led lampa",
+    "stop svetlo led",
+    "led zadnje svetlo",
+    "stop lampa 3 polja"
+  ]
 }

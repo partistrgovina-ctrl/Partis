@@ -4,7 +4,17 @@
   "order": 2012,
   "in_stock": true,
   "image": "/assets/img/kat/k107.jpg",
-  "description": "Program AK-SA.",
+  "description": "Kontrolna lampa sa navojem (šraf), dostupna u više boja, isporučuje se sa sijalicom. Za signalizaciju na komandnoj tabli.",
   "promo": false,
-  "price": 150.0
+  "price": 150.0,
+  "aliases": [
+    "kontrolna lampica",
+    "signalna lampica",
+    "kontrolka",
+    "kontrolna lampa sraf",
+    "signalna lampa",
+    "lampica zelena",
+    "lampica crvena",
+    "lampica zuta"
+  ]
 }

@@ -4,7 +4,14 @@
   "order": 1024,
   "in_stock": true,
   "image": "/assets/img/kat/k024.jpg",
-  "description": "Elektrika.",
+  "description": "Dugme (taster) sirene za montažu u upravljač ili komandnu tablu vozila.",
   "promo": false,
-  "price": 85.0
+  "price": 85.0,
+  "aliases": [
+    "taster sirene",
+    "trubilo dugme",
+    "dugme trube",
+    "sirena dugme",
+    "taster trube"
+  ]
 }

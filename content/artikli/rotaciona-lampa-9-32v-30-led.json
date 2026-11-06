@@ -4,7 +4,17 @@
   "order": 1031,
   "in_stock": true,
   "image": "/assets/img/kat/k031.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Rotaciona signalna lampa sa 30 LED dioda, za napon 9-32V. Za označavanje radnih vozila, traktora i mašina.",
   "promo": false,
-  "price": 750.0
+  "price": 750.0,
+  "aliases": [
+    "rotirka",
+    "rotacija lampa",
+    "zuta rotaciona lampa",
+    "rotirajuca lampa",
+    "rotacioni far",
+    "signalna lampa",
+    "maja",
+    "rotacija"
+  ]
 }

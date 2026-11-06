@@ -4,7 +4,7 @@
   "order": 1300,
   "in_stock": true,
   "image": "/assets/img/kat/k072.jpg",
-  "description": "Releji 12V i 24V.",
+  "description": "Releji za 12V i 24V instalacije, sa 4 ili 5 izvoda (4P/5P) i strujom 10-30A. Za upravljanje svetlima, pumpama, ventilatorima i drugim potrošačima.",
   "promo": false,
   "variants": [
     {
@@ -38,5 +38,15 @@
       "price": 280.0
     }
   ],
-  "col_label": "Napon i izvedba"
+  "col_label": "Napon i izvedba",
+  "aliases": [
+    "rele",
+    "relej 12v",
+    "relej 24v",
+    "relej 5 pina",
+    "relej 4 pina",
+    "auto relej",
+    "rele 30a",
+    "rele 20a"
+  ]
 }

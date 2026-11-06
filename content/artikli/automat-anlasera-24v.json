@@ -4,7 +4,15 @@
   "order": 1056,
   "in_stock": true,
   "image": "/assets/img/kat/k058.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Automat (elektromagnetni prekidač) anlasera za 24V instalacije teretnih vozila, autobusa i radnih mašina. Zatvara strujno kolo između akumulatora i anlasera pri paljenju motora.",
   "promo": false,
-  "price": 2600.0
+  "price": 2600.0,
+  "aliases": [
+    "solenoid anlasera",
+    "relej anlasera",
+    "automat startera",
+    "starter automat",
+    "kontaktor anlasera",
+    "anlaser 24v"
+  ]
 }

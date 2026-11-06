@@ -4,12 +4,20 @@
   "order": 1014,
   "in_stock": true,
   "image": "/assets/img/kat/k013.jpg",
-  "description": "Elektrika. Pakovanje: par.",
+  "description": "Keramički džek (utičnica) za sijalice H4, sa kablom. Prodaje se u paru.",
   "promo": false,
   "variants": [
     {
       "label": "Par",
       "price": 60.0
     }
+  ],
+  "aliases": [
+    "utikac h4",
+    "drzac sijalice h4",
+    "fasung h4",
+    "h4 prikljucak",
+    "patrona h4",
+    "konektor h4"
   ]
 }

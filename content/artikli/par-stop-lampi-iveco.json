@@ -4,7 +4,13 @@
   "order": 1039,
   "in_stock": true,
   "image": "/assets/img/kat/k039.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Par zadnjih štop lampi za vozila Iveco.",
   "promo": false,
-  "price": 3200.0
+  "price": 3200.0,
+  "aliases": [
+    "stop lampe iveco",
+    "zadnja svetla iveco",
+    "zadnje lampe iveco",
+    "stop svetla"
+  ]
 }

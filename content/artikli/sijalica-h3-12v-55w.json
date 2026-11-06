@@ -4,7 +4,16 @@
   "order": 1006,
   "in_stock": true,
   "image": "/assets/img/kat/k005.jpg",
-  "description": "Sijalice.",
+  "description": "Halogena sijalica H3 12V 55W za automobilske farove i dopunska svetla.",
   "promo": false,
-  "price": 30.0
+  "price": 30.0,
+  "aliases": [
+    "h3 sijalica",
+    "halogena sijalica",
+    "sijalica za far",
+    "sijalica h3",
+    "h3 55w",
+    "auto sijalica",
+    "sijalica za maglenku"
+  ]
 }

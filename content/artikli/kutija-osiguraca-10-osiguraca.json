@@ -4,7 +4,15 @@
   "order": 1022,
   "in_stock": true,
   "image": "/assets/img/kat/k021.jpg",
-  "description": "Elektrika.",
+  "description": "Kutija sa mestima za 10 ubodnih osigurača, za razvod i zaštitu električnih kola.",
   "promo": false,
-  "price": 410.0
+  "price": 410.0,
+  "aliases": [
+    "kutija sa osiguracima",
+    "osiguracka kutija",
+    "razvodna kutija osiguraca",
+    "drzac osiguraca",
+    "kutija za osigurace 10",
+    "kutijica osiguraca"
+  ]
 }

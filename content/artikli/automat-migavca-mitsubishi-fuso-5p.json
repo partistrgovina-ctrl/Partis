@@ -4,7 +4,13 @@
   "order": 1059,
   "in_stock": true,
   "image": "/assets/img/kat/k061.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Automat migavaca sa 5 izvoda (5P) za Mitsubishi Fuso. Upravlja treptanjem pokazivača pravca.",
   "promo": false,
-  "price": 1300.0
+  "price": 1300.0,
+  "aliases": [
+    "flaser migavaca fuso",
+    "rele migavaca mitsubishi",
+    "fuso canter migavac",
+    "trepcuce 5 pina"
+  ]
 }

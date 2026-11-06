@@ -4,7 +4,16 @@
   "order": 1029,
   "in_stock": true,
   "image": "/assets/img/kat/k029.jpg",
-  "description": "Zvučna signalizacija.",
+  "description": "Dvoglasna sirena (truba) 12/24V, za teretna vozila, traktore i radne mašine.",
   "promo": false,
-  "price": 1250.0
+  "price": 1250.0,
+  "aliases": [
+    "truba dvoglasna",
+    "pneumatska truba",
+    "dvotonska sirena",
+    "sirena 24v",
+    "klakson kamion",
+    "truba 24v",
+    "dvotonska truba"
+  ]
 }

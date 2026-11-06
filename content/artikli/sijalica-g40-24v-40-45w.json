@@ -4,7 +4,15 @@
   "order": 1010,
   "in_stock": true,
   "image": "/assets/img/kat/k009.jpg",
-  "description": "Sijalice.",
+  "description": "Sijalica G40 24V 40/45W za farove teretnih vozila i traktora.",
   "promo": false,
-  "price": 50.0
+  "price": 50.0,
+  "aliases": [
+    "sijalica za far 24v",
+    "sijalica 24v 45w",
+    "sijalica za kamione",
+    "sijalica za traktor",
+    "g40",
+    "24v 40/45"
+  ]
 }

@@ -4,7 +4,15 @@
   "order": 2013,
   "in_stock": true,
   "image": "/assets/img/kat/k108.jpg",
-  "description": "Program AK-SA.",
+  "description": "Crvena kontrolna lampa za montažu u rupu (buksnu), isporučuje se sa sijalicom. Za signalizaciju na komandnoj tabli.",
   "promo": false,
-  "price": 150.0
+  "price": 150.0,
+  "aliases": [
+    "kontrolna lampica",
+    "signalna lampica",
+    "lampica crvena",
+    "kontrolka crvena",
+    "kontrolna lampa buksna",
+    "signalna lampa"
+  ]
 }

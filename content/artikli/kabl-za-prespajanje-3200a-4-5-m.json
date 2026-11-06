@@ -4,7 +4,16 @@
   "order": 1018,
   "in_stock": true,
   "image": "/assets/img/kat/k017.jpg",
-  "description": "Elektrika.",
+  "description": "Teški kablovi za prespajanje (pozajmicu struje) akumulatora, 3200A, dužine 4,5 m. Za kamione, autobuse i radne mašine.",
   "promo": false,
-  "price": 2500.0
+  "price": 2500.0,
+  "aliases": [
+    "kablovi za paljenje",
+    "kablovi za startovanje",
+    "kablovi za prespajanje",
+    "kablovi za pozajmicu struje",
+    "pozajmica struje",
+    "starter kablovi",
+    "3200a"
+  ]
 }

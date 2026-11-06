@@ -4,7 +4,15 @@
   "order": 1508,
   "in_stock": true,
   "image": "/assets/img/kat/k118.jpg",
-  "description": "Prateća oprema.",
+  "description": "Metalna drukalica (ručni potisak) AC pumpe goriva sa navojem M16x1,5.",
   "promo": false,
-  "price": 520.0
+  "price": 520.0,
+  "aliases": [
+    "drukalica pumpe goriva",
+    "ac pumpa drukalica",
+    "potiskivac pumpe goriva",
+    "ručna pumpica goriva",
+    "m16x1.5",
+    "dugme ac pumpe"
+  ]
 }

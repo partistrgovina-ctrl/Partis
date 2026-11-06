@@ -4,7 +4,7 @@
   "order": 3000,
   "in_stock": true,
   "image": "/assets/img/kat/k082.jpg",
-  "description": "TORK pužna šelna, dimenzije od 8-12 do 80-100 mm.",
+  "description": "TORK pužna šelna (obujmica) od nerđajućeg čelika, dimenzije od 8-12 do 80-100 mm. Za pričvršćivanje creva na priključke.",
   "promo": false,
   "variants": [
     {
@@ -52,5 +52,19 @@
       "price": 37.0
     }
   ],
-  "col_label": "Dimenzija"
+  "col_label": "Dimenzija",
+  "aliases": [
+    "selna",
+    "šelna",
+    "pužna šelna",
+    "tork selna",
+    "tork šelna",
+    "obujmica",
+    "obujmica za crevo",
+    "spona za crevo",
+    "tork obujmica",
+    "pužna obujmica",
+    "hose clamp",
+    "stega za crevo"
+  ]
 }

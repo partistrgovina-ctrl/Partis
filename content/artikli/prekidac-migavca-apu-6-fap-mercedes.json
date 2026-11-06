@@ -4,7 +4,15 @@
   "order": 1061,
   "in_stock": true,
   "image": "/assets/img/kat/k063.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Prekidač migavaca APU-6 za vozila FAP i Mercedes.",
   "promo": false,
-  "price": 3700.0
+  "price": 3700.0,
+  "aliases": [
+    "migavac prekidac fap",
+    "prekidac pokazivaca pravca",
+    "ručica migavaca",
+    "prekidac migavaca mercedes",
+    "apu6",
+    "komandna rucica migavca"
+  ]
 }

@@ -4,7 +4,15 @@
   "order": 1020,
   "in_stock": true,
   "image": "/assets/img/kat/k019.jpg",
-  "description": "Elektrika.",
+  "description": "Punjač akumulatora 12V, struja punjenja 10A.",
   "promo": false,
-  "price": 2150.0
+  "price": 2150.0,
+  "aliases": [
+    "punjac baterije",
+    "punjac za akumulator",
+    "punjac auto baterije",
+    "punjac 12v",
+    "ispravljac akumulatora",
+    "charger"
+  ]
 }

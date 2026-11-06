@@ -4,7 +4,14 @@
   "order": 2008,
   "in_stock": true,
   "image": "/assets/img/kat/k100.jpg",
-  "description": "Program AK-SA.",
+  "description": "Prekidač štop svetla za IMT traktore.",
   "promo": false,
-  "price": 250.0
+  "price": 250.0,
+  "aliases": [
+    "stop prekidac imt",
+    "prekidac stopa",
+    "prekidac kocionog svetla",
+    "imt traktor stop",
+    "kontakt stop svetla"
+  ]
 }

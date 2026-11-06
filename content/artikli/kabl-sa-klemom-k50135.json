@@ -4,7 +4,14 @@
   "order": 1013,
   "in_stock": true,
   "image": "/assets/img/kat/k012.jpg",
-  "description": "Elektrika.",
+  "description": "Akumulatorski kabl sa klemom (K50135) za povezivanje akumulatora.",
   "promo": false,
-  "price": 520.0
+  "price": 520.0,
+  "aliases": [
+    "akumulatorski kabl",
+    "kabl akumulatora",
+    "kabal sa klemom",
+    "klema sa kablom",
+    "k50135"
+  ]
 }

@@ -4,7 +4,14 @@
   "order": 1064,
   "in_stock": true,
   "image": "/assets/img/kat/k066.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Prekidač klik-klak sa 3 pozicije.",
   "promo": false,
-  "price": 100.0
+  "price": 100.0,
+  "aliases": [
+    "klik klak prekidac",
+    "preklopnik",
+    "prekidac 3 pozicije",
+    "prekidac sa 3 polozaja",
+    "toggle prekidac"
+  ]
 }

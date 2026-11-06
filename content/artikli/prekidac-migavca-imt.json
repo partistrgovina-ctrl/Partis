@@ -4,7 +4,14 @@
   "order": 2009,
   "in_stock": true,
   "image": "/assets/img/kat/k101.jpg",
-  "description": "Program AK-SA.",
+  "description": "Prekidač migavaca za IMT traktore.",
   "promo": false,
-  "price": 350.0
+  "price": 350.0,
+  "aliases": [
+    "migavac prekidac imt",
+    "prekidac pokazivaca pravca",
+    "rucica migavaca imt",
+    "imt traktor migavac",
+    "komandna rucica migavca"
+  ]
 }

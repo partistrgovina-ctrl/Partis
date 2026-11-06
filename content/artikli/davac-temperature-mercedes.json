@@ -4,7 +4,14 @@
   "order": 1070,
   "in_stock": true,
   "image": "/assets/img/kat/k078.jpg",
-  "description": "Davači temperature i pritiska ulja.",
+  "description": "Davač temperature rashladne tečnosti za vozila Mercedes. Šalje signal za pokazivač temperature motora.",
   "promo": false,
-  "price": 700.0
+  "price": 700.0,
+  "aliases": [
+    "senzor temperature mercedes",
+    "sonda temperature",
+    "davac temperature vode",
+    "davac grejanja",
+    "termo davac mercedes"
+  ]
 }

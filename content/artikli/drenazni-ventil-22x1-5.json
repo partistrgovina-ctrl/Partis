@@ -4,7 +4,15 @@
   "order": 1506,
   "in_stock": true,
   "image": "/assets/img/kat/k116.jpg",
-  "description": "Prateća oprema.",
+  "description": "Drenažni ventil navoja 22x1,5 za ispuštanje kondenzata iz vazdušnih rezervoara kočionog sistema.",
   "promo": false,
-  "price": 250.0
+  "price": 250.0,
+  "aliases": [
+    "ispusni ventil rezervoara",
+    "ventil za ispust vode",
+    "drenaza rezervoara",
+    "ventil rezervoara vazduha",
+    "ispust kondenzata",
+    "22x1.5"
+  ]
 }

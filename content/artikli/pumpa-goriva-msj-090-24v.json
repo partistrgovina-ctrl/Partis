@@ -4,7 +4,14 @@
   "order": 1025,
   "in_stock": true,
   "image": "/assets/img/kat/k025.jpg",
-  "description": "Elektrika.",
+  "description": "Električna pumpa goriva MSJ-090, 24V.",
   "promo": false,
-  "price": 1000.0
+  "price": 1000.0,
+  "aliases": [
+    "elektricna pumpa goriva",
+    "pumpa za gorivo 24v",
+    "pumpica goriva",
+    "msj090",
+    "dizel pumpa 24v"
+  ]
 }

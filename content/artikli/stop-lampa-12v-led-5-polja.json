@@ -4,7 +4,14 @@
   "order": 1048,
   "in_stock": true,
   "image": "/assets/img/kat/k050.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "LED štop lampa 12V sa 5 polja.",
   "promo": false,
-  "price": 660.0
+  "price": 660.0,
+  "aliases": [
+    "led stop lampa",
+    "zadnja led lampa",
+    "stop svetlo led",
+    "led zadnje svetlo",
+    "stop lampa 5 polja"
+  ]
 }

@@ -4,7 +4,15 @@
   "order": 1008,
   "in_stock": true,
   "image": "/assets/img/kat/k007.jpg",
-  "description": "Sijalice.",
+  "description": "Halogena sijalica H7 12V 55W za automobilske farove.",
   "promo": false,
-  "price": 80.0
+  "price": 80.0,
+  "aliases": [
+    "h7 sijalica",
+    "halogena sijalica",
+    "sijalica za far",
+    "sijalica h7",
+    "h7 55w",
+    "auto sijalica"
+  ]
 }

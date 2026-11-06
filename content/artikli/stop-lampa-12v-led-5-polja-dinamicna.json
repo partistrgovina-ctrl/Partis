@@ -4,7 +4,15 @@
   "order": 1049,
   "in_stock": true,
   "image": "/assets/img/kat/k051.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "LED štop lampa 12V sa 5 polja i dinamičnim (sekvencijalnim) migavcem.",
   "promo": false,
-  "price": 800.0
+  "price": 800.0,
+  "aliases": [
+    "led stop lampa dinamicka",
+    "dinamicki migavac",
+    "zadnja led lampa",
+    "stop svetlo led",
+    "sekvencijalni migavac",
+    "stop lampa 5 polja"
+  ]
 }

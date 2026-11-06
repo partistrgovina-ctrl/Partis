@@ -4,7 +4,15 @@
   "order": 1027,
   "in_stock": true,
   "image": "/assets/img/kat/k027.jpg",
-  "description": "Zvučna signalizacija.",
+  "description": "Sirena 12V prečnika 12 cm.",
   "promo": false,
-  "price": 275.0
+  "price": 275.0,
+  "aliases": [
+    "truba",
+    "sirena 12v",
+    "okrugla sirena",
+    "sirena za auto",
+    "klakson",
+    "truba 12v"
+  ]
 }

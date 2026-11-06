@@ -4,12 +4,20 @@
   "order": 1019,
   "in_stock": true,
   "image": "/assets/img/kat/k018.jpg",
-  "description": "Elektrika. Pakovanje: par.",
+  "description": "Metalna utičnica za autoprikolicu 12V, prodaje se u paru (utičnica i utikač).",
   "promo": false,
   "variants": [
     {
       "label": "Par",
       "price": 350.0
     }
+  ],
+  "aliases": [
+    "utikac prikolice",
+    "prikljucak prikolice",
+    "utikac za prikolicu",
+    "utičnica za kuku",
+    "7 pinova prikolica",
+    "utičnica kuke"
   ]
 }

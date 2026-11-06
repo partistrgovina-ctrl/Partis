@@ -4,7 +4,15 @@
   "order": 1009,
   "in_stock": true,
   "image": "/assets/img/kat/k008.jpg",
-  "description": "Sijalice.",
+  "description": "Halogena sijalica H7 24V 70W za farove teretnih vozila i autobusa.",
   "promo": false,
-  "price": 80.0
+  "price": 80.0,
+  "aliases": [
+    "h7 24v",
+    "sijalica h7 24v",
+    "sijalica 24v 70w",
+    "sijalica za kamion",
+    "halogena 24v",
+    "thm"
+  ]
 }

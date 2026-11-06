@@ -4,7 +4,15 @@
   "order": 1501,
   "in_stock": true,
   "image": "/assets/img/kat/k111.jpg",
-  "description": "Prateća oprema.",
+  "description": "Krstasti ključ za točkove sa nasadnicima 17, 19, 21 i 23 mm.",
   "promo": false,
-  "price": 1000.0
+  "price": 1000.0,
+  "aliases": [
+    "kljuc za tockove",
+    "krstasti kljuc",
+    "kljuc za felne",
+    "kljuc za tocak",
+    "kljuc 17 19 21 23",
+    "kriz kljuc"
+  ]
 }

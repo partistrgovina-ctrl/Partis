@@ -4,7 +4,14 @@
   "order": 1035,
   "in_stock": true,
   "image": "/assets/img/kat/k035.jpg",
-  "description": "Svetlosna signalizacija.",
+  "description": "Par zadnjih štop lampi za prikolice i traktore.",
   "promo": false,
-  "price": 1000.0
+  "price": 1000.0,
+  "aliases": [
+    "stop lampe traktor",
+    "zadnja svetla traktor",
+    "zadnje lampe prikolice",
+    "stop svetla prikolica",
+    "svetla traktorske prikolice"
+  ]
 }

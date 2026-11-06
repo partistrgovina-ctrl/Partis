@@ -4,7 +4,15 @@
   "order": 1063,
   "in_stock": true,
   "image": "/assets/img/kat/k065.jpg",
-  "description": "Automati i prekidači.",
+  "description": "Prekidač klik-klak sa 2 pozicije (uključeno/isključeno).",
   "promo": false,
-  "price": 90.0
+  "price": 90.0,
+  "aliases": [
+    "klik klak prekidac",
+    "preklopnik",
+    "prekidac 2 pozicije",
+    "prekidac on off",
+    "prekidac sa 2 polozaja",
+    "toggle prekidac"
+  ]
 }

@@ -4,7 +4,14 @@
   "order": 1073,
   "in_stock": true,
   "image": "/assets/img/kat/k081.jpg",
-  "description": "Davači temperature i pritiska ulja.",
+  "description": "Davač pritiska ulja sa navojem M18 za instrument tablu motora.",
   "promo": false,
-  "price": 1200.0
+  "price": 1200.0,
+  "aliases": [
+    "senzor pritiska ulja m18",
+    "davac ulja m18",
+    "sonda pritiska ulja",
+    "davac manometra ulja",
+    "pritisak ulja m18"
+  ]
 }

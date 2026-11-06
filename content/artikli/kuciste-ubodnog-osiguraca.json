@@ -4,7 +4,15 @@
   "order": 2003,
   "in_stock": true,
   "image": "/assets/img/kat/k095.jpg",
-  "description": "Program AK-SA.",
+  "description": "Kućište (držač) za ubodni osigurač.",
   "promo": false,
-  "price": 100.0
+  "price": 100.0,
+  "aliases": [
+    "drzac osigurača",
+    "drzac ubodnog osiguraca",
+    "kuciste osiguraca",
+    "fasung osiguraca",
+    "osiguracka",
+    "patrona osiguraca"
+  ]
 }

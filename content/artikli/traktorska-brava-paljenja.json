@@ -4,7 +4,14 @@
   "order": 1053,
   "in_stock": true,
   "image": "/assets/img/kat/k055.jpg",
-  "description": "Brave.",
+  "description": "Brava paljenja sa ključevima za traktore.",
   "promo": false,
-  "price": 450.0
+  "price": 450.0,
+  "aliases": [
+    "kontakt brava traktor",
+    "brava kontakta traktor",
+    "traktorski kontakt",
+    "brava za paljenje traktora",
+    "bravica traktor"
+  ]
 }
