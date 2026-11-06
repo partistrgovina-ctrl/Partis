@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Početna", "item": "{{SITE}}/"}, {"@type": "ListItem", "position": 2, "name": "{{KAT_NAZIV}}", "item": "{{SITE}}/{{KAT_FILE}}"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Početna", "item": "{{SITE}}/"}, {"@type": "ListItem", "position": 2, "name": "Proizvodi", "item": "{{SITE}}/proizvodi.html"}, {"@type": "ListItem", "position": 3, "name": "{{KAT_NAZIV}}", "item": "{{SITE}}/{{KAT_FILE}}"}]}</script>
 <!--ITEMLIST-->
 </head>
 <body>
@@ -35,7 +35,7 @@
   </div>
   <nav class="navbar" aria-label="Glavni meni"><div class="nav-inner"><div class="tabs"><a href="index.html">Početna</a><a href="pneumatika.html">Pneumatika</a><a href="hema-aerosol.html">HEMA aerosol</a><a href="armirana-creva.html">Creva i oprema</a><a href="traktorski-program.html">Traktorski program</a><a href="nastavci-mazalica.html">Nastavci mazalica</a></div><form class="search" role="search" action="pretraga.html" method="get"><input type="search" name="q" value="" placeholder="Pretraga artikala (kataloški broj, ime ili dimenzije)" autocomplete="off" aria-label="Pretraga artikala"><button type="submit" aria-label="Traži"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg></button><div class="sr-drop" hidden></div></form></div></nav>
 </header>
-<div class="crumbs"><a href="index.html">Početna</a> &rsaquo; <span aria-current="page">{{KAT_NAZIV}}</span></div>
+<div class="crumbs"><a href="index.html">Početna</a> &rsaquo; {{KAT_CRUMB}}<span aria-current="page">{{KAT_NAZIV}}</span></div>
 <section class="hero compact">
   <div class="tag">{{KAT_NAZIV}}</div>
   <h1>{{KAT_NAZIV}}</h1>

@@ -138,7 +138,7 @@
   function katPages(tpl,D,site,PARTIS){
     const eh=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
     return (D.KATS||[]).map(k=>{
-      const t=tpl.replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
+      const t=tpl.replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_CRUMB\}\}/g,'<a href="proizvodi.html">Proizvodi</a> &rsaquo; '+(k.id==="tork"?"":'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ')).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
       const r=renderPage(t,D,site,PARTIS);return {file:k.file,html:r.html,noindex:r.noindex};
     });
   }
@@ -147,6 +147,7 @@
   function productPages(tpl,D,site,PARTIS){
     const eh=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
     const PO={pneu:"pneumatski-alat-i-nastavci.html",crevapn:"creva-pneumatike.html",mesing:"ojacanja-creva.html",spojnice:"spojnice-pneumatike.html",crevo:"armirana-creva.html",gotova:"gotova-creva.html",traktor:"traktorska-roba.html",mazalice:"nastavci-mazalica.html"};
+    const PAR={};["pneumatski-alat-i-nastavci","creva-pneumatike","ojacanja-creva","spojnice-pneumatike"].forEach(f=>PAR[f+".html"]=["pneumatika.html","Pneumatika"]);["traktorska-roba","gotova-creva"].forEach(f=>PAR[f+".html"]=["traktorski-program.html","Traktorski program"]);
     const all=[...D.HOSES,...D.SPRAYS,...D.ITEMS];
     return all.map(p=>{
       const sp=p.kind==="sprej",ho=p.kind==="crevo";
@@ -160,7 +161,7 @@
       if(img)ld.image=img;
       const stat=`<h1>${eh(p.name)}</h1>${p.img?`<img src="${eh(p.img)}" alt="${eh(p.name)}" width="400">`:""}<p>${eh(desc)}</p>`+(vlist.length?`<ul>${vlist.map(v=>`<li>${eh(v)}</li>`).join("")}</ul>`:"")+`<p>Cena na upit: <a href="tel:+38118553800">018-553-800</a> / <a href="tel:+381652553800">065-2553-800</a></p>`;
       const t=tpl.replace(/\{\{P_KEY\}\}/g,p._k).replace(/\{\{P_FILE\}\}/g,p.u).replace(/\{\{P_TITLE\}\}/g,()=>eh(p.name)).replace(/\{\{P_DESC\}\}/g,()=>eh(dsc)).replace(/\{\{P_IMG\}\}/g,()=>eh(img||site+"/assets/img/nu40.jpg"))
-        .replace(/\{\{P_CATNAME\}\}/g,()=>eh(catName)).replace(/\{\{P_CATFILE\}\}/g,catFile).replace(/\{\{P_LD\}\}/g,()=>`<script type="application/ld+json">${j(ld).replace(/</g,"\\u003c")}</script>`).replace(/\{\{P_STATIC\}\}/g,()=>stat);
+        .replace(/\{\{P_PARENT\}\}/g,PAR[catFile]?'<a href="'+PAR[catFile][0]+'">'+PAR[catFile][1]+'</a> &rsaquo; ':(/^kategorija-/.test(catFile)&&catFile!=="kategorija-tork.html"?'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ':"")).replace(/\{\{P_CATNAME\}\}/g,()=>eh(catName)).replace(/\{\{P_CATFILE\}\}/g,catFile).replace(/\{\{P_LD\}\}/g,()=>`<script type="application/ld+json">${j(ld).replace(/</g,"\\u003c")}</script>`).replace(/\{\{P_STATIC\}\}/g,()=>stat);
       const r=renderPage(t,D,site,PARTIS);return {file:p.u,html:r.html,noindex:false};
     });
   }
