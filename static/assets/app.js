@@ -6,7 +6,7 @@ const pr=(p,price)=>price==null?"":PARTIS.priceHTML(price,PARTIS.rebateFor(p,win
 const cardEl=(r,i)=>{const t=document.createElement("template");t.innerHTML=PARTIS.cardHTML(r,i).trim();return t.content.firstElementChild;};
 
 const addBtn=(k,vi)=>`<span class="addq"><input class="aq" type="number" min="1" max="99999" value="1" inputmode="numeric" aria-label="Količina" onclick="event.stopPropagation()" onkeydown="event.stopPropagation()"><button class="add" type="button" onclick="event.stopPropagation();cartAdd('${k}',${vi},this.previousElementSibling.value)">+ U korpu</button></span>`;
-const overlay=document.getElementById("overlay"), modal=document.getElementById("modal");
+const overlay=document.getElementById("overlay"), PG=!!(window.PAGE&&window.PAGE.key), modal=PG?document.getElementById("prod-view"):document.getElementById("modal");
 
 function openHose(p){
   modal.className="modal hose";
@@ -137,11 +137,11 @@ function galSet(i){
 }
 function galGo(d){galSet(galIdx+d)}
 document.addEventListener("keydown",e=>{
-  if(!overlay.classList.contains("open")||!curItem||!curItem.gal||!curItem._v||!curItem._multi||!document.getElementById("gal-img"))return;
+  if(!(overlay.classList.contains("open")||PG)||!curItem||!curItem.gal||!curItem._v||!curItem._multi||!document.getElementById("gal-img"))return;
   if(e.key==="ArrowLeft")galGo(-1);else if(e.key==="ArrowRight")galGo(1);
 });
 
-function show(){overlay.classList.add("open");document.body.style.overflow="hidden";}
+function show(){if(PG)return;overlay.classList.add("open");document.body.style.overflow="hidden";}
 function closeModal(){overlay.classList.remove("open");document.body.style.overflow="";}
 overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
@@ -153,10 +153,7 @@ const pageOf=r=>r.kind==="sprej"?"hema-aerosol.html":r.kind==="crevo"?"armirana-
 const GROUP_OF=r=>r.kind==="sprej"?"HEMA aerosol":r.kind==="crevo"?"Armirana gumena creva":["pneu","crevapn","mesing","spojnice"].includes(r.cat)?"Pneumatika":["traktor","gotova"].includes(r.cat)?"Traktorski program":r.catName||"";
 const openFor=r=>r.kind==="crevo"?openHose(r):r.kind==="sprej"?openSpray(r):openItem(r);
 const cardFor=(r,i)=>cardEl(r,i);
-document.addEventListener("click",e=>{
-  const c=e.target.closest(".card[data-k]");
-  if(c&&REG[c.dataset.k])openFor(REG[c.dataset.k]);
-});
+
 /* render grids (preskace se kada je stranica vec izradjena) */
 function renderGrids(P){
   (P.secs||[]).forEach(id=>{
@@ -335,9 +332,10 @@ function initPage(){
 }
 window.partisInitPage=initPage;
 initPage();
+if(PG&&REG[window.PAGE.key])openFor(REG[window.PAGE.key]);
 function openFromHash(){
   const k=location.hash.slice(1);
   if(REG[k]){openFor(REG[k]);}
 }
 window.partisOpenKey=k=>{if(REG[k])openFor(REG[k]);};
-if(!window.PARTIS_OFFLINE){openFromHash();window.addEventListener("hashchange",openFromHash);}
+if(!window.PARTIS_OFFLINE&&!PG){openFromHash();window.addEventListener("hashchange",openFromHash);}

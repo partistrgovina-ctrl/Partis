@@ -11,21 +11,21 @@
   const itemCount=x=>x.gal?x.gal.length:1;
 
   function hoseCardHTML(p,i){
-    return `<div class="card" data-k="${p._k}" style="animation-delay:${(i*0.07).toFixed(2)}s">
+    return `<a class="card" href="${esc(p.u)}" data-k="${p._k}" style="animation-delay:${(i*0.07).toFixed(2)}s">
     <div class="card-top contain"><span class="badge">${esc(p.type)}</span><img src="${esc(p.img)}" alt="${esc(p.name)}"></div>
     <div class="card-body">
       <h3>${esc(p.name)}</h3><p class="desc">${esc(p.short)}</p>
       <div class="specrow"><div>Temperatura<b>${esc((p.temp||"").split("  ")[0])}</b></div>${p.variants.length===1?`<div>Dimenzija<b>${esc(p.variants[0].dim)}</b></div>`:`<div>Varijante<b>${p.variants.length}</b></div>`}</div>
       <div class="card-foot end"><div class="card-go">Dimenzije i cene →</div></div>
-    </div></div>`;
+    </div></a>`;
   }
   function sprayCardHTML(p,i){
-    return `<div class="card" data-k="${p._k}" style="animation-delay:${(i*0.06).toFixed(2)}s">
+    return `<a class="card" href="${esc(p.u)}" data-k="${p._k}" style="animation-delay:${(i*0.06).toFixed(2)}s">
     <div class="card-top spray"><span class="badge">HEMA</span>${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
     <div class="card-body">
       <div class="eng">${esc(p.eng)}</div><h3>${esc(p.name)}</h3><p class="desc">${esc(p.short)}</p>
       <div class="card-foot"><div class="opts">${p.opts.map(o=>`<div class="opt"><span>${esc(o.pack)}</span><b>${fmt(o.price)} RSD</b> <span class="vat">(${fmt(gross(o.price))} sa PDV-om)</span></div>`).join("")}<span class="pdv">cena bez PDV-a (u zagradi sa PDV-om)</span></div><div class="card-go">Detalji →</div></div>
-    </div></div>`;
+    </div></a>`;
   }
   function itemCardHTML(p,i){
     const pr=priced(p),promo=pr&&p.promo!==false;
@@ -36,12 +36,12 @@
       else price=`<div class="opt"><b class="promo-t">Akcijske cene</b></div><span class="pdv">cene u detaljima</span>`;
     }else if(p.price==null)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: 018-553-800</span>`;
     else price=`<div class="opt"><b>${fmt(p.price)} RSD</b> <span class="vat">(${fmt(gross(p.price))} sa PDV-om)</span></div><span class="pdv">cena bez PDV-a (u zagradi sa PDV-om)</span>`;
-    return `<div class="card" data-k="${p._k}" style="animation-delay:${(i*0.04).toFixed(2)}s">
+    return `<a class="card" href="${esc(p.u)}" data-k="${p._k}" style="animation-delay:${(i*0.04).toFixed(2)}s">
     <div class="card-top item"><span class="badge">${esc(p.catName)}</span>${promo?`<span class="badge promo">Akcija</span>`:""}${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
     <div class="card-body">
       <h3>${esc(p.name)}</h3>${p.spec?`<div class="spec">${esc(p.spec)}</div>`:""}<p class="desc">${esc(p.short||p.desc)}</p>
       <div class="card-foot"><div class="opts">${price}</div><div class="card-go">Detalji →</div></div>
-    </div></div>`;
+    </div></a>`;
   }
   /* srpski množinski oblici: 1, 21 → jednina; 2–4, 22–24 → paukal; ostalo → genitiv množine */
   const plr=(n,a,b,c)=>{const m=n%100,d=n%10;return (d===1&&m!==11)?a:(d>=2&&d<=4&&(m<12||m>14))?b:c;};

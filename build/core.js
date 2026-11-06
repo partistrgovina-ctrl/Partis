@@ -85,6 +85,8 @@
     const aliases={};
     [...hoses,...sprays,...items].forEach(x=>{if(x._a&&x._a.length)aliases[x.name]=x._a.map(String).filter(Boolean);delete x._a;});
     [[hoses,"h"],[sprays,"s"],[items,"i"]].forEach(([arr,k])=>arr.forEach((p,i)=>{p._k=k+i;}));
+    const used=new Set(),slg=t=>String(t).replace(/[čć]/gi,"c").replace(/š/gi,"s").replace(/ž/gi,"z").replace(/đ/gi,"dj").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,70);
+    [...hoses,...sprays,...items].forEach(p=>{let b="proizvod-"+(slg(p.name)||p._k),u=b,n=2;while(used.has(u)){u=b+"-"+n++;}used.add(u);p.u=u+".html";});
     return {D:{HOSES:hoses,SPRAYS:sprays,ITEMS:items,CATS,IMG,KATS,HIDDENFILES:HF,NAZIVI:NAZ,POC:pocMerge(inp.pocetna)},aliases,warn};
   }
   function dataFiles(m,cfg){
@@ -137,6 +139,28 @@
       const r=renderPage(t,D,site,PARTIS);return {file:k.file,html:r.html,noindex:r.noindex};
     });
   }
+
+  /* zasebna stranica za svaki proizvod iz šablona templates/_proizvod.html */
+  function productPages(tpl,D,site,PARTIS){
+    const eh=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    const PO={pneu:"pneumatski-alat-i-nastavci.html",crevapn:"creva-pneumatike.html",mesing:"ojacanja-creva.html",spojnice:"spojnice-pneumatike.html",crevo:"armirana-creva.html",gotova:"gotova-creva.html",traktor:"traktorska-roba.html",mazalice:"nastavci-mazalica.html"};
+    const all=[...D.HOSES,...D.SPRAYS,...D.ITEMS];
+    return all.map(p=>{
+      const sp=p.kind==="sprej",ho=p.kind==="crevo";
+      const catName=ho?"Armirana gumena creva":sp?"HEMA aerosol":(p.catName||"");
+      const catFile=ho?"armirana-creva.html":sp?"hema-aerosol.html":(PO[p.cat]||"kategorija-"+p.cat+".html");
+      const desc=(sp?p.desc:ho?p.short:(p.desc||p.short))||p.name;
+      const dsc=(p.name+" — "+desc).replace(/\s+/g," ").slice(0,155);
+      const vlist=ho?p.variants.map(v=>v.dim):sp?p.opts.map(o=>o.pack):(p.gal?p.gal.map(g=>g.label):[]);
+      const img=p.img?site+"/"+p.img.replace(/^\//,""):"";
+      const ld={"@context":"https://schema.org","@type":"Product",name:p.name,description:desc,brand:{"@type":"Brand",name:sp?"HEMA Aerosol":"PARTIS"},category:catName};
+      if(img)ld.image=img;
+      const stat=`<h1>${eh(p.name)}</h1>${p.img?`<img src="${eh(p.img)}" alt="${eh(p.name)}" width="400">`:""}<p>${eh(desc)}</p>`+(vlist.length?`<ul>${vlist.map(v=>`<li>${eh(v)}</li>`).join("")}</ul>`:"")+`<p>Cena na upit: <a href="tel:+38118553800">018-553-800</a> / <a href="tel:+381652553800">065-2553-800</a></p>`;
+      const t=tpl.replace(/\{\{P_KEY\}\}/g,p._k).replace(/\{\{P_FILE\}\}/g,p.u).replace(/\{\{P_TITLE\}\}/g,()=>eh(p.name)).replace(/\{\{P_DESC\}\}/g,()=>eh(dsc)).replace(/\{\{P_IMG\}\}/g,()=>eh(img||site+"/assets/img/nu40.jpg"))
+        .replace(/\{\{P_CATNAME\}\}/g,()=>eh(catName)).replace(/\{\{P_CATFILE\}\}/g,catFile).replace(/\{\{P_LD\}\}/g,()=>`<script type="application/ld+json">${j(ld).replace(/</g,"\\u003c")}</script>`).replace(/\{\{P_STATIC\}\}/g,()=>stat);
+      const r=renderPage(t,D,site,PARTIS);return {file:p.u,html:r.html,noindex:false};
+    });
+  }
   function sitemapRobots(pages,site){
     const sm=pages.filter(p=>!p.noindex).sort((a,b)=>(a.file==="index.html"?-1:b.file==="index.html"?1:a.file.localeCompare(b.file)))
       .map(p=>`  <url><loc>${site}/${p.file==="index.html"?"":p.file}</loc><changefreq>weekly</changefreq><priority>${p.file==="index.html"?"1.0":"0.8"}</priority></url>\n`).join("");
@@ -145,5 +169,5 @@
       "robots.txt":`User-agent: *\nAllow: /\nDisallow: /pretraga.html\nDisallow: /admin/\n\nSitemap: ${site}/sitemap.xml\n`
     };
   }
-  return {MULTI:true,POC_DEF,pocMerge,HIDE,model,dataFiles,missingImages,renderPage,katPages,sitemapRobots};
+  return {MULTI:true,POC_DEF,pocMerge,HIDE,model,dataFiles,missingImages,renderPage,katPages,productPages,sitemapRobots};
 });

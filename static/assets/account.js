@@ -50,7 +50,7 @@
     window.CUSTOMER=profile;window.REBATE=profile?(profile.rabati||{}):null;
     paint();window.dispatchEvent(new Event("partis-account"));
     /* ako je artikal otvoren, ponovo ga iscrtaj sa novim cenama */
-    try{if(overlay.classList.contains("open")&&curItem&&document.querySelector("#modal .tbl-wrap")&&!document.getElementById("cart-list")){const p=curItem;if(p.kind==="crevo")openHose(p);else if(p.kind==="sprej")openSpray(p);else openItem(p);}}catch(e){}
+    try{if((overlay.classList.contains("open")||PG)&&curItem&&modal.querySelector(".tbl-wrap")&&!document.getElementById("cart-list")){const p=curItem;if(p.kind==="crevo")openHose(p);else if(p.kind==="sprej")openSpray(p);else openItem(p);}}catch(e){}
   }
   async function fetchProfile(){
     const c=await client();

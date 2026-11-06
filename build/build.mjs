@@ -79,6 +79,10 @@ if (D.KATS && D.KATS.length) {
     pages.push({ file: k.file, noindex: k.noindex });
   }
 }
+for (const k of CORE.productPages(fs.readFileSync(path.join(tplDir, "_proizvod.html"), "utf8"), D, SITE, PARTIS)) {
+  fs.writeFileSync(path.join(DIST, k.file), k.html);
+  pages.push({ file: k.file, noindex: false });
+}
 for (const [f, c] of Object.entries(CORE.sitemapRobots(pages, SITE))) fs.writeFileSync(path.join(DIST, f), c);
 
 const total = PARTIS.totalProducts(D);
