@@ -1,17 +1,18 @@
 {
-  "title": "Par štop lampi Iveco - 4 polja i katadioptar",
-  "category": "svetlosna",
-  "order": 1041,
-  "in_stock": true,
-  "image": "/assets/img/kat/k041.jpg",
-  "description": "Par zadnjih štop lampi za Iveco, sa 4 polja i katadioptarom.",
-  "promo": false,
-  "price": 3200.0,
-  "aliases": [
-    "stop lampe iveco",
-    "zadnja svetla iveco",
-    "zadnje lampe iveco",
-    "stop svetla",
-    "katadioptar iveco"
-  ]
+ "title": "Par štop lampi Iveco - 4 polja i katadioptar",
+ "category": "svetlosna",
+ "order": 1041,
+ "in_stock": true,
+ "image": "/assets/img/kat/k041.jpg",
+ "description": "Par zadnjih štop lampi za Iveco, sa 4 polja i katadioptarom.",
+ "promo": false,
+ "price": 3200.0,
+ "aliases": [
+  "stop lampe iveco",
+  "zadnja svetla iveco",
+  "zadnje lampe iveco",
+  "stop svetla",
+  "katadioptar iveco"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

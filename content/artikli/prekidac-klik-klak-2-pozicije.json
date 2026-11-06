@@ -1,18 +1,19 @@
 {
-  "title": "Prekidač klik-klak 2 pozicije",
-  "category": "automati",
-  "order": 1063,
-  "in_stock": true,
-  "image": "/assets/img/kat/k065.jpg",
-  "description": "Prekidač klik-klak sa 2 pozicije (uključeno/isključeno).",
-  "promo": false,
-  "price": 90.0,
-  "aliases": [
-    "klik klak prekidac",
-    "preklopnik",
-    "prekidac 2 pozicije",
-    "prekidac on off",
-    "prekidac sa 2 polozaja",
-    "toggle prekidac"
-  ]
+ "title": "Prekidač klik-klak 2 pozicije",
+ "category": "automati",
+ "order": 1063,
+ "in_stock": true,
+ "image": "/assets/img/kat/k065.jpg",
+ "description": "Prekidač klik-klak sa 2 pozicije (uključeno/isključeno).",
+ "promo": false,
+ "price": 90.0,
+ "aliases": [
+  "klik klak prekidac",
+  "preklopnik",
+  "prekidac 2 pozicije",
+  "prekidac on off",
+  "prekidac sa 2 polozaja",
+  "toggle prekidac"
+ ],
+ "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

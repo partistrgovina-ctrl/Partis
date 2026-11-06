@@ -1,23 +1,24 @@
 {
-  "title": "Pištolj za vazduh metalni manji sa nastavkom",
-  "category": "pneu",
-  "order": 160,
-  "in_stock": true,
-  "image": "/assets/img/pist_mali.jpg",
-  "description": "Metalni pištolj za vazduh manje veličine sa nastavkom. Služi za produvavanje i čišćenje od prašine, strugotine i prljavštine, uz kompresor.",
-  "price": 500,
-  "aliases": [
-    "pištolj za produvavanje",
-    "pistolj za produvavanje",
-    "pištolj za duvanje",
-    "vazdušni pištolj",
-    "duvaljka",
-    "pištolj za čišćenje vazduhom",
-    "pištolj za vazduh",
-    "air gun",
-    "pištolj za kompresor",
-    "pištolj za prašinu",
-    "mali pištolj za vazduh",
-    "produvač"
-  ]
+ "title": "Pištolj za vazduh metalni manji sa nastavkom",
+ "category": "pneu",
+ "order": 160,
+ "in_stock": true,
+ "image": "/assets/img/pist_mali.jpg",
+ "description": "Metalni pištolj za vazduh manje veličine sa nastavkom. Služi za produvavanje i čišćenje od prašine, strugotine i prljavštine, uz kompresor.",
+ "price": 500,
+ "aliases": [
+  "pištolj za produvavanje",
+  "pistolj za produvavanje",
+  "pištolj za duvanje",
+  "vazdušni pištolj",
+  "duvaljka",
+  "pištolj za čišćenje vazduhom",
+  "pištolj za vazduh",
+  "air gun",
+  "pištolj za kompresor",
+  "pištolj za prašinu",
+  "mali pištolj za vazduh",
+  "produvač"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

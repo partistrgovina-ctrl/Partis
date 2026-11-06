@@ -1,17 +1,18 @@
 {
-  "title": "Prekidač klik-klak 3 pozicije",
-  "category": "automati",
-  "order": 1064,
-  "in_stock": true,
-  "image": "/assets/img/kat/k066.jpg",
-  "description": "Prekidač klik-klak sa 3 pozicije.",
-  "promo": false,
-  "price": 100.0,
-  "aliases": [
-    "klik klak prekidac",
-    "preklopnik",
-    "prekidac 3 pozicije",
-    "prekidac sa 3 polozaja",
-    "toggle prekidac"
-  ]
+ "title": "Prekidač klik-klak 3 pozicije",
+ "category": "automati",
+ "order": 1064,
+ "in_stock": true,
+ "image": "/assets/img/kat/k066.jpg",
+ "description": "Prekidač klik-klak sa 3 pozicije.",
+ "promo": false,
+ "price": 100.0,
+ "aliases": [
+  "klik klak prekidac",
+  "preklopnik",
+  "prekidac 3 pozicije",
+  "prekidac sa 3 polozaja",
+  "toggle prekidac"
+ ],
+ "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

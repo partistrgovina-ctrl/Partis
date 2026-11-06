@@ -1,18 +1,19 @@
 {
-  "title": "Taster sirene buksna M22x1",
-  "category": "aksa",
-  "order": 2006,
-  "in_stock": true,
-  "image": "/assets/img/kat/k098.jpg",
-  "description": "Taster sirene sa buksnom, navoj M22x1.",
-  "promo": false,
-  "price": 125.0,
-  "aliases": [
-    "dugme sirene",
-    "taster trube",
-    "dugme trube",
-    "taster klaksona",
-    "m22x1",
-    "buksna taster"
-  ]
+ "title": "Taster sirene buksna M22x1",
+ "category": "aksa",
+ "order": 2006,
+ "in_stock": true,
+ "image": "/assets/img/kat/k098.jpg",
+ "description": "Taster sirene sa buksnom, navoj M22x1.",
+ "promo": false,
+ "price": 125.0,
+ "aliases": [
+  "dugme sirene",
+  "taster trube",
+  "dugme trube",
+  "taster klaksona",
+  "m22x1",
+  "buksna taster"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

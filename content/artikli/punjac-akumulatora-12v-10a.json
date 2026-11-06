@@ -1,18 +1,19 @@
 {
-  "title": "Punjač akumulatora 12V/10A",
-  "category": "elektrika",
-  "order": 1020,
-  "in_stock": true,
-  "image": "/assets/img/kat/k019.jpg",
-  "description": "Punjač akumulatora 12V, struja punjenja 10A.",
-  "promo": false,
-  "price": 2150.0,
-  "aliases": [
-    "punjac baterije",
-    "punjac za akumulator",
-    "punjac auto baterije",
-    "punjac 12v",
-    "ispravljac akumulatora",
-    "charger"
-  ]
+ "title": "Punjač akumulatora 12V/10A",
+ "category": "elektrika",
+ "order": 1020,
+ "in_stock": true,
+ "image": "/assets/img/kat/k019.jpg",
+ "description": "Punjač akumulatora 12V, struja punjenja 10A.",
+ "promo": false,
+ "price": 2150.0,
+ "aliases": [
+  "punjac baterije",
+  "punjac za akumulator",
+  "punjac auto baterije",
+  "punjac 12v",
+  "ispravljac akumulatora",
+  "charger"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -1,18 +1,19 @@
 {
-  "title": "Kutija osigurača - 10 osigurača",
-  "category": "elektrika",
-  "order": 1022,
-  "in_stock": true,
-  "image": "/assets/img/kat/k021.jpg",
-  "description": "Kutija sa mestima za 10 ubodnih osigurača, za razvod i zaštitu električnih kola.",
-  "promo": false,
-  "price": 410.0,
-  "aliases": [
-    "kutija sa osiguracima",
-    "osiguracka kutija",
-    "razvodna kutija osiguraca",
-    "drzac osiguraca",
-    "kutija za osigurace 10",
-    "kutijica osiguraca"
-  ]
+ "title": "Kutija osigurača - 10 osigurača",
+ "category": "elektrika",
+ "order": 1022,
+ "in_stock": true,
+ "image": "/assets/img/kat/k021.jpg",
+ "description": "Kutija sa mestima za 10 ubodnih osigurača, za razvod i zaštitu električnih kola.",
+ "promo": false,
+ "price": 410.0,
+ "aliases": [
+  "kutija sa osiguracima",
+  "osiguracka kutija",
+  "razvodna kutija osiguraca",
+  "drzac osiguraca",
+  "kutija za osigurace 10",
+  "kutijica osiguraca"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -1,17 +1,18 @@
 {
-  "title": "Kabl sa klemom K50135",
-  "category": "elektrika",
-  "order": 1013,
-  "in_stock": true,
-  "image": "/assets/img/kat/k012.jpg",
-  "description": "Akumulatorski kabl sa klemom (K50135) za povezivanje akumulatora.",
-  "promo": false,
-  "price": 520.0,
-  "aliases": [
-    "akumulatorski kabl",
-    "kabl akumulatora",
-    "kabal sa klemom",
-    "klema sa kablom",
-    "k50135"
-  ]
+ "title": "Kabl sa klemom K50135",
+ "category": "elektrika",
+ "order": 1013,
+ "in_stock": true,
+ "image": "/assets/img/kat/k012.jpg",
+ "description": "Akumulatorski kabl sa klemom (K50135) za povezivanje akumulatora.",
+ "promo": false,
+ "price": 520.0,
+ "aliases": [
+  "akumulatorski kabl",
+  "kabl akumulatora",
+  "kabal sa klemom",
+  "klema sa kablom",
+  "k50135"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -1,17 +1,18 @@
 {
-  "title": "Par štop lampi - 4 polja (MB)",
-  "category": "svetlosna",
-  "order": 1038,
-  "in_stock": true,
-  "image": "/assets/img/kat/k038.jpg",
-  "description": "Par zadnjih štop lampi sa 4 polja za Mercedes (MB) teretna vozila.",
-  "promo": false,
-  "price": 2400.0,
-  "aliases": [
-    "stop lampe mercedes",
-    "zadnja svetla mb",
-    "zadnje lampe mercedes",
-    "stop svetla",
-    "stop lampa 4 polja"
-  ]
+ "title": "Par štop lampi - 4 polja (MB)",
+ "category": "svetlosna",
+ "order": 1038,
+ "in_stock": true,
+ "image": "/assets/img/kat/k038.jpg",
+ "description": "Par zadnjih štop lampi sa 4 polja za Mercedes (MB) teretna vozila.",
+ "promo": false,
+ "price": 2400.0,
+ "aliases": [
+  "stop lampe mercedes",
+  "zadnja svetla mb",
+  "zadnje lampe mercedes",
+  "stop svetla",
+  "stop lampa 4 polja"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

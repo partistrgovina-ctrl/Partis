@@ -1,18 +1,19 @@
 {
-  "title": "Brava paljenja univerzal",
-  "category": "brave",
-  "order": 1054,
-  "in_stock": true,
-  "image": "/assets/img/kat/k056.jpg",
-  "description": "Univerzalna brava paljenja sa ključevima za teretna vozila, traktore i radne mašine.",
-  "promo": false,
-  "price": 1100.0,
-  "aliases": [
-    "univerzalna kontakt brava",
-    "brava kontakta",
-    "kontakt brava",
-    "bravica paljenja",
-    "brava za paljenje",
-    "kontakt"
-  ]
+ "title": "Brava paljenja univerzal",
+ "category": "brave",
+ "order": 1054,
+ "in_stock": true,
+ "image": "/assets/img/kat/k056.jpg",
+ "description": "Univerzalna brava paljenja sa ključevima za teretna vozila, traktore i radne mašine.",
+ "promo": false,
+ "price": 1100.0,
+ "aliases": [
+  "univerzalna kontakt brava",
+  "brava kontakta",
+  "kontakt brava",
+  "bravica paljenja",
+  "brava za paljenje",
+  "kontakt"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

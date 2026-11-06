@@ -1,18 +1,19 @@
 {
-  "title": "Ventil kipe M22*1.5 (Igla)",
-  "category": "traktor",
-  "order": 10,
-  "in_stock": true,
-  "image": "/assets/img/ventil.jpg",
-  "description": "Ventil kipe M22*1.5 (igla) za hidrauliku kipera i traktorskih prikolica. Navoj M22x1,5.",
-  "price": 500,
-  "aliases": [
-    "ventil kipera",
-    "ventil za kipu",
-    "igla kipe",
-    "ventil kipe",
-    "kipa ventil",
-    "m22x1.5",
-    "hidraulicni ventil kipe"
-  ]
+ "title": "Ventil kipe M22*1.5 (Igla)",
+ "category": "traktor",
+ "order": 10,
+ "in_stock": true,
+ "image": "/assets/img/ventil.jpg",
+ "description": "Ventil kipe M22*1.5 (igla) za hidrauliku kipera i traktorskih prikolica. Navoj M22x1,5.",
+ "price": 500,
+ "aliases": [
+  "ventil kipera",
+  "ventil za kipu",
+  "igla kipe",
+  "ventil kipe",
+  "kipa ventil",
+  "m22x1.5",
+  "hidraulicni ventil kipe"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

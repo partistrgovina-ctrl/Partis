@@ -1,24 +1,25 @@
 {
-  "title": "Automat pritiska ulja M14x1",
-  "category": "aksa",
-  "order": 2102,
-  "in_stock": true,
-  "image": "/assets/img/kat/k104.jpg",
-  "description": "Automat (prekidač) pritiska ulja za kontrolnu lampicu pritiska ulja u motoru, navoj M14x1.",
-  "promo": false,
-  "price": 225.0,
-  "aliases": [
-    "prekidac pritiska ulja",
-    "presostat ulja",
-    "senzor pritiska ulja",
-    "kontakt pritiska ulja",
-    "davac pritiska ulja",
-    "lampica ulja",
-    "m8x1",
-    "m10x1",
-    "m14x1",
-    "traktorski automat ulja",
-    "m14x1",
-    "automat ulja m14x1"
-  ]
+ "title": "Automat pritiska ulja M14x1",
+ "category": "aksa",
+ "order": 2102,
+ "in_stock": true,
+ "image": "/assets/img/kat/k104.jpg",
+ "description": "Automat (prekidač) pritiska ulja za kontrolnu lampicu pritiska ulja u motoru, navoj M14x1.",
+ "promo": false,
+ "price": 225.0,
+ "aliases": [
+  "prekidac pritiska ulja",
+  "presostat ulja",
+  "senzor pritiska ulja",
+  "kontakt pritiska ulja",
+  "davac pritiska ulja",
+  "lampica ulja",
+  "m8x1",
+  "m10x1",
+  "m14x1",
+  "traktorski automat ulja",
+  "m14x1",
+  "automat ulja m14x1"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

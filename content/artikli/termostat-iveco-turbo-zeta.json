@@ -1,17 +1,18 @@
 {
-  "title": "Termostat Iveco/Turbo Zeta",
-  "category": "termostati",
-  "order": 1068,
-  "in_stock": true,
-  "image": "/assets/img/kat/k070.jpg",
-  "description": "Termostat za vozila Iveco i Turbo Zeta.",
-  "promo": false,
-  "price": 700.0,
-  "aliases": [
-    "termostat iveco",
-    "termostat zeta",
-    "termostat turbo zeta",
-    "termostat motora",
-    "ventil rashladne tecnosti"
-  ]
+ "title": "Termostat Iveco/Turbo Zeta",
+ "category": "termostati",
+ "order": 1068,
+ "in_stock": true,
+ "image": "/assets/img/kat/k070.jpg",
+ "description": "Termostat za vozila Iveco i Turbo Zeta.",
+ "promo": false,
+ "price": 700.0,
+ "aliases": [
+  "termostat iveco",
+  "termostat zeta",
+  "termostat turbo zeta",
+  "termostat motora",
+  "ventil rashladne tecnosti"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

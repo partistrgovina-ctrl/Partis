@@ -1,17 +1,18 @@
 {
-  "title": "Davač pritiska ulja M12",
-  "category": "davaci",
-  "order": 1071,
-  "in_stock": true,
-  "image": "/assets/img/kat/k079.jpg",
-  "description": "Davač pritiska ulja sa navojem M12 za instrument tablu motora.",
-  "promo": false,
-  "price": 150.0,
-  "aliases": [
-    "senzor pritiska ulja m12",
-    "davac ulja m12",
-    "sonda pritiska ulja",
-    "davac manometra ulja",
-    "pritisak ulja m12"
-  ]
+ "title": "Davač pritiska ulja M12",
+ "category": "davaci",
+ "order": 1071,
+ "in_stock": true,
+ "image": "/assets/img/kat/k079.jpg",
+ "description": "Davač pritiska ulja sa navojem M12 za instrument tablu motora.",
+ "promo": false,
+ "price": 150.0,
+ "aliases": [
+  "senzor pritiska ulja m12",
+  "davac ulja m12",
+  "sonda pritiska ulja",
+  "davac manometra ulja",
+  "pritisak ulja m12"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

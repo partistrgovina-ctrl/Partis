@@ -1,23 +1,24 @@
 {
-  "title": "Utičnica autoprikolice (metalna) 12V",
-  "category": "elektrika",
-  "order": 1019,
-  "in_stock": true,
-  "image": "/assets/img/kat/k018.jpg",
-  "description": "Metalna utičnica za autoprikolicu 12V, prodaje se u paru (utičnica i utikač).",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Par",
-      "price": 350.0
-    }
-  ],
-  "aliases": [
-    "utikac prikolice",
-    "prikljucak prikolice",
-    "utikac za prikolicu",
-    "utičnica za kuku",
-    "7 pinova prikolica",
-    "utičnica kuke"
-  ]
+ "title": "Utičnica autoprikolice (metalna) 12V",
+ "category": "elektrika",
+ "order": 1019,
+ "in_stock": true,
+ "image": "/assets/img/kat/k018.jpg",
+ "description": "Metalna utičnica za autoprikolicu 12V, prodaje se u paru (utičnica i utikač).",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Par",
+   "price": 350.0
+  }
+ ],
+ "aliases": [
+  "utikac prikolice",
+  "prikljucak prikolice",
+  "utikac za prikolicu",
+  "utičnica za kuku",
+  "7 pinova prikolica",
+  "utičnica kuke"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

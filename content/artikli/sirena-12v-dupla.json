@@ -1,23 +1,24 @@
 {
-  "title": "Sirena 12V dupla",
-  "category": "zvucna",
-  "order": 1028,
-  "in_stock": true,
-  "image": "/assets/img/kat/k028.jpg",
-  "description": "Dvostruka sirena 12V, prodaje se u paru.",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Par",
-      "price": 360.0
-    }
-  ],
-  "aliases": [
-    "truba",
-    "sirena 12v",
-    "dupla truba",
-    "sirena za auto",
-    "truba 12v",
-    "klakson"
-  ]
+ "title": "Sirena 12V dupla",
+ "category": "zvucna",
+ "order": 1028,
+ "in_stock": true,
+ "image": "/assets/img/kat/k028.jpg",
+ "description": "Dvostruka sirena 12V, prodaje se u paru.",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Par",
+   "price": 360.0
+  }
+ ],
+ "aliases": [
+  "truba",
+  "sirena 12v",
+  "dupla truba",
+  "sirena za auto",
+  "truba 12v",
+  "klakson"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

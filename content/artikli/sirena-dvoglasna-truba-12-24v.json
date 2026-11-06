@@ -1,19 +1,20 @@
 {
-  "title": "Sirena dvoglasna (truba) 12/24V",
-  "category": "zvucna",
-  "order": 1029,
-  "in_stock": true,
-  "image": "/assets/img/kat/k029.jpg",
-  "description": "Dvoglasna sirena (truba) 12/24V, za teretna vozila, traktore i radne mašine.",
-  "promo": false,
-  "price": 1250.0,
-  "aliases": [
-    "truba dvoglasna",
-    "pneumatska truba",
-    "dvotonska sirena",
-    "sirena 24v",
-    "klakson kamion",
-    "truba 24v",
-    "dvotonska truba"
-  ]
+ "title": "Sirena dvoglasna (truba) 12/24V",
+ "category": "zvucna",
+ "order": 1029,
+ "in_stock": true,
+ "image": "/assets/img/kat/k029.jpg",
+ "description": "Dvoglasna sirena (truba) 12/24V, za teretna vozila, traktore i radne mašine.",
+ "promo": false,
+ "price": 1250.0,
+ "aliases": [
+  "truba dvoglasna",
+  "pneumatska truba",
+  "dvotonska sirena",
+  "sirena 24v",
+  "klakson kamion",
+  "truba 24v",
+  "dvotonska truba"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

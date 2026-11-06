@@ -1,16 +1,17 @@
 {
-  "title": "Traktorski termostat",
-  "category": "traktor",
-  "order": 1066,
-  "in_stock": true,
-  "image": "/assets/img/kat/k068.jpg",
-  "description": "Termostat za traktorske motore.",
-  "promo": false,
-  "price": 420.0,
-  "aliases": [
-    "termostat traktor",
-    "termostat za traktor",
-    "termostat motora traktora",
-    "ventil rashladne tecnosti"
-  ]
+ "title": "Traktorski termostat",
+ "category": "traktor",
+ "order": 1066,
+ "in_stock": true,
+ "image": "/assets/img/kat/k068.jpg",
+ "description": "Termostat za traktorske motore.",
+ "promo": false,
+ "price": 420.0,
+ "aliases": [
+  "termostat traktor",
+  "termostat za traktor",
+  "termostat motora traktora",
+  "ventil rashladne tecnosti"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

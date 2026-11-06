@@ -1,23 +1,24 @@
 {
-  "title": "Štipaljke za kablove 600A",
-  "category": "elektrika",
-  "order": 1016,
-  "in_stock": true,
-  "image": "/assets/img/kat/k015.jpg",
-  "description": "Štipaljke za akumulatorske kablove 600A, prodaju se u paru.",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Par",
-      "price": 300.0
-    }
-  ],
-  "aliases": [
-    "krokodil stipaljke",
-    "stipaljke za akumulator",
-    "krokodil klema",
-    "stipaljke za paljenje",
-    "stipaljke za prespajanje",
-    "krokodil"
-  ]
+ "title": "Štipaljke za kablove 600A",
+ "category": "elektrika",
+ "order": 1016,
+ "in_stock": true,
+ "image": "/assets/img/kat/k015.jpg",
+ "description": "Štipaljke za akumulatorske kablove 600A, prodaju se u paru.",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Par",
+   "price": 300.0
+  }
+ ],
+ "aliases": [
+  "krokodil stipaljke",
+  "stipaljke za akumulator",
+  "krokodil klema",
+  "stipaljke za paljenje",
+  "stipaljke za prespajanje",
+  "krokodil"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

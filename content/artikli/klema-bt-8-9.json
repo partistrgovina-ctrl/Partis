@@ -1,24 +1,25 @@
 {
-  "title": "Klema BT 8/9",
-  "category": "elektrika",
-  "order": 1011,
-  "in_stock": true,
-  "image": "/assets/img/kat/k010.jpg",
-  "description": "Akumulatorske kleme BT 8/9, pakovanje par (plus i minus).",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Par",
-      "price": 40.0
-    }
-  ],
-  "aliases": [
-    "klema akumulatora",
-    "akumulatorska klema",
-    "poklema",
-    "pol klema",
-    "klemne akumulatora",
-    "par klema",
-    "bt 8/9"
-  ]
+ "title": "Klema BT 8/9",
+ "category": "elektrika",
+ "order": 1011,
+ "in_stock": true,
+ "image": "/assets/img/kat/k010.jpg",
+ "description": "Akumulatorske kleme BT 8/9, pakovanje par (plus i minus).",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Par",
+   "price": 40.0
+  }
+ ],
+ "aliases": [
+  "klema akumulatora",
+  "akumulatorska klema",
+  "poklema",
+  "pol klema",
+  "klemne akumulatora",
+  "par klema",
+  "bt 8/9"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

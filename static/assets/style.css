@@ -803,3 +803,5 @@ img.zoom{cursor:zoom-in}
   .tbl-wrap table.t-hose td.addc{grid-column:1!important;grid-row:auto!important;margin-top:8px}
   .tbl-wrap table:not(.cart-t) td.addc{grid-column:1!important;grid-row:auto!important;margin-top:6px}
 }
+
+.m-hint{margin:-6px 0 18px;font-size:14px;line-height:1.5;color:var(--muted)}

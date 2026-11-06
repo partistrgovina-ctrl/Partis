@@ -1,24 +1,25 @@
 {
-  "title": "Sijalica T5 12V 1.2W (ubodna)",
-  "category": "sijalice",
-  "order": 1004,
-  "in_stock": true,
-  "image": "/assets/img/kat/k003.jpg",
-  "description": "Ubodna sijalica T5 12V 1.2W za osvetljenje instrument table i kontrolne lampice. Pakovanje: set od 100 komada.",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Set: 100 komada",
-      "price": 8.0
-    }
-  ],
-  "aliases": [
-    "sijalica t5",
-    "ubodna sijalica",
-    "sijalica za tablu",
-    "sijalica za instrument tablu",
-    "mala ubodna sijalica",
-    "1.2w",
-    "sijalica za kontrolne lampice"
-  ]
+ "title": "Sijalica T5 12V 1.2W (ubodna)",
+ "category": "sijalice",
+ "order": 1004,
+ "in_stock": true,
+ "image": "/assets/img/kat/k003.jpg",
+ "description": "Ubodna sijalica T5 12V 1.2W za osvetljenje instrument table i kontrolne lampice. Pakovanje: set od 100 komada.",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Set: 100 komada",
+   "price": 8.0
+  }
+ ],
+ "aliases": [
+  "sijalica t5",
+  "ubodna sijalica",
+  "sijalica za tablu",
+  "sijalica za instrument tablu",
+  "mala ubodna sijalica",
+  "1.2w",
+  "sijalica za kontrolne lampice"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

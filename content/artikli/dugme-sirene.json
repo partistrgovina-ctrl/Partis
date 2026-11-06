@@ -1,17 +1,18 @@
 {
-  "title": "Dugme sirene",
-  "category": "elektrika",
-  "order": 1024,
-  "in_stock": true,
-  "image": "/assets/img/kat/k024.jpg",
-  "description": "Dugme (taster) sirene za montažu u upravljač ili komandnu tablu vozila.",
-  "promo": false,
-  "price": 85.0,
-  "aliases": [
-    "taster sirene",
-    "trubilo dugme",
-    "dugme trube",
-    "sirena dugme",
-    "taster trube"
-  ]
+ "title": "Dugme sirene",
+ "category": "elektrika",
+ "order": 1024,
+ "in_stock": true,
+ "image": "/assets/img/kat/k024.jpg",
+ "description": "Dugme (taster) sirene za montažu u upravljač ili komandnu tablu vozila.",
+ "promo": false,
+ "price": 85.0,
+ "aliases": [
+  "taster sirene",
+  "trubilo dugme",
+  "dugme trube",
+  "sirena dugme",
+  "taster trube"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

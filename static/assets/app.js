@@ -69,6 +69,7 @@ function openItem(p){
         <div class="eng">${esc(p.catName)}</div>
         <h2>${esc(p.name)}</h2>
         <p class="m-lead">${esc(p.desc)}</p>
+        ${p.hint?`<p class="m-hint">${esc(p.hint)}</p>`:""}
         ${p.spec?`<div class="props"><div class="prop"><div class="k">${esc(p.specLabel||"Navoj")}</div><div class="v">${esc(p.spec)}</div></div></div>`:""}
         <div class="m-sub">Cena</div>
         <div class="tbl-wrap"><table><thead><tr><th>Artikal</th><th>Cena bez PDV-a (sa PDV-om)</th></tr></thead><tbody><tr><td><b>${esc(p.name)}</b></td><td class="price">${p.price==null?`Cena na upit <small>kontakt: 018-553-800 / 065-2553-800</small>`:`${pr(p,p.price)} <small>RSD</small>`}</td></tr></tbody></table></div>
@@ -99,6 +100,7 @@ function openGal(p){
         <div class="eng">${p.catName}</div>
         <h2>${esc(p.name)}</h2>
         <p class="m-lead">${esc(p.desc)}</p>
+        ${p.hint?`<p class="m-hint">${esc(p.hint)}</p>`:""}
         <div class="m-sub">${(p.promo===false||!PARTIS.priced(p))?(n>1?"Dimenzije i cene":"Cena"):(n>1?"Dimenzije i akcijske cene":"Akcijska cena")}</div>
         ${grouped?`<div class="seg" id="seg">${p._groups.map((g,k)=>`<button class="seg-btn${k?"":" on"}" onclick="selGalGroup(${k})">${g}</button>`).join("")}</div>`:""}
         <div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>

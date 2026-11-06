@@ -1,23 +1,24 @@
 {
-  "title": "Sijalica 12V/5W",
-  "category": "sijalice",
-  "order": 1001,
-  "in_stock": true,
-  "image": "/assets/img/kat/k000.jpg",
-  "description": "Sijalica 12V 5W za poziciona svetla i unutrašnje osvetljenje. Pakovanje: set od 10 komada.",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Set: 10 komada",
-      "price": 12.0
-    }
-  ],
-  "aliases": [
-    "sijalica pozicija",
-    "sijalica 5w",
-    "bajonet sijalica 12v",
-    "mala sijalica",
-    "ba15s",
-    "r5w"
-  ]
+ "title": "Sijalica 12V/5W",
+ "category": "sijalice",
+ "order": 1001,
+ "in_stock": true,
+ "image": "/assets/img/kat/k000.jpg",
+ "description": "Sijalica 12V 5W za poziciona svetla i unutrašnje osvetljenje. Pakovanje: set od 10 komada.",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Set: 10 komada",
+   "price": 12.0
+  }
+ ],
+ "aliases": [
+  "sijalica pozicija",
+  "sijalica 5w",
+  "bajonet sijalica 12v",
+  "mala sijalica",
+  "ba15s",
+  "r5w"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

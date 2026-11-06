@@ -1,24 +1,25 @@
 {
-  "title": "Sijalica 12V/21W",
-  "category": "sijalice",
-  "order": 1002,
-  "in_stock": true,
-  "image": "/assets/img/kat/k001.jpg",
-  "description": "Sijalica 12V 21W za štop i migavce. Pakovanje: set od 10 komada.",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Set: 10 komada",
-      "price": 15.0
-    }
-  ],
-  "aliases": [
-    "sijalica stop",
-    "sijalica migavac",
-    "sijalica 21w",
-    "bajonet sijalica 12v",
-    "sijalica zadnja",
-    "ba15s",
-    "p21w"
-  ]
+ "title": "Sijalica 12V/21W",
+ "category": "sijalice",
+ "order": 1002,
+ "in_stock": true,
+ "image": "/assets/img/kat/k001.jpg",
+ "description": "Sijalica 12V 21W za štop i migavce. Pakovanje: set od 10 komada.",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Set: 10 komada",
+   "price": 15.0
+  }
+ ],
+ "aliases": [
+  "sijalica stop",
+  "sijalica migavac",
+  "sijalica 21w",
+  "bajonet sijalica 12v",
+  "sijalica zadnja",
+  "ba15s",
+  "p21w"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

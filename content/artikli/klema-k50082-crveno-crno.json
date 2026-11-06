@@ -1,24 +1,25 @@
 {
-  "title": "Klema K50082 (crveno-crno)",
-  "category": "elektrika",
-  "order": 1012,
-  "in_stock": true,
-  "image": "/assets/img/kat/k011.jpg",
-  "description": "Akumulatorske kleme K50082 u crvenoj i crnoj boji, pakovanje par (plus i minus).",
-  "promo": false,
-  "variants": [
-    {
-      "label": "Par",
-      "price": 65.0
-    }
-  ],
-  "aliases": [
-    "klema akumulatora",
-    "akumulatorska klema",
-    "poklema",
-    "pol klema",
-    "klemne akumulatora",
-    "par klema",
-    "k50082"
-  ]
+ "title": "Klema K50082 (crveno-crno)",
+ "category": "elektrika",
+ "order": 1012,
+ "in_stock": true,
+ "image": "/assets/img/kat/k011.jpg",
+ "description": "Akumulatorske kleme K50082 u crvenoj i crnoj boji, pakovanje par (plus i minus).",
+ "promo": false,
+ "variants": [
+  {
+   "label": "Par",
+   "price": 65.0
+  }
+ ],
+ "aliases": [
+  "klema akumulatora",
+  "akumulatorska klema",
+  "poklema",
+  "pol klema",
+  "klemne akumulatora",
+  "par klema",
+  "k50082"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -1,17 +1,18 @@
 {
-  "title": "Staklo štop lampe - 3 polja",
-  "category": "svetlosna",
-  "order": 1040,
-  "in_stock": true,
-  "image": "/assets/img/kat/k040.jpg",
-  "description": "Zamensko staklo za štop lampu sa 3 polja.",
-  "promo": false,
-  "price": 300.0,
-  "aliases": [
-    "staklo stop lampe",
-    "staklo zadnjeg svetla",
-    "staklo lampe",
-    "staklo za stop",
-    "staklo zadnje lampe"
-  ]
+ "title": "Staklo štop lampe - 3 polja",
+ "category": "svetlosna",
+ "order": 1040,
+ "in_stock": true,
+ "image": "/assets/img/kat/k040.jpg",
+ "description": "Zamensko staklo za štop lampu sa 3 polja.",
+ "promo": false,
+ "price": 300.0,
+ "aliases": [
+  "staklo stop lampe",
+  "staklo zadnjeg svetla",
+  "staklo lampe",
+  "staklo za stop",
+  "staklo zadnje lampe"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

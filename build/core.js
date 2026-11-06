@@ -63,7 +63,7 @@
     const items=live(inp.artikli.map(e=>({...e.data,_file:e.file}))).filter(a=>{const all=(a.variants||[]).filter(v=>txt(v.label));return !all.length||all.some(v=>v.in_stock!==false);}).map(a=>{
       const main=img(a.image),vs=(a.variants||[]).filter(v=>txt(v.label)&&v.in_stock!==false);
       const extra=(Array.isArray(a.categories)?a.categories:[]).map(String).filter(c=>c&&c!==a.category&&CATNAME[c]);
-      const o={tnote:txt(a.table_note)||undefined,cat:a.category,cats:extra.length?extra:undefined,catName:CATNAME[a.category]||a.category,name:a.title,img:main,price:vs.length?null:num(a.price),desc:txt(a.description,"Opis u pripremi."),
+      const o={hint:txt(a.hint)||undefined,tnote:txt(a.table_note)||undefined,cat:a.category,cats:extra.length?extra:undefined,catName:CATNAME[a.category]||a.category,name:a.title,img:main,price:vs.length?null:num(a.price),desc:txt(a.description,"Opis u pripremi."),
         spec:txt(a.spec)||null,short:txt(a.card_text)||undefined,colLabel:txt(a.col_label)||undefined,specLabel:txt(a.spec_label)||undefined,_a:a.aliases};
       if(vs.length){o.promo=a.promo!==false;o.gal=vs.map(v=>({grp:txt(v.group)||undefined,label:txt(v.label),price:num(v.price),note:txt(v.note)||undefined,img:img(v.image)||main}));}
       if(!CATNAME[a.category])warn.push(`Artikal "${a.title}": nepoznata kategorija "${a.category}"`);
@@ -163,7 +163,7 @@
       const catName=ho?"Armirana gumena creva":sp?"HEMA Kimya aerosol":(p.catName||"");
       const catFile=ho?"armirana-creva.html":sp?"hema-aerosol.html":(PO[p.cat]||"kategorija-"+p.cat+".html");
       const desc=(sp?p.desc:ho?p.short:(p.desc||p.short))||p.name;
-      const dsc=(p.name+" — "+desc).replace(/\s+/g," ").slice(0,155);
+      const dsc=(desc.toLowerCase().indexOf(p.name.toLowerCase())===0?desc:p.name+" — "+desc).replace(/\s+/g," ").slice(0,155);
       const vlist=ho?p.variants.map(v=>v.dim):sp?p.opts.map(o=>o.pack):(p.gal?p.gal.map(g=>g.label):[]);
       const img=p.img?site+"/"+p.img.replace(/^\//,""):"";
       const ld={"@context":"https://schema.org","@type":"Product",name:p.name,description:desc,brand:{"@type":"Brand",name:sp?"HEMA Aerosol":"PARTIS"},category:catName};
@@ -172,7 +172,7 @@
        if(prices.length){const lo=Math.min(...prices),hi=Math.max(...prices),u=site+"/"+p.u.replace(/\.html$/,"");
          ld.offers=lo===hi?{"@type":"Offer",url:u,priceCurrency:"RSD",price:lo.toFixed(2),availability:"https://schema.org/InStock",priceSpecification:{"@type":"PriceSpecification",price:lo.toFixed(2),priceCurrency:"RSD",valueAddedTaxIncluded:false}}
          :{"@type":"AggregateOffer",url:u,priceCurrency:"RSD",lowPrice:lo.toFixed(2),highPrice:hi.toFixed(2),offerCount:prices.length,availability:"https://schema.org/InStock"};}}
-      const stat=`<h1>${eh(p.name)}</h1>${p.img?`<img src="${eh(p.img)}" alt="${eh(p.name)}" width="400">`:""}<p>${eh(desc)}</p>`+(vlist.length?`<ul>${vlist.map(v=>`<li>${eh(v)}</li>`).join("")}</ul>`:"")+`<p>Cena na upit: <a href="tel:+38118553800">018-553-800</a> / <a href="tel:+381652553800">065-2553-800</a></p>`;
+      const stat=`<h1>${eh(p.name)}</h1>${p.img?`<img src="${eh(p.img)}" alt="${eh(p.name)}" width="400">`:""}<p>${eh(desc)}</p>`+(p.hint?`<p>${eh(p.hint)}</p>`:"")+(vlist.length?`<ul>${vlist.map(v=>`<li>${eh(v)}</li>`).join("")}</ul>`:"")+`<p>Cena na upit: <a href="tel:+38118553800">018-553-800</a> / <a href="tel:+381652553800">065-2553-800</a></p>`;
       const t=tpl.replace(/\{\{P_KEY\}\}/g,p._k).replace(/\{\{P_FILE\}\}/g,p.u).replace(/\{\{P_TITLE\}\}/g,()=>eh(p.name)).replace(/\{\{P_DESC\}\}/g,()=>eh(dsc)).replace(/\{\{P_IMG\}\}/g,()=>eh(img||site+"/assets/img/nu40.jpg"))
         .replace(/\{\{P_PARENT\}\}/g,PAR[catFile]?'<a href="'+PAR[catFile][0]+'">'+PAR[catFile][1]+'</a> &rsaquo; ':(/^kategorija-/.test(catFile)&&catFile!=="kategorija-tork.html"?'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ':"")).replace(/\{\{P_CATNAME\}\}/g,()=>eh(catName)).replace(/\{\{P_CATFILE\}\}/g,catFile).replace(/\{\{P_LD\}\}/g,()=>`<script type="application/ld+json">${j(ld).replace(/</g,"\\u003c")}</script>`).replace(/\{\{P_STATIC\}\}/g,()=>stat);
       const r=renderPage(t,D,site,PARTIS);return {file:p.u,html:r.html,noindex:false};

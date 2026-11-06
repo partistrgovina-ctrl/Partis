@@ -1,17 +1,18 @@
 {
-  "title": "Prekidač migavca IMT",
-  "category": "traktor",
-  "order": 2009,
-  "in_stock": true,
-  "image": "/assets/img/kat/k101.jpg",
-  "description": "Prekidač migavaca za IMT traktore.",
-  "promo": false,
-  "price": 350.0,
-  "aliases": [
-    "migavac prekidac imt",
-    "prekidac pokazivaca pravca",
-    "rucica migavaca imt",
-    "imt traktor migavac",
-    "komandna rucica migavca"
-  ]
+ "title": "Prekidač migavca IMT",
+ "category": "traktor",
+ "order": 2009,
+ "in_stock": true,
+ "image": "/assets/img/kat/k101.jpg",
+ "description": "Prekidač migavaca za IMT traktore.",
+ "promo": false,
+ "price": 350.0,
+ "aliases": [
+  "migavac prekidac imt",
+  "prekidac pokazivaca pravca",
+  "rucica migavaca imt",
+  "imt traktor migavac",
+  "komandna rucica migavca"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

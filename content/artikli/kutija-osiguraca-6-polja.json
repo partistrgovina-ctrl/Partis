@@ -1,17 +1,18 @@
 {
-  "title": "Kutija osigurača 6 polja",
-  "category": "aksa",
-  "order": 2002,
-  "in_stock": true,
-  "image": "/assets/img/kat/k093.jpg",
-  "description": "Kutija osigurača sa 6 polja (AK-SA).",
-  "promo": false,
-  "price": 425.0,
-  "aliases": [
-    "kutija sa osiguracima",
-    "osiguracka kutija",
-    "kutija za osigurace 6",
-    "kutijica osiguraca",
-    "drzac osiguraca"
-  ]
+ "title": "Kutija osigurača 6 polja",
+ "category": "aksa",
+ "order": 2002,
+ "in_stock": true,
+ "image": "/assets/img/kat/k093.jpg",
+ "description": "Kutija osigurača sa 6 polja (AK-SA).",
+ "promo": false,
+ "price": 425.0,
+ "aliases": [
+  "kutija sa osiguracima",
+  "osiguracka kutija",
+  "kutija za osigurace 6",
+  "kutijica osiguraca",
+  "drzac osiguraca"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

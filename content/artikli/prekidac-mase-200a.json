@@ -1,18 +1,19 @@
 {
-  "title": "Prekidač mase 200A",
-  "category": "aksa",
-  "order": 2004,
-  "in_stock": true,
-  "image": "/assets/img/kat/k096.jpg",
-  "description": "Prekidač mase (odvajanje akumulatora) 200A. Prekida strujno kolo kada vozilo ne radi.",
-  "promo": false,
-  "price": 1200.0,
-  "aliases": [
-    "glavni prekidac",
-    "odvajac akumulatora",
-    "prekidac akumulatora",
-    "masa prekidac",
-    "rastavljac akumulatora",
-    "prekidac struje 200a"
-  ]
+ "title": "Prekidač mase 200A",
+ "category": "aksa",
+ "order": 2004,
+ "in_stock": true,
+ "image": "/assets/img/kat/k096.jpg",
+ "description": "Prekidač mase (odvajanje akumulatora) 200A. Prekida strujno kolo kada vozilo ne radi.",
+ "promo": false,
+ "price": 1200.0,
+ "aliases": [
+  "glavni prekidac",
+  "odvajac akumulatora",
+  "prekidac akumulatora",
+  "masa prekidac",
+  "rastavljac akumulatora",
+  "prekidac struje 200a"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

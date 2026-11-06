@@ -1,23 +1,24 @@
 {
-  "title": "Glava spojnice vazduha Žuta sa ventilom 22 mm",
-  "category": "glave",
-  "order": 1402,
-  "in_stock": true,
-  "image": "/assets/img/kat/k085.jpg",
-  "description": "Glava spojnice vazduha za pneumatski kočioni sistem prikolica i kamiona: žuta sa ventilom 22 mm.",
-  "promo": false,
-  "price": 520.0,
-  "aliases": [
-    "glava vazdusne spojnice",
-    "spojnica prikolice vazduh",
-    "kocna glava",
-    "glava za prikolicu",
-    "glava crvena",
-    "glava zuta",
-    "vazdusna glava",
-    "glava kocnice",
-    "žuta sa ventilom 22 mm",
-    "glava žuta sa ventilom 22 mm",
-    "spojnica vazduha žuta sa ventilom 22 mm"
-  ]
+ "title": "Glava spojnice vazduha Žuta sa ventilom 22 mm",
+ "category": "glave",
+ "order": 1402,
+ "in_stock": true,
+ "image": "/assets/img/kat/k085.jpg",
+ "description": "Glava spojnice vazduha za pneumatski kočioni sistem prikolica i kamiona: žuta sa ventilom 22 mm.",
+ "promo": false,
+ "price": 520.0,
+ "aliases": [
+  "glava vazdusne spojnice",
+  "spojnica prikolice vazduh",
+  "kocna glava",
+  "glava za prikolicu",
+  "glava crvena",
+  "glava zuta",
+  "vazdusna glava",
+  "glava kocnice",
+  "žuta sa ventilom 22 mm",
+  "glava žuta sa ventilom 22 mm",
+  "spojnica vazduha žuta sa ventilom 22 mm"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

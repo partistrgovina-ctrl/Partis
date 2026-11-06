@@ -1,17 +1,18 @@
 {
-  "title": "Pumpa goriva MSJ-089 24V",
-  "category": "elektrika",
-  "order": 1026,
-  "in_stock": true,
-  "image": "/assets/img/kat/k026.jpg",
-  "description": "Električna pumpa goriva MSJ-089, 24V.",
-  "promo": false,
-  "price": 1400.0,
-  "aliases": [
-    "elektricna pumpa goriva",
-    "pumpa za gorivo 24v",
-    "pumpica goriva",
-    "msj089",
-    "dizel pumpa 24v"
-  ]
+ "title": "Pumpa goriva MSJ-089 24V",
+ "category": "elektrika",
+ "order": 1026,
+ "in_stock": true,
+ "image": "/assets/img/kat/k026.jpg",
+ "description": "Električna pumpa goriva MSJ-089, 24V.",
+ "promo": false,
+ "price": 1400.0,
+ "aliases": [
+  "elektricna pumpa goriva",
+  "pumpa za gorivo 24v",
+  "pumpica goriva",
+  "msj089",
+  "dizel pumpa 24v"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

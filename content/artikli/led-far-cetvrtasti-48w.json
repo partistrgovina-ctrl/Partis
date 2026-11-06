@@ -1,19 +1,20 @@
 {
-  "title": "LED far četvrtasti 48W",
-  "category": "svetlosna",
-  "order": 1034,
-  "in_stock": true,
-  "image": "/assets/img/kat/k034.jpg",
-  "description": "Četvrtasti LED far snage 48W, za radno i dopunsko osvetljenje traktora, kamiona i radnih mašina.",
-  "promo": false,
-  "price": 350.0,
-  "aliases": [
-    "led reflektor",
-    "radni far",
-    "led radna lampa",
-    "far za traktor",
-    "reflektor 48w",
-    "led svetlo četvrtasto",
-    "work light"
-  ]
+ "title": "LED far četvrtasti 48W",
+ "category": "svetlosna",
+ "order": 1034,
+ "in_stock": true,
+ "image": "/assets/img/kat/k034.jpg",
+ "description": "Četvrtasti LED far snage 48W, za radno i dopunsko osvetljenje traktora, kamiona i radnih mašina.",
+ "promo": false,
+ "price": 350.0,
+ "aliases": [
+  "led reflektor",
+  "radni far",
+  "led radna lampa",
+  "far za traktor",
+  "reflektor 48w",
+  "led svetlo četvrtasto",
+  "work light"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -1,18 +1,19 @@
 {
-  "title": "Prekidač mase mini 100A",
-  "category": "aksa",
-  "order": 2010,
-  "in_stock": true,
-  "image": "/assets/img/kat/k105.jpg",
-  "description": "Mali prekidač mase (odvajanje akumulatora) 100A.",
-  "promo": false,
-  "price": 650.0,
-  "aliases": [
-    "glavni prekidac",
-    "odvajac akumulatora",
-    "prekidac akumulatora",
-    "masa prekidac mini",
-    "rastavljac akumulatora",
-    "prekidac struje 100a"
-  ]
+ "title": "Prekidač mase mini 100A",
+ "category": "aksa",
+ "order": 2010,
+ "in_stock": true,
+ "image": "/assets/img/kat/k105.jpg",
+ "description": "Mali prekidač mase (odvajanje akumulatora) 100A.",
+ "promo": false,
+ "price": 650.0,
+ "aliases": [
+  "glavni prekidac",
+  "odvajac akumulatora",
+  "prekidac akumulatora",
+  "masa prekidac mini",
+  "rastavljac akumulatora",
+  "prekidac struje 100a"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

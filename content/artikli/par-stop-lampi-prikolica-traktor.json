@@ -1,17 +1,18 @@
 {
-  "title": "Par štop lampi - prikolica/traktor",
-  "category": "traktor",
-  "order": 1035,
-  "in_stock": true,
-  "image": "/assets/img/kat/k035.jpg",
-  "description": "Par zadnjih štop lampi za prikolice i traktore.",
-  "promo": false,
-  "price": 1000.0,
-  "aliases": [
-    "stop lampe traktor",
-    "zadnja svetla traktor",
-    "zadnje lampe prikolice",
-    "stop svetla prikolica",
-    "svetla traktorske prikolice"
-  ]
+ "title": "Par štop lampi - prikolica/traktor",
+ "category": "traktor",
+ "order": 1035,
+ "in_stock": true,
+ "image": "/assets/img/kat/k035.jpg",
+ "description": "Par zadnjih štop lampi za prikolice i traktore.",
+ "promo": false,
+ "price": 1000.0,
+ "aliases": [
+  "stop lampe traktor",
+  "zadnja svetla traktor",
+  "zadnje lampe prikolice",
+  "stop svetla prikolica",
+  "svetla traktorske prikolice"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

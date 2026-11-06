@@ -1,17 +1,18 @@
 {
-  "title": "Cug prekidač",
-  "category": "aksa",
-  "order": 2007,
-  "in_stock": true,
-  "image": "/assets/img/kat/k099.jpg",
-  "description": "Cug (vučni) prekidač za uključivanje svetala i potrošača na traktorima i radnim mašinama. Uključuje se izvlačenjem dugmeta.",
-  "promo": false,
-  "price": 115.0,
-  "aliases": [
-    "vucni prekidac",
-    "cug dugme",
-    "prekidac na cug",
-    "izvlacni prekidac",
-    "cug taster"
-  ]
+ "title": "Cug prekidač",
+ "category": "aksa",
+ "order": 2007,
+ "in_stock": true,
+ "image": "/assets/img/kat/k099.jpg",
+ "description": "Cug (vučni) prekidač za uključivanje svetala i potrošača na traktorima i radnim mašinama. Uključuje se izvlačenjem dugmeta.",
+ "promo": false,
+ "price": 115.0,
+ "aliases": [
+  "vucni prekidac",
+  "cug dugme",
+  "prekidac na cug",
+  "izvlacni prekidac",
+  "cug taster"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

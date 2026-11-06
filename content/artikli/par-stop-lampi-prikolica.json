@@ -1,17 +1,18 @@
 {
-  "title": "Par štop lampi - prikolica",
-  "category": "svetlosna",
-  "order": 1036,
-  "in_stock": true,
-  "image": "/assets/img/kat/k036.jpg",
-  "description": "Par zadnjih štop lampi za prikolice.",
-  "promo": false,
-  "price": 3700.0,
-  "aliases": [
-    "stop lampe prikolica",
-    "zadnja svetla prikolice",
-    "zadnje lampe",
-    "stop svetla prikolica",
-    "svetla za prikolicu"
-  ]
+ "title": "Par štop lampi - prikolica",
+ "category": "svetlosna",
+ "order": 1036,
+ "in_stock": true,
+ "image": "/assets/img/kat/k036.jpg",
+ "description": "Par zadnjih štop lampi za prikolice.",
+ "promo": false,
+ "price": 3700.0,
+ "aliases": [
+  "stop lampe prikolica",
+  "zadnja svetla prikolice",
+  "zadnje lampe",
+  "stop svetla prikolica",
+  "svetla za prikolicu"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

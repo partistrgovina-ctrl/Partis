@@ -1,17 +1,18 @@
 {
-  "title": "Kutija za ubodne osigurače 6 polja",
-  "category": "aksa",
-  "order": 2001,
-  "in_stock": true,
-  "image": "/assets/img/kat/k091.jpg",
-  "description": "Kutija za ubodne osigurače sa 6 polja (AK-SA).",
-  "promo": false,
-  "price": 425.0,
-  "aliases": [
-    "kutija sa osiguracima",
-    "osiguracka kutija",
-    "kutija za osigurace 6",
-    "kutijica osiguraca",
-    "ubodni osiguraci kutija"
-  ]
+ "title": "Kutija za ubodne osigurače 6 polja",
+ "category": "aksa",
+ "order": 2001,
+ "in_stock": true,
+ "image": "/assets/img/kat/k091.jpg",
+ "description": "Kutija za ubodne osigurače sa 6 polja (AK-SA).",
+ "promo": false,
+ "price": 425.0,
+ "aliases": [
+  "kutija sa osiguracima",
+  "osiguracka kutija",
+  "kutija za osigurace 6",
+  "kutijica osiguraca",
+  "ubodni osiguraci kutija"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

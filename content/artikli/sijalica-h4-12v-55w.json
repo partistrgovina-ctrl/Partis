@@ -1,20 +1,21 @@
 {
-  "title": "Sijalica H4 12V 55W",
-  "category": "sijalice",
-  "order": 1007,
-  "in_stock": true,
-  "image": "/assets/img/kat/k006.jpg",
-  "description": "Halogena sijalica H4 12V 55W sa dve niti, za kratka i dugačka svetla.",
-  "promo": false,
-  "price": 55.0,
-  "aliases": [
-    "h4 sijalica",
-    "halogena sijalica",
-    "sijalica za far",
-    "sijalica h4",
-    "h4 55w",
-    "bi sijalica",
-    "dugo i kratko",
-    "auto sijalica"
-  ]
+ "title": "Sijalica H4 12V 55W",
+ "category": "sijalice",
+ "order": 1007,
+ "in_stock": true,
+ "image": "/assets/img/kat/k006.jpg",
+ "description": "Halogena sijalica H4 12V 55W sa dve niti, za kratka i dugačka svetla.",
+ "promo": false,
+ "price": 55.0,
+ "aliases": [
+  "h4 sijalica",
+  "halogena sijalica",
+  "sijalica za far",
+  "sijalica h4",
+  "h4 55w",
+  "bi sijalica",
+  "dugo i kratko",
+  "auto sijalica"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

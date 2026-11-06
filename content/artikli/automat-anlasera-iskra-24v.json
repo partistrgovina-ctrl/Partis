@@ -1,17 +1,18 @@
 {
-  "title": "Automat anlasera ISKRA 24V",
-  "category": "automati",
-  "order": 1055,
-  "in_stock": true,
-  "image": "/assets/img/kat/k057.jpg",
-  "description": "Automat anlasera ISKRA za 24V. Elektromagnetni prekidač koji priključuje anlaser na akumulator pri paljenju motora kamiona, traktora i radnih mašina.",
-  "promo": false,
-  "price": 2200.0,
-  "aliases": [
-    "iskra automat",
-    "solenoid anlasera iskra",
-    "automat startera iskra",
-    "relej anlasera",
-    "anlaser 24v"
-  ]
+ "title": "Automat anlasera ISKRA 24V",
+ "category": "automati",
+ "order": 1055,
+ "in_stock": true,
+ "image": "/assets/img/kat/k057.jpg",
+ "description": "Automat anlasera ISKRA za 24V. Elektromagnetni prekidač koji priključuje anlaser na akumulator pri paljenju motora kamiona, traktora i radnih mašina.",
+ "promo": false,
+ "price": 2200.0,
+ "aliases": [
+  "iskra automat",
+  "solenoid anlasera iskra",
+  "automat startera iskra",
+  "relej anlasera",
+  "anlaser 24v"
+ ],
+ "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

@@ -1,17 +1,18 @@
 {
-  "title": "Štop lampa 12V LED 3 polja",
-  "category": "svetlosna",
-  "order": 1046,
-  "in_stock": true,
-  "image": "/assets/img/kat/k046.jpg",
-  "description": "LED štop lampa 12V sa 3 polja.",
-  "promo": false,
-  "price": 550.0,
-  "aliases": [
-    "led stop lampa",
-    "zadnja led lampa",
-    "stop svetlo led",
-    "led zadnje svetlo",
-    "stop lampa 3 polja"
-  ]
+ "title": "Štop lampa 12V LED 3 polja",
+ "category": "svetlosna",
+ "order": 1046,
+ "in_stock": true,
+ "image": "/assets/img/kat/k046.jpg",
+ "description": "LED štop lampa 12V sa 3 polja.",
+ "promo": false,
+ "price": 550.0,
+ "aliases": [
+  "led stop lampa",
+  "zadnja led lampa",
+  "stop svetlo led",
+  "led zadnje svetlo",
+  "stop lampa 3 polja"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

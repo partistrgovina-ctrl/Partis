@@ -1,17 +1,18 @@
 {
-  "title": "Kontakt brava",
-  "category": "brave",
-  "order": 1051,
-  "in_stock": true,
-  "image": "/assets/img/kat/k053.jpg",
-  "description": "Kontakt brava (brava paljenja) sa ključevima za vozila i radne mašine.",
-  "promo": false,
-  "price": 450.0,
-  "aliases": [
-    "brava paljenja",
-    "kontakt",
-    "bravica kontakta",
-    "brava kontakta",
-    "brava za paljenje"
-  ]
+ "title": "Kontakt brava",
+ "category": "brave",
+ "order": 1051,
+ "in_stock": true,
+ "image": "/assets/img/kat/k053.jpg",
+ "description": "Kontakt brava (brava paljenja) sa ključevima za vozila i radne mašine.",
+ "promo": false,
+ "price": 450.0,
+ "aliases": [
+  "brava paljenja",
+  "kontakt",
+  "bravica kontakta",
+  "brava kontakta",
+  "brava za paljenje"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

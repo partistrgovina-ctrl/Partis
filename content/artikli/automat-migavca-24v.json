@@ -1,18 +1,19 @@
 {
-  "title": "Automat migavca 24V",
-  "category": "automati",
-  "order": 1058,
-  "in_stock": true,
-  "image": "/assets/img/kat/k060.jpg",
-  "description": "Automat (flaser) migavaca za 24V instalacije. Daje ritmično treptanje pokazivača pravca na kamionima, autobusima i prikolicama.",
-  "promo": false,
-  "price": 140.0,
-  "aliases": [
-    "flaser migavaca",
-    "rele migavaca",
-    "trepcuce",
-    "trepter migavaca",
-    "blinker 24v",
-    "relej migavca"
-  ]
+ "title": "Automat migavca 24V",
+ "category": "automati",
+ "order": 1058,
+ "in_stock": true,
+ "image": "/assets/img/kat/k060.jpg",
+ "description": "Automat (flaser) migavaca za 24V instalacije. Daje ritmično treptanje pokazivača pravca na kamionima, autobusima i prikolicama.",
+ "promo": false,
+ "price": 140.0,
+ "aliases": [
+  "flaser migavaca",
+  "rele migavaca",
+  "trepcuce",
+  "trepter migavaca",
+  "blinker 24v",
+  "relej migavca"
+ ],
+ "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

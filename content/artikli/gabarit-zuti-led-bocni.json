@@ -1,18 +1,19 @@
 {
-  "title": "Gabarit žuti LED (bočni)",
-  "category": "svetlosna",
-  "order": 1042,
-  "in_stock": true,
-  "image": "/assets/img/kat/k042.jpg",
-  "description": "Bočni LED gabarit žute boje za označavanje vozila i prikolica.",
-  "promo": false,
-  "price": 100.0,
-  "aliases": [
-    "bocni gabarit",
-    "led gabarit zuti",
-    "pozicija svetlo bocno",
-    "gabaritno svetlo",
-    "bocna lampa",
-    "zuti gabarit"
-  ]
+ "title": "Gabarit žuti LED (bočni)",
+ "category": "svetlosna",
+ "order": 1042,
+ "in_stock": true,
+ "image": "/assets/img/kat/k042.jpg",
+ "description": "Bočni LED gabarit žute boje za označavanje vozila i prikolica.",
+ "promo": false,
+ "price": 100.0,
+ "aliases": [
+  "bocni gabarit",
+  "led gabarit zuti",
+  "pozicija svetlo bocno",
+  "gabaritno svetlo",
+  "bocna lampa",
+  "zuti gabarit"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

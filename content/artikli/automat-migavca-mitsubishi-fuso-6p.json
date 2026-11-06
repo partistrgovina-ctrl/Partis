@@ -1,16 +1,17 @@
 {
-  "title": "Automat migavca Mitsubishi Fuso 6P",
-  "category": "automati",
-  "order": 1060,
-  "in_stock": true,
-  "image": "/assets/img/kat/k062.jpg",
-  "description": "Automat migavaca sa 6 izvoda (6P) za Mitsubishi Fuso. Upravlja treptanjem pokazivača pravca.",
-  "promo": false,
-  "price": 1310.0,
-  "aliases": [
-    "flaser migavaca fuso",
-    "rele migavaca mitsubishi",
-    "fuso canter migavac",
-    "trepcuce 6 pinova"
-  ]
+ "title": "Automat migavca Mitsubishi Fuso 6P",
+ "category": "automati",
+ "order": 1060,
+ "in_stock": true,
+ "image": "/assets/img/kat/k062.jpg",
+ "description": "Automat migavaca sa 6 izvoda (6P) za Mitsubishi Fuso. Upravlja treptanjem pokazivača pravca.",
+ "promo": false,
+ "price": 1310.0,
+ "aliases": [
+  "flaser migavaca fuso",
+  "rele migavaca mitsubishi",
+  "fuso canter migavac",
+  "trepcuce 6 pinova"
+ ],
+ "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

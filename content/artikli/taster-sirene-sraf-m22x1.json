@@ -1,18 +1,19 @@
 {
-  "title": "Taster sirene šraf M22x1",
-  "category": "aksa",
-  "order": 2005,
-  "in_stock": true,
-  "image": "/assets/img/kat/k097.jpg",
-  "description": "Taster sirene sa šrafom, navoj M22x1.",
-  "promo": false,
-  "price": 125.0,
-  "aliases": [
-    "dugme sirene",
-    "taster trube",
-    "dugme trube",
-    "taster klaksona",
-    "m22x1",
-    "sraf taster"
-  ]
+ "title": "Taster sirene šraf M22x1",
+ "category": "aksa",
+ "order": 2005,
+ "in_stock": true,
+ "image": "/assets/img/kat/k097.jpg",
+ "description": "Taster sirene sa šrafom, navoj M22x1.",
+ "promo": false,
+ "price": 125.0,
+ "aliases": [
+  "dugme sirene",
+  "taster trube",
+  "dugme trube",
+  "taster klaksona",
+  "m22x1",
+  "sraf taster"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

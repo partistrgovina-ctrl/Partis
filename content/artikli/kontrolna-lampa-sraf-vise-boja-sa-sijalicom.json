@@ -1,20 +1,21 @@
 {
-  "title": "Kontrolna lampa (šraf), više boja, sa sijalicom",
-  "category": "aksa",
-  "order": 2012,
-  "in_stock": true,
-  "image": "/assets/img/kat/k107.jpg",
-  "description": "Kontrolna lampa sa navojem (šraf), dostupna u više boja, isporučuje se sa sijalicom. Za signalizaciju na komandnoj tabli.",
-  "promo": false,
-  "price": 150.0,
-  "aliases": [
-    "kontrolna lampica",
-    "signalna lampica",
-    "kontrolka",
-    "kontrolna lampa sraf",
-    "signalna lampa",
-    "lampica zelena",
-    "lampica crvena",
-    "lampica zuta"
-  ]
+ "title": "Kontrolna lampa (šraf), više boja, sa sijalicom",
+ "category": "aksa",
+ "order": 2012,
+ "in_stock": true,
+ "image": "/assets/img/kat/k107.jpg",
+ "description": "Kontrolna lampa sa navojem (šraf), dostupna u više boja, isporučuje se sa sijalicom. Za signalizaciju na komandnoj tabli.",
+ "promo": false,
+ "price": 150.0,
+ "aliases": [
+  "kontrolna lampica",
+  "signalna lampica",
+  "kontrolka",
+  "kontrolna lampa sraf",
+  "signalna lampa",
+  "lampica zelena",
+  "lampica crvena",
+  "lampica zuta"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

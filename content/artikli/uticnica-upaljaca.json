@@ -1,17 +1,18 @@
 {
-  "title": "Utičnica upaljača",
-  "category": "elektrika",
-  "order": 1023,
-  "in_stock": true,
-  "image": "/assets/img/kat/k023.jpg",
-  "description": "Utičnica upaljača (12V priključak) za ugradnju u vozilo.",
-  "promo": false,
-  "price": 200.0,
-  "aliases": [
-    "upaljac utičnica",
-    "12v utičnica",
-    "prikljucak upaljaca",
-    "uticnica za punjac",
-    "adapter upaljaca"
-  ]
+ "title": "Utičnica upaljača",
+ "category": "elektrika",
+ "order": 1023,
+ "in_stock": true,
+ "image": "/assets/img/kat/k023.jpg",
+ "description": "Utičnica upaljača (12V priključak) za ugradnju u vozilo.",
+ "promo": false,
+ "price": 200.0,
+ "aliases": [
+  "upaljac utičnica",
+  "12v utičnica",
+  "prikljucak upaljaca",
+  "uticnica za punjac",
+  "adapter upaljaca"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

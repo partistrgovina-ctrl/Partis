@@ -1,17 +1,18 @@
 {
-  "title": "Štop lampa 12V LED 4 polja",
-  "category": "svetlosna",
-  "order": 1047,
-  "in_stock": true,
-  "image": "/assets/img/kat/k048.jpg",
-  "description": "LED štop lampa 12V sa 4 polja.",
-  "promo": false,
-  "price": 600.0,
-  "aliases": [
-    "led stop lampa",
-    "zadnja led lampa",
-    "stop svetlo led",
-    "led zadnje svetlo",
-    "stop lampa 4 polja"
-  ]
+ "title": "Štop lampa 12V LED 4 polja",
+ "category": "svetlosna",
+ "order": 1047,
+ "in_stock": true,
+ "image": "/assets/img/kat/k048.jpg",
+ "description": "LED štop lampa 12V sa 4 polja.",
+ "promo": false,
+ "price": 600.0,
+ "aliases": [
+  "led stop lampa",
+  "zadnja led lampa",
+  "stop svetlo led",
+  "led zadnje svetlo",
+  "stop lampa 4 polja"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

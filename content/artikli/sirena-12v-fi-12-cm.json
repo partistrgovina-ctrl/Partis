@@ -1,18 +1,19 @@
 {
-  "title": "Sirena 12V fi 12 cm",
-  "category": "zvucna",
-  "order": 1027,
-  "in_stock": true,
-  "image": "/assets/img/kat/k027.jpg",
-  "description": "Sirena 12V prečnika 12 cm.",
-  "promo": false,
-  "price": 275.0,
-  "aliases": [
-    "truba",
-    "sirena 12v",
-    "okrugla sirena",
-    "sirena za auto",
-    "klakson",
-    "truba 12v"
-  ]
+ "title": "Sirena 12V fi 12 cm",
+ "category": "zvucna",
+ "order": 1027,
+ "in_stock": true,
+ "image": "/assets/img/kat/k027.jpg",
+ "description": "Sirena 12V prečnika 12 cm.",
+ "promo": false,
+ "price": 275.0,
+ "aliases": [
+  "truba",
+  "sirena 12v",
+  "okrugla sirena",
+  "sirena za auto",
+  "klakson",
+  "truba 12v"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

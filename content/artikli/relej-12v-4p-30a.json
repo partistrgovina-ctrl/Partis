@@ -1,17 +1,18 @@
 {
-  "title": "Relej 12V 4P 30A",
-  "category": "releji",
-  "order": 1302,
-  "in_stock": true,
-  "image": "/assets/img/kat/k074.jpg",
-  "description": "Relej 12V, izvedba 4P 30A, za upravljanje svetlima, pumpama, ventilatorima i drugim potrošačima.",
-  "promo": false,
-  "price": 280.0,
-  "aliases": [
-    "rele",
-    "auto relej",
-    "12v 4p 30a",
-    "relej 12v 4p 30a",
-    "rele 12v 4p 30a"
-  ]
+ "title": "Relej 12V 4P 30A",
+ "category": "releji",
+ "order": 1302,
+ "in_stock": true,
+ "image": "/assets/img/kat/k074.jpg",
+ "description": "Relej 12V, izvedba 4P 30A, za upravljanje svetlima, pumpama, ventilatorima i drugim potrošačima.",
+ "promo": false,
+ "price": 280.0,
+ "aliases": [
+  "rele",
+  "auto relej",
+  "12v 4p 30a",
+  "relej 12v 4p 30a",
+  "rele 12v 4p 30a"
+ ],
+ "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

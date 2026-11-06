@@ -1,87 +1,88 @@
 {
-  "title": "Armirano crevo pneumatike 20 BAR-a (crevo za kompresor)",
-  "category": "gotova",
-  "order": 500,
-  "in_stock": true,
-  "image": "/assets/img/gc_20bar.jpg",
-  "description": "Standard EN ISO 2398, ISO 1307. Radni pritisak 20 bar, temperatura od −25°C do +70°C.",
-  "promo": false,
-  "col_label": "Dužina i nastavci",
-  "variants": [
-    {
-      "label": "10x18 mm · 5 m",
-      "price": 950,
-      "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
-    },
-    {
-      "label": "10x18 mm · 10 m",
-      "price": 1550,
-      "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
-    },
-    {
-      "label": "10x18 mm · 15 m",
-      "price": 2150,
-      "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
-    },
-    {
-      "label": "10x18 mm · 20 m",
-      "price": 2750,
-      "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
-    },
-    {
-      "label": "10x18 mm · 25 m",
-      "price": 3350,
-      "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
-    }
-  ],
-  "aliases": [
-    "cev kompresora",
-    "cevi kompresora",
-    "cijev kompresora",
-    "crijevo kompresora",
-    "cev za kompresor",
-    "cev od kompresora",
-    "10x18 5 m",
-    "10x18 5m",
-    "10x18 500 cm",
-    "10x18x500",
-    "5 m",
-    "500 cm",
-    "10x18 10 m",
-    "10x18 10m",
-    "10x18 1000 cm",
-    "10x18x1000",
-    "10 m",
-    "1000 cm",
-    "10x18 15 m",
-    "10x18 15m",
-    "10x18 1500 cm",
-    "10x18x1500",
-    "15 m",
-    "1500 cm",
-    "10x18 20 m",
-    "10x18 20m",
-    "10x18 2000 cm",
-    "10x18x2000",
-    "20 m",
-    "2000 cm",
-    "10x18 25 m",
-    "10x18 25m",
-    "10x18 2500 cm",
-    "10x18x2500",
-    "25 m",
-    "2500 cm",
-    "hvatač utikač",
-    "hvatac utikac",
-    "hvatač i utikač 10",
-    "hvatac utikac 10",
-    "hvatač 10",
-    "utikač 10",
-    "hvatac 10",
-    "utikac 10",
-    "kuglica"
-  ],
-  "categories": [
-    "crevapn"
-  ]
+ "title": "Armirano crevo pneumatike 20 BAR-a (crevo za kompresor)",
+ "category": "gotova",
+ "order": 500,
+ "in_stock": true,
+ "image": "/assets/img/gc_20bar.jpg",
+ "description": "Standard EN ISO 2398, ISO 1307. Radni pritisak 20 bar, temperatura od −25°C do +70°C.",
+ "promo": false,
+ "col_label": "Dužina i nastavci",
+ "variants": [
+  {
+   "label": "10x18 mm · 5 m",
+   "price": 950,
+   "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
+  },
+  {
+   "label": "10x18 mm · 10 m",
+   "price": 1550,
+   "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
+  },
+  {
+   "label": "10x18 mm · 15 m",
+   "price": 2150,
+   "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
+  },
+  {
+   "label": "10x18 mm · 20 m",
+   "price": 2750,
+   "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
+  },
+  {
+   "label": "10x18 mm · 25 m",
+   "price": 3350,
+   "note": "Hvatač pneumatske spojnice (kuglica) 10 mm - Utikač pneumatske spojnice 10 mm"
+  }
+ ],
+ "aliases": [
+  "cev kompresora",
+  "cevi kompresora",
+  "cijev kompresora",
+  "crijevo kompresora",
+  "cev za kompresor",
+  "cev od kompresora",
+  "10x18 5 m",
+  "10x18 5m",
+  "10x18 500 cm",
+  "10x18x500",
+  "5 m",
+  "500 cm",
+  "10x18 10 m",
+  "10x18 10m",
+  "10x18 1000 cm",
+  "10x18x1000",
+  "10 m",
+  "1000 cm",
+  "10x18 15 m",
+  "10x18 15m",
+  "10x18 1500 cm",
+  "10x18x1500",
+  "15 m",
+  "1500 cm",
+  "10x18 20 m",
+  "10x18 20m",
+  "10x18 2000 cm",
+  "10x18x2000",
+  "20 m",
+  "2000 cm",
+  "10x18 25 m",
+  "10x18 25m",
+  "10x18 2500 cm",
+  "10x18x2500",
+  "25 m",
+  "2500 cm",
+  "hvatač utikač",
+  "hvatac utikac",
+  "hvatač i utikač 10",
+  "hvatac utikac 10",
+  "hvatač 10",
+  "utikač 10",
+  "hvatac 10",
+  "utikac 10",
+  "kuglica"
+ ],
+ "categories": [
+  "crevapn"
+ ],
+ "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }
