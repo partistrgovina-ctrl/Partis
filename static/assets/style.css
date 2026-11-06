@@ -608,3 +608,64 @@ header{position:sticky;top:0;z-index:70}
   body.scrolled header .nav-inner{flex-wrap:nowrap;justify-content:flex-end;gap:8px}
   body.scrolled header .menu-btn{padding:8px 10px}
 }
+
+/* ===== ZAGLAVLJE (konačno): bez crne trake, jedan stalan red, sve info uz logo, ništa se ne menja pri skrolu ===== */
+header{display:flex!important;align-items:center;gap:20px;padding:0 var(--pad)!important;background:var(--paper);border-bottom:1.5px solid var(--ink);position:sticky!important;top:0;z-index:70;box-shadow:none!important}
+header .head-inner{display:contents!important}
+header .brand{padding:8px 0!important;flex:0 0 auto;grid-area:auto!important}
+header .contact{display:block!important;position:static!important;flex:0 0 auto;margin:0!important;padding:0!important;background:none!important;color:var(--muted)!important;font-size:11.5px!important;line-height:1.42!important;text-align:left!important;letter-spacing:0!important;white-space:nowrap;border-left:1.5px solid var(--line);padding-left:18px!important;grid-area:auto!important}
+header .contact>div{display:block!important;white-space:nowrap}
+header .contact b{color:var(--ink)!important;font-weight:600}
+header .contact a{color:var(--ink)!important;border-bottom:0!important}
+header .contact a:hover{color:var(--red)!important}
+header .contact .muted{color:var(--muted)!important}
+header .navbar{flex:1 1 auto;min-width:0;border:0!important;background:none!important;padding:0!important;grid-area:auto!important}
+header .nav-inner{max-width:none!important;padding:0!important;flex-wrap:nowrap!important;gap:10px!important;justify-content:flex-end!important}
+header .nav-inner .tabs{flex:0 0 auto!important;order:1;overflow:visible!important;flex-wrap:nowrap!important}
+header .tabs a{padding:27px 9px!important;font-size:12.5px!important}
+header .nav-inner .search{order:2;flex:1 1 110px!important;min-width:90px!important;max-width:200px!important;margin:0!important}
+header .nav-inner .cart-float{order:3}
+header .lang-wrap{position:static!important;order:4;margin:0!important;height:auto!important}
+header .lang-sel{background:#fff!important;color:var(--ink)!important;border:1.5px solid var(--ink)!important;height:auto!important;padding:5px 8px!important;font-size:12px!important}
+header .lang-sel .lang-flag{width:20px}
+body.scrolled header .contact,body.scrolled header .tabs,body.scrolled header .search,body.scrolled header .lang-wrap{display:revert!important}
+.side-links{display:none}
+@media(max-width:1199px){
+  header{flex-wrap:wrap!important;gap:6px 10px!important;padding:6px 16px 8px!important}
+  header .brand{padding:0!important;flex:1 1 auto}
+  header .brand .mark{width:32px!important;height:32px!important;font-size:19px!important}
+  header .brand-txt .bn{font-size:21px!important}
+  header .brand-txt p{display:none!important}
+  header .contact,header .tabs{display:none!important}
+  header .navbar{flex:0 0 auto;display:contents!important}
+  header .nav-inner{display:contents!important}
+  header .menu-btn{order:1;padding:8px 10px!important;font-size:12px!important}
+  header .nav-inner .cart-float{order:2}
+  header .lang-wrap{order:3}
+  header .lang-cur,header .lang-car{display:none}
+  header .nav-inner .search{order:5;flex:1 1 100%!important;max-width:none!important;min-width:0!important}
+  header .nav-inner .search input{padding:7px 40px 7px 11px!important;font-size:14px!important}
+  header .brand{order:0}
+  .side-links{display:flex;flex-wrap:wrap;gap:0;border-bottom:1.5px solid var(--ink)}
+  .side-links a{flex:1 1 50%;padding:12px 20px;color:var(--ink);text-decoration:none;font-weight:600;border-bottom:1px solid var(--line)}
+}
+@media(max-width:380px){header .menu-btn span{display:none}}
+@media(min-width:1200px){.side-menu{top:0}.side-head{height:76px;display:flex;align-items:center}}
+
+/* dorada: bez crnih delova, navigacija u levom meniju na računaru */
+@media(min-width:1200px){
+  header .tabs{display:none!important}
+  header .nav-inner .search{flex:1 1 160px!important;max-width:320px!important}
+  header .navbar{flex:1 1 auto}
+  .side-head{position:static!important;background:var(--paper)!important;color:var(--ink)!important;border-bottom:1.5px solid var(--ink)!important;height:76px}
+  .side-head b{font-weight:600;font-size:13.5px}
+  .side-links{display:flex!important;flex-wrap:wrap;border-bottom:1.5px solid var(--ink)}
+  .side-links a{flex:1 1 50%;padding:11px 18px;color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;border-bottom:1px solid var(--line)}
+  .side-links a:hover{color:var(--red)}
+}
+@media(max-width:1199px){
+  header .cart-float span{display:none}
+  header .cart-float{padding:8px 10px!important}
+  header .brand{min-width:0}
+}
+@media(max-width:520px){header .menu-btn span{display:none}header .menu-btn{padding:9px 11px!important}header .brand-txt .bn{font-size:19px!important;letter-spacing:1.5px}}
