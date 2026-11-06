@@ -805,3 +805,12 @@ img.zoom{cursor:zoom-in}
 }
 
 .m-hint{margin:-6px 0 18px;font-size:14px;line-height:1.5;color:var(--muted)}
+/* HEMA polica: veći prikaz */
+.hh-polica{max-width:560px!important;padding:22px!important}
+.hh-imgs{gap:18px!important}
+.hh-imgs img{height:470px!important;max-width:49%!important}
+.hh-polica p{font-size:17px!important}
+.hh-polica .hh-dim{font-size:15px!important}
+@media(min-width:900px){.hema-hero{grid-template-columns:minmax(0,1fr) 560px!important}}
+@media(max-width:899px){.hh-polica{max-width:none!important}.hh-imgs img{height:360px!important}}
+@media(max-width:520px){.hh-imgs img{height:300px!important}}
