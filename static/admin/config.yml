@@ -39,6 +39,7 @@ collections:
           - { label: "Nastavci mazalica", value: mazalice }
           - { label: "Armirana creva › Prateća oprema", value: crevo }
       - { label: "Na stanju", name: in_stock, widget: boolean, default: true, hint: "Isključite kada artikla nema — nestaje sa sajta, iz pretrage i iz brojača, a ostaje sačuvan ovde pa ga možete vratiti." }
+      - { label: "Interna šifra", name: sifra, widget: string, required: false, hint: "Vaša šifra iz fakturisanja. Kupci je ne vide." }
       - { label: "Slika", name: image, widget: image, required: false, hint: "Najbolje: artikal na beloj pozadini, JPG ili PNG. Sajt sam smanjuje sliku." }
       - { label: "Opis", name: description, widget: text, required: false, default: "Opis u pripremi." }
       - { label: "Kratak tekst na kartici", name: card_text, widget: string, required: false, hint: "Jedna kratka rečenica ispod naziva. Ako ostane prazno, koristi se opis." }
@@ -56,6 +57,7 @@ collections:
         fields:
           - { label: "Na stanju", name: in_stock, widget: boolean, default: true }
           - { label: "Grupa (neobavezno)", name: group, widget: string, required: false, hint: "Npr. navoj M14x1.5 — pravi dugmad za izbor iznad tabele." }
+          - { label: "Šifra", name: sifra, widget: string, required: false }
           - { label: "Dimenzija / naziv", name: label, widget: string, hint: "Npr. 6 mm  ili  M14x1.5 × 8 mm" }
           - { label: "Cena (RSD, bez PDV-a)", name: price, widget: number, value_type: float, min: 0, required: false, hint: "Prazno = „Cena na upit“." }
           - { label: "Napomena (neobavezno)", name: note, widget: string, required: false }
@@ -97,6 +99,7 @@ collections:
         summary: "{{fields.pack}} — {{fields.price}}"
         fields:
           - { label: "Na stanju", name: in_stock, widget: boolean, default: true }
+          - { label: "Šifra", name: sifra, widget: string, required: false }
           - { label: "Pakovanje", name: pack, widget: string, hint: "Npr. 400 ml" }
           - { label: "Cena (RSD, bez PDV-a)", name: price, widget: number, value_type: float, min: 0 }
       - { label: "Redosled", name: order, widget: number, value_type: int, required: false }
@@ -137,6 +140,7 @@ collections:
         summary: "{{fields.dim}} — {{fields.price}}"
         fields:
           - { label: "Na stanju", name: in_stock, widget: boolean, default: true }
+          - { label: "Šifra", name: sifra, widget: string, required: false }
           - { label: "Dimenzija", name: dim, widget: string, hint: "Npr. 5 × 11 mm" }
           - { label: "Radni pritisak", name: wp, widget: string, required: false }
           - { label: "Tačka prskanja", name: burst, widget: string, required: false }

@@ -297,6 +297,7 @@ $("#bNew2").onclick=()=>openEditor(null,"artikli","crevo");
 const SCHEMA={
  artikli:[
   {k:"title",l:"Naziv artikla",t:"text",req:1},
+  {k:"sifra",l:"Interna šifra",t:"text",h:"Vaša šifra iz fakturisanja. Kupci je ne vide; služi pretrazi i pojavljuje se u mejlu upita. Ako artikal ima varijante, upišite šifre u tabeli ispod."},
   {k:"category",l:"Kategorije",t:"cats",req:1,h:"Štiklirajte jednu ili više kategorija u kojima artikal treba da se pojavi na sajtu."},
   {k:"in_stock",l:"Na stanju",t:"bool",def:true,h:"Isključite kada artikla nema — nestaje sa sajta, ali ostaje sačuvan."},
   {k:"image",l:"Slika",t:"image",h:"Najbolje artikal na beloj pozadini. Program sam smanjuje sliku."},
@@ -304,7 +305,7 @@ const SCHEMA={
   {k:"card_text",l:"Kratak tekst na kartici",t:"text",h:"Jedna kratka rečenica ispod naziva. Prazno = koristi se opis."},
   {k:"spec",l:"Navoj / oznaka (kratko)",t:"text",h:"Npr. M14x1.5 — prikazuje se ispod naziva."},
   {k:"price",l:"Cena (RSD, bez PDV-a)",t:"num",h:"Samo za artikal sa JEDNOM cenom. Za više dimenzija popunite tabelu ispod. Prazno = „Cena na upit“."},
-  {k:"variants",l:"Dimenzije / varijante (tabela sa cenama)",t:"table",cols:[["in_stock","Na stanju","bool"],["group","Grupa (neobavezno)"],["label","Dimenzija / naziv"],["price","Cena (RSD)","num"],["note","Napomena"]],h:"Svaki red se računa kao poseban proizvod u brojaču."},
+  {k:"variants",l:"Dimenzije / varijante (tabela sa cenama)",t:"table",cols:[["in_stock","Na stanju","bool"],["sifra","Šifra"],["group","Grupa (neobavezno)"],["label","Dimenzija / naziv"],["price","Cena (RSD)","num"],["note","Napomena"]],h:"Svaki red se računa kao poseban proizvod u brojaču."},
   {k:"promo",l:"Akcijske cene (oznaka „Akcija“)",t:"bool",def:true},
   {k:"col_label",l:"Naslov prve kolone tabele",t:"text",h:"Podrazumevano „Dimenzija“."},
   {k:"order",l:"Redosled",t:"int",h:"Manji broj = ranije na stranici."},
@@ -313,14 +314,14 @@ const SCHEMA={
   {k:"title",l:"Naziv",t:"text",req:1},{k:"in_stock",l:"Na stanju",t:"bool",def:true},
   {k:"eng",l:"Engleski naziv",t:"text"},{k:"image",l:"Slika",t:"image",h:"Uspravna slika flaše na beloj pozadini."},
   {k:"card_text",l:"Kratak tekst na kartici",t:"text"},{k:"description",l:"Opis",t:"area"},{k:"use",l:"Namena",t:"area"},
-  {k:"packs",l:"Pakovanja i cene",t:"table",cols:[["in_stock","Na stanju","bool"],["pack","Pakovanje (npr. 400 ml)"],["price","Cena (RSD)","num"]]},
+  {k:"packs",l:"Pakovanja i cene",t:"table",cols:[["in_stock","Na stanju","bool"],["sifra","Šifra"],["pack","Pakovanje (npr. 400 ml)"],["price","Cena (RSD)","num"]]},
   {k:"order",l:"Redosled",t:"int"},{k:"aliases",l:"Alternativni nazivi",t:"tags",h:"Odvojeno zarezom."}],
  creva:[
   {k:"title",l:"Naziv",t:"text",req:1},{k:"in_stock",l:"Na stanju",t:"bool",def:true},
   {k:"hose_type",l:"Tip",t:"text"},{k:"image",l:"Slika",t:"image"},{k:"card_text",l:"Kratak tekst na kartici",t:"text"},
   {k:"temp",l:"Radna temperatura",t:"text"},{k:"material",l:"Materijal creva",t:"area"},{k:"reinforce",l:"Ojačanje zida",t:"area"},
   {k:"cover",l:"Spoljni omotač",t:"area"},{k:"standard",l:"Standard",t:"text"},{k:"use",l:"Primena",t:"area"},
-  {k:"variants",l:"Dimenzije i cene",t:"table",cols:[["in_stock","Na stanju","bool"],["dim","Dimenzija"],["wp","Radni pritisak"],["burst","Tačka prskanja"],["flex","Savitljivost"],["weight","Težina (g/m)"],["price","Cena po metru","num"]]},
+  {k:"variants",l:"Dimenzije i cene",t:"table",cols:[["in_stock","Na stanju","bool"],["sifra","Šifra"],["dim","Dimenzija"],["wp","Radni pritisak"],["burst","Tačka prskanja"],["flex","Savitljivost"],["weight","Težina (g/m)"],["price","Cena po metru","num"]]},
   {k:"order",l:"Redosled",t:"int"},{k:"aliases",l:"Alternativni nazivi",t:"tags",h:"Odvojeno zarezom."}]
 };
 const slug=s=>String(s).toLowerCase().replace(/đ/g,"dj").replace(/[čć]/g,"c").replace(/š/g,"s").replace(/ž/g,"z").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60)||"artikal";
