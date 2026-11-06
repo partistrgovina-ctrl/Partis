@@ -112,7 +112,6 @@
      {t:"Traktorski program",pool:TRAK,u:"traktorski-program.html",img:"oko14",d:((D.POC&&D.POC.opisi&&D.POC.opisi.traktorski)||"Traktorska roba (okca, šuplji vijci) i gotova creva sa montiranim nastavcima."),n:sum(TRAK),subs:[["Traktorska roba","traktorska-roba.html"],["Gotova creva","gotova-creva.html"]]},
      ...(KS.length?[vz]:[]),
      ...ALLK.filter(k=>STAND.includes(k.id)).map(k=>{const f=D.ITEMS.find(x=>inCat(x,k.id)&&x.img);return {t:esc(k.naziv),pool:[k.id],u:k.file,src:f?f.img:"",d:esc(k.opis||""),n:secN(D,k.id)};}).filter(t=>t.n>0),
-     {t:"Nastavci mazalica",pool:["mazalice"],u:"nastavci-mazalica.html",img:"maz90",d:((D.POC&&D.POC.opisi&&D.POC.opisi.mazalice)||"Nastavci za mazalice pod uglom od 45°, 90° i 180°."),n:secN(D,"mazalice")}
     ].filter(t=>!(D.HIDDENFILES||[]).includes(t.u));
   }
   function tilesHTML(D){return rename(D,tilesHTML0(D));}
