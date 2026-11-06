@@ -1,18 +1,18 @@
 {
-  "title": "Sigurnosni poklopac rezervoara",
-  "category": "pratecaoprema",
-  "order": 1505,
-  "in_stock": true,
-  "image": "/assets/img/kat/k115.jpg",
-  "description": "Sigurnosni poklopac rezervoara goriva sa ključem.",
-  "promo": false,
-  "price": 1500.0,
-  "aliases": [
-    "cep rezervoara",
-    "poklopac tanka",
-    "zatvarac rezervoara",
-    "cep goriva sa kljucem",
-    "poklopac goriva",
-    "cep tanka"
-  ]
+ "title": "Sigurnosni poklopac rezervoara",
+ "category": "brave",
+ "order": 1505,
+ "in_stock": true,
+ "image": "/assets/img/kat/k115.jpg",
+ "description": "Sigurnosni poklopac rezervoara goriva sa ključem.",
+ "promo": false,
+ "price": 1500.0,
+ "aliases": [
+  "cep rezervoara",
+  "poklopac tanka",
+  "zatvarac rezervoara",
+  "cep goriva sa kljucem",
+  "poklopac goriva",
+  "cep tanka"
+ ]
 }

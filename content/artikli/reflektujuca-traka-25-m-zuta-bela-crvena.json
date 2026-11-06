@@ -1,18 +1,18 @@
 {
-  "title": "Reflektujuća traka 25 m (žuta/bela/crvena)",
-  "category": "pratecaoprema",
-  "order": 1504,
-  "in_stock": true,
-  "image": "/assets/img/kat/k114.jpg",
-  "description": "Reflektujuća traka u kolutu od 25 m, dostupna u žutoj, beloj i crvenoj boji. Za označavanje vozila, prikolica i mašina.",
-  "promo": false,
-  "price": 1150.0,
-  "aliases": [
-    "reflektujuca traka",
-    "katadioptar traka",
-    "samolepljiva reflektujuca",
-    "traka za oznacavanje",
-    "reflektor traka",
-    "kontura traka"
-  ]
+ "title": "Reflektujuća traka 25 m (žuta/bela/crvena)",
+ "category": "svetlosna",
+ "order": 1504,
+ "in_stock": true,
+ "image": "/assets/img/kat/k114.jpg",
+ "description": "Reflektujuća traka u kolutu od 25 m, dostupna u žutoj, beloj i crvenoj boji. Za označavanje vozila, prikolica i mašina.",
+ "promo": false,
+ "price": 1150.0,
+ "aliases": [
+  "reflektujuca traka",
+  "katadioptar traka",
+  "samolepljiva reflektujuca",
+  "traka za oznacavanje",
+  "reflektor traka",
+  "kontura traka"
+ ]
 }

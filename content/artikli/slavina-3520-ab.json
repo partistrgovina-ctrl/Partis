@@ -1,18 +1,21 @@
 {
-  "title": "Slavina 3520 AB",
-  "category": "pratecaoprema",
-  "order": 1507,
-  "in_stock": true,
-  "image": "/assets/img/kat/k117.jpg",
-  "description": "Slavina 3520 AB za vazdušni sistem.",
-  "promo": false,
-  "price": 2750.0,
-  "aliases": [
-    "slavina za vazduh",
-    "ventil slavina",
-    "slavina kocnice",
-    "3520ab",
-    "slavina rezervoara",
-    "vazdusna slavina"
-  ]
+ "title": "Slavina 3520 AB",
+ "category": "glave",
+ "order": 1507,
+ "in_stock": true,
+ "image": "/assets/img/kat/k117.jpg",
+ "description": "Slavina 3520 AB za vazdušni sistem.",
+ "promo": false,
+ "price": 2750.0,
+ "aliases": [
+  "slavina za vazduh",
+  "ventil slavina",
+  "slavina kocnice",
+  "3520ab",
+  "slavina rezervoara",
+  "vazdusna slavina"
+ ],
+ "categories": [
+  "spojnice"
+ ]
 }

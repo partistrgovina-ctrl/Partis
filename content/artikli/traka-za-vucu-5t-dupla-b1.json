@@ -1,18 +1,18 @@
 {
-  "title": "Traka za vuču 5t, dupla B1",
-  "category": "pratecaoprema",
-  "order": 1502,
-  "in_stock": true,
-  "image": "/assets/img/kat/k112.jpg",
-  "description": "Traka za vuču nosivosti 5 t, dupla, tip B1.",
-  "promo": false,
-  "price": 950.0,
-  "aliases": [
-    "uze za vucu",
-    "traka za tegljenje",
-    "uze za tegljenje",
-    "cega za vucu",
-    "remen za vucu",
-    "5 tona traka"
-  ]
+ "title": "Traka za vuču 5t, dupla B1",
+ "category": "traktor",
+ "order": 1502,
+ "in_stock": true,
+ "image": "/assets/img/kat/k112.jpg",
+ "description": "Traka za vuču nosivosti 5 t, dupla, tip B1.",
+ "promo": false,
+ "price": 950.0,
+ "aliases": [
+  "uze za vucu",
+  "traka za tegljenje",
+  "uze za tegljenje",
+  "cega za vucu",
+  "remen za vucu",
+  "5 tona traka"
+ ]
 }
