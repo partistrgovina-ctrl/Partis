@@ -1,3 +1,5 @@
+/* TODO: upisati ime radnje i broj telefona partnera za maloprodaju */
+const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
 /* PARTIS — korpa za upit. Artikli se čuvaju u pregledaču; upit se šalje na mejl (Netlify Forms). */
 (function(){
   const {fmt,esc}=PARTIS;
@@ -81,10 +83,12 @@
       <form id="cart-form" class="cart-form" ${cart.length?"":"hidden"} onsubmit="return cartSend(event)">
         <div class="m-sub">Podaci za odgovor i isporuku</div>
         <p class="cart-note">Ovo je upit, ne i obavezujuća kupovina. Javljamo vam se sa potvrdom cena i dostupnosti. Poštarinu plaćamo za pošiljke čija vrednost prelazi 3.000 dinara.</p>
+        <p class="cart-note"><b>Prodaja samo pravnim licima i preduzetnicima — firma i PIB su obavezni.</b></p>
         <div class="f-grid">
           <label>Ime i prezime *<input name="ime" required autocomplete="name" value="${esc((window.CUSTOMER||{}).ime||"")}"></label>
-          <label>Firma (neobavezno)<input name="firma" autocomplete="organization" value="${esc((window.CUSTOMER||{}).firma||"")}"></label>
-          <label>PIB (neobavezno)<input name="pib" inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
+          <label>Firma *<input name="firma" required autocomplete="organization" value="${esc((window.CUSTOMER||{}).firma||"")}"></label>
+          <label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
+          ${PARTNER_RETAIL_IME.startsWith("[")?"":`<p class="cart-note wide">Ukoliko niste registrovano pravno lice, kontaktirajte: <b>${PARTNER_RETAIL_IME}, tel. ${PARTNER_RETAIL_TEL}</b><br>NAPOMENA: Maloprodajne cene partnera nisu zavisne od naših cena i o istima ne iznosimo ikakve navode.</p>`}
           <label>Telefon *<input name="telefon" type="tel" required autocomplete="tel" value="${esc((window.CUSTOMER||{}).telefon||"")}"></label>
           <label>Mejl *<input name="email" type="email" required autocomplete="email" value="${esc((window.CUSTOMER||{}).email||"")}"></label>
           <label class="wide">Adresa za isporuku *<input name="adresa" required autocomplete="street-address" value="${esc((window.CUSTOMER||{}).adresa||"")}" placeholder="Ulica i broj, mesto, poštanski broj"></label>
@@ -107,7 +111,7 @@
     const data={"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:fd.get("napomena")||"","bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
     if(window.PARTIS_OFFLINE){offlineSend(data,text);return false;}
     b.disabled=true;b.textContent="Šaljem…";err.hidden=true;
-    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data).toString()})
+    fetch(/netlify\.app$/.test(location.hostname)?"/":"porudzbina.php",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data).toString()})
     .then(r=>{if(!r.ok)throw new Error(r.status);
       cart=[];save();badge();
       document.querySelector(".cart-box").innerHTML=`<div class="eng">Upit za ponudu</div><h2>Hvala!</h2><p class="m-lead">Vaš upit je poslat. Javićemo vam se na broj ${esc(data.telefon)} ili na ${esc(data.email)} sa potvrdom cena i dostupnosti.</p><button class="cart-send" type="button" onclick="closeModal()">Zatvori</button>`;})
