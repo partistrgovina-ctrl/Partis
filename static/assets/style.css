@@ -585,3 +585,10 @@ header .lang-sel .lang-flag{width:18px;height:auto}
 header .contact{padding-right:calc(var(--pad) + 150px)}
 @media(max-width:700px){header .contact{padding-right:78px}header .lang-wrap{right:16px}}
 .wa-float{left:auto!important;right:22px!important;bottom:22px}
+
+/* dugme Kategorije uvek na vrhu levo (kada se stranica skroluje) */
+.menu-fab{display:none;position:fixed;top:10px;left:10px;z-index:85;align-items:center;gap:8px;background:var(--ink);color:var(--paper);border:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.8px;text-transform:uppercase;padding:10px 13px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.menu-fab svg{width:18px;height:18px}
+.menu-fab:hover{background:var(--red)}
+body.scrolled .menu-fab{display:inline-flex}
+@media(min-width:1200px){.menu-fab{display:none!important}}
