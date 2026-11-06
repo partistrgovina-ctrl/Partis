@@ -2,7 +2,7 @@
   "title": "Trokraki nastavni (PE)",
   "category": "spojnice",
   "order": 310,
-  "in_stock": true,
+  "in_stock": false,
   "image": "/assets/img/sp_t1.jpg",
   "description": "Pneumatska T-spojnica (trokraka, PE) za brzo spajanje tri creva istog prečnika u jednoj tački. Creva se samo uguraju u spojnicu, a vade pritiskom na prsten.",
   "promo": true,
