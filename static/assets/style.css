@@ -745,3 +745,9 @@ header .nav-inner .search{order:5!important}
 .hh-polica p{margin:12px 0 0;font-size:14px;line-height:1.45;color:#3a372f}
 .hh-polica .hh-dim{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.02em;color:#6b665c;margin-top:6px}
 @media(min-width:900px){.hema-hero{grid-template-columns:minmax(0,1fr) 360px}.hh-polica{grid-column:2;grid-row:1;justify-self:end}}
+
+img.zoom{cursor:zoom-in}
+.zoom-ov{position:fixed;inset:0;z-index:300;background:rgba(20,19,17,.86);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.zoom-ov[hidden]{display:none}
+.zoom-ov img{max-width:100%;max-height:100%;object-fit:contain;background:#fbf7ec}
+.zoom-ov button{position:absolute;top:12px;right:18px;background:none;border:0;color:#fff;font-size:38px;line-height:1;cursor:pointer}
