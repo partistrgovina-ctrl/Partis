@@ -1,10 +1,10 @@
 {
-  "title": "Tork selne",
+  "title": "TORK pužna šelna",
   "category": "tork",
   "order": 3000,
   "in_stock": true,
   "image": "/assets/img/kat/k082.jpg",
-  "description": "Tork selne, dimenzije od 8-12 do 80-100 mm.",
+  "description": "TORK pužna šelna, dimenzije od 8-12 do 80-100 mm.",
   "promo": false,
   "variants": [
     {

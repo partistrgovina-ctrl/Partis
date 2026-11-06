@@ -559,3 +559,5 @@ a.card .eng{color:var(--red)}
   header .nav-inner .search{order:6;flex:1 1 100%;max-width:none}
   header .contact{justify-content:flex-start}
 }
+.m-content h1{font-family:'Archivo';font-weight:900;font-size:32px;line-height:1.08;letter-spacing:-.5px;margin:0}
+@media(max-width:700px){.m-content h1{font-size:27px}}
