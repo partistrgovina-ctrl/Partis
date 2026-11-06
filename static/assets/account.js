@@ -19,7 +19,7 @@
       const rs=PARTIS.GROUPS.map(([k,n])=>[n,(profile.rabati||{})[k]]).filter(x=>x[1]>0).map(x=>`${esc(x[0])} <b>${x[1]}%</b>`);
       const all=(profile.rabati||{}).svi>0?`opšti <b>${profile.rabati.svi}%</b>`:"";
       const txt=[...rs,all].filter(Boolean).join(" · ");
-      bar.hidden=false;bar.innerHTML=txt?`Vaši rabati: ${txt}. Cene sa rabatom vidite u detaljima artikla i u korpi.`:`Prijavljeni ste. Trenutno nemate odobren rabat.`;
+      bar.hidden=true;bar.innerHTML="";
     }else{
       box.innerHTML=`<button type="button" class="acct-b" onclick="partisAuth('login')">Prijava</button><button type="button" class="acct-b alt" onclick="partisAuth('register')">Registracija</button>`;
       bar.hidden=true;bar.innerHTML="";

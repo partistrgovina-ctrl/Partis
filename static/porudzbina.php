@@ -58,7 +58,11 @@ foreach ($stavke as $i => $s) {
 }
 $zbir = '';
 if (isset($uk['sum'])) {
-  $zbir = '<tr><td colspan="4" style="padding:8px 10px;text-align:right">Iznos bez PDV-a' . (!empty($uk['rabat']) ? ' (sa rabatom)' : '') . ':</td><td style="padding:8px 10px;text-align:right;white-space:nowrap">' . rsd($uk['sum']) . ' RSD</td></tr>'
+  $rabRed = (!empty($uk['rabat']) && isset($uk['list']))
+    ? '<tr><td colspan="4" style="padding:6px 10px;text-align:right">Iznos po cenovniku:</td><td style="padding:6px 10px;text-align:right;white-space:nowrap">' . rsd($uk['list']) . ' RSD</td></tr>'
+      . '<tr><td colspan="4" style="padding:4px 10px;text-align:right;color:#1f8a4c">Rabat:</td><td style="padding:4px 10px;text-align:right;white-space:nowrap;color:#1f8a4c">&minus;' . rsd($uk['rabIznos'] ?? 0) . ' RSD</td></tr>'
+    : '';
+  $zbir = $rabRed . '<tr><td colspan="4" style="padding:8px 10px;text-align:right">Iznos bez PDV-a' . (!empty($uk['rabat']) ? ' (sa rabatom)' : '') . ':</td><td style="padding:8px 10px;text-align:right;white-space:nowrap">' . rsd($uk['sum']) . ' RSD</td></tr>'
         . '<tr><td colspan="4" style="padding:4px 10px;text-align:right">PDV (20%):</td><td style="padding:4px 10px;text-align:right;white-space:nowrap">' . rsd($uk['pdv'] ?? 0) . ' RSD</td></tr>'
         . '<tr><td colspan="4" style="padding:8px 10px;text-align:right"><b>Ukupno sa PDV-om:</b></td><td style="padding:8px 10px;text-align:right;white-space:nowrap"><b>' . rsd($uk['total'] ?? 0) . ' RSD</b></td></tr>'
         . (!empty($uk['upit']) ? '<tr><td colspan="5" style="padding:4px 10px;text-align:right;color:#666">+ ' . (int)$uk['upit'] . ' stavki sa cenom na upit</td></tr>' : '');
