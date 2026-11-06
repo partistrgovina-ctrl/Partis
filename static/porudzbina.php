@@ -99,5 +99,10 @@ $telo = "--$gr\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-En
       . "--$gr\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n" . chunk_split(base64_encode($html))
       . "--$gr--\r\n";
 
+// rezervna kopija na serveru (da upit ne propadne ako mejl ne stigne)
+$dir = __DIR__ . '/porudzbine_log';
+if (!is_dir($dir)) { @mkdir($dir, 0755); @file_put_contents($dir . '/.htaccess', "Require all denied\nDeny from all\n"); }
+@file_put_contents($dir . '/' . date('Y-m-d_His') . '_' . substr(md5($email . microtime()), 0, 6) . '.html', $html);
+
 if (mail(PRIMALAC, $naslov, $telo, $zaglavlja, '-f' . POSILJALAC)) { echo 'ok'; }
 else { http_response_code(500); echo 'Slanje nije uspelo'; }
