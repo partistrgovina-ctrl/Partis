@@ -101,7 +101,7 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
     <p id="startMsg">Program radi preko interneta, sa bilo kog računara i pregledača. Ne treba vam nikakav folder. Upišite GitHub ključ (pravi se jednom, uputstvo je ispod) i kliknite „Uđi“. Artikle menjate, pa kliknete „Objavi na sajt“.</p>
     <p><input type="password" id="ghT0" placeholder="GitHub ključ (github_pat_…)" style="width:100%;max-width:460px;padding:9px;font:inherit;border:1.5px solid #999"></p>
     <button class="red" id="bWeb">Uđi</button>
-    <details style="margin:14px 0"><summary>Kako da napravim GitHub ključ</summary><p style="font-size:14px;line-height:1.5">Na github.com prijavite se vašim nalogom, pa: Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Izaberite samo repozitorijum <b>Partis</b>, a pod Permissions → Contents postavite <b>Read and write</b>. Ključ nalepite gore. Čuva se samo u ovom pregledaču.</p></details>
+    <details style="margin:14px 0"><summary>Kako da napravim GitHub ključ</summary><p style="font-size:14px;line-height:1.5">Prijavite se na github.com kao vlasnik repozitorijuma, pa otvorite github.com/settings/tokens/new (klasičan ključ). Pod „Select scopes“ štiklirajte samo <b>repo</b>, kliknite Generate token i nalepite ključ (ghp_…) gore. Čuva se samo u ovom pregledaču.</p></details>
     <p style="margin-top:22px"><small>Stari način (folder na računaru, samo Chrome/Brave):</small><br><button id="bPick">Izaberi folder sajta</button>
     <button id="bResume" hidden></button></p>
     <p class="warn" id="startErr"></p>
@@ -594,7 +594,7 @@ $("#bPush").onclick=async()=>{
   if(!CHG.size&&!DELS.size){say("Nema izmena","Od poslednje objave nema novih izmena za slanje.");return;}
   const tok=ghTok();
   if(tok){try{await doPush(tok);}catch(e){say("Greška pri objavi",esc(e.message)+"<br><br>Ako piše 401 ili 403, ključ je istekao ili nema dozvolu. Kliknite „Novi ključ“.",[["Novi ključ",()=>{try{localStorage.removeItem("partis_gh");}catch(x){}$("#bPush").click();},1],["Zatvori",()=>$("#dlg2").close(),0]]);}return;}
-  say("Povezivanje sa GitHub-om",`Prvi put je potreban ključ (token) da program sme da šalje izmene. Nalog na GitHub-u: Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate. Izaberite samo repozitorijum <b>Partis</b>, a pod Permissions → Contents postavite <b>Read and write</b>. Ključ se čuva samo u ovom pregledaču.<br><br><input type="password" id="ghT" style="width:100%;padding:8px;font:inherit;border:1.5px solid #999" placeholder="github_pat_…">`,
+  say("Povezivanje sa GitHub-om",`Prvi put je potreban ključ (token) da program sme da šalje izmene. Najlakše: github.com/settings/tokens/new (klasičan ključ), pod „Select scopes“ štiklirajte samo <b>repo</b>, kliknite Generate token i nalepite ključ (počinje sa ghp_). Ključ se čuva samo u ovom pregledaču.<br><br><input type="password" id="ghT" style="width:100%;padding:8px;font:inherit;border:1.5px solid #999" placeholder="github_pat_…">`,
    [["Sačuvaj i objavi",async()=>{const v=$("#ghT").value.trim();if(v.length<20)return;try{localStorage.setItem("partis_gh",v);}catch(e){}try{await doPush(v);}catch(e){say("Greška pri objavi",esc(e.message));}},1],["Otkaži",()=>$("#dlg2").close(),0]]);
 };
 
