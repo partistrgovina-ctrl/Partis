@@ -592,3 +592,19 @@ header .contact{padding-right:calc(var(--pad) + 150px)}
 .menu-fab:hover{background:var(--red)}
 body.scrolled .menu-fab{display:inline-flex}
 @media(min-width:1200px){.menu-fab{display:none!important}}
+@media(min-width:1200px){header{position:sticky;top:0;z-index:35}}
+
+/* zaglavlje (logo+ime, kategorije, korpa) fiksirano pri skrolu — i na telefonu */
+.menu-fab{display:none!important}
+header{position:sticky;top:0;z-index:70}
+@media(min-width:1200px){header{z-index:35}}
+@media(max-width:1199px){
+  body.scrolled header{grid-template-columns:auto minmax(0,1fr);column-gap:10px;box-shadow:0 3px 12px rgba(0,0,0,.15)}
+  body.scrolled header .contact,body.scrolled header .tabs,body.scrolled header .search,body.scrolled header .lang-wrap,body.scrolled header .brand-txt p{display:none!important}
+  body.scrolled header .brand{grid-row:1;grid-column:1;padding:6px 0}
+  body.scrolled header .brand .mark{width:30px;height:30px;font-size:18px}
+  body.scrolled header .brand-txt .bn{font-size:20px}
+  body.scrolled header .navbar{grid-row:1;grid-column:2;padding:0}
+  body.scrolled header .nav-inner{flex-wrap:nowrap;justify-content:flex-end;gap:8px}
+  body.scrolled header .menu-btn{padding:8px 10px}
+}
