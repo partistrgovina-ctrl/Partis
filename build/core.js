@@ -22,8 +22,8 @@
     mazalice:{cats:["mazalice"],files:["nastavci-mazalica.html"]}
   };
   const POC_DEF={
-    seo_naslov:"PARTIS Niš — pneumatika, HEMA aerosol, creva i traktorski program",
-    seo_opis:"PARTIS, Niš — veleprodaja i maloprodaja za vozila, mašine i mehanizaciju: pneumatika, creva, HEMA aerosol, auto elektrika, traktorski program. Bulevar Nemanjića 103, tel. 018-553-800.",
+    seo_naslov:"PARTIS Niš",
+    seo_opis:"PARTIS Niš, Bulevar Nemanjića 103, lokal 8. Tel. 018-553-800, 065-2553-800.",
     tag:"Niš · Za vozila, mašine i mehanizaciju",
     naslov:"Sve što je potrebno *vozilu* i mašini",
     opis:"Delovi i oprema za vozila, mašine i mehanizaciju, na jednom mestu. Ako ne nađete šta vam treba, pozovite — rado ćemo potražiti.",
