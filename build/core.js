@@ -1,4 +1,4 @@
-/* PARTIS — jezgro izrade sajta. Koristi ga i build/build.mjs (Netlify) i upravljanje.html (program na računaru). */
+/* PARTIS — jezgro izrade sajta. Koristi ga i build/build.mjs i upravljanje.html (program za upravljanje). */
 (function(root,factory){
   if(typeof module==="object"&&module.exports)module.exports=factory();
   else root.PARTISCORE=factory();
@@ -22,7 +22,7 @@
     mazalice:{cats:["mazalice"],files:["nastavci-mazalica.html"]}
   };
   const POC_DEF={
-    seo_naslov:"PARTIS Niš",
+    seo_naslov:"PARTIS Niš — delovi i oprema za vozila, mašine i mehanizaciju",
     seo_opis:"PARTIS Niš, Bulevar Nemanjića 103, lokal 8. Tel. +381 18 553 800, +381 65 2553 800.",
     tag:"Niš · Za vozila, mašine i mehanizaciju",
     naslov:"Sve što je potrebno *vozilu* i mašini",
@@ -51,7 +51,7 @@
     const warn=[];
     const slK=t=>String(t).replace(/[čć]/gi,"c").replace(/š/gi,"s").replace(/ž/gi,"z").replace(/đ/gi,"dj").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,70);
     const usedK=new Set();
-    const KATS=(inp.custom||[]).filter(k=>k&&k.id&&k.naziv).map(k=>{let b="kategorija-"+(slK(k.naziv)||String(k.id)),u=b,n=2;while(usedK.has(u))u=b+"-"+n++;usedK.add(u);return {id:String(k.id),naziv:String(k.naziv),opis:String(k.opis||""),file:u+".html"};});
+    const KATS=(inp.custom||[]).filter(k=>k&&k.id&&k.naziv).map(k=>{let b="kategorija-"+(slK(k.naziv)||String(k.id)),u=b,n=2;while(usedK.has(u))u=b+"-"+n++;usedK.add(u);return {id:String(k.id),naziv:String(k.naziv),opis:String(k.opis||""),naslov:String(k.naslov||""),file:u+".html"};});
     const CATNAME={...inp.categories};const NAZ=inp.nazivi||{};Object.keys(CATNAME).forEach(k=>{if(NAZ[k]&&String(NAZ[k]).trim())CATNAME[k]=String(NAZ[k]).trim();});KATS.forEach(k=>{CATNAME[k.id]=k.naziv;});
     const hoses=live(inp.creva.map(e=>({...e.data,_file:e.file}))).map(h=>strip({
       kind:"crevo",id:base(h._file),name:h.title,type:txt(h.hose_type),img:img(h.image),short:txt(h.card_text),temp:txt(h.temp,"—"),
@@ -139,8 +139,8 @@
       const VB="viber://chat?number=%2B381652553800";
       const vsvg='<svg class="vb-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>';
       s=s.replace(/(<a class="wa-float"[^>]*>[\s\S]*?<\/a>)/,(m)=>m+'<a class="vb-float" href="'+VB+'" aria-label="Pišite nam na Viber">'+vsvg+'</a>');
-      s=s.replace(/(<a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">+381 65 2553 800<\/a>)(<\/div>)/,(_,a,b)=>a+' &middot; <a href="'+VB+'">Viber</a>'+b);
-      s=s.replace(/(<div><a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">WhatsApp +381 65 2553 800<\/a><\/div>)/g,(m)=>m+'<div><a href="'+VB+'">Viber +381 65 2553 800</a></div>');
+      s=s.replace(/(<a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">\+381 65 2553 800<\/a>)(<\/div>)/,(_,a,b)=>a+' &middot; <a href="'+VB+'">Viber</a>'+b);
+      s=s.replace(/(<div><a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">WhatsApp \+381 65 2553 800<\/a><\/div>)/g,(m)=>m+'<div><a href="'+VB+'">Viber +381 65 2553 800</a></div>');
     }
     s=PARTIS.rename(D,s);
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};
@@ -149,7 +149,7 @@
   function katPages(tpl,D,site,PARTIS){
     const eh=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
     return (D.KATS||[]).map(k=>{
-      const t=tpl.replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_CRUMB\}\}/g,'<a href="proizvodi.html">Proizvodi</a> &rsaquo; '+(k.id==="tork"?"":'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ')).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
+      const t=tpl.replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_CRUMB\}\}/g,'<a href="proizvodi.html">Proizvodi</a> &rsaquo; '+(k.id==="tork"?"":'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ')).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_TITLE\}\}/g,()=>eh(k.naslov||(k.naziv+" — Vaše vozilo, naš deo"))).replace(/\{\{KAT_META\}\}/g,()=>{const o=(k.opis||k.naziv+" — PARTIS Niš.").replace(/\s+/g," ");if(o.length<=158)return eh(o);const c=o.slice(0,155),i=Math.max(c.lastIndexOf(" "),c.lastIndexOf(","));return eh(c.slice(0,i>80?i:155).replace(/[,;:\s]+$/,"")+"…");}).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
       const r=renderPage(t,D,site,PARTIS);return {file:k.file,html:r.html,noindex:r.noindex};
     });
   }
@@ -162,8 +162,9 @@
     const all=[...D.HOSES,...D.SPRAYS,...D.ITEMS];
     return all.map(p=>{
       const sp=p.kind==="sprej",ho=p.kind==="crevo";
-      const catName=ho?"Armirana gumena creva":sp?"HEMA Kimya aerosol":(p.catName||"");
+      let catName=ho?"Armirana creva i oprema":sp?"HEMA Kimya aerosol":(p.catName||"");
       const catFile=ho?"armirana-creva.html":sp?"hema-aerosol.html":(PO[p.cat]||((D.KATS||[]).find(k=>k.id===p.cat)||{}).file||"kategorija-"+p.cat+".html");
+      if(catFile==="armirana-creva.html")catName="Armirana creva i oprema";
       const desc=(sp?p.desc:ho?p.short:(p.desc||p.short))||p.name;
       const dsc=(desc.toLowerCase().indexOf(p.name.toLowerCase())===0?desc:p.name+" — "+desc).replace(/\s+/g," ").slice(0,155);
       const vlist=ho?p.variants.map(v=>v.dim):sp?p.opts.map(o=>o.pack):(p.gal?p.gal.map(g=>g.label):[]);

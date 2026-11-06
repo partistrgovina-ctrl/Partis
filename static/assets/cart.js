@@ -1,6 +1,6 @@
 /* TODO: upisati ime radnje i broj telefona partnera za maloprodaju */
 const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
-/* PARTIS — korpa za upit. Artikli se čuvaju u pregledaču; upit se šalje na mejl (Netlify Forms). */
+/* PARTIS — korpa za upit. Artikli se čuvaju u pregledaču; upit se šalje na mejl (PHP skripta porudzbina.php). */
 (function(){
   const {fmt,esc}=PARTIS;
   const KEY="partis_korpa_v2";

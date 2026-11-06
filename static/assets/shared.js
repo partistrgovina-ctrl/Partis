@@ -65,7 +65,7 @@
   /* brojači */
   const PNEU=["pneu","crevapn","mesing","spojnice"],TRAK=["traktor","gotova"],TOPCOUNT=5;
   function secTitle(D,id){
-    if(id==="crevo")return "Armirana gumena creva i prateća oprema";
+    if(id==="crevo")return "Armirana creva i oprema";
     if(id==="sprej")return "HEMA aerosol";
     const c=D.CATS.find(x=>x.id===id);return c?c.title:id;
   }
@@ -107,7 +107,7 @@
     const vz={t:"Vaše vozilo, naš deo",pool:KS.map(k=>k.id),u:"vase-vozilo.html",src:kf?kf.img:"",d:"Sijalice, elektrika, signalizacija, brave, releji i drugi delovi za vozila.",n:sum(KS.map(k=>k.id)),subs:KS.map(k=>[esc(k.naziv),k.file])};
     return [
      {t:"HEMA aerosol",pool:["sprej"],u:"hema-aerosol.html",img:"nu40",d:((D.POC&&D.POC.opisi&&D.POC.opisi.hema)||"Podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke."),n:secN(D,"sprej")},
-     {t:"Armirana gumena creva i prateća oprema",pool:["crevo"],u:"armirana-creva.html",img:"hose_gorivo",d:((D.POC&&D.POC.opisi&&D.POC.opisi.creva)||"Creva za gorivo, vodu, vazduh i ulje — kotur 50 m, sečenje po potrebi."),n:secN(D,"crevo")},
+     {t:"Armirana creva i oprema",pool:["crevo"],u:"armirana-creva.html",img:"hose_gorivo",d:((D.POC&&D.POC.opisi&&D.POC.opisi.creva)||"Creva za gorivo, vodu, vazduh i ulje — kotur 50 m, sečenje po potrebi."),n:secN(D,"crevo")},
      {t:"Pneumatika",pool:PNEU,u:"pneumatika.html",img:"pist_gume",d:((D.POC&&D.POC.opisi&&D.POC.opisi.pneumatika)||"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike."),n:sum(PNEU),subs:[["Pneumatski alat i nastavci","pneumatski-alat-i-nastavci.html"],["Creva pneumatike","creva-pneumatike.html"],["Ojačanja creva","ojacanja-creva.html"],["Spojnice pneumatike","spojnice-pneumatike.html"]]},
      {t:"Traktorski program",pool:TRAK,u:"traktorski-program.html",img:"oko14",d:((D.POC&&D.POC.opisi&&D.POC.opisi.traktorski)||"Delovi i oprema za traktore i mehanizaciju i gotova creva sa montiranim nastavcima."),n:sum(TRAK),subs:[["Traktorska roba","traktorska-roba.html"],["Gotova creva","gotova-creva.html"]]},
      ...(KS.length?[vz]:[]),

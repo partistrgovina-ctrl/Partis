@@ -9,7 +9,7 @@
   try{var m=/[?&]lang=([a-z]{2})/.exec(location.search);if(m&&codes.indexOf(m[1])>=0){localStorage.setItem(KEY,m[1]);}
       var s=localStorage.getItem(KEY);if(s&&codes.indexOf(s)>=0)cur=s;}catch(e){}
   window.PARTIS_LANG=cur;
-  var store={};window.PARTIS_I18N={add:function(c,d){store[c]=d;}};
+  var store={};window.PARTIS_I18N={add:function(c,d){var o=store[c]||(store[c]={});for(var k in d)o[k]=d[k];}};
   var TAGS={sr:"sr-Latn"};H.lang=TAGS[cur]||cur;
 
   /* ---------- prevođenje jednog teksta ---------- */

@@ -415,7 +415,7 @@ td.price small{display:inline}
 .tile-img img.on{opacity:1;transform:none}
 .tile:hover .tile-img img.on{transform:scale(1.05)}
 /* Kontakt */
-.kt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:8px 0 8px}
+.kt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:8px 0 8px}
 .kt-box{border:1.5px solid var(--ink);background:var(--card);padding:16px 18px}
 .kt-box h2{font-size:16px;margin:0 0 8px;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;text-transform:uppercase}
 .kt-box p{margin:4px 0}
