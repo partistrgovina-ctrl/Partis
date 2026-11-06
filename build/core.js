@@ -129,6 +129,7 @@
     s=s.replace("</nav>",()=>"</nav>"+side);
     if(!s.includes("assets/i18n.js"))s=s.replace("</head>",'<script src="assets/i18n.js"></script></head>');
     s=s.replace("<footer>",'<footer id="kontakt">').replace('<section class="info-strip">','<section class="info-strip" id="informacije">');
+    s=s.split(site+"/").join("\u0000").replace(/\u0000(index)\.html/g,site+"/").replace(/\u0000([a-z0-9-]+)\.html/g,site+"/$1").replace(/\u0000/g,site+"/");
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};
   }
   /* stranice novih kategorija iz šablona templates/_kategorija.html */
@@ -163,7 +164,7 @@
   }
   function sitemapRobots(pages,site){
     const sm=pages.filter(p=>!p.noindex).sort((a,b)=>(a.file==="index.html"?-1:b.file==="index.html"?1:a.file.localeCompare(b.file)))
-      .map(p=>`  <url><loc>${site}/${p.file==="index.html"?"":p.file}</loc><changefreq>weekly</changefreq><priority>${p.file==="index.html"?"1.0":"0.8"}</priority></url>\n`).join("");
+      .map(p=>`  <url><loc>${site}/${p.file==="index.html"?"":p.file.replace(/\.html$/,"")}</loc><changefreq>weekly</changefreq><priority>${p.file==="index.html"?"1.0":"0.8"}</priority></url>\n`).join("");
     return {
       "sitemap.xml":`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sm}</urlset>\n`,
       "robots.txt":`User-agent: *\nAllow: /\nDisallow: /pretraga.html\nDisallow: /admin/\n\nSitemap: ${site}/sitemap.xml\n`

@@ -31,3 +31,10 @@ Header set Cache-Control "no-cache"
 # /index.html -> / (pocetna je adresa bez "index")
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ https://partis.rs/ [L,R=301]
+
+# adrese bez ".html": /kontakt umesto /kontakt.html
+RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html[\s?]
+RewriteRule ^ https://partis.rs/%1 [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
