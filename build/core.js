@@ -54,18 +54,18 @@
     const hoses=live(inp.creva.map(e=>({...e.data,_file:e.file}))).map(h=>strip({
       kind:"crevo",id:base(h._file),name:h.title,type:txt(h.hose_type),img:img(h.image),short:txt(h.card_text),temp:txt(h.temp,"—"),
       material:txt(h.material,"—"),reinforce:txt(h.reinforce,"—"),cover:txt(h.cover,"—"),standard:txt(h.standard,"—"),use:txt(h.use,"—"),
-      variants:(h.variants||[]).filter(v=>v.in_stock!==false).map(v=>({dim:txt(v.dim),wp:txt(v.wp,"—"),burst:txt(v.burst,"—"),flex:txt(v.flex,"—"),weight:txt(v.weight,"—"),price:num(v.price)??0})),_a:h.aliases
+      variants:(h.variants||[]).filter(v=>v.in_stock!==false).map(v=>({dim:txt(v.dim),wp:txt(v.wp,"—"),burst:txt(v.burst,"—"),flex:txt(v.flex,"—"),weight:txt(v.weight,"—"),price:num(v.price)??0,sf:txt(v.sifra)||undefined})),_a:[...(h.aliases||[]),...(h.variants||[]).map(v=>v.sifra)]
     })).filter(h=>h.variants.length);
     const sprays=live(inp.hema.map(e=>({...e.data,_file:e.file}))).map(s=>strip({
-      kind:"sprej",id:base(s._file),name:s.title,eng:txt(s.eng),img:img(s.image),opts:(s.packs||[]).filter(o=>o.in_stock!==false).map(o=>({pack:txt(o.pack),price:num(o.price)??0,img:img(o.image)||undefined})),
-      short:txt(s.card_text),desc:txt(s.description,"Opis u pripremi."),use:txt(s.use,"—"),_a:s.aliases
+      kind:"sprej",id:base(s._file),name:s.title,eng:txt(s.eng),img:img(s.image),opts:(s.packs||[]).filter(o=>o.in_stock!==false).map(o=>({pack:txt(o.pack),price:num(o.price)??0,sf:txt(o.sifra)||undefined,img:img(o.image)||undefined})),
+      short:txt(s.card_text),desc:txt(s.description,"Opis u pripremi."),use:txt(s.use,"—"),_a:[...(s.aliases||[]),...(s.packs||[]).map(o=>o.sifra)]
     })).filter(s=>s.opts.length);
     const items=live(inp.artikli.map(e=>({...e.data,_file:e.file}))).filter(a=>{const all=(a.variants||[]).filter(v=>txt(v.label));return !all.length||all.some(v=>v.in_stock!==false);}).map(a=>{
       const main=img(a.image),vs=(a.variants||[]).filter(v=>txt(v.label)&&v.in_stock!==false);
       const extra=(Array.isArray(a.categories)?a.categories:[]).map(String).filter(c=>c&&c!==a.category&&CATNAME[c]);
       const o={hint:txt(a.hint)||undefined,tnote:txt(a.table_note)||undefined,cat:a.category,cats:extra.length?extra:undefined,catName:CATNAME[a.category]||a.category,name:a.title,img:main,price:vs.length?null:num(a.price),desc:txt(a.description,"Opis u pripremi."),
-        spec:txt(a.spec)||null,short:txt(a.card_text)||undefined,colLabel:txt(a.col_label)||undefined,specLabel:txt(a.spec_label)||undefined,_a:a.aliases};
-      if(vs.length){o.promo=a.promo!==false;o.gal=vs.map(v=>({grp:txt(v.group)||undefined,label:txt(v.label),price:num(v.price),note:txt(v.note)||undefined,img:img(v.image)||main}));}
+        spec:txt(a.spec)||null,short:txt(a.card_text)||undefined,colLabel:txt(a.col_label)||undefined,specLabel:txt(a.spec_label)||undefined,sf:txt(a.sifra)||undefined,_a:[...(a.aliases||[]),a.sifra,...(a.variants||[]).map(v=>v.sifra)]};
+      if(vs.length){o.promo=a.promo!==false;o.gal=vs.map(v=>({grp:txt(v.group)||undefined,label:txt(v.label),price:num(v.price),sf:txt(v.sifra)||undefined,note:txt(v.note)||undefined,img:img(v.image)||main}));}
       if(!CATNAME[a.category])warn.push(`Artikal "${a.title}": nepoznata kategorija "${a.category}"`);
       return strip(o);
     });
@@ -83,7 +83,7 @@
     (inp.uploadFiles||[]).forEach(f=>{IMG["uploads/"+f.replace(/\.[^.]+$/,"")]="assets/img/uploads/"+f;});
     const CATS=Object.entries(CATNAME).filter(([id])=>id!=="crevo").map(([id,title])=>({id,title}));
     const aliases={};
-    [...hoses,...sprays,...items].forEach(x=>{if(x._a&&x._a.length)aliases[x.name]=x._a.map(String).filter(Boolean);delete x._a;});
+    [...hoses,...sprays,...items].forEach(x=>{if(x._a&&x._a.length)aliases[x.name]=x._a.filter(Boolean).map(String);delete x._a;});
     [[hoses,"h"],[sprays,"s"],[items,"i"]].forEach(([arr,k])=>arr.forEach((p,i)=>{p._k=k+i;}));
     const used=new Set(),slg=t=>String(t).replace(/[čć]/gi,"c").replace(/š/gi,"s").replace(/ž/gi,"z").replace(/đ/gi,"dj").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,70);
     [...hoses,...sprays,...items].forEach(p=>{let b="proizvod-"+(slg(p.name)||p._k),u=b,n=2;while(used.has(u)){u=b+"-"+n++;}used.add(u);p.u=u+".html";});

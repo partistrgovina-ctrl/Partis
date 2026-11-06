@@ -54,7 +54,7 @@ foreach ($stavke as $i => $s) {
     $ukp = rsd($eff * (float)($s['q'] ?? 0)) . ' RSD';
   } else { $jed = 'na upit'; $ukp = 'na upit'; }
   $bg = $i % 2 ? '#f7f5ef' : '#ffffff';
-  $red .= "<tr style=\"background:$bg\"><td style=\"padding:8px 10px;border-bottom:1px solid #ddd\">" . ($i + 1) . ".</td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd\">$naz</td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd;white-space:nowrap\">$kol</td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd;text-align:right;white-space:nowrap\">$jed</td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd;text-align:right;white-space:nowrap\"><b>$ukp</b></td></tr>";
+  $red .= "<tr style=\"background:$bg\"><td style=\"padding:8px 10px;border-bottom:1px solid #ddd;white-space:nowrap\"><b>" . h($s['s'] ?? '') . "</b></td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd\">$naz</td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd;white-space:nowrap\">$kol</td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd;text-align:right;white-space:nowrap\">$jed</td><td style=\"padding:8px 10px;border-bottom:1px solid #ddd;text-align:right;white-space:nowrap\"><b>$ukp</b></td></tr>";
 }
 $zbir = '';
 if (isset($uk['sum'])) {
@@ -78,7 +78,7 @@ $html = '<!DOCTYPE html><html><body style="margin:0;padding:16px;background:#f4f
   . ($kupac !== '' ? $pod('Nalog', h($kupac)) : '')
   . '</table>'
   . '<h3 style="margin:0 0 8px;font-size:15px;text-transform:uppercase;letter-spacing:1px;color:#c2241f">Porudžbina</h3>'
-  . '<table style="border-collapse:collapse;width:100%;font-size:14px"><tr style="background:#16140f;color:#fff"><th style="padding:8px 10px;text-align:left">#</th><th style="padding:8px 10px;text-align:left">Artikal</th><th style="padding:8px 10px;text-align:left">Količina</th><th style="padding:8px 10px;text-align:right">Cena (bez PDV-a)</th><th style="padding:8px 10px;text-align:right">Iznos</th></tr>'
+  . '<table style="border-collapse:collapse;width:100%;font-size:14px"><tr style="background:#16140f;color:#fff"><th style="padding:8px 10px;text-align:left">Šifra</th><th style="padding:8px 10px;text-align:left">Artikal</th><th style="padding:8px 10px;text-align:left">Količina</th><th style="padding:8px 10px;text-align:right">Cena (bez PDV-a)</th><th style="padding:8px 10px;text-align:right">Iznos</th></tr>'
   . ($red !== '' ? $red : '<tr><td colspan="5" style="padding:10px"><pre style="margin:0;font-family:inherit">' . h($porudzbina) . '</pre></td></tr>')
   . $zbir . '</table>'
   . '<p style="margin:18px 0 0;color:#666;font-size:12px">Odgovorite direktno na ovaj mejl da kontaktirate kupca (Reply-To je mejl kupca). Cene su u dinarima.</p>'

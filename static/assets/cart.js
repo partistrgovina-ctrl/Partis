@@ -11,10 +11,10 @@ const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
   /* nalazi artikal po nazivu i dimenziji (kodovi se menjaju kada se artikli dodaju/parkiraju) */
   function find(n,l){
     const p=Object.values(REG).find(x=>x.name===n);if(!p)return null;
-    if(p.kind==="crevo"){const v=p.variants.find(x=>x.dim===l);return v?{p,label:v.dim,price:v.price,unit:"m"}:null;}
-    if(p.kind==="sprej"){const o=p.opts.find(x=>x.pack===l);return o?{p,label:o.pack,price:o.price,unit:"kom"}:null;}
-    if(p.gal){const g=p.gal.find(x=>x.label===l);return g?{p,label:g.label,price:g.price,unit:"kom"}:null;}
-    return {p,label:"",price:p.price,unit:"kom"};
+    if(p.kind==="crevo"){const v=p.variants.find(x=>x.dim===l);return v?{p,label:v.dim,price:v.price,unit:"m",sf:v.sf}:null;}
+    if(p.kind==="sprej"){const o=p.opts.find(x=>x.pack===l);return o?{p,label:o.pack,price:o.price,unit:"kom",sf:o.sf}:null;}
+    if(p.gal){const g=p.gal.find(x=>x.label===l);return g?{p,label:g.label,price:g.price,unit:"kom",sf:g.sf}:null;}
+    return {p,label:"",price:p.price,unit:"kom",sf:p.sf};
   }
   function lines(){return cart.map(c=>{const r=find(c.n,c.l);if(!r)return null;const rb=PARTIS.rebateFor(r.p,window.REBATE);return {...r,c,rb,eff:r.price==null?null:PARTIS.discounted(r.price,rb)};}).filter(Boolean);}
   function clean(){cart=cart.filter(c=>find(c.n,c.l));save();}
@@ -48,7 +48,7 @@ const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
   }
   function orderText(){
     const t=totals();
-    const rows=lines().map((x,i)=>`${i+1}. ${x.p.name}${x.label?" — "+x.label:""} — ${x.c.q} ${x.unit}`+(x.price==null?" — cena na upit":` × ${fmt(x.eff)}${x.rb?` (cenovnik ${fmt(x.price)}, rabat ${x.rb}%)`:""} = ${fmt(x.eff*x.c.q)} RSD`));
+    const rows=lines().map((x,i)=>`${i+1}. ${x.sf?"["+x.sf+"] ":""}${x.p.name}${x.label?" — "+x.label:""} — ${x.c.q} ${x.unit}`+(x.price==null?" — cena na upit":` × ${fmt(x.eff)}${x.rb?` (cenovnik ${fmt(x.price)}, rabat ${x.rb}%)`:""} = ${fmt(x.eff*x.c.q)} RSD`));
     const pd=PARTIS.gross(t.sum)-t.sum;return rows.join("\n")+`\n\nIznos bez PDV-a${hasR()?" (sa rabatom)":""}: ${fmt(t.sum)} RSD\nPDV (${PARTIS.VAT}%): ${fmt(pd)} RSD\nUkupno sa PDV-om: ${fmt(t.sum+pd)} RSD`+(t.upit?` (+ ${t.upit} ${(n=>{const m=n%100,d=n%10;return (d===1&&m!==11)?"stavka":(d>=2&&d<=4&&(m<12||m>14))?"stavke":"stavki"})(t.upit)} sa cenom na upit)`:"");
   }
   const hasR=()=>lines().some(x=>x.rb>0);
@@ -109,7 +109,7 @@ const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
     if(fd.get("bot-field"))return false;
     const text=orderText();
     const _t=totals(),_pd=PARTIS.gross(_t.sum)-_t.sum;
-    const stavke=JSON.stringify(lines().map(x=>({n:x.p.name,l:x.label||"",q:x.c.q,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rb||0}))),ukupno=JSON.stringify({sum:_t.sum,pdv:_pd,total:_t.sum+_pd,upit:_t.upit,rabat:hasR()});
+    const stavke=JSON.stringify(lines().map(x=>({s:x.sf||"",n:x.p.name,l:x.label||"",q:x.c.q,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rb||0}))),ukupno=JSON.stringify({sum:_t.sum,pdv:_pd,total:_t.sum+_pd,upit:_t.upit,rabat:hasR()});
     const data={stavke,ukupno,"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:fd.get("napomena")||"","bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
     if(window.PARTIS_OFFLINE){offlineSend(data,text);return false;}
     b.disabled=true;b.textContent="Šaljem…";err.hidden=true;
