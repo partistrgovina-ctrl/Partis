@@ -85,6 +85,13 @@ for (const k of CORE.productPages(fs.readFileSync(path.join(tplDir, "_proizvod.h
 }
 for (const [f, c] of Object.entries(CORE.sitemapRobots(pages, SITE))) fs.writeFileSync(path.join(DIST, f), c);
 
+/* verzija fajlova (da pregledač nikad ne koristi staru keširanu stranicu/stil) */
+const VER = Date.now().toString(36);
+for (const f of fs.readdirSync(DIST).filter(f => f.endsWith(".html"))) {
+  const fp = path.join(DIST, f);
+  fs.writeFileSync(fp, fs.readFileSync(fp, "utf8").replace(/(assets\/[a-z0-9-]+\.(?:css|js))(?=["'])/g, `$1?v=${VER}`));
+}
+
 const total = PARTIS.totalProducts(D);
 console.log(`PARTIS izrada: ${total} proizvoda (${items.length} artikala, ${hoses.length} creva, ${sprays.length} HEMA), ${pages.length} stranica -> dist/`);
 if (SITE.includes("VASDOMEN")) console.log("NAPOMENA: u fajlu site.json još nije upisan pravi domen.");
