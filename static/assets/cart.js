@@ -108,7 +108,9 @@ const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
     if(!cart.length)return false;
     if(fd.get("bot-field"))return false;
     const text=orderText();
-    const data={"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:fd.get("napomena")||"","bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
+    const _t=totals(),_pd=PARTIS.gross(_t.sum)-_t.sum;
+    const stavke=JSON.stringify(lines().map(x=>({n:x.p.name,l:x.label||"",q:x.c.q,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rb||0}))),ukupno=JSON.stringify({sum:_t.sum,pdv:_pd,total:_t.sum+_pd,upit:_t.upit,rabat:hasR()});
+    const data={stavke,ukupno,"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:fd.get("napomena")||"","bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
     if(window.PARTIS_OFFLINE){offlineSend(data,text);return false;}
     b.disabled=true;b.textContent="Šaljem…";err.hidden=true;
     fetch(/netlify\.app$/.test(location.hostname)?"/":"porudzbina.php",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data).toString()})
