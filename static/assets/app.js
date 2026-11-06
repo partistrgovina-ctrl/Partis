@@ -154,7 +154,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 
 /* ================= PAGE LOGIC ================= */
 const PAGE_OF={pneu:"pneumatski-alat-i-nastavci.html",crevapn:"creva-pneumatike.html",mesing:"ojacanja-creva.html",spojnice:"spojnice-pneumatike.html",crevo:"armirana-creva.html",gotova:"gotova-creva.html",traktor:"traktorska-roba.html",mazalice:"kategorija-ostalo.html"};
-const pageOf=r=>r.kind==="sprej"?"hema-aerosol.html":r.kind==="crevo"?"armirana-creva.html":PAGE_OF[r.cat]||"kategorija-"+r.cat+".html";
+const pageOf=r=>r.kind==="sprej"?"hema-aerosol.html":r.kind==="crevo"?"armirana-creva.html":PAGE_OF[r.cat]||((typeof KATS!=="undefined"?KATS:[]).find(k=>k.id===r.cat)||{}).file||"kategorija-"+r.cat+".html";
 const GROUP_OF=r=>r.kind==="sprej"?"HEMA aerosol":r.kind==="crevo"?"Armirana gumena creva":["pneu","crevapn","mesing","spojnice"].includes(r.cat)?"Pneumatika":["traktor","gotova"].includes(r.cat)?"Traktorski program":r.catName||"";
 const openFor=r=>r.kind==="crevo"?openHose(r):r.kind==="sprej"?openSpray(r):openItem(r);
 const cardFor=(r,i)=>cardEl(r,i);

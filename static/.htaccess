@@ -29,6 +29,13 @@ Header set Cache-Control "no-cache"
 </FilesMatch>
 
 RewriteRule ^nastavci-mazalica(\.html)?$ https://partis.rs/kategorija-ostalo [L,R=301]
+# stari kratki nazivi kategorija -> puni nazivi
+RewriteRule ^kategorija-aksa(\.html)?$ https://partis.rs/kategorija-ak-sa [L,R=301]
+RewriteRule ^kategorija-automati(\.html)?$ https://partis.rs/kategorija-automati-i-prekidaci [L,R=301]
+RewriteRule ^kategorija-davaci(\.html)?$ https://partis.rs/kategorija-davaci-temperature-i-pritiska-ulja [L,R=301]
+RewriteRule ^kategorija-glave(\.html)?$ https://partis.rs/kategorija-glave-spojnice-vazduha [L,R=301]
+RewriteRule ^kategorija-svetlosna(\.html)?$ https://partis.rs/kategorija-svetlosna-signalizacija [L,R=301]
+RewriteRule ^kategorija-zvucna(\.html)?$ https://partis.rs/kategorija-zvucna-signalizacija [L,R=301]
 # /index.html -> / (pocetna je adresa bez "index")
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ https://partis.rs/ [L,R=301]

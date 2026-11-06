@@ -49,7 +49,9 @@
   }
   function model(inp){
     const warn=[];
-    const KATS=(inp.custom||[]).filter(k=>k&&k.id&&k.naziv).map(k=>({id:String(k.id),naziv:String(k.naziv),opis:String(k.opis||""),file:"kategorija-"+k.id+".html"}));
+    const slK=t=>String(t).replace(/[čć]/gi,"c").replace(/š/gi,"s").replace(/ž/gi,"z").replace(/đ/gi,"dj").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,70);
+    const usedK=new Set();
+    const KATS=(inp.custom||[]).filter(k=>k&&k.id&&k.naziv).map(k=>{let b="kategorija-"+(slK(k.naziv)||String(k.id)),u=b,n=2;while(usedK.has(u))u=b+"-"+n++;usedK.add(u);return {id:String(k.id),naziv:String(k.naziv),opis:String(k.opis||""),file:u+".html"};});
     const CATNAME={...inp.categories};const NAZ=inp.nazivi||{};Object.keys(CATNAME).forEach(k=>{if(NAZ[k]&&String(NAZ[k]).trim())CATNAME[k]=String(NAZ[k]).trim();});KATS.forEach(k=>{CATNAME[k.id]=k.naziv;});
     const hoses=live(inp.creva.map(e=>({...e.data,_file:e.file}))).map(h=>strip({
       kind:"crevo",id:base(h._file),name:h.title,type:txt(h.hose_type),img:img(h.image),short:txt(h.card_text),temp:txt(h.temp,"—"),
@@ -161,7 +163,7 @@
     return all.map(p=>{
       const sp=p.kind==="sprej",ho=p.kind==="crevo";
       const catName=ho?"Armirana gumena creva":sp?"HEMA Kimya aerosol":(p.catName||"");
-      const catFile=ho?"armirana-creva.html":sp?"hema-aerosol.html":(PO[p.cat]||"kategorija-"+p.cat+".html");
+      const catFile=ho?"armirana-creva.html":sp?"hema-aerosol.html":(PO[p.cat]||((D.KATS||[]).find(k=>k.id===p.cat)||{}).file||"kategorija-"+p.cat+".html");
       const desc=(sp?p.desc:ho?p.short:(p.desc||p.short))||p.name;
       const dsc=(desc.toLowerCase().indexOf(p.name.toLowerCase())===0?desc:p.name+" — "+desc).replace(/\s+/g," ").slice(0,155);
       const vlist=ho?p.variants.map(v=>v.dim):sp?p.opts.map(o=>o.pack):(p.gal?p.gal.map(g=>g.label):[]);
