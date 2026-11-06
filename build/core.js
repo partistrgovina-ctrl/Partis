@@ -119,7 +119,7 @@
     (D.HIDDENFILES||[]).forEach(f=>{s=s.replace(new RegExp('<a [^>]*href="'+f.replace(/\./g,"\\.")+'"[^>]*>[\\s\\S]*?</a>',"g"),"");});
     {
       const KS=D.KATS||[],kt=KS.find(k=>k.id==="tork");
-      const L=[["hema-aerosol.html","HEMA aerosol"],["armirana-creva.html","Armirana creva i oprema"],["pneumatika.html","Pneumatika"],["traktorski-program.html","Traktorski program"],["vase-vozilo.html","Vaše vozilo, naš deo"],...(kt?[[kt.file,kt.naziv]]:[]),["privatnost.html","Politika privatnosti"]]
+      const L=[["hema-aerosol.html","HEMA aerosol"],["armirana-creva.html","Armirana creva i oprema"],["pneumatika.html","Pneumatika"],["traktorski-program.html","Traktorski program"],["vase-vozilo.html","Vaše vozilo, naš deo"],...(kt?[[kt.file,kt.naziv]]:[])]
         .filter(l=>!(D.HIDDENFILES||[]).includes(l[0])).map(l=>`<a href="${l[0]}">${l[1]}</a>`).join("");
       s=s.replace(/(<div class="foot-nav">\s*<div class="muted">KATEGORIJE<\/div>\s*)[\s\S]*?(\n\s*<\/div>)/,(_,x,y)=>x+L+y);
     }
