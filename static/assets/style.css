@@ -561,3 +561,18 @@ a.card .eng{color:var(--red)}
 }
 .m-content h1{font-family:'Archivo';font-weight:900;font-size:32px;line-height:1.08;letter-spacing:-.5px;margin:0}
 @media(max-width:700px){.m-content h1{font-size:27px}}
+
+/* ===== kategorije: stalni levi meni na računaru (ne zavisi od skrola) ===== */
+@media(min-width:1200px){
+  :root{--pad:max(28px,calc((100vw - 290px - 1180px)/2))}
+  body{padding-left:290px}
+  .side-ov,.menu-btn,.side-x{display:none!important}
+  .side-menu{transform:none!important;visibility:visible!important;width:290px;top:0;bottom:0;left:0;overflow-y:auto;z-index:40;transition:none;box-shadow:none;overscroll-behavior:contain}
+  .side-head{position:sticky;top:0;background:var(--ink);color:var(--paper);border-bottom:0}
+  .side-head b{font-weight:500}
+  .s-top{padding:12px 18px;font-size:15px}
+  .s-subs{padding:0 18px 10px 30px}
+  .s-top:hover{background:#ece7da}
+  .wa-float{left:auto;right:22px}
+  .overlay{padding-left:314px}
+}
