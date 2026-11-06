@@ -650,15 +650,17 @@ $("#bCust").onclick=async()=>{
   try{await loadLib();SB=SB||window.supabase.createClient(cfg.supabase_url,cfg.supabase_key,{auth:{persistSession:true}});
     const {data:{session}}=await SB.auth.getSession();
     if(session&&await isAdmin())return custList();
+    let c=null;try{c=JSON.parse(atob(localStorage.getItem("partis_sb_cred")||""));}catch(e){}
+    if(c&&c.e){const {error}=await SB.auth.signInWithPassword({email:c.e,password:c.p});if(!error&&await isAdmin())return custList();}
   }catch(e){}
   custLogin();
 };
 async function isAdmin(){const {data:{session}}=await SB.auth.getSession();if(!session)return false;const {data}=await SB.from("profili").select("is_admin").eq("id",session.user.id).single();return !!(data&&data.is_admin);}
 function custLogin(err){
-  d3(`<p>Prijavite se nalogom administratora (vaš nalog koji ste označili kao administratora u Supabase-u).</p>
+  d3(`<p>Jednokratna prijava nalogom administratora. Program je zapamti u ovom pregledaču, pa se sledeći put otvara odmah. Ovo je neophodno da Supabase zna da samo vi možete da menjate rabate.</p>
     <div class="f"><label>Mejl</label><input type="text" id="cuE"></div><div class="f"><label>Lozinka</label><input type="password" id="cuP"></div><div class="err">${esc(err||"")}</div>`,
     [["Prijavi me",async()=>{const {error}=await SB.auth.signInWithPassword({email:$("#cuE").value.trim(),password:$("#cuP").value});
-      if(error)return custLogin("Pogrešan mejl ili lozinka.");if(!(await isAdmin())){await SB.auth.signOut();return custLogin("Ovaj nalog nije administratorski.");}custList();},1],["Zatvori",()=>$("#dlg3").close()]]);
+      if(error)return custLogin("Pogrešan mejl ili lozinka.");if(!(await isAdmin())){await SB.auth.signOut();return custLogin("Ovaj nalog nije administratorski.");}try{localStorage.setItem("partis_sb_cred",btoa(JSON.stringify({e:$("#cuE").value.trim(),p:$("#cuP").value})));}catch(e){}custList();},1],["Zatvori",()=>$("#dlg3").close()]]);
 }
 async function custList(){
   const {data,error}=await SB.from("profili").select("*").order("created_at",{ascending:false});
