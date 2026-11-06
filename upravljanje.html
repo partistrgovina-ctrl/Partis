@@ -98,14 +98,17 @@ dialog::backdrop{background:rgba(0,0,0,.55)}
 <main>
   <div id="start">
     <h2>Dobrodošli</h2>
-    <p id="startMsg">Izaberite folder sa sajtom (onaj u kome se nalaze folderi <b>content</b>, <b>static</b> i <b>templates</b>). Program menja artikle direktno u tom folderu. Radi u Chrome ili Brave pregledaču.</p>
-    <button class="red" id="bPick">Izaberi folder sajta</button>
-    <button id="bResume" hidden></button>
+    <p id="startMsg">Program radi preko interneta, sa bilo kog računara i pregledača. Ne treba vam nikakav folder. Upišite GitHub ključ (pravi se jednom, uputstvo je ispod) i kliknite „Uđi“. Artikle menjate, pa kliknete „Objavi na sajt“.</p>
+    <p><input type="password" id="ghT0" placeholder="GitHub ključ (github_pat_…)" style="width:100%;max-width:460px;padding:9px;font:inherit;border:1.5px solid #999"></p>
+    <button class="red" id="bWeb">Uđi</button>
+    <details style="margin:14px 0"><summary>Kako da napravim GitHub ključ</summary><p style="font-size:14px;line-height:1.5">Na github.com prijavite se vašim nalogom, pa: Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Izaberite samo repozitorijum <b>Partis</b>, a pod Permissions → Contents postavite <b>Read and write</b>. Ključ nalepite gore. Čuva se samo u ovom pregledaču.</p></details>
+    <p style="margin-top:22px"><small>Stari način (folder na računaru, samo Chrome/Brave):</small><br><button id="bPick">Izaberi folder sajta</button>
+    <button id="bResume" hidden></button></p>
     <p class="warn" id="startErr"></p>
   </div>
   <div id="app" hidden>
     <div class="tabs" id="tabs"></div>
-    <div class="note" id="note"><b>Izmene su sačuvane u folderu, ali još nisu na sajtu.</b> Kada završite, kliknite „Objavi na sajt“ — sajt se sam osveži za oko minut.</div>
+    <div class="note" id="note"><b>Izmene još nisu na sajtu.</b> Kada završite, kliknite „Objavi na sajt“ — sajt se sam osveži za oko minut.</div>
     <div class="bar">
       <input type="search" id="q" placeholder="Pretraga artikala…">
       <select id="fCat"></select>
@@ -132,6 +135,54 @@ const idb={
   async get(){try{const db=await this.open();return await new Promise(res=>{const q=db.transaction("h").objectStore("h").get("root");q.onsuccess=()=>res(q.result);q.onerror=()=>res(null);});}catch(e){return null;}},
   async set(v){try{const db=await this.open();db.transaction("h","readwrite").objectStore("h").put(v,"root");}catch(e){}}
 };
+
+/* ---------- rad preko GitHub-a (bez foldera) ---------- */
+let WEB=false;
+const GHFS=(()=>{
+  let repo="",br="",tok="";const TREE=new Map(),OVER=new Map(),GONE=new Set(),CACHE=new Map();
+  const nf=()=>{const e=new Error("Fajl ne postoji.");e.name="NotFoundError";return e;};
+  const hasFile=p=>!GONE.has(p)&&(OVER.has(p)||TREE.has(p));
+  const kids=dir=>{const pre=dir?dir+"/":"",m=new Map();
+    for(const k of [...TREE.keys(),...OVER.keys()]){if(GONE.has(k)||!k.startsWith(pre))continue;const r=k.slice(pre.length),i=r.indexOf("/");if(i<0)m.set(r,"file");else m.set(r.slice(0,i),"directory");}
+    return m;};
+  async function api(path,accept){
+    const r=await fetch("https://api.github.com/repos/"+repo+path,{headers:{"Authorization":"Bearer "+tok,"Accept":accept||"application/vnd.github+json"}});
+    if(!r.ok){let m="";try{m=(await r.json()).message;}catch(e){}throw new Error("GitHub "+r.status+(m?": "+m:"")+(r.status===401||r.status===403?" (proverite ključ)":""));}
+    return r;
+  }
+  async function getBlob(p){
+    if(GONE.has(p))throw nf();
+    if(OVER.has(p))return OVER.get(p);
+    if(CACHE.has(p))return CACHE.get(p);
+    const t=TREE.get(p);if(!t)throw nf();
+    const b=await (await api("/git/blobs/"+t.sha,"application/vnd.github.raw+json")).blob();
+    CACHE.set(p,b);return b;
+  }
+  class F{constructor(p){this.p=p;this.kind="file";this.name=p.split("/").pop();}
+    async getFile(){return getBlob(this.p);}
+    async createWritable(){const ch=[],p=this.p;return {write:async d=>{ch.push(d);},close:async()=>{OVER.set(p,new Blob(ch));GONE.delete(p);}};}}
+  class D{constructor(p){this.p=p;this.kind="directory";this.name=p.split("/").pop();}
+    async getDirectoryHandle(n,o){const np=this.p?this.p+"/"+n:n;if(!(o&&o.create)&&!kids(this.p).has(n))throw nf();return new D(np);}
+    async getFileHandle(n,o){const fp=this.p?this.p+"/"+n:n;if(!(o&&o.create)&&!hasFile(fp))throw nf();return new F(fp);}
+    async *entries(){for(const [n,k] of kids(this.p)){const q=this.p?this.p+"/"+n:n;yield [n,k==="file"?new F(q):new D(q)];}}
+    async removeEntry(n){const fp=this.p?this.p+"/"+n:n;if(!hasFile(fp))throw nf();OVER.delete(fp);GONE.add(fp);}}
+  return {
+    async open(token,onProg){
+      tok=token;
+      let cfg={};repo="partistrgovina-ctrl/Partis";br="main";
+      const ref=await (await api("/git/ref/heads/"+br)).json();
+      const cm=await (await api("/git/commits/"+ref.object.sha)).json();
+      const tr=await (await api("/git/trees/"+cm.tree.sha+"?recursive=1")).json();
+      if(tr.truncated)throw new Error("Repozitorijum je prevelik za učitavanje.");
+      TREE.clear();OVER.clear();GONE.clear();CACHE.clear();
+      for(const e of tr.tree)if(e.type==="blob")TREE.set(e.path,{sha:e.sha});
+      const want=[...TREE.keys()].filter(k=>/^(content\/.*\.json|categories\.json|kategorije\.json|pocetna\.json|site\.json|build\/(core|bundle)\.js|static\/assets\/shared\.js|templates\/_kategorija\.html)$/.test(k));
+      let i=0,done=0;
+      await Promise.all(Array.from({length:10},async()=>{while(i<want.length){const k=want[i++];try{await getBlob(k);}catch(e){if(/GitHub (401|403)/.test(e.message))throw e;}onProg&&onProg(++done,want.length);}}));
+      return new D("");
+    }
+  };
+})();
 
 /* ---------- rad sa folderom ---------- */
 let ROOT=null;
@@ -181,18 +232,33 @@ function counts(){
 }
 
 /* ---------- start ---------- */
-async function enter(handle){
-  ROOT=handle;
+async function enter(handle,web){
+  ROOT=handle;WEB=!!web;
+  if(!WEB){
   for(const d of ["content","templates","static"]){try{await ROOT.getDirectoryHandle(d);}catch(e){throw new Error("U izabranom folderu nema foldera „"+d+"“. Izaberite glavni folder sajta.");}}
-  await idb.set(handle);
+  await idb.set(handle);}
   await loadAll();
   $("#start").hidden=true;$("#app").hidden=false;
   if(!CORE.pocMerge||!CORE.katPages||!CORE.MULTI||!(await exists("templates/_kategorija.html"))){
     say("Folder sajta nije ažuran","Ovaj program je noviji od fajlova u izabranom folderu, pa dugmad <b>Tekst početne</b>, <b>Kategorije</b> i izrada sajta neće raditi kako treba.<br><br><b>Rešenje:</b> raspakujte najnoviji ZIP (<b>partis-sajt-program.zip</b>) i njegov sadržaj prekopirajte preko vašeg foldera sajta (na pitanje „Zameni“ odgovorite sa DA). Folderi <b>content</b> i vaši artikli ostaju, ali pre kopiranja napravite rezervnu kopiju foldera <b>content</b>.");
   }
   ["bPush","bBuild","bFolder","bSettings","bCust","bKat","bPoc"].forEach(i=>$("#"+i).hidden=false);
+  if(WEB){$("#bBuild").hidden=true;$("#bFolder").hidden=false;$("#bFolder").textContent="Izlaz";$("#bFolder").onclick=()=>{if(dirty&&!confirm("Imate izmene koje nisu objavljene. Svejedno izaći?"))return;location.reload();};}
   buildTabs();render();counts();
 }
+$("#bWeb").onclick=async()=>{
+  $("#startErr").textContent="";
+  const v=$("#ghT0").value.trim();
+  if(v.length<20){$("#startErr").textContent="Upišite GitHub ključ.";return;}
+  const b=$("#bWeb");b.disabled=true;
+  try{
+    const h=await GHFS.open(v,(d,n)=>{b.textContent="Učitavam "+d+"/"+n+"…";});
+    try{localStorage.setItem("partis_gh",v);}catch(e){}
+    await enter(h,true);
+  }catch(e){$("#startErr").textContent=e.message;}
+  b.disabled=false;b.textContent="Uđi";
+};
+try{const t=localStorage.getItem("partis_gh");if(t)$("#ghT0").value=t;}catch(e){}
 $("#bPick").onclick=async()=>{
   $("#startErr").textContent="";
   if(!window.showDirectoryPicker){$("#startErr").textContent="Ovaj pregledač ne podržava rad sa folderima. Otvorite program u Chrome ili Brave pregledaču.";return;}
@@ -495,7 +561,7 @@ $("#bSettings").onclick=async()=>{
 };
 
 
-/* ---------- objava na GitHub (Netlify objavljuje sam) ---------- */
+/* ---------- objava na GitHub (sajt se sam osveži) ---------- */
 const GH_DEF={repo:"partistrgovina-ctrl/Partis",branch:"main"};
 const ghTok=()=>{try{return localStorage.getItem("partis_gh")||"";}catch(e){return "";}};
 const b64=buf=>{let s="";const u=new Uint8Array(buf);for(let i=0;i<u.length;i+=0x8000)s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(s);};
@@ -522,7 +588,7 @@ async function doPush(tok){
   const nc=await gh(tok,repo,"/git/commits",{method:"POST",body:JSON.stringify({message:"Izmene iz programa za upravljanje",tree:nt.sha,parents:[ref.object.sha]})});
   await gh(tok,repo,"/git/refs/heads/"+br,{method:"PATCH",body:JSON.stringify({sha:nc.sha})});
   CHG.clear();DELS.clear();dirty=false;$("#note").classList.remove("show");
-  say("Objavljeno",'<span class="ok">Gotovo.</span> Izmene su poslate. Netlify ih objavljuje na sajt za oko minut (osvežite stranicu sajta posle toga).');
+  say("Objavljeno",'<span class="ok">Gotovo.</span> Izmene su poslate. Sajt se osvežava za oko minut (posle toga osvežite stranicu sajta).');
 }
 $("#bPush").onclick=async()=>{
   if(!CHG.size&&!DELS.size){say("Nema izmena","Od poslednje objave nema novih izmena za slanje.");return;}

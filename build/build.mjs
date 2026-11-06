@@ -92,6 +92,9 @@ for (const f of fs.readdirSync(DIST).filter(f => f.endsWith(".html"))) {
   fs.writeFileSync(fp, fs.readFileSync(fp, "utf8").replace(/(assets\/[a-z0-9-]+\.(?:css|js))(?=["'])/g, `$1?v=${VER}`));
 }
 
+// Program za upravljanje dostupan na sajtu (radi preko GitHub-a, bez foldera)
+fs.copyFileSync(P("upravljanje.html"), path.join(DIST, "upravljanje.html"));
+
 const total = PARTIS.totalProducts(D);
 console.log(`PARTIS izrada: ${total} proizvoda (${items.length} artikala, ${hoses.length} creva, ${sprays.length} HEMA), ${pages.length} stranica -> dist/`);
 if (SITE.includes("VASDOMEN")) console.log("NAPOMENA: u fajlu site.json još nije upisan pravi domen.");
