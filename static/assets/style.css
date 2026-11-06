@@ -823,3 +823,14 @@ sup.ast{color:var(--red);font-weight:700;font-size:.8em;margin-left:2px;vertical
 .brand .bn{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .brand-txt p{margin:0}
 @media(max-width:700px){.brand-logo{height:50px}}
+
+/* izbor traktora */
+.trk-pick{max-width:1180px;margin:18px auto 6px;padding:0 28px}
+.trk-pick h2{font-family:'Archivo',sans-serif;font-size:22px;margin:0 0 12px}
+.trk-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.trk-card{display:flex;flex-direction:column;gap:3px;padding:14px 16px;background:#fff;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;transition:background .15s,color .15s,transform .15s}
+.trk-card b{font-family:'Archivo',sans-serif;font-weight:900;font-size:24px;letter-spacing:.5px}
+.trk-card span{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--red)}
+.trk-card small{font-size:12.5px;opacity:.75}
+.trk-card:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}.trk-card:hover span{color:#ff8a85}
+@media(max-width:700px){.trk-pick{padding:0 14px}}

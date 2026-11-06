@@ -1,74 +1,422 @@
 {
- "nove": [
-  {
-   "id": "sijalice",
-   "naziv": "Sijalice",
-   "opis": "Auto i traktorske sijalice: standardne, halogene H1, H3, H4, H7, G40 i ubodne."
-  },
-  {
-   "id": "elektrika",
-   "naziv": "Elektrika",
-   "opis": "Kleme, džekovi, kablovi za prespajanje, punjač akumulatora, utičnice, kutije osigurača i pumpe goriva."
-  },
-  {
-   "id": "zvucna",
-   "naziv": "Zvučna signalizacija",
-   "opis": "Sirene i trube 12V i 24V."
-  },
-  {
-   "id": "svetlosna",
-   "naziv": "Svetlosna signalizacija",
-   "opis": "Rotacione lampe, LED farovi, štop lampe, gabariti i svetla tablice."
-  },
-  {
-   "id": "brave",
-   "naziv": "Brave",
-   "opis": "Brave paljenja i kontakt brave."
-  },
-  {
-   "id": "automati",
-   "naziv": "Automati i prekidači",
-   "opis": "Automati anlasera i migavaca, prekidači migavaca i klik-klak prekidači, regler alternatora."
-  },
-  {
-   "id": "termostati",
-   "naziv": "Termostati",
-   "opis": "Termostati za teretna vozila, autobuse i radne mašine."
-  },
-  {
-   "id": "releji",
-   "naziv": "Releji",
-   "opis": "Releji 12V i 24V sa 4 i 5 izvoda."
-  },
-  {
-   "id": "davaci",
-   "naziv": "Davači temperature i pritiska ulja",
-   "opis": "Davači temperature i pritiska ulja."
-  },
-  {
-   "id": "glave",
-   "naziv": "Glave spojnice vazduha",
-   "opis": "Crvene i žute glave spojnice vazduha, 16 i 22 mm."
-  },
-  {
-   "id": "aksa",
-   "naziv": "AK-SA",
-   "opis": "AK-SA program: osigurači, prekidači, tasteri i kontrolne lampe."
-  },
-  {
-   "id": "tork",
-   "naziv": "TORK",
-   "naslov": "TORK obujmice — pužne šelne od nerđajućeg čelika",
-   "opis": "TORK pužne šelne (obujmice) od nerđajućeg čelika za pričvršćivanje creva na priključke, u opsezima od 8 do 100 mm. Koriste se na crevima za vodu, vazduh, gorivo i hlađenje, u vozilima, na mašinama i u instalacijama. Ako ne znate koji opseg Vam treba, pošaljite nam prečnik creva ili priključka."
-  },
-  {
-   "id": "ostalo",
-   "naziv": "Ostalo",
-   "opis": "Nastavci mazalica, ključevi i ostali delovi i oprema za vozila."
+  "nove": [
+    {
+      "id": "sijalice",
+      "naziv": "Sijalice",
+      "opis": "Auto i traktorske sijalice: standardne, halogene H1, H3, H4, H7, G40 i ubodne."
+    },
+    {
+      "id": "elektrika",
+      "naziv": "Elektrika",
+      "opis": "Kleme, džekovi, kablovi za prespajanje, punjač akumulatora, utičnice, kutije osigurača i pumpe goriva."
+    },
+    {
+      "id": "zvucna",
+      "naziv": "Zvučna signalizacija",
+      "opis": "Sirene i trube 12V i 24V."
+    },
+    {
+      "id": "svetlosna",
+      "naziv": "Svetlosna signalizacija",
+      "opis": "Rotacione lampe, LED farovi, štop lampe, gabariti i svetla tablice."
+    },
+    {
+      "id": "brave",
+      "naziv": "Brave",
+      "opis": "Brave paljenja i kontakt brave."
+    },
+    {
+      "id": "automati",
+      "naziv": "Automati i prekidači",
+      "opis": "Automati anlasera i migavaca, prekidači migavaca i klik-klak prekidači, regler alternatora."
+    },
+    {
+      "id": "termostati",
+      "naziv": "Termostati",
+      "opis": "Termostati za teretna vozila, autobuse i radne mašine."
+    },
+    {
+      "id": "releji",
+      "naziv": "Releji",
+      "opis": "Releji 12V i 24V sa 4 i 5 izvoda."
+    },
+    {
+      "id": "davaci",
+      "naziv": "Davači temperature i pritiska ulja",
+      "opis": "Davači temperature i pritiska ulja."
+    },
+    {
+      "id": "glave",
+      "naziv": "Glave spojnice vazduha",
+      "opis": "Crvene i žute glave spojnice vazduha, 16 i 22 mm."
+    },
+    {
+      "id": "aksa",
+      "naziv": "AK-SA",
+      "opis": "AK-SA program: osigurači, prekidači, tasteri i kontrolne lampe."
+    },
+    {
+      "id": "tork",
+      "naziv": "TORK",
+      "naslov": "TORK obujmice — pužne šelne od nerđajućeg čelika",
+      "opis": "TORK pužne šelne (obujmice) od nerđajućeg čelika za pričvršćivanje creva na priključke, u opsezima od 8 do 100 mm. Koriste se na crevima za vodu, vazduh, gorivo i hlađenje, u vozilima, na mašinama i u instalacijama. Ako ne znate koji opseg Vam treba, pošaljite nam prečnik creva ili priključka."
+    },
+    {
+      "id": "ostalo",
+      "naziv": "Ostalo",
+      "opis": "Nastavci mazalica, ključevi i ostali delovi i oprema za vozila."
+    },
+    {
+      "id": "imt",
+      "naziv": "IMT",
+      "roditelj": "traktorska-roba",
+      "opis": "Delovi i oprema za traktore IMT: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Izaberite model traktora iznad da vidite artikle za svoj traktor. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt533",
+      "naziv": "IMT 533",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 533: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt539",
+      "naziv": "IMT 539",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 539: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt540",
+      "naziv": "IMT 540",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 540: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt542",
+      "naziv": "IMT 542",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 542: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt549",
+      "naziv": "IMT 549",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 549: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt550",
+      "naziv": "IMT 550",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 550: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt555",
+      "naziv": "IMT 555",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 555: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt558",
+      "naziv": "IMT 558",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 558: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt560",
+      "naziv": "IMT 560",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 560: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt565",
+      "naziv": "IMT 565",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 565: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt577",
+      "naziv": "IMT 577",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 577: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt579",
+      "naziv": "IMT 579",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 579: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt5100",
+      "naziv": "IMT 5100",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 5100: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt5106",
+      "naziv": "IMT 5106",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 5106: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt5130",
+      "naziv": "IMT 5130",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 5130: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imt5136",
+      "naziv": "IMT 5136",
+      "roditelj": "imt",
+      "opis": "Artikli za traktor IMT 5136: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursus",
+      "naziv": "Ursus",
+      "roditelj": "traktorska-roba",
+      "opis": "Delovi i oprema za traktore Ursus: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Izaberite model traktora iznad da vidite artikle za svoj traktor. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursusc330",
+      "naziv": "Ursus C-330",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus C-330: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursusc360",
+      "naziv": "Ursus C-360",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus C-360: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursusc385",
+      "naziv": "Ursus C-385",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus C-385: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursus1204",
+      "naziv": "Ursus 1204",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus 1204: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursus1604",
+      "naziv": "Ursus 1604",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus 1604: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursus3512",
+      "naziv": "Ursus 3512",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus 3512: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "ursus4512",
+      "naziv": "Ursus 4512",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus 4512: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor",
+      "naziv": "Zetor",
+      "roditelj": "traktorska-roba",
+      "opis": "Delovi i oprema za traktore Zetor: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Izaberite model traktora iznad da vidite artikle za svoj traktor. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor2511",
+      "naziv": "Zetor 2511",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 2511: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor3011",
+      "naziv": "Zetor 3011",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 3011: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor4911",
+      "naziv": "Zetor 4911",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 4911: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor5011",
+      "naziv": "Zetor 5011",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 5011: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor5211",
+      "naziv": "Zetor 5211",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 5211: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor5245",
+      "naziv": "Zetor 5245",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 5245: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor5320",
+      "naziv": "Zetor 5320",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 5320: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor5340",
+      "naziv": "Zetor 5340",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 5340: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor6011",
+      "naziv": "Zetor 6011",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 6011: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor6211",
+      "naziv": "Zetor 6211",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 6211: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor6245",
+      "naziv": "Zetor 6245",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 6245: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor6320",
+      "naziv": "Zetor 6320",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 6320: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor6340",
+      "naziv": "Zetor 6340",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 6340: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor7011",
+      "naziv": "Zetor 7011",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 7011: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor7211",
+      "naziv": "Zetor 7211",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 7211: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor7245",
+      "naziv": "Zetor 7245",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 7245: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor7711",
+      "naziv": "Zetor 7711",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 7711: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor7745",
+      "naziv": "Zetor 7745",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 7745: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "zetor8011",
+      "naziv": "Zetor 8011",
+      "roditelj": "zetor",
+      "opis": "Artikli za traktor Zetor 8011: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "utb",
+      "naziv": "UTB",
+      "roditelj": "traktorska-roba",
+      "opis": "Delovi i oprema za traktore UTB: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Izaberite model traktora iznad da vidite artikle za svoj traktor. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "utb445",
+      "naziv": "UTB 445",
+      "roditelj": "utb",
+      "opis": "Artikli za traktor UTB 445: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "utb530",
+      "naziv": "UTB 530",
+      "roditelj": "utb",
+      "opis": "Artikli za traktor UTB 530: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "utb550",
+      "naziv": "UTB 550",
+      "roditelj": "utb",
+      "opis": "Artikli za traktor UTB 550: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "utb640",
+      "naziv": "UTB 640",
+      "roditelj": "utb",
+      "opis": "Artikli za traktor UTB 640: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "utb650",
+      "naziv": "UTB 650",
+      "roditelj": "utb",
+      "opis": "Artikli za traktor UTB 650: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imr",
+      "naziv": "IMR",
+      "roditelj": "traktorska-roba",
+      "opis": "Delovi i oprema za traktore IMR: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Izaberite model traktora iznad da vidite artikle za svoj traktor. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imr47",
+      "naziv": "IMR 47",
+      "roditelj": "imr",
+      "opis": "Artikli za traktor IMR 47: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imr60",
+      "naziv": "IMR 60",
+      "roditelj": "imr",
+      "opis": "Artikli za traktor IMR 60: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imr65",
+      "naziv": "IMR 65",
+      "roditelj": "imr",
+      "opis": "Artikli za traktor IMR 65: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imr76",
+      "naziv": "IMR 76",
+      "roditelj": "imr",
+      "opis": "Artikli za traktor IMR 76: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imr120",
+      "naziv": "IMR 120",
+      "roditelj": "imr",
+      "opis": "Artikli za traktor IMR 120: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "imr135",
+      "naziv": "IMR 135",
+      "roditelj": "imr",
+      "opis": "Artikli za traktor IMR 135: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    }
+  ],
+  "skrivene": [],
+  "nazivi": {
+    "hema": "HEMA Kimya aerosol"
   }
- ],
- "skrivene": [],
- "nazivi": {
-  "hema": "HEMA Kimya aerosol"
- }
 }

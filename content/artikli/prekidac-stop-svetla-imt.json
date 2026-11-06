@@ -1,18 +1,37 @@
 {
- "title": "Prekidač štop svetla IMT",
- "category": "traktor",
- "order": 2008,
- "in_stock": true,
- "image": "/assets/img/kat/k100.jpg",
- "description": "Prekidač štop svetla za IMT traktore.",
- "promo": false,
- "price": 250.0,
- "aliases": [
-  "stop prekidac imt",
-  "prekidac stopa",
-  "prekidac kocionog svetla",
-  "imt traktor stop",
-  "kontakt stop svetla"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Prekidač štop svetla IMT",
+  "category": "traktor",
+  "order": 2008,
+  "in_stock": true,
+  "image": "/assets/img/kat/k100.jpg",
+  "description": "Prekidač štop svetla za IMT traktore.",
+  "promo": false,
+  "price": 250.0,
+  "aliases": [
+    "stop prekidac imt",
+    "prekidac stopa",
+    "prekidac kocionog svetla",
+    "imt traktor stop",
+    "kontakt stop svetla"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "categories": [
+    "imt",
+    "imt533",
+    "imt539",
+    "imt540",
+    "imt542",
+    "imt549",
+    "imt550",
+    "imt555",
+    "imt558",
+    "imt560",
+    "imt565",
+    "imt577",
+    "imt579",
+    "imt5100",
+    "imt5106",
+    "imt5130",
+    "imt5136"
+  ]
 }

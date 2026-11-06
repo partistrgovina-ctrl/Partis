@@ -51,7 +51,7 @@
     const warn=[];
     const slK=t=>String(t).replace(/[čć]/gi,"c").replace(/š/gi,"s").replace(/ž/gi,"z").replace(/đ/gi,"dj").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,70);
     const usedK=new Set();
-    const KATS=(inp.custom||[]).filter(k=>k&&k.id&&k.naziv).map(k=>{let b="kategorija-"+(slK(k.naziv)||String(k.id)),u=b,n=2;while(usedK.has(u))u=b+"-"+n++;usedK.add(u);return {id:String(k.id),naziv:String(k.naziv),opis:String(k.opis||""),naslov:String(k.naslov||""),file:u+".html"};});
+    const KATS=(inp.custom||[]).filter(k=>k&&k.id&&k.naziv).map(k=>{let b="kategorija-"+(slK(k.naziv)||String(k.id)),u=b,n=2;while(usedK.has(u))u=b+"-"+n++;usedK.add(u);return {id:String(k.id),naziv:String(k.naziv),opis:String(k.opis||""),naslov:String(k.naslov||""),roditelj:String(k.roditelj||""),file:u+".html"};});
     const CATNAME={...inp.categories};const NAZ=inp.nazivi||{};Object.keys(CATNAME).forEach(k=>{if(NAZ[k]&&String(NAZ[k]).trim())CATNAME[k]=String(NAZ[k]).trim();});KATS.forEach(k=>{CATNAME[k.id]=k.naziv;});
     const hoses=live(inp.creva.map(e=>({...e.data,_file:e.file}))).map(h=>strip({
       kind:"crevo",id:base(h._file),name:h.title,type:txt(h.hose_type),img:img(h.image),short:txt(h.card_text),temp:txt(h.temp,"—"),
@@ -116,6 +116,8 @@
     s=s.replace("<!--ITEMLIST-->",()=>ld).replace(/\{\{SITE\}\}/g,site);
     s=PARTIS.rename(D,s);
     s=s.replace(/<div class="grid"/,()=>'<p class="pdv-note pdv-top"><sup class="ast">*</sup> Cene su u dinarima (RSD) i iskazane bez PDV-a; u zagradi je cena sa PDV-om ('+PARTIS.VAT+'%).</p><div class="grid"');
+    s=s.replace(/\{\{TRAK_PICK\}\}/g,()=>{const BR=(D.KATS||[]).filter(k=>k.roditelj==="traktorska-roba");if(!BR.length)return "";return '<section class="trk-pick"><h2>Izaberite vaš traktor</h2><div class="trk-cards">'+BR.map(b=>{const MO=(D.KATS||[]).filter(m=>m.roditelj===b.id);return '<a class="trk-card" href="'+b.file+'"><b>'+b.naziv+'</b><span>'+MO.length+' modela</span><small>'+MO.slice(0,5).map(m=>m.naziv.replace(b.naziv+" ","")).join(" · ")+(MO.length>5?" …":"")+'</small></a>';}).join("")+'</div></section>';});
+    s=s.replace(/\{\{TRAK_BRANDS\}\}/g,()=>(D.KATS||[]).filter(k=>k.roditelj==="traktorska-roba").map(k=>'<a class="pill sub" href="'+k.file+'">'+k.naziv+'</a>').join(""));
     (D.HIDDENFILES||[]).forEach(f=>{s=s.replace(new RegExp('<a [^>]*href="'+f.replace(/\./g,"\\.")+'"[^>]*>[\\s\\S]*?</a>',"g"),"");});
     {
       const KS=D.KATS||[],kt=KS.find(k=>k.id==="tork");
@@ -148,8 +150,22 @@
   /* stranice novih kategorija iz šablona templates/_kategorija.html */
   function katPages(tpl,D,site,PARTIS){
     const eh=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    return (D.KATS||[]).map(k=>{
-      const t=tpl.replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_CRUMB\}\}/g,'<a href="proizvodi.html">Proizvodi</a> &rsaquo; '+(k.id==="tork"?"":'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ')).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_TITLE\}\}/g,()=>eh(k.naslov||(k.naziv+" — Vaše vozilo, naš deo"))).replace(/\{\{KAT_META\}\}/g,()=>{const o=(k.opis||k.naziv+" — PARTIS Niš.").replace(/\s+/g," ");if(o.length<=158)return eh(o);const c=o.slice(0,155),i=Math.max(c.lastIndexOf(" "),c.lastIndexOf(","));return eh(c.slice(0,i>80?i:155).replace(/[,;:\s]+$/,"")+"…");}).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
+    const KS=D.KATS||[],byId=id=>KS.find(k=>k.id===id);
+    const pill=(href,txt,on)=>`<a class="pill sub${on?" active":""}" href="${href}"${on?" aria-current=page":""}>${eh(txt)}</a>`;
+    return KS.map(k=>{
+      const par=k.roditelj?byId(k.roditelj):null,brand=par&&par.roditelj?par:(k.roditelj==="traktorska-roba"?k:null),isTr=!!k.roditelj;
+      let crumb='<a href="proizvodi.html">Proizvodi</a> &rsaquo; ';
+      if(isTr){crumb+='<a href="traktorski-program.html">Traktorski program</a> &rsaquo; <a href="traktorska-roba.html">Traktorska roba</a> &rsaquo; '+(par&&par.roditelj?'<a href="'+par.file+'">'+eh(par.naziv)+'</a> &rsaquo; ':"");}
+      else if(k.id!=="tork")crumb+='<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ';
+      let subs="";
+      if(isTr){
+        const BR=KS.filter(x=>x.roditelj==="traktorska-roba");
+        subs+='<nav class="filters subfilters" aria-label="Potkategorije: Traktorski program"><span class="sub-lbl">Traktorski program &rsaquo;</span>'+pill("traktorski-program.html","Sve u traktorskom programu",false)+pill("traktorska-roba.html","Traktorska roba",false)+BR.map(b=>pill(b.file,b.naziv,brand&&b.id===brand.id)).join("")+pill("gotova-creva.html","Gotova creva",false)+'</nav>';
+        if(brand){const MO=KS.filter(x=>x.roditelj===brand.id);
+          subs+='<nav class="filters subfilters" aria-label="Modeli: '+eh(brand.naziv)+'"><span class="sub-lbl">'+eh(brand.naziv)+' &rsaquo;</span>'+pill(brand.file,"Svi modeli",k.id===brand.id)+MO.map(m=>pill(m.file,m.naziv.replace(brand.naziv+" ",""),m.id===k.id)).join("")+'</nav>';}
+      }
+      const ttl=k.naslov||(isTr?(k.roditelj==="traktorska-roba"?k.naziv+" traktori — delovi i oprema":k.naziv+" — delovi i oprema za traktor"):k.naziv+" — Vaše vozilo, naš deo");
+      const t=tpl.replace(/\{\{KAT_SUBS\}\}/g,()=>subs).replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_CRUMB\}\}/g,()=>crumb).replace(/\{\{KAT_TAG\}\}/g,()=>eh(isTr?"Traktorski program \u00b7 "+(brand&&brand.id!==k.id?brand.naziv:"Traktorska roba"):k.naziv)).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_TITLE\}\}/g,()=>eh(ttl)).replace(/\{\{KAT_META\}\}/g,()=>{const o=(k.opis||k.naziv+" — PARTIS Niš.").replace(/\s+/g," ");if(o.length<=158)return eh(o);const c=o.slice(0,155),i=Math.max(c.lastIndexOf(" "),c.lastIndexOf(","));return eh(c.slice(0,i>80?i:155).replace(/[,;:\s]+$/,"")+"…");}).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
       const r=renderPage(t,D,site,PARTIS);return {file:k.file,html:r.html,noindex:r.noindex};
     });
   }

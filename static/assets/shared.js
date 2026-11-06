@@ -95,21 +95,21 @@
   function metaHTML0(P,D){
     if(P.id==="home")return `<span><b>${totalProducts(D)}</b> Proizvoda</span><span><b>${tiles(D).length}</b> Kategorija</span>`;
     if(P.id==="pneumatika"){const t=groupN(D,PNEU);return `<span><b>${t}</b> Proizvoda u kategoriji Pneumatika</span><span><b>4</b> Potkategorije</span>`;}
-    if(P.id==="vozilo"){const t=groupN(D,(D.KATS||[]).filter(k=>k.id!=="tork").map(k=>k.id));return `<span><b>${t}</b> Proizvoda u kategoriji Vaše vozilo, naš deo</span><span><b>${(D.KATS||[]).filter(k=>k.id!=="tork").length}</b> Potkategorija</span>`;}
+    if(P.id==="vozilo"){const t=groupN(D,(D.KATS||[]).filter(k=>k.id!=="tork"&&!k.roditelj).map(k=>k.id));return `<span><b>${t}</b> Proizvoda u kategoriji Vaše vozilo, naš deo</span><span><b>${(D.KATS||[]).filter(k=>k.id!=="tork"&&!k.roditelj).length}</b> Potkategorija</span>`;}
     if(P.id==="traktorski"){const t=groupN(D,TRAK);return `<span><b>${t}</b> Proizvoda u kategoriji Traktorski program</span><span><b>2</b> Potkategorije</span>`;}
-    const id=P.secs[0];
-    return `<span><b>${secN(D,id)}</b> Proizvoda u ${PNEU.includes(id)||TRAK.includes(id)?"potkategoriji":"kategoriji"} ${secTitle(D,id)}${PNEU.includes(id)?" (Pneumatika)":TRAK.includes(id)?" (Traktorski program)":""}</span>`;
+    const id=P.secs[0],tk=(D.KATS||[]).some(k=>k.id===id&&k.roditelj)||TRAK.includes(id);
+    return `<span><b>${secN(D,id)}</b> Proizvoda u ${PNEU.includes(id)||tk?"potkategoriji":"kategoriji"} ${secTitle(D,id)}${PNEU.includes(id)?" (Pneumatika)":tk?" (Traktorski program)":""}</span>`;
   }
   /* pločice na početnoj */
   function tiles(D){
     const sum=ids=>groupN(D,ids);
-    const STAND=["tork"],ALLK=(D.KATS||[]);const KS=ALLK.filter(k=>!STAND.includes(k.id));const kf=KS.map(k=>D.ITEMS.find(x=>inCat(x,k.id)&&x.img)).find(Boolean);
+    const STAND=["tork"],ALLK=(D.KATS||[]);const KS=ALLK.filter(k=>!STAND.includes(k.id)&&!k.roditelj);const kf=KS.map(k=>D.ITEMS.find(x=>inCat(x,k.id)&&x.img)).find(Boolean);
     const vz={t:"Vaše vozilo, naš deo",pool:KS.map(k=>k.id),u:"vase-vozilo.html",src:kf?kf.img:"",d:"Sijalice, elektrika, signalizacija, brave, releji i drugi delovi za vozila.",n:sum(KS.map(k=>k.id)),subs:KS.map(k=>[esc(k.naziv),k.file])};
     return [
      {t:"HEMA aerosol",pool:["sprej"],u:"hema-aerosol.html",img:"nu40",d:((D.POC&&D.POC.opisi&&D.POC.opisi.hema)||"Podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke."),n:secN(D,"sprej")},
      {t:"Armirana creva i oprema",pool:["crevo"],u:"armirana-creva.html",img:"hose_gorivo",d:((D.POC&&D.POC.opisi&&D.POC.opisi.creva)||"Creva za gorivo, vodu, vazduh i ulje — kotur 50 m, sečenje po potrebi."),n:secN(D,"crevo")},
      {t:"Pneumatika",pool:PNEU,u:"pneumatika.html",img:"pist_gume",d:((D.POC&&D.POC.opisi&&D.POC.opisi.pneumatika)||"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike."),n:sum(PNEU),subs:[["Pneumatski alat i nastavci","pneumatski-alat-i-nastavci.html"],["Creva pneumatike","creva-pneumatike.html"],["Ojačanja creva","ojacanja-creva.html"],["Spojnice pneumatike","spojnice-pneumatike.html"]]},
-     {t:"Traktorski program",pool:TRAK,u:"traktorski-program.html",img:"oko14",d:((D.POC&&D.POC.opisi&&D.POC.opisi.traktorski)||"Delovi i oprema za traktore i mehanizaciju i gotova creva sa montiranim nastavcima."),n:sum(TRAK),subs:[["Traktorska roba","traktorska-roba.html"],["Gotova creva","gotova-creva.html"]]},
+     {t:"Traktorski program",pool:TRAK,u:"traktorski-program.html",img:"oko14",d:((D.POC&&D.POC.opisi&&D.POC.opisi.traktorski)||"Delovi i oprema za traktore i mehanizaciju i gotova creva sa montiranim nastavcima."),n:sum(TRAK),subs:[["Traktorska roba","traktorska-roba.html"],...ALLK.filter(k=>k.roditelj==="traktorska-roba").map(k=>[esc(k.naziv),k.file]),["Gotova creva","gotova-creva.html"]]},
      ...(KS.length?[vz]:[]),
      ...ALLK.filter(k=>STAND.includes(k.id)).map(k=>{const f=D.ITEMS.find(x=>inCat(x,k.id)&&x.img);return {t:esc(k.naziv),pool:[k.id],u:k.file,src:f?f.img:"",d:esc(k.opis||""),n:secN(D,k.id)};}).filter(t=>t.n>0),
     ].filter(t=>!(D.HIDDENFILES||[]).includes(t.u));

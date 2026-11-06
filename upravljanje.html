@@ -132,6 +132,8 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
 .ct tr.wait:hover{background:#ffedaa}
 .imgbox img,.row .th img{transition:transform .25s var(--ease)}.row:hover .th img{transform:scale(1.06)}
 ::-webkit-scrollbar{width:11px;height:11px}::-webkit-scrollbar-thumb{background:#c4bca9;border-radius:8px;border:2px solid transparent;background-clip:content-box}::-webkit-scrollbar-thumb:hover{background:#a59d89;background-clip:content-box}
+.cks-tr{flex:1 1 100%;margin-top:6px;border-top:1px solid #ddd5c3;padding-top:8px}.cks-tr summary{cursor:pointer;font-weight:700}
+.cks-br{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0;padding:6px 8px;background:#faf8f2;border-radius:8px}.cks-br b{flex:1 1 100%}
 /* ---------- kupci ---------- */
 #dlg3{max-width:980px}
 .cc-top{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
@@ -369,7 +371,7 @@ function tabsDef(){
     {id:"trak",g:"traktorski",label:NAZ.traktorski||"Traktorski program",parts:[{col:"artikli",cats:["traktor","gotova"]}]},
     {id:"maz",g:"mazalice",label:NAZ.mazalice||"Nastavci mazalica",parts:[{col:"artikli",cats:["mazalice"]}]}
   ];
-  KAT.forEach(k=>t.push({id:k.id,label:k.naziv,custom:true,parts:[{col:"artikli",cats:[k.id]}]}));
+  KAT.filter(k=>!k.roditelj).forEach(k=>t.push({id:k.id,label:k.naziv,custom:true,parts:[{col:"artikli",cats:[k.id]}]}));
   const known=new Set(t.flatMap(x=>x.parts.flatMap(p=>p.cats||[])));
   const orph=[...new Set(DB.artikli.flatMap(e=>catsOf(e.data)).filter(c=>!known.has(c)))];
   if(orph.length)t.push({id:"_ostalo",label:"Bez kategorije",parts:[{col:"artikli",cats:orph}]});
@@ -498,7 +500,10 @@ async function openEditor(entry,col,preCat){
     if(f.t==="area")inner+=`<textarea id="${id}">${esc(v)}</textarea>`;
     if(f.t==="num"||f.t==="int")inner+=`<input type="text" inputmode="decimal" id="${id}" value="${esc(v)}">`;
     if(f.t==="tags")inner+=`<input type="text" id="${id}" value="${esc((v||[]).join(", "))}">`;
-    if(f.t==="cats"){const sel=catsOf(EDIT.data);inner+=`<div id="${id}" class="cks">${Object.entries(CATS).map(([cid,n])=>`<label class="ck"><input type="checkbox" value="${cid}" ${sel.includes(cid)?"checked":""}> ${esc(n)}</label>`).join("")}</div>`;}
+    if(f.t==="cats"){const sel=catsOf(EDIT.data);const TRK=new Set((KAT||[]).filter(k=>k.roditelj).map(k=>k.id)),ck=([cid,n])=>`<label class="ck"><input type="checkbox" value="${cid}" ${sel.includes(cid)?"checked":""}> ${esc(n)}</label>`;
+      const brs=(KAT||[]).filter(k=>k.roditelj==="traktorska-roba"),nSel=[...TRK].filter(c=>sel.includes(c)).length;
+      const trH=brs.length?`<details class="cks-tr" ${nSel?"open":""}><summary>Traktori: marke i modeli${nSel?" ("+nSel+" izabrano)":""}</summary>${brs.map(b=>`<div class="cks-br"><b>${esc(b.naziv)}</b>${[b,...(KAT||[]).filter(m=>m.roditelj===b.id)].map(m=>ck([m.id,m.id===b.id?"Svi "+b.naziv:m.naziv])).join("")}</div>`).join("")}</details>`:"";
+      inner+=`<div id="${id}" class="cks">${Object.entries(CATS).filter(([cid])=>!TRK.has(cid)).map(ck).join("")}${trH}</div>`;}
     if(f.t==="image")inner+=`<div class="imgbox"><div class="pv" id="pv">nema slike</div><div><input type="file" id="${id}" accept="image/*"><br><small>Izaberite sliku sa računara.</small></div></div>`;
     if(f.t==="table"){ROWS[f.k]=JSON.parse(JSON.stringify(v||[]));inner+=`<div id="tb_${f.k}"></div>`;}
     if(f.h)inner+=`<small>${f.h}</small>`;
@@ -757,7 +762,7 @@ function custLogin(err){
 async function custList(){
   const {data,error}=await SB.from("profili").select("*").order("created_at",{ascending:false});
   if(error)return d3("<p class='warn'>Greška: "+esc(error.message)+"</p>",[["Zatvori",()=>$("#dlg3").close()]]);
-  const base=SHARED.GROUPS,nove=(KAT||[]).map(k=>[k.id,k.naziv]);
+  const base=SHARED.GROUPS,nove=(KAT||[]).filter(k=>!k.roditelj).map(k=>[k.id,k.naziv]);
   const fld=([k,n])=>`<label class="rf"><span>${esc(n)}</span><div class="rin"><input type="number" inputmode="decimal" min="0" max="99" step="0.5" data-r="${k}" value="__V_${k}__" placeholder="—"><i>%</i></div></label>`;
   data.sort((a,b)=>(a.odobren-b.odobren)||String(a.ime).localeCompare(String(b.ime),"sr"));
   const card=p=>{const R=p.rabati||{},v=k=>esc(R[k]??"");
