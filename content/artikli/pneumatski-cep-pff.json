@@ -17,7 +17,8 @@
     },
     {
       "label": "8 mm",
-      "price": 70
+      "price": 70,
+      "in_stock": false
     },
     {
       "label": "10 mm",
