@@ -23,10 +23,10 @@
   };
   const POC_DEF={
     seo_naslov:"PARTIS Niš — pneumatika, HEMA aerosol, creva i traktorski program",
-    seo_opis:"PARTIS, trgovinska radnja u Nišu: pneumatski alat i spojnice, ojačanja creva, HEMA aerosol sprejevi, armirana gumena creva, traktorska roba i nastavci mazalica. Bulevar Nemanjića 103, tel. 018-553-800.",
-    tag:"Pneumatika · HEMA Aerosol · Creva · Traktorski program",
-    naslov:"Pneumatika, *HEMA aerosol*, creva i traktorski program",
-    opis:"Pneumatski alat i nastavci, ojačanja creva i spojnice pneumatike, HEMA aerosol program (podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke), armirana gumena creva i prateća oprema, traktorski program (traktorska roba i gotova creva) i nastavci mazalica — za vozila, mašine i mehanizaciju.",
+    seo_opis:"PARTIS, Niš — veleprodaja i maloprodaja za vozila, mašine i mehanizaciju: pneumatika, creva, HEMA aerosol, auto elektrika, traktorski program. Bulevar Nemanjića 103, tel. 018-553-800.",
+    tag:"Niš · Za vozila, mašine i mehanizaciju",
+    naslov:"Sve što je potrebno *vozilu* i mašini",
+    opis:"Delovi i oprema za vozila, mašine i mehanizaciju, na jednom mestu. Ako ne nađete šta vam treba, pozovite — rado ćemo potražiti.",
     kategorije:"Kategorije",
     info1_naslov:"Cene i porudžbine",
     info1_tekst:"Sve cene su bez PDV-a. U zagradi je iznos sa PDV-om. Za artikle sa oznakom „Cena na upit“ pozovite 018-553-800 / 065-2553-800 ili pišite na WhatsApp.",
