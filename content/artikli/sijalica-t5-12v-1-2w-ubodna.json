@@ -1,0 +1,14 @@
+{
+  "title": "Sijalica T5 12V 1.2W (ubodna)",
+  "category": "razno",
+  "order": 1004,
+  "in_stock": true,
+  "image": "/assets/img/kat/k003.jpg",
+  "description": "Sijalice. Pakovanje: set: 100 komada.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Set: 100 komada"
+    }
+  ]
+}

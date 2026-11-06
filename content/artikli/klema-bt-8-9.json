@@ -1,0 +1,14 @@
+{
+  "title": "Klema BT 8/9",
+  "category": "razno",
+  "order": 1011,
+  "in_stock": true,
+  "image": "/assets/img/kat/k010.jpg",
+  "description": "Elektrika. Pakovanje: par.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Par"
+    }
+  ]
+}

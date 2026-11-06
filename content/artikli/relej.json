@@ -1,0 +1,36 @@
+{
+  "title": "Relej",
+  "category": "razno",
+  "order": 1300,
+  "in_stock": true,
+  "image": "/assets/img/kat/k072.jpg",
+  "description": "Releji 12V i 24V.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "12V · 5P 20/30A",
+      "image": "/assets/img/kat/k072.jpg"
+    },
+    {
+      "label": "24V · 5P 10/20A",
+      "image": "/assets/img/kat/k073.jpg"
+    },
+    {
+      "label": "12V · 4P 30A",
+      "image": "/assets/img/kat/k074.jpg"
+    },
+    {
+      "label": "24V · 4P 20A",
+      "image": "/assets/img/kat/k075.jpg"
+    },
+    {
+      "label": "24V · 5P 20A",
+      "image": "/assets/img/kat/k076.jpg"
+    },
+    {
+      "label": "12V · 5P 20A",
+      "image": "/assets/img/kat/k077.jpg"
+    }
+  ],
+  "col_label": "Napon i izvedba"
+}

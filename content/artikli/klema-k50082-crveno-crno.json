@@ -1,0 +1,14 @@
+{
+  "title": "Klema K50082 (crveno-crno)",
+  "category": "razno",
+  "order": 1012,
+  "in_stock": true,
+  "image": "/assets/img/kat/k011.jpg",
+  "description": "Elektrika. Pakovanje: par.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Par"
+    }
+  ]
+}

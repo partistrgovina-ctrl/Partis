@@ -1,1 +1,21 @@
-{"nove":[],"skrivene":[],"nazivi":{}}
+{
+ "nove": [
+  {
+   "id": "razno",
+   "naziv": "Razno",
+   "opis": "Sijalice, elektrika, signalizacija, brave, prekidači, termostati, releji, davači i prateća oprema."
+  },
+  {
+   "id": "tork",
+   "naziv": "Tork",
+   "opis": "Tork spone (obujmice) za creva."
+  },
+  {
+   "id": "aksa",
+   "naziv": "AK-SA",
+   "opis": "AK-SA program: osigurači, prekidači, tasteri i kontrolne lampe."
+  }
+ ],
+ "skrivene": [],
+ "nazivi": {}
+}

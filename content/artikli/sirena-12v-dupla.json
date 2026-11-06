@@ -1,0 +1,14 @@
+{
+  "title": "Sirena 12V dupla",
+  "category": "razno",
+  "order": 1028,
+  "in_stock": true,
+  "image": "/assets/img/kat/k028.jpg",
+  "description": "Zvučna signalizacija. Pakovanje: par.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Par"
+    }
+  ]
+}

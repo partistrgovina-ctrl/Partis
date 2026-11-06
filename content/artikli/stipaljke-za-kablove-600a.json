@@ -1,0 +1,14 @@
+{
+  "title": "Štipaljke za kablove 600A",
+  "category": "razno",
+  "order": 1016,
+  "in_stock": true,
+  "image": "/assets/img/kat/k015.jpg",
+  "description": "Elektrika. Pakovanje: par.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Par"
+    }
+  ]
+}

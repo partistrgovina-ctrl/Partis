@@ -1,0 +1,14 @@
+{
+  "title": "Sijalica 12V/21W",
+  "category": "razno",
+  "order": 1002,
+  "in_stock": true,
+  "image": "/assets/img/kat/k001.jpg",
+  "description": "Sijalice. Pakovanje: set: 10 komada.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Set: 10 komada"
+    }
+  ]
+}

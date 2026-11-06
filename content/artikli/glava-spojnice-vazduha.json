@@ -1,0 +1,44 @@
+{
+  "title": "Glava spojnice vazduha",
+  "category": "razno",
+  "order": 1400,
+  "in_stock": true,
+  "image": "/assets/img/kat/k083.jpg",
+  "description": "Glave spojnice vazduha, crvene i žute, 22 mm i 16 mm.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Crvena sa ventilom · 22 mm",
+      "image": "/assets/img/kat/k083.jpg"
+    },
+    {
+      "label": "Crvena bez ventila · 22 mm",
+      "image": "/assets/img/kat/k084.jpg"
+    },
+    {
+      "label": "Žuta sa ventilom · 22 mm",
+      "image": "/assets/img/kat/k085.jpg"
+    },
+    {
+      "label": "Žuta bez ventila · 22 mm",
+      "image": "/assets/img/kat/k086.jpg"
+    },
+    {
+      "label": "Crvena sa ventilom · 16 mm",
+      "image": "/assets/img/kat/k087.jpg"
+    },
+    {
+      "label": "Crvena bez ventila · 16 mm",
+      "image": "/assets/img/kat/k088.jpg"
+    },
+    {
+      "label": "Žuta sa ventilom · 16 mm",
+      "image": "/assets/img/kat/k089.jpg"
+    },
+    {
+      "label": "Žuta bez ventila · 16 mm",
+      "image": "/assets/img/kat/k090.jpg"
+    }
+  ],
+  "col_label": "Boja, ventil i prečnik"
+}

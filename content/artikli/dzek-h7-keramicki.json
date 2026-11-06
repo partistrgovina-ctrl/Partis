@@ -1,0 +1,14 @@
+{
+  "title": "Džek H7 keramički",
+  "category": "razno",
+  "order": 1015,
+  "in_stock": true,
+  "image": "/assets/img/kat/k014.jpg",
+  "description": "Elektrika. Pakovanje: par.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "Par"
+    }
+  ]
+}

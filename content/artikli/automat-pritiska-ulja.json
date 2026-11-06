@@ -1,0 +1,24 @@
+{
+  "title": "Automat pritiska ulja",
+  "category": "aksa",
+  "order": 2100,
+  "in_stock": true,
+  "image": "/assets/img/kat/k102.jpg",
+  "description": "Program AK-SA. Navoj: M8x1, M10x1 ili M14x1.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "M8x1",
+      "image": "/assets/img/kat/k102.jpg"
+    },
+    {
+      "label": "M10x1",
+      "image": "/assets/img/kat/k103.jpg"
+    },
+    {
+      "label": "M14x1",
+      "image": "/assets/img/kat/k104.jpg"
+    }
+  ],
+  "col_label": "Navoj"
+}
