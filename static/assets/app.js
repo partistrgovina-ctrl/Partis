@@ -44,7 +44,7 @@ function openSpray(p){
     <div class="split">
       <div class="m-photo sp" id="sp-photo">${p.img?`<img src="${p.img}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
       <div class="m-content">
-        <div class="eng">HEMA aerosol</div>
+        <div class="eng">HEMA Kimya aerosol</div>
         <h2>${esc(p.name)}</h2>
         
         <p class="m-lead">${esc(p.desc)}</p>

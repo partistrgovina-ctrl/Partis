@@ -736,3 +736,12 @@ header .nav-inner .search{order:5!important}
 .distrib-t b{font-family:var(--serif,Georgia,serif);font-size:20px;line-height:1.25}
 .distrib-t span{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6b665c}
 .distrib-in img{height:48px;width:auto;margin-left:auto}
+
+.hema-hero{display:grid;grid-template-columns:minmax(0,1fr);gap:24px 40px;align-items:start}
+.hh-logo{display:block;height:48px;width:auto;margin:0 0 14px}
+.hh-polica{border:1px solid var(--line);background:#faf8f3;padding:16px;max-width:360px}
+.hh-imgs{display:flex;gap:12px;align-items:flex-end;justify-content:center}
+.hh-imgs img{height:300px;width:auto;max-width:48%;object-fit:contain}
+.hh-polica p{margin:12px 0 0;font-size:14px;line-height:1.45;color:#3a372f}
+.hh-polica .hh-dim{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.02em;color:#6b665c;margin-top:6px}
+@media(min-width:900px){.hema-hero{grid-template-columns:minmax(0,1fr) 360px}.hh-polica{grid-column:2;grid-row:1;justify-self:end}}

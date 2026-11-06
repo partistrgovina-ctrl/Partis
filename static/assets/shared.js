@@ -23,7 +23,7 @@
     return `<a class="card" href="${esc(p.u)}" data-k="${p._k}" style="animation-delay:${(i*0.06).toFixed(2)}s">
     <div class="card-top spray"><span class="badge">HEMA</span>${p.img?`<img src="${esc(p.img)}" alt="${esc(p.name)}">`:`<div class="noimg">Slika uskoro</div>`}</div>
     <div class="card-body">
-      <div class="eng">HEMA aerosol</div><h3>${esc(p.name)}</h3><p class="desc">${esc(p.short)}</p>
+      <div class="eng">HEMA Kimya aerosol</div><h3>${esc(p.name)}</h3><p class="desc">${esc(p.short)}</p>
       <div class="card-foot"><div class="opts">${p.opts.map(o=>`<div class="opt"><span>${esc(o.pack)}</span><b>${fmt(o.price)} RSD</b> <span class="vat">(${fmt(gross(o.price))} sa PDV-om)</span></div>`).join("")}<span class="pdv">cena bez PDV-a (u zagradi sa PDV-om)</span></div><div class="card-go">Detalji →</div></div>
     </div></a>`;
   }

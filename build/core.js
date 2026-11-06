@@ -133,6 +133,7 @@
     if(cat||pg.id==="pretraga")s=s.replace(/<body([^>]*)>/,'<body$1 class="has-side">');
     s=s.replace("<footer>",'<footer id="kontakt">').replace('<section class="info-strip">','<section class="info-strip" id="informacije">');
     s=s.split(site+"/").join("\u0000").replace(/\u0000(index)\.html/g,site+"/").replace(/\u0000([a-z0-9-]+)\.html/g,site+"/$1").replace(/\u0000/g,site+"/");
+    s=PARTIS.rename(D,s);
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};
   }
   /* stranice novih kategorija iz šablona templates/_kategorija.html */
@@ -152,7 +153,7 @@
     const all=[...D.HOSES,...D.SPRAYS,...D.ITEMS];
     return all.map(p=>{
       const sp=p.kind==="sprej",ho=p.kind==="crevo";
-      const catName=ho?"Armirana gumena creva":sp?"HEMA aerosol":(p.catName||"");
+      const catName=ho?"Armirana gumena creva":sp?"HEMA Kimya aerosol":(p.catName||"");
       const catFile=ho?"armirana-creva.html":sp?"hema-aerosol.html":(PO[p.cat]||"kategorija-"+p.cat+".html");
       const desc=(sp?p.desc:ho?p.short:(p.desc||p.short))||p.name;
       const dsc=(p.name+" — "+desc).replace(/\s+/g," ").slice(0,155);
