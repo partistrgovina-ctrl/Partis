@@ -669,3 +669,29 @@ body.scrolled header .contact,body.scrolled header .tabs,body.scrolled header .s
   header .brand{min-width:0}
 }
 @media(max-width:520px){header .menu-btn span{display:none}header .menu-btn{padding:9px 11px!important}header .brand-txt .bn{font-size:19px!important;letter-spacing:1.5px}}
+
+/* ===== kategorije samo uz proizvode; potkategorije kao padajući meni (zatvoreno po defaultu) ===== */
+body{--pad:max(28px,calc((100vw - 1180px)/2))}
+body.has-side{--pad:max(28px,calc((100vw - 290px - 1180px)/2))}
+.s-row{display:flex;align-items:stretch}
+.s-row .s-top{flex:1 1 auto;min-width:0}
+.s-tg{flex:0 0 46px;background:none;border:0;border-left:1px solid var(--line);cursor:pointer;color:var(--ink);display:grid;place-items:center}
+.s-tg:hover{background:#ece7da;color:var(--red)}
+.s-tg svg{width:18px;height:18px;transition:transform .2s}
+.s-tg[aria-expanded="true"] svg{transform:rotate(180deg)}
+.s-subs[hidden]{display:none}
+.s-subs{background:#efeadd;padding:6px 20px 8px 34px;border-top:1px solid var(--line)}
+header .brand-txt p{display:none!important}
+header .lang-cur,header .lang-car{display:none!important}
+header .contact>div:nth-child(3){display:none!important}
+@media(min-width:1200px){
+  header .tabs{display:flex!important}
+  .side-links{display:none!important}
+  body:not(.has-side){padding-left:0!important}
+  body:not(.has-side) .side-menu,body:not(.has-side) .side-ov{display:none!important}
+  body:not(.has-side) .overlay{padding-left:24px}
+  body:not(.has-side) .wa-float{right:22px}
+  header .nav-inner .search{flex:1 1 120px!important;max-width:260px!important}
+  header .tabs a{padding:27px 8px!important;font-size:12px!important;letter-spacing:.5px}
+  .side-head{height:76px}
+}

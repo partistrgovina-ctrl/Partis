@@ -116,7 +116,7 @@
     return tiles(D).map(t=>`<div class="tile" data-pool="${t.pool.join(",")}"><a class="tile-main" href="${t.u}"><div class="tile-img"><img class="on" src="${esc(t.src||(D.IMG&&D.IMG[t.img])||"")}" alt="${esc(t.t)}"></div><div class="tile-body"><h3>${t.t}</h3><p>${t.d}</p><span class="tile-n">${t.n} ${plr(t.n,"proizvod","proizvoda","proizvoda")}</span></div></a>${t.subs?`<div class="tile-subs">${t.subs.map(s=>`<a href="${s[1]}">${s[0]}</a>`).join("")}</div>`:""}</div>`).join("");
   }
   function menuHTML(D){
-    const li=tiles(D).map(t=>`<li><a class="s-top" href="${t.u}"><span>${t.t}</span><i>${t.n}</i></a>${t.subs?`<div class="s-subs">${t.subs.map(x=>`<a href="${x[1]}">${x[0]}</a>`).join("")}</div>`:""}</li>`).join("");
+    const li=tiles(D).map(t=>t.subs?`<li class="has-subs"><div class="s-row"><a class="s-top" href="${t.u}"><span>${t.t}</span><i>${t.n}</i></a><button type="button" class="s-tg" aria-expanded="false" aria-label="Potkategorije: ${t.t}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="s-subs" hidden>${t.subs.map(x=>`<a href="${x[1]}">${x[0]}</a>`).join("")}</div></li>`:`<li><a class="s-top" href="${t.u}"><span>${t.t}</span><i>${t.n}</i></a></li>`).join("");
     return rename(D,`<ul>${li}</ul>`);
   }
   /* ----- rabati kupaca (po grupi artikala) ----- */
