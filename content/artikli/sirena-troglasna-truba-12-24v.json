@@ -5,5 +5,6 @@
   "in_stock": true,
   "image": "/assets/img/kat/k030.jpg",
   "description": "Zvučna signalizacija.",
-  "promo": false
+  "promo": false,
+  "price": 1500.0
 }

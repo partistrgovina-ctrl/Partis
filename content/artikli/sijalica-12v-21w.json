@@ -8,7 +8,8 @@
   "promo": false,
   "variants": [
     {
-      "label": "Set: 10 komada"
+      "label": "Set: 10 komada",
+      "price": 15.0
     }
   ]
 }

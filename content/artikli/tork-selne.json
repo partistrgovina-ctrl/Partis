@@ -1,0 +1,56 @@
+{
+  "title": "Tork selne",
+  "category": "tork",
+  "order": 3000,
+  "in_stock": true,
+  "image": "/assets/img/kat/k082.jpg",
+  "description": "Tork selne, dimenzije od 8-12 do 80-100 mm.",
+  "promo": false,
+  "variants": [
+    {
+      "label": "8-12 mm",
+      "price": 13.0
+    },
+    {
+      "label": "12-20 mm",
+      "price": 14.0
+    },
+    {
+      "label": "16-25 mm",
+      "price": 15.0
+    },
+    {
+      "label": "20-32 mm",
+      "price": 20.0
+    },
+    {
+      "label": "28-48 mm",
+      "price": 21.0
+    },
+    {
+      "label": "32-50 mm",
+      "price": 23.0
+    },
+    {
+      "label": "40-60 mm",
+      "price": 26.0
+    },
+    {
+      "label": "50-70 mm",
+      "price": 30.0
+    },
+    {
+      "label": "60-80 mm",
+      "price": 35.0
+    },
+    {
+      "label": "70-90 mm",
+      "price": 36.0
+    },
+    {
+      "label": "80-100 mm",
+      "price": 37.0
+    }
+  ],
+  "col_label": "Dimenzija"
+}

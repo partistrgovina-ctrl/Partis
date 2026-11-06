@@ -113,6 +113,7 @@
     const ld=names.length?`<script type="application/ld+json">${j({"@context":"https://schema.org","@type":"ItemList",name:h1,numberOfItems:names.length,itemListElement:names.map((n,i)=>({"@type":"ListItem",position:i+1,name:n}))}).replace(/</g,"\\u003c")}</script>`:"";
     s=s.replace("<!--ITEMLIST-->",()=>ld).replace(/\{\{SITE\}\}/g,site);
     s=PARTIS.rename(D,s);
+    s=s.replace(/<div class="grid"/,()=>'<p class="pdv-note pdv-top">Cene su u dinarima (RSD) i iskazane bez PDV-a; u zagradi je cena sa PDV-om ('+PARTIS.VAT+'%).</p><div class="grid"');
     (D.HIDDENFILES||[]).forEach(f=>{s=s.replace(new RegExp('<a [^>]*href="'+f.replace(/\./g,"\\.")+'"[^>]*>[\\s\\S]*?</a>',"g"),"");});
     const KS=D.KATS||[];
     if(KS.length){

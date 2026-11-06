@@ -5,5 +5,6 @@
   "in_stock": true,
   "image": "/assets/img/kat/k069.jpg",
   "description": "Termostati.",
-  "promo": false
+  "promo": false,
+  "price": 700.0
 }

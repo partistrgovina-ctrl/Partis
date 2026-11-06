@@ -9,15 +9,18 @@
   "variants": [
     {
       "label": "M8x1",
-      "image": "/assets/img/kat/k102.jpg"
+      "image": "/assets/img/kat/k102.jpg",
+      "price": 225.0
     },
     {
       "label": "M10x1",
-      "image": "/assets/img/kat/k103.jpg"
+      "image": "/assets/img/kat/k103.jpg",
+      "price": 225.0
     },
     {
       "label": "M14x1",
-      "image": "/assets/img/kat/k104.jpg"
+      "image": "/assets/img/kat/k104.jpg",
+      "price": 225.0
     }
   ],
   "col_label": "Navoj"

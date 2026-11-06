@@ -545,3 +545,17 @@ a.card *{text-decoration:none}
 a.card h3,a.card .spec,a.card .specrow b,a.card .opt b{color:var(--ink)}
 a.card .desc,a.card .specrow div,a.card .pdv,a.card .vat{color:var(--muted)}
 a.card .eng{color:var(--red)}
+.pdv-note{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);line-height:1.6;margin-top:16px;padding-top:12px;border-top:1px dashed var(--line)}
+.pdv-note b{color:var(--ink);font-weight:600}
+.pdv-top{max-width:1180px;margin:0 auto 18px;padding:0 28px;border-top:0}
+@media(max-width:700px){.pdv-top{padding:0 16px}}
+@media(max-width:1240px){
+  header{grid-template-columns:minmax(0,1fr)}
+  header .brand{padding:12px 0 4px}
+  header .navbar{grid-row:3;padding-bottom:10px;min-width:0}
+  header .nav-inner{flex-wrap:wrap;justify-content:flex-start}
+  header .nav-inner .tabs{order:5;flex:1 1 100%;overflow-x:auto}
+  header .tabs a{padding:10px 11px}
+  header .nav-inner .search{order:6;flex:1 1 100%;max-width:none}
+  header .contact{justify-content:flex-start}
+}

@@ -9,27 +9,33 @@
   "variants": [
     {
       "label": "12V · 5P 20/30A",
-      "image": "/assets/img/kat/k072.jpg"
+      "image": "/assets/img/kat/k072.jpg",
+      "price": 280.0
     },
     {
       "label": "24V · 5P 10/20A",
-      "image": "/assets/img/kat/k073.jpg"
+      "image": "/assets/img/kat/k073.jpg",
+      "price": 280.0
     },
     {
       "label": "12V · 4P 30A",
-      "image": "/assets/img/kat/k074.jpg"
+      "image": "/assets/img/kat/k074.jpg",
+      "price": 280.0
     },
     {
       "label": "24V · 4P 20A",
-      "image": "/assets/img/kat/k075.jpg"
+      "image": "/assets/img/kat/k075.jpg",
+      "price": 280.0
     },
     {
       "label": "24V · 5P 20A",
-      "image": "/assets/img/kat/k076.jpg"
+      "image": "/assets/img/kat/k076.jpg",
+      "price": 280.0
     },
     {
       "label": "12V · 5P 20A",
-      "image": "/assets/img/kat/k077.jpg"
+      "image": "/assets/img/kat/k077.jpg",
+      "price": 280.0
     }
   ],
   "col_label": "Napon i izvedba"

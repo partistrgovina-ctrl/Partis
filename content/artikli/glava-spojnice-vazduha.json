@@ -9,35 +9,43 @@
   "variants": [
     {
       "label": "Crvena sa ventilom · 22 mm",
-      "image": "/assets/img/kat/k083.jpg"
+      "image": "/assets/img/kat/k083.jpg",
+      "price": 520.0
     },
     {
       "label": "Crvena bez ventila · 22 mm",
-      "image": "/assets/img/kat/k084.jpg"
+      "image": "/assets/img/kat/k084.jpg",
+      "price": 520.0
     },
     {
       "label": "Žuta sa ventilom · 22 mm",
-      "image": "/assets/img/kat/k085.jpg"
+      "image": "/assets/img/kat/k085.jpg",
+      "price": 520.0
     },
     {
       "label": "Žuta bez ventila · 22 mm",
-      "image": "/assets/img/kat/k086.jpg"
+      "image": "/assets/img/kat/k086.jpg",
+      "price": 520.0
     },
     {
       "label": "Crvena sa ventilom · 16 mm",
-      "image": "/assets/img/kat/k087.jpg"
+      "image": "/assets/img/kat/k087.jpg",
+      "price": 520.0
     },
     {
       "label": "Crvena bez ventila · 16 mm",
-      "image": "/assets/img/kat/k088.jpg"
+      "image": "/assets/img/kat/k088.jpg",
+      "price": 520.0
     },
     {
       "label": "Žuta sa ventilom · 16 mm",
-      "image": "/assets/img/kat/k089.jpg"
+      "image": "/assets/img/kat/k089.jpg",
+      "price": 520.0
     },
     {
       "label": "Žuta bez ventila · 16 mm",
-      "image": "/assets/img/kat/k090.jpg"
+      "image": "/assets/img/kat/k090.jpg",
+      "price": 520.0
     }
   ],
   "col_label": "Boja, ventil i prečnik"

@@ -8,7 +8,8 @@
   "promo": false,
   "variants": [
     {
-      "label": "Par"
+      "label": "Par",
+      "price": 65.0
     }
   ]
 }

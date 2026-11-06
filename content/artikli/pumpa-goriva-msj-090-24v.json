@@ -5,5 +5,6 @@
   "in_stock": true,
   "image": "/assets/img/kat/k025.jpg",
   "description": "Elektrika.",
-  "promo": false
+  "promo": false,
+  "price": 1000.0
 }

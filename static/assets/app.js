@@ -141,7 +141,10 @@ document.addEventListener("keydown",e=>{
   if(e.key==="ArrowLeft")galGo(-1);else if(e.key==="ArrowRight")galGo(1);
 });
 
-function show(){if(PG)return;overlay.classList.add("open");document.body.style.overflow="hidden";}
+function show(){
+  const mc=modal.querySelector(".m-content");
+  if(mc&&!mc.querySelector(".pdv-note")&&[...mc.querySelectorAll("td.price")].some(td=>/\d/.test(td.textContent)))mc.insertAdjacentHTML("beforeend",`<div class="pdv-note">Sve cene su u dinarima (RSD) i iskazane <b>bez PDV-a</b>. U zagradi je cena <b>sa PDV-om (${PARTIS.VAT}%)</b>.</div>`);
+  if(PG)return;overlay.classList.add("open");document.body.style.overflow="hidden";}
 function closeModal(){overlay.classList.remove("open");document.body.style.overflow="";}
 overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
