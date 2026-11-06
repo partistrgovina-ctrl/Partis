@@ -59,6 +59,11 @@
    "id": "tork",
    "naziv": "Šelne",
    "opis": "TORK pužne šelne."
+  },
+  {
+   "id": "ostalo",
+   "naziv": "Ostalo",
+   "opis": "Ključevi i ostali delovi i oprema za vozila."
   }
  ],
  "skrivene": [],
