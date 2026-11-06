@@ -704,3 +704,28 @@ header .contact>div:nth-child(3){display:none!important}
 @media(max-width:900px){.foot-inner{grid-template-columns:1fr!important}}
 @media(min-width:1200px){body.has-side footer{margin-left:0}}
 @media(max-width:900px){.foot-nav{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:0 14px!important}.foot-nav a{font-size:13px}}
+
+/* ===== zaglavlje u dva reda: gore logo+info+pretraga+korpa, ispod naslova meni (Početna, Proizvodi, Kontakt, Informacije) — sve fiksirano ===== */
+header{flex-wrap:wrap!important;row-gap:0!important}
+header .navbar,header .nav-inner{display:contents!important}
+header .nav-inner .tabs{display:flex!important;order:10!important;flex:1 1 100%!important;overflow-x:auto!important;border-top:1px solid var(--line);margin:0 0 0 -8px;width:100%}
+header .tabs a{padding:9px 9px!important;font-size:12.5px!important;margin-bottom:0!important;border-bottom:2px solid transparent!important;white-space:nowrap}
+header .tabs a.on{border-bottom-color:var(--red)!important}
+header .brand{padding:7px 0 !important}
+header .nav-inner .search{order:2!important;margin-left:auto!important;flex:0 1 270px!important}
+header .nav-inner .cart-float{order:3}
+header .lang-wrap{order:4}
+@media(min-width:1200px){.side-head{height:60px!important}}
+@media(max-width:1199px){
+  header{padding:5px 12px 0!important;gap:4px 8px!important}
+  header .brand .mark{width:28px!important;height:28px!important;font-size:17px!important}
+  header .nav-inner .tabs{order:4!important;margin:0 -4px}
+  header .nav-inner .search{order:5!important;flex:1 1 100%!important;max-width:none!important;margin:0 0 6px!important}
+  header .nav-inner .search input{padding:6px 38px 6px 10px!important;font-size:13.5px!important}
+  header .tabs a{padding:8px 8px!important;font-size:12px!important}
+}
+@media(max-width:1199px){
+header .nav-inner .tabs{flex:1 1 calc(100% - 70px)!important;width:auto!important;min-width:0;max-width:calc(100% - 50px)}
+header .lang-wrap{order:4!important;margin-left:auto}
+header .nav-inner .search{order:5!important}
+}
