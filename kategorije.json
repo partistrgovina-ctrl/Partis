@@ -1,9 +1,59 @@
 {
  "nove": [
   {
-   "id": "razno",
-   "naziv": "Razno",
-   "opis": "Sijalice, elektrika, signalizacija, brave, prekidači, termostati, releji, davači i prateća oprema."
+   "id": "sijalice",
+   "naziv": "Sijalice",
+   "opis": "Auto i traktorske sijalice: standardne, halogene H1, H3, H4, H7, G40 i ubodne."
+  },
+  {
+   "id": "elektrika",
+   "naziv": "Elektrika",
+   "opis": "Kleme, džekovi, kablovi za prespajanje, punjač akumulatora, utičnice, kutije osigurača i pumpe goriva."
+  },
+  {
+   "id": "zvucna",
+   "naziv": "Zvučna signalizacija",
+   "opis": "Sirene i trube 12V i 24V."
+  },
+  {
+   "id": "svetlosna",
+   "naziv": "Svetlosna signalizacija",
+   "opis": "Rotacione lampe, LED farovi, štop lampe, gabariti i svetla tablice."
+  },
+  {
+   "id": "brave",
+   "naziv": "Brave",
+   "opis": "Brave paljenja i kontakt brave."
+  },
+  {
+   "id": "automati",
+   "naziv": "Automati i prekidači",
+   "opis": "Automati anlasera i migavaca, prekidači migavaca i klik-klak prekidači, regler alternatora."
+  },
+  {
+   "id": "termostati",
+   "naziv": "Termostati",
+   "opis": "Termostati za teretna vozila, autobuse i radne mašine."
+  },
+  {
+   "id": "releji",
+   "naziv": "Releji",
+   "opis": "Releji 12V i 24V sa 4 i 5 izvoda."
+  },
+  {
+   "id": "davaci",
+   "naziv": "Davači temperature i pritiska ulja",
+   "opis": "Davači temperature i pritiska ulja."
+  },
+  {
+   "id": "glave",
+   "naziv": "Glave spojnice vazduha",
+   "opis": "Crvene i žute glave spojnice vazduha, 16 i 22 mm."
+  },
+  {
+   "id": "aksa",
+   "naziv": "AK-SA",
+   "opis": "AK-SA program: osigurači, prekidači, tasteri i kontrolne lampe."
   },
   {
    "id": "tork",
@@ -11,9 +61,9 @@
    "opis": "TORK pužne šelne."
   },
   {
-   "id": "aksa",
-   "naziv": "AK-SA",
-   "opis": "AK-SA program: osigurači, prekidači, tasteri i kontrolne lampe."
+   "id": "pratecaoprema",
+   "naziv": "Prateća oprema za vozila",
+   "opis": "Ključevi, trake, poklopci rezervoara, ventili i slavine."
   }
  ],
  "skrivene": [],
