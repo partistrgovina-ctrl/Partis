@@ -576,3 +576,12 @@ a.card .eng{color:var(--red)}
   .wa-float{left:auto;right:22px}
   .overlay{padding-left:314px}
 }
+
+/* ===== jezik gore desno (u tamnoj traci), WhatsApp dole desno ===== */
+header .lang-wrap{position:absolute!important;top:4px;right:var(--pad);margin:0!important;order:0;z-index:60;height:26px}
+header .lang-sel{height:26px;padding:0 8px!important;background:transparent!important;color:#fff!important;border:1px solid #5b564a!important;font-size:12px!important;gap:6px}
+header .lang-sel:hover{border-color:#fff!important}
+header .lang-sel .lang-flag{width:18px;height:auto}
+header .contact{padding-right:calc(var(--pad) + 150px)}
+@media(max-width:700px){header .contact{padding-right:78px}header .lang-wrap{right:16px}}
+.wa-float{left:auto!important;right:22px!important;bottom:22px}
