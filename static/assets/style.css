@@ -816,3 +816,4 @@ img.zoom{cursor:zoom-in}
 @media(max-width:520px){.hh-imgs img{height:300px!important}}
 
 sup.ast{color:var(--red);font-weight:700;font-size:.8em;margin-left:2px;vertical-align:baseline;position:relative;top:-.35em}
+.foot-priv{margin-top:8px}.foot-priv a{border-bottom:0!important;color:var(--paper)}.foot-priv a:hover{color:#ff8a85}
