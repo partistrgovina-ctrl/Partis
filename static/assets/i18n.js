@@ -26,12 +26,16 @@
     }
     return null;
   }
+  var SEPS=[" | "," \u2014 "," \u203A "," \u00B7 "];
   function tr(t){
     var a=lookup(t);if(a!=null)return a;
-    if(t.indexOf(" · ")>0){
-      var parts=t.split(" · "),ch=false;
-      var out=parts.map(function(p){var x=lookup(p);if(x!=null){ch=true;return x;}return p;});
-      if(ch)return out.join(" · ");
+    for(var i=0;i<SEPS.length;i++){
+      var sp=SEPS[i];
+      if(t.indexOf(sp)>0){
+        var parts=t.split(sp),ch=false;
+        var out=parts.map(function(p){var x=tr(p);if(x!=null){ch=true;return x;}return p;});
+        if(ch)return out.join(sp);
+      }
     }
     return null;
   }
