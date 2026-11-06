@@ -751,3 +751,10 @@ img.zoom{cursor:zoom-in}
 .zoom-ov[hidden]{display:none}
 .zoom-ov img{max-width:100%;max-height:100%;object-fit:contain;background:#fbf7ec}
 .zoom-ov button{position:absolute;top:12px;right:18px;background:none;border:0;color:#fff;font-size:38px;line-height:1;cursor:pointer}
+/* kartice: ista visina slike i poravnat donji deo */
+.card-top{height:230px!important;min-height:230px!important;position:relative!important;display:block!important;padding:0!important;overflow:hidden}
+.card-top img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:contain!important;padding:38px 14px 12px!important;box-sizing:border-box}
+.card{display:flex!important;flex-direction:column}
+.card-body{flex:1;display:flex;flex-direction:column}
+.card-body .card-foot,.card-body .specrow{margin-top:auto}
+.card-top .badge{max-width:calc(100% - 22px);white-space:normal;line-height:1.25}

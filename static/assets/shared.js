@@ -54,7 +54,7 @@
     if(id==="crevo")return [...D.HOSES,...D.ITEMS.filter(x=>inCat(x,"crevo"))];
     if(id==="sprej")return D.SPRAYS;
     if(id==="istaknuto"){
-      const pick=[[D.HOSES,/preliv/i],[D.SPRAYS,/^NU-40/i],[D.SPRAYS,/Brake Cleaner/i],[D.HOSES,/za gorivo/i],[D.ITEMS,/^Ventil kipe/i],[D.ITEMS,/^Hvatač pneumatske spojnice 10/i]];
+      const pick=[[D.SPRAYS,/^NU-40/i],[D.HOSES,/preliv/i],[D.ITEMS,/^Ventil kipe/i],[D.SPRAYS,/Brake Cleaner/i],[D.ITEMS,/^Hvatač pneumatske spojnice 10/i],[D.HOSES,/za gorivo/i]];
       return pick.map(([L,re])=>L.find(x=>re.test(x.name))).filter(Boolean);
     }
     if(id==="crevapn")return [...D.ITEMS.filter(x=>inCat(x,id)),...D.HOSES.filter(h=>/vazduh/i.test(h.name))];
