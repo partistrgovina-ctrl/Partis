@@ -814,3 +814,5 @@ img.zoom{cursor:zoom-in}
 @media(min-width:900px){.hema-hero{grid-template-columns:minmax(0,1fr) 560px!important}}
 @media(max-width:899px){.hh-polica{max-width:none!important}.hh-imgs img{height:360px!important}}
 @media(max-width:520px){.hh-imgs img{height:300px!important}}
+
+sup.ast{color:var(--red);font-weight:700;font-size:.8em;margin-left:2px;vertical-align:baseline;position:relative;top:-.35em}

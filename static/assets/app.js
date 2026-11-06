@@ -10,7 +10,7 @@ const overlay=document.getElementById("overlay"), PG=!!(window.PAGE&&window.PAGE
 
 function openHose(p){
   modal.className="modal hose";
-  const rows=p.variants.map((v,vi)=>`<tr><td><b>${esc(v.dim)}</b></td><td data-l="Radni pritisak">${esc(v.wp)}</td><td data-l="Tačka prsk.">${esc(v.burst)}</td><td data-l="Savitljivost">${esc(v.flex)}</td><td data-l="Težina">${esc(v.weight)} g/m</td><td class="price">${pr(p,v.price)} <small>RSD/m</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("");
+  const rows=p.variants.map((v,vi)=>`<tr><td><b>${esc(v.dim)}</b></td><td data-l="Radni pritisak">${esc(v.wp)}</td><td data-l="Tačka prsk.">${esc(v.burst)}</td><td data-l="Savitljivost">${esc(v.flex)}</td><td data-l="Težina">${esc(v.weight)} g/m</td><td class="price">${pr(p,v.price)} <small>RSD/m</small><sup class="ast">*</sup></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("");
   modal.innerHTML=`
     <button class="m-close" onclick="closeModal()">\u2715</button>
     <div class="split">
@@ -27,7 +27,7 @@ function openHose(p){
           <div class="prop"><div class="k">Primena</div><div class="v">${esc(p.use)}</div></div>
         </div>
         ${p.variants.length===1?`<div class="m-sub">Dimenzija i cena</div>
-        <div class="props"><div class="prop"><div class="k">Dimenzija</div><div class="v"><b>${esc(p.variants[0].dim)}</b></div></div><div class="prop"><div class="k">Cena</div><div class="v"><b>${pr(p,p.variants[0].price)}</b> RSD/m</div></div></div>
+        <div class="props"><div class="prop"><div class="k">Dimenzija</div><div class="v"><b>${esc(p.variants[0].dim)}</b></div></div><div class="prop"><div class="k">Cena</div><div class="v"><b>${pr(p,p.variants[0].price)}</b> RSD/m<sup class="ast">*</sup></div></div></div>
         <div class="add-wrap">${addBtn(p._k,0)}</div>`:`<div class="m-sub">Dimenzije i cene</div>
         <div class="tbl-wrap"><table class="t-hose"><thead><tr><th>Dimenzija</th><th>Radni prit.</th><th>Tačka prsk.</th><th>Savitlj.</th><th>Težina</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
         <div class="note">Cene su izražene po metru, bez PDV-a. Standardna dužina kotura je 50 m. U zagradi je iznos sa PDV-om.</div>`}
@@ -53,7 +53,7 @@ function openSpray(p){
                     <div class="prop"><div class="k">Brend</div><div class="v">HEMA Aerosol</div></div>
         </div>
         <div class="m-sub">Ambalaža i cena</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr${o.img?` class="gal-row" onclick="spSet(${vi})"`:""}><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD</small></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr${o.img?` class="gal-row" onclick="spSet(${vi})"`:""}><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD</small><sup class="ast">*</sup></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
       </div>
     </div>`;
   show();
@@ -72,7 +72,7 @@ function openItem(p){
         ${p.hint?`<p class="m-hint">${esc(p.hint)}</p>`:""}
         ${p.spec?`<div class="props"><div class="prop"><div class="k">${esc(p.specLabel||"Navoj")}</div><div class="v">${esc(p.spec)}</div></div></div>`:""}
         <div class="m-sub">Cena</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Artikal</th><th>Cena bez PDV-a (sa PDV-om)</th></tr></thead><tbody><tr><td><b>${esc(p.name)}</b></td><td class="price">${p.price==null?`Cena na upit <small>kontakt: 018-553-800 / 065-2553-800</small>`:`${pr(p,p.price)} <small>RSD</small>`}</td></tr></tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Artikal</th><th>Cena bez PDV-a (sa PDV-om)</th></tr></thead><tbody><tr><td><b>${esc(p.name)}</b></td><td class="price">${p.price==null?`Cena na upit <small>kontakt: 018-553-800 / 065-2553-800</small>`:`${pr(p,p.price)} <small>RSD</small><sup class="ast">*</sup>`}</td></tr></tbody></table></div>
         <div class="add-wrap">${addBtn(p._k,-1)}</div>
       </div>
     </div>`;
@@ -115,7 +115,7 @@ function renderGalView(){
   const p=curItem,v=p._v,n=v.length;
   const multi=new Set(v.map(gi=>p.gal[gi].img)).size>1;
   document.getElementById("gal-thumbs").innerHTML=multi?v.map((gi,k)=>`<button class="gal-th" onclick="galSet(${k})" aria-label="${p.gal[gi].label}"><img src="${p.gal[gi].img}" alt=""></button>`).join(""):"";
-  document.getElementById("gal-tbody").innerHTML=v.map((gi,k)=>{const g=p.gal[gi];return `<tr class="gal-row" onclick="galSet(${k})"><td><b>${g.label}</b>${g.note?`<small class="gal-note">${g.note}</small>`:""}</td><td class="price">${g.price==null?"Cena na upit":`${pr(p,g.price)} <small>RSD</small>`}</td><td class="addc">${addBtn(p._k,gi)}</td></tr>`}).join("");
+  document.getElementById("gal-tbody").innerHTML=v.map((gi,k)=>{const g=p.gal[gi];return `<tr class="gal-row" onclick="galSet(${k})"><td><b>${g.label}</b>${g.note?`<small class="gal-note">${g.note}</small>`:""}</td><td class="price">${g.price==null?"Cena na upit":`${pr(p,g.price)} <small>RSD</small><sup class="ast">*</sup>`}</td><td class="addc">${addBtn(p._k,gi)}</td></tr>`}).join("");
   document.querySelectorAll(".gal-nav").forEach(b=>b.hidden=!multi);
   document.getElementById("gal-note").hidden=!multi;
   document.querySelector(".gal-cap").hidden=!multi;
@@ -145,7 +145,7 @@ document.addEventListener("keydown",e=>{
 
 function show(){
   const mc=modal.querySelector(".m-content");
-  if(mc&&!mc.querySelector(".pdv-note")&&[...mc.querySelectorAll("td.price")].some(td=>/\d/.test(td.textContent)))mc.insertAdjacentHTML("beforeend",`<div class="pdv-note">Sve cene su u dinarima (RSD) i iskazane <b>bez PDV-a</b>. U zagradi je cena <b>sa PDV-om (${PARTIS.VAT}%)</b>.</div>`);
+  if(mc&&!mc.querySelector(".pdv-note")&&[...mc.querySelectorAll("td.price")].some(td=>/\d/.test(td.textContent)))mc.insertAdjacentHTML("beforeend",`<div class="pdv-note"><sup class="ast">*</sup> Sve cene su u dinarima (RSD) i iskazane <b>bez PDV-a</b>. U zagradi je cena <b>sa PDV-om (${PARTIS.VAT}%)</b>.</div>`);
   if(PG){const h=modal.querySelector("h2");if(h){const n=document.createElement("h1");n.innerHTML=h.innerHTML;n.className=h.className;h.replaceWith(n);}return;}overlay.classList.add("open");document.body.style.overflow="hidden";}
 function closeModal(){overlay.classList.remove("open");document.body.style.overflow="";}
 overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal();});
