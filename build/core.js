@@ -133,6 +133,13 @@
     if(cat||pg.id==="pretraga")s=s.replace(/<body([^>]*)>/,'<body$1 class="has-side">');
     s=s.replace("<footer>",'<footer id="kontakt">').replace('<section class="info-strip">','<section class="info-strip" id="informacije">');
     s=s.split(site+"/").join("\u0000").replace(/\u0000(index)\.html/g,site+"/").replace(/\u0000([a-z0-9-]+)\.html/g,site+"/$1").replace(/\u0000/g,site+"/");
+    {
+      const VB="viber://chat?number=%2B381652553800";
+      const vsvg='<svg class="vb-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>';
+      s=s.replace(/(<a class="wa-float"[^>]*>[\s\S]*?<\/a>)/,(m)=>m+'<a class="vb-float" href="'+VB+'" aria-label="Pišite nam na Viber">'+vsvg+'</a>');
+      s=s.replace(/(<a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">065-2553-800<\/a>)(<\/div>)/,(_,a,b)=>a+' &middot; <a href="'+VB+'">Viber</a>'+b);
+      s=s.replace(/(<div><a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">WhatsApp 065-2553-800<\/a><\/div>)/g,(m)=>m+'<div><a href="'+VB+'">Viber 065-2553-800</a></div>');
+    }
     s=PARTIS.rename(D,s);
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};
   }

@@ -29,7 +29,7 @@ function openHose(p){
         ${p.variants.length===1?`<div class="m-sub">Dimenzija i cena</div>
         <div class="props"><div class="prop"><div class="k">Dimenzija</div><div class="v"><b>${esc(p.variants[0].dim)}</b></div></div><div class="prop"><div class="k">Cena</div><div class="v"><b>${pr(p,p.variants[0].price)}</b> RSD/m</div></div></div>
         <div class="add-wrap">${addBtn(p._k,0)}</div>`:`<div class="m-sub">Dimenzije i cene</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Dimenzija</th><th>Radni prit.</th><th>Tačka prsk.</th><th>Savitlj.</th><th>Težina</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+        <div class="tbl-wrap"><table class="t-hose"><thead><tr><th>Dimenzija</th><th>Radni prit.</th><th>Tačka prsk.</th><th>Savitlj.</th><th>Težina</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
         <div class="note">Cene su izražene po metru, bez PDV-a. Standardna dužina kotura je 50 m. U zagradi je iznos sa PDV-om.</div>`}
       </div>
     </div>`;
