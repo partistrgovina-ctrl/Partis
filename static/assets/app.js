@@ -223,7 +223,7 @@ function lev(a,b,max){
   }
   return prev[b.length];
 }
-const SKIP=new Set(["img","kind","id","cat","_k","price","promo","colLabel"]);
+const SKIP=new Set(["img","kind","id","cat","cats","_k","price","promo","colLabel"]);
 function collect(o,out){
   if(o==null)return;
   if(typeof o==="string"||typeof o==="number"){out.push(String(o));return;}
@@ -285,6 +285,16 @@ function search(q){
   const by=(a,b)=>b.s-a.s;
   return {exact:exact.sort(by).map(x=>x.r),partial:partial.sort(by).map(x=>x.r)};
 }
+/* traktori (marke i modeli): upit "zetor" ili "imt 533" vodi na stranicu traktora, a ne na desetine slabo povezanih artikala */
+function katHits(q){
+  const toks=norm(q).split(" ").filter(Boolean).map(stem);if(!toks.length)return [];
+  const KS=(D.KATS||[]).filter(k=>k.roditelj),out=[];
+  KS.forEach((k,i)=>{
+    const words=norm(k.naziv).split(" ").filter(Boolean).map(stem);
+    if(toks.every(t=>tokScore(t,words,true)>=3))out.push({k,i,b:k.roditelj==="traktorska-roba"?0:1});
+  });
+  return out.sort((x,y)=>x.b-y.b||x.i-y.i).map(x=>{const id=x.k.id;return {k:x.k,n:ITEMS.filter(it=>it.cat===id||(it.cats||[]).includes(id)).length};});
+}
 function thumb(r){return r.img?`<img src="${r.img}" alt="">`:`<span class="sr-noimg"></span>`;}
 function initSearch(form){
   const inp=form.querySelector("input"),drop=form.querySelector(".sr-drop");
@@ -293,9 +303,11 @@ function initSearch(form){
   inp.addEventListener("input",()=>{
     const q=inp.value.trim();
     if(q.length<2){close();return;}
-    const res=search(q),list=res.exact.length?res.exact:res.partial;
+    const res=search(q),list=res.exact.length?res.exact:res.partial,kh=katHits(q);
+    const khH=kh.slice(0,4).map(h=>`<a class="sr-item sr-kat" href="${h.k.file}"><span class="sr-noimg sr-kic">Traktor</span><span><b>${h.k.naziv}</b><small>Svi artikli za ovaj traktor (${h.n})</small></span></a>`).join("");
+    if(!list.length&&kh.length){drop.innerHTML=khH;drop.hidden=false;sel=-1;return;}
     if(!list.length){drop.innerHTML=`<div class="sr-empty">Nema rezultata za „${q.replace(/</g,"&lt;")}". Probajte kraći naziv ili dimenziju (npr. „spojnica", „M14", „8mm").</div>`;drop.hidden=false;return;}
-    drop.innerHTML=(res.exact.length?"":`<div class="sr-note">Slični rezultati</div>`)+list.slice(0,6).map(r=>`<a class="sr-item" href="${pageOf(r)}#${r._k}">${thumb(r)}<span><b>${r.name}</b><small>${GROUP_OF(r)}</small></span></a>`).join("")+`<a class="sr-all" href="pretraga.html?q=${encodeURIComponent(q)}">Prikaži sve rezultate (${list.length}) →</a>`;
+    drop.innerHTML=khH+(res.exact.length?"":`<div class="sr-note">Slični rezultati</div>`)+list.slice(0,kh.length?4:6).map(r=>`<a class="sr-item" href="${pageOf(r)}#${r._k}">${thumb(r)}<span><b>${r.name}</b><small>${GROUP_OF(r)}</small></span></a>`).join("")+`<a class="sr-all" href="pretraga.html?q=${encodeURIComponent(q)}">Prikaži sve rezultate (${list.length}) →</a>`;
     drop.hidden=false;sel=-1;
   });
   inp.addEventListener("keydown",e=>{
@@ -316,8 +328,10 @@ function renderSearchPage(){
   document.querySelectorAll(".search input").forEach(i=>i.value=q);
   const info=document.getElementById("search-info");
   if(!q.trim()){info.textContent="Unesite naziv artikla, dimenziju ili kategoriju.";return;}
-  const res=search(q);
+  const res=search(q),kh=katHits(q);
+  if(kh.length){const box=document.createElement("div");box.className="trk-cards sr-trk";box.innerHTML=kh.slice(0,8).map(h=>`<a class="trk-card" href="${h.k.file}"><b>${h.k.naziv}</b><span>Traktor</span><small>Svi artikli za ovaj traktor (${h.n})</small></a>`).join("");info.parentNode.insertBefore(box,info.nextSibling);}
   const total=res.exact.length+res.partial.length;
+  if(!total&&kh.length){info.innerHTML=`Pronađeno traktora: <b>${kh.length}</b>. Izaberite model iznad.`;return;}
   if(!total){info.innerHTML=`Nema rezultata za „<b>${q.replace(/</g,"&lt;")}</b>". Probajte kraći naziv ili dimenziju (npr. „spojnica", „M14", „8mm"), ili pozovite <a href="tel:+38118553800">+381 18 553 800</a>.`;return;}
   info.innerHTML=res.exact.length?`<b>${res.exact.length}</b> rezultata za „${q.replace(/</g,"&lt;")}"`:`Nema tačnog podudaranja za „${q.replace(/</g,"&lt;")}" — prikazani su slični artikli.`;
   res.exact.forEach((r,i)=>g.appendChild(cardFor(r,i)));
