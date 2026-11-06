@@ -160,7 +160,8 @@
       let subs="";
       if(isTr){
         const BR=KS.filter(x=>x.roditelj==="traktorska-roba");
-        subs+='<nav class="filters subfilters" aria-label="Potkategorije: Traktorski program"><span class="sub-lbl">Traktorski program &rsaquo;</span>'+pill("traktorski-program.html","Sve u traktorskom programu",false)+pill("traktorska-roba.html","Traktorska roba",false)+BR.map(b=>pill(b.file,b.naziv,brand&&b.id===brand.id)).join("")+pill("gotova-creva.html","Gotova creva",false)+'</nav>';
+        subs+='<nav class="filters subfilters" aria-label="Potkategorije: Traktorski program"><span class="sub-lbl">Traktorski program &rsaquo;</span>'+pill("traktorski-program.html","Sve u traktorskom programu",false)+pill("traktorska-roba.html","Traktorska roba",true)+pill("gotova-creva.html","Gotova creva",false)+'</nav>';
+        subs+='<nav class="filters subfilters" aria-label="Potkategorije: Traktorska roba"><span class="sub-lbl">Traktorska roba &rsaquo;</span>'+BR.map(b=>pill(b.file,b.naziv,brand&&b.id===brand.id)).join("")+'</nav>';
         if(brand){const MO=KS.filter(x=>x.roditelj===brand.id);
           subs+='<nav class="filters subfilters" aria-label="Modeli: '+eh(brand.naziv)+'"><span class="sub-lbl">'+eh(brand.naziv)+' &rsaquo;</span>'+pill(brand.file,"Svi modeli",k.id===brand.id)+MO.map(m=>pill(m.file,m.naziv.replace(brand.naziv+" ",""),m.id===k.id)).join("")+'</nav>';}
       }
