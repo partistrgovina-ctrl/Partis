@@ -54,7 +54,7 @@
   const hasR=()=>lines().some(x=>x.rb>0);
   function acctLine(){
     if(window.CUSTOMER)return "";
-    if(window.PARTIS_ACCOUNTS)return `<div class="cart-acct">Imate nalog? <a href="#" onclick="event.preventDefault();partisAuth('login')">Prijavite se</a> da vidite svoj rabat.</div>`;
+    return `<div class="cart-acct">Imate nalog? <a href="#" onclick="event.preventDefault();window.partisAuth&&partisAuth('login')">Prijavite se</a> da vidite svoj rabat.</div>`;
     return "";
   }
   function listHTML(){
