@@ -11,7 +11,8 @@
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x300 mm · Oko-Oko",
-      "price": 330
+      "price": 330,
+      "note": "Zetor 3011, 4911, 5011, 6011, 7011 (pumpa – filter) · kat. br. 950843"
     },
     {
       "group": "Oko - Oko 14 - 14",
@@ -436,7 +437,15 @@
     "crevo goriva sa metalnim opletom",
     "8x460",
     "46 cm",
-    "8x46 cm"
+    "8x46 cm",
+    "Zetor",
+    "Zetor 3011",
+    "Zetor 4911",
+    "Zetor 5011",
+    "Zetor 6011",
+    "Zetor 7011",
+    "950843",
+    "Zetor 950843"
   ],
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
   "categories": [
@@ -454,6 +463,12 @@
     "imr",
     "imr60",
     "imr76",
-    "mtz"
+    "mtz",
+    "zetor",
+    "zetor3011",
+    "zetor4911",
+    "zetor5011",
+    "zetor6011",
+    "zetor7011"
   ]
 }
