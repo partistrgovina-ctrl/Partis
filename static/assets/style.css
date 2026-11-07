@@ -911,3 +911,6 @@ header{view-transition-name:site-header}
 .qty .qin{width:56px}
 .cart-pg .cart-box{max-width:900px;margin:0 auto;padding:8px 0 40px}
 .cart-pg .m-content{padding:0}
+.cat-note{max-width:900px;margin:0 0 22px;padding:16px 20px;background:#fff;border:1px solid var(--edge);border-left:4px solid var(--red);border-radius:var(--rs);box-shadow:var(--sh)}
+.cat-note h2{margin:0 0 6px;font-size:1.15rem}
+.cat-note p{margin:0;line-height:1.55}
