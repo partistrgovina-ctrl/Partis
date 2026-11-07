@@ -1,25 +1,25 @@
 {
- "title": "Set za crevo kompresora 6mm",
- "category": "traktor",
- "order": 40,
- "in_stock": true,
- "image": "/assets/img/set_kompresor.jpg",
- "description": "Set za pravljenje creva po vašoj meri. Izbušena guma na vašem traktoru više nije problem uz brzu i jednostavnu izradu creva za pumpanje.",
- "price": 235,
- "aliases": [
-  "set za crevo kompresora",
-  "set za pumpanje guma traktor",
-  "crevo za pumpanje guma set",
-  "set za crevo 6mm",
-  "crevo kompresora set",
-  "set za traktorske gume",
-  "komplet za pumpanje guma",
-  "set creva kompresor",
-  "komplet crevo kompresora",
-  "set za gume traktor"
- ],
- "categories": [
-  "pneu"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Set za crevo kompresora 6mm",
+  "category": "traktor",
+  "order": 40,
+  "in_stock": true,
+  "image": "/assets/img/set_kompresor.jpg",
+  "description": "Set za izradu creva za pumpanje guma po vašoj meri. Izbušena guma na traktoru više nije problem, jer se crevo pravi brzo i jednostavno.",
+  "price": 235,
+  "aliases": [
+    "set za crevo kompresora",
+    "set za pumpanje guma traktor",
+    "crevo za pumpanje guma set",
+    "set za crevo 6mm",
+    "crevo kompresora set",
+    "set za traktorske gume",
+    "komplet za pumpanje guma",
+    "set creva kompresor",
+    "komplet crevo kompresora",
+    "set za gume traktor"
+  ],
+  "categories": [
+    "pneu"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }
