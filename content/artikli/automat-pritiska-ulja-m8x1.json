@@ -21,5 +21,17 @@
     "m8x1",
     "automat ulja m8x1"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "categories": [
+    "imt",
+    "imt539",
+    "imt540",
+    "imt542",
+    "imt549",
+    "imt558",
+    "imt560",
+    "imr",
+    "imr60",
+    "imr65"
+  ]
 }
