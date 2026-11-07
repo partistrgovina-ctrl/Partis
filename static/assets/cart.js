@@ -68,6 +68,7 @@
   window.cartDel=function(i){const j=lineIdx(i);if(j<0)return;cart.splice(j,1);save();badge();refresh();};
   function refresh(){const el=document.getElementById("cart-list");if(!el)return;el.innerHTML=listHTML();const f=document.getElementById("cart-form");if(f)f.hidden=!cart.length;}
 
+  modal.addEventListener("click",function(e){const a=e.target.closest("a[href]");if(a&&modal.querySelector(".cart-box")){overlay.classList.remove("open");document.body.style.overflow="";}});
   function openCart(){
     clean();badge();
     modal.className="modal cartm";
