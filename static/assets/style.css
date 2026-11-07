@@ -882,3 +882,12 @@ main h3{font-family:'Archivo';font-size:17px;margin:14px 0 4px}
 .partners .pa{color:#555}
 .partners .pt{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:2px}
 .partners .pt a{white-space:nowrap;font-weight:600}
+/* meni kategorija: oznaka i zaobljenje */
+header .menu-btn span,.menu-fab span{display:inline!important}
+.menu-btn,.menu-fab{border-radius:var(--rs)!important}
+.side-menu{border-radius:0 var(--r) var(--r) 0;box-shadow:var(--sh2)}
+.side-head{font-size:15px;padding:20px}
+.side-head b{letter-spacing:.8px}
+.side-head::after{content:none}
+.s-top,.s-tg{transition:background .15s}
+@media(min-width:1200px){.side-menu{border-radius:0 var(--r) var(--r) 0}}
