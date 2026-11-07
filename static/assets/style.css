@@ -892,3 +892,12 @@ header .menu-btn span,.menu-fab span{display:inline!important}
 .s-top,.s-tg{transition:background .15s}
 @media(min-width:1200px){.side-menu{border-radius:0 var(--r) var(--r) 0}}
 #partneri{scroll-margin-top:265px}@media(min-width:900px){#partneri{scroll-margin-top:175px}}
+/* zaglavlje ostaje na mestu pri prelasku izmedju stranica */
+header{view-transition-name:site-header}
+::view-transition-group(site-header){animation-duration:0s}
+::view-transition-old(site-header){display:none}
+::view-transition-new(site-header){animation:none;opacity:1}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.15s}
+.card{animation-duration:.3s!important}
+.modal{transition:opacity .2s ease,transform .25s var(--ease)}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
