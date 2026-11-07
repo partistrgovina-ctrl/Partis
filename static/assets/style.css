@@ -891,3 +891,4 @@ header .menu-btn span,.menu-fab span{display:inline!important}
 .side-head::after{content:none}
 .s-top,.s-tg{transition:background .15s}
 @media(min-width:1200px){.side-menu{border-radius:0 var(--r) var(--r) 0}}
+#partneri{scroll-margin-top:265px}@media(min-width:900px){#partneri{scroll-margin-top:175px}}
