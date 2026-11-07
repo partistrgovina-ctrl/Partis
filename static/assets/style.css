@@ -871,3 +871,7 @@ header{border-bottom:1px solid var(--edge)}
 .menu-btn,.side-menu,.info-strip,.foot-grid{border-radius:0}
 .pdv-note,.cs-rab,.cart-note{border-radius:var(--rs)}
 .wa-float,.vb-float{box-shadow:0 6px 18px rgba(22,20,15,.25)}
+
+.partners{list-style:none;margin:6px 0 16px;padding:0}.partners li{padding:9px 0;border-bottom:1px solid var(--edge);line-height:1.5}.partners li:last-child{border-bottom:0}
+main h3{font-family:'Archivo';font-size:17px;margin:14px 0 4px}
+.cart-partners{margin-top:2px}

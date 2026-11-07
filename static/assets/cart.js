@@ -1,5 +1,4 @@
 /* TODO: upisati ime radnje i broj telefona partnera za maloprodaju */
-const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
 /* PARTIS — korpa za upit. Artikli se čuvaju u pregledaču; upit se šalje na mejl (PHP skripta porudzbina.php). */
 (function(){
   const {fmt,esc}=PARTIS;
@@ -84,7 +83,7 @@ const PARTNER_RETAIL_IME="[ime radnje]",PARTNER_RETAIL_TEL="[broj telefona]";
           <label>Ime i prezime *<input name="ime" required autocomplete="name" value="${esc((window.CUSTOMER||{}).ime||"")}"></label>
           <label>Firma *<input name="firma" required autocomplete="organization" value="${esc((window.CUSTOMER||{}).firma||"")}"></label>
           <label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
-          ${PARTNER_RETAIL_IME.startsWith("[")?"":`<p class="cart-note wide">Ukoliko niste registrovano pravno lice, kontaktirajte: <b>${PARTNER_RETAIL_IME}, tel. ${PARTNER_RETAIL_TEL}</b><br>NAPOMENA: Maloprodajne cene partnera nisu zavisne od naših cena i o istima ne iznosimo ikakve navode.</p>`}
+          <p class="cart-note wide cart-partners">Niste registrovano pravno lice? <a href="informacije#partneri">Kliknite ovde</a> da vidite spisak naših poslovnih partnera.<br>Napomena: ne znamo i ne odgovaramo za cene po kojima prodaju naše artikle.</p>
           <label>Telefon *<input name="telefon" type="tel" required autocomplete="tel" value="${esc((window.CUSTOMER||{}).telefon||"")}"></label>
           <label>Mejl *<input name="email" type="email" required autocomplete="email" value="${esc((window.CUSTOMER||{}).email||"")}"></label>
           <label class="wide">Adresa za isporuku *<input name="adresa" required autocomplete="street-address" value="${esc((window.CUSTOMER||{}).adresa||"")}" placeholder="Ulica i broj, mesto, poštanski broj"></label>
