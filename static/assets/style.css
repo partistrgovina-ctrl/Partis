@@ -840,3 +840,6 @@ sup.ast{color:var(--red);font-weight:700;font-size:.8em;margin-left:2px;vertical
 
 /* telefon/tablet: prozor (prijava, registracija, korpa, artikal) ide iznad fiksnog zaglavlja da se vidi ceo vrh */
 @media(max-width:1199px){.overlay{z-index:120;padding:12px}.modal{margin:0 auto}}
+
+/* telefon: logo ostaje sa desne strane teksta, ne ispod njega */
+@media(max-width:560px){.distrib-in{flex-wrap:nowrap!important;gap:12px;padding:14px}.distrib-t{min-width:0;flex:1 1 auto}.distrib-in img{height:auto;width:80px;margin-left:auto;flex:none}.distrib-creva .distrib-in img{width:62px;margin-left:auto}.distrib-t b{font-size:17px}}
