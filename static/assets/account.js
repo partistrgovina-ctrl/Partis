@@ -7,8 +7,8 @@
   let sb=null,profile=null,recovery=false;
 
   /* ---------- dugme u zaglavlju i traka ---------- */
-  const box=document.createElement("div");box.className="acct";
-  const head=document.querySelector(".head-inner");if(head)head.appendChild(box);
+  let box=document.querySelector(".head-inner .acct");
+  if(!box){box=document.createElement("div");box.className="acct";const head=document.querySelector(".head-inner");if(head)head.appendChild(box);}
   const bar=document.createElement("div");bar.className="acct-bar";bar.hidden=true;
   const hd=document.querySelector("header");if(hd)hd.insertAdjacentElement("afterend",bar);
 

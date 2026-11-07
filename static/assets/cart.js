@@ -19,10 +19,11 @@
   function clean(){cart=cart.filter(c=>find(c.n,c.l));save();}
 
   /* dugme u uglu */
-  const btn=document.createElement("button");
+  let btn=document.querySelector(".navbar .cart-nav");const hadBtn=!!btn;
+  if(!btn)btn=document.createElement("button");
   btn.className="cart-float";btn.type="button";btn.setAttribute("aria-label","Otvori korpu");
   btn.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2.5l2.2 10.2a1 1 0 0 0 1 .8h8.6a1 1 0 0 0 1-.8L20 8H6.2M10 20h.01M17 20h.01"/></svg><span>Korpa</span><b id="cart-n">0</b>';
-  btn.onclick=openCart;btn.classList.add("cart-nav","show");(document.querySelector(".navbar .nav-inner")||document.body).appendChild(btn);
+  btn.onclick=openCart;btn.classList.add("cart-nav","show");if(!hadBtn)(document.querySelector(".navbar .nav-inner")||document.body).appendChild(btn);
   const toast=document.createElement("div");toast.className="cart-toast";toast.setAttribute("role","status");document.body.appendChild(toast);
   function badge(){
     const n=cart.reduce((a,c)=>a+c.q,0);

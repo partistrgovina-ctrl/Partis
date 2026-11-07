@@ -217,7 +217,7 @@ a.pill{text-decoration:none;display:inline-block}
 
 /* ===== MEKANIJE TRANZICIJE ===== */
 :root{--ease:cubic-bezier(.22,.61,.36,1)}
-@view-transition{navigation:auto}
+/* bez view-transition: obicna navigacija */
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.35s;animation-timing-function:ease}
 .card{opacity:1;transform:none;animation:rise2 .8s var(--ease) backwards;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 @keyframes rise2{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
