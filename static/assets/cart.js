@@ -71,11 +71,8 @@
   function refresh(){const el=document.getElementById("cart-list");if(!el)return;el.innerHTML=listHTML();const f=document.getElementById("cart-form");if(f)f.hidden=!cart.length;}
 
   modal.addEventListener("click",function(e){const a=e.target.closest("a[href]");if(a&&modal.querySelector(".cart-box")){overlay.classList.remove("open");document.body.style.overflow="";const h=(a.getAttribute("href")||"").split("#")[1];const t=h&&/informacije/.test(location.pathname)&&document.getElementById(h);if(t){e.preventDefault();history.replaceState(null,"",location.pathname+"#"+h);requestAnimationFrame(function(){requestAnimationFrame(function(){t.scrollIntoView({block:"start"});});});}}});
-  function openCart(){
-    clean();badge();
-    modal.className="modal cartm";
-    modal.innerHTML=`<button class="m-close" onclick="closeModal()">✕</button>
-    <div class="m-content cart-box">
+  function cartHTML(){
+    return `<div class="m-content cart-box">
       <div class="eng">Upit za ponudu</div><h2>Korpa</h2>
       <div id="cart-list">${listHTML()}</div>
       <form id="cart-form" class="cart-form" ${cart.length?"":"hidden"} onsubmit="return cartSend(event)">
@@ -97,8 +94,14 @@
         <button class="cart-send" type="submit">Pošalji upit</button>
       </form>
     </div>`;
-    show();
   }
+  const PAGEEL=document.getElementById("cart-page");
+  function openCart(){
+    clean();badge();
+    if(PAGEEL){PAGEEL.innerHTML=cartHTML();return;}
+    location.href="korpa";
+  }
+  if(PAGEEL)openCart();
 
   window.cartSend=function(e){
     e.preventDefault();
@@ -114,7 +117,7 @@
     fetch(/netlify\.app$/.test(location.hostname)?"/":"porudzbina.php",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data).toString()})
     .then(r=>{if(!r.ok)throw new Error(r.status);
       cart=[];save();badge();
-      document.querySelector(".cart-box").innerHTML=`<div class="eng">Upit za ponudu</div><h2>Hvala!</h2><p class="m-lead">Vaš upit je poslat. Javićemo vam se na broj ${esc(data.telefon)} ili na ${esc(data.email)} sa potvrdom cena i dostupnosti.</p><button class="cart-send" type="button" onclick="closeModal()">Zatvori</button>`;})
+      document.querySelector(".cart-box").innerHTML=`<div class="eng">Upit za ponudu</div><h2>Hvala!</h2><p class="m-lead">Vaš upit je poslat. Javićemo vam se na broj ${esc(data.telefon)} ili na ${esc(data.email)} sa potvrdom cena i dostupnosti.</p><a class="cart-send" href="index.html" style="display:inline-block;text-decoration:none">Nazad na početnu</a>`;})
     .catch(()=>{
       const mail="mailto:partis.trgovina@gmail.com?subject="+encodeURIComponent("Upit sa sajta — "+data.ime)+"&body="+encodeURIComponent(`${text}\n\nIme: ${data.ime}\nFirma: ${data.firma}\nPIB: ${data.pib}\nTelefon: ${data.telefon}\nMejl: ${data.email}\nAdresa: ${data.adresa}\nNapomena: ${data.napomena}`);
       err.innerHTML=`Slanje nije uspelo. Pokušajte ponovo, pozovite <a href="tel:+38118553800">+381 18 553 800</a> ili <a href="${mail}">pošaljite upit iz vašeg mejla</a>.`;err.hidden=false;
@@ -150,7 +153,7 @@
       ${tooLong?`<p class="m-lead" style="margin-top:10px">Upit je dugačak: preuzet je fajl <b>PARTIS-upit.txt</b> i tekst je kopiran. Priložite fajl uz mejl ili nalepite tekst (Ctrl+V).</p>`:""}
       <p class="m-lead" style="margin-top:10px">Mejl ide na <b>${SHOP}</b>. Možete nas i pozvati: <a href="tel:+38118553800">+381 18 553 800</a>.</p>
       <div id="cart-note" class="m-lead" aria-live="polite"></div>
-      <button class="cart-send" type="button" style="margin-top:10px;background:none;color:inherit;border:1px solid currentColor" onclick="closeModal()">Zatvori</button>`;
+      <button class="cart-send" type="button" style="margin-top:10px;background:none;color:inherit;border:1px solid currentColor" onclick="location.href='index.html'">Nazad na početnu</button>`;
   }
   window.cartDone=function(){};
   window.offlineCopy=function(silent){
