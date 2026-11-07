@@ -875,3 +875,10 @@ header{border-bottom:1px solid var(--edge)}
 .partners{list-style:none;margin:6px 0 16px;padding:0}.partners li{padding:9px 0;border-bottom:1px solid var(--edge);line-height:1.5}.partners li:last-child{border-bottom:0}
 main h3{font-family:'Archivo';font-size:17px;margin:14px 0 4px}
 .cart-partners{margin-top:2px}
+.pgrp{font-size:1.6rem;margin:26px 0 8px;color:var(--ink,inherit)}
+.partners li{display:flex;flex-direction:column;gap:2px;padding:12px 14px;margin-bottom:8px;border:1px solid var(--edge);border-radius:var(--rs);background:#fff}
+.partners li:last-child{border-bottom:1px solid var(--edge)}
+.partners b{font-size:1.1rem}
+.partners .pa{color:#555}
+.partners .pt{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:2px}
+.partners .pt a{white-space:nowrap;font-weight:600}
