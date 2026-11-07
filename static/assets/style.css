@@ -901,3 +901,8 @@ header{view-transition-name:site-header}
 .card{animation-duration:.3s!important}
 .modal{transition:opacity .2s ease,transform .25s var(--ease)}
 @media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+/* korpa: kolicina se unosi kucanjem, bez belog polja */
+.qty{border:0;gap:6px}
+.qty .qin{width:64px;border:0;border-bottom:1.5px dashed var(--edge2);background:transparent;color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:16px;font-weight:600;text-align:center;padding:4px 2px;border-radius:0;outline:0}
+.qty .qin:focus{border-bottom:1.5px solid var(--red)}
+.qty .qu{min-width:0;font-family:'IBM Plex Mono',monospace;font-size:14.5px;color:#555}
