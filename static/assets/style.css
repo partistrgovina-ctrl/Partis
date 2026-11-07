@@ -844,3 +844,30 @@ sup.ast{color:var(--red);font-weight:700;font-size:.8em;margin-left:2px;vertical
 /* telefon: logo ostaje sa desne strane teksta, ne ispod njega */
 @media(max-width:560px){.distrib-in{flex-wrap:nowrap!important;gap:12px;padding:14px}.distrib-t{min-width:0;flex:1 1 auto}.distrib-in img{height:auto;width:80px;margin-left:auto;flex:none}.distrib-creva .distrib-in img{width:62px;margin-left:auto}.distrib-t b{font-size:17px}}
 .distrib:not(.distrib-creva) .distrib-t p{margin:0;font-size:15px;line-height:1.5;color:#3a372f;text-transform:none;letter-spacing:0}
+
+/* ===== ublažen izgled: zaobljene ivice, mekše linije i senke (umesto oštrih ivica i krutih senki) ===== */
+:root{--edge:#d2cbba;--edge2:#bdb5a1;--r:14px;--rs:10px;--sh:0 1px 2px rgba(22,20,15,.05),0 8px 22px rgba(22,20,15,.07);--sh2:0 2px 4px rgba(22,20,15,.06),0 16px 36px rgba(22,20,15,.13)}
+header{border-bottom:1px solid var(--edge)}
+.navbar{border-top:1px solid var(--edge)}
+.card,.tile,.kt-box,.cart-acct,.distrib-in,.hh-polica,.trk-card,#prod-view,.gal-stage{border:1px solid var(--edge);border-radius:var(--r);box-shadow:var(--sh)}
+.card,.tile,.trk-card,.gal-stage,#prod-view,.distrib-in,.kt-box{overflow:hidden}
+.card:hover,.tile:hover,.trk-card:hover{box-shadow:var(--sh2);transform:translateY(-4px)}
+.modal{border:1px solid var(--edge);border-radius:18px;box-shadow:0 24px 60px rgba(22,20,15,.32);overflow:hidden}
+.sr-drop{border:1px solid var(--edge);border-radius:var(--r);box-shadow:var(--sh2);overflow:hidden auto}
+.lang-list{border:1px solid var(--edge);border-radius:var(--r);box-shadow:var(--sh2);overflow:hidden}
+.pill{border:1px solid var(--edge2);border-radius:999px}
+.pill.active{border-color:var(--red)}
+.seg-btn,.add,.cart-send,.acct-b,.qty,.badge,.card-go,.m-close,.lang-sel,.lang-flag,.cart-alts button,.addq .aq,.gal-th,.tile-subs a,.cart-float{border-radius:var(--rs)}
+.card-go,.badge{border-radius:8px}
+.m-close{border-radius:50%}
+.seg-btn,.qty,.gal-th,.cart-alts button,.addq .aq,.lang-sel{border-color:var(--edge2)}
+.f-grid input,.f-grid textarea,.search input{border:1px solid var(--edge2);border-radius:var(--rs)}
+.f-grid input:focus,.f-grid textarea:focus,.search input:focus{border-color:var(--red);outline:none;box-shadow:0 0 0 3px rgba(194,36,31,.12)}
+.search button{border-radius:0 var(--rs) var(--rs) 0}
+.gal-th{overflow:hidden}
+.card-top img,.card img{border-radius:0}
+.crumbs a{text-underline-offset:3px}
+.tabs a{border-radius:0}
+.menu-btn,.side-menu,.info-strip,.foot-grid{border-radius:0}
+.pdv-note,.cs-rab,.cart-note{border-radius:var(--rs)}
+.wa-float,.vb-float{box-shadow:0 6px 18px rgba(22,20,15,.25)}
