@@ -42,7 +42,7 @@
   }
   function pocFill(s,P){
     const e=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-    const link=t=>e(t).replace(/\+381 18 553 800/g,'<a href="tel:+38118553800">+381 18 553 800</a>').replace(/\+381 65 2553 800/g,'<a href="tel:+381652553800">+381 65 2553 800</a>').replace(/WhatsApp/g,'<a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a>');
+    const link=t=>e(t).replace(/\+381 18 553 800/g,'<a href="tel:+38118553800">+381 18 553 800</a>').replace(/\+381 65 2553 800/g,'<a href="tel:+381652553800">+381 65 2553 800</a>').replace(/WhatsApp/g,'<a href="https://wa.me/381652553800" target="_blank" rel="noopener">Viber/WhatsApp</a>');
     const h1=e(P.naslov).replace(/\*(.+?)\*/g,"<em>$1</em>");
     const M={SEOT:e(P.seo_naslov),SEOD:e(P.seo_opis),TAG:e(P.tag),H1:h1,P:e(P.opis),KAT:e(P.kategorije),I1N:e(P.info1_naslov),I1T:link(P.info1_tekst),I2N:e(P.info2_naslov),I2T:link(P.info2_tekst)};
     return s.replace(/\{\{POC_(\w+)\}\}/g,(_,k)=>M[k]!==undefined?M[k]:"");
@@ -141,8 +141,6 @@
       const VB="viber://chat?number=%2B381652553800";
       const vsvg='<svg class="vb-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>';
       s=s.replace(/(<a class="wa-float"[^>]*>[\s\S]*?<\/a>)/,(m)=>m+'<a class="vb-float" href="'+VB+'" aria-label="Pišite nam na Viber">'+vsvg+'</a>');
-      s=s.replace(/(<a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">\+381 65 2553 800<\/a>)(<\/div>)/,(_,a,b)=>a+' &middot; <a href="'+VB+'">Viber</a>'+b);
-      s=s.replace(/(<div><a href="https:\/\/wa\.me\/381652553800" target="_blank" rel="noopener">WhatsApp \+381 65 2553 800<\/a><\/div>)/g,(m)=>m+'<div><a href="'+VB+'">Viber +381 65 2553 800</a></div>');
     }
     s=PARTIS.rename(D,s);
     return {html:s,noindex:/name="robots" content="noindex/.test(s)};

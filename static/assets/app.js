@@ -104,7 +104,7 @@ function openGal(p){
         <div class="m-sub">${(p.promo===false||!PARTIS.priced(p))?(n>1?"Dimenzije i cene":"Cena"):(n>1?"Dimenzije i akcijske cene":"Akcijska cena")}</div>
         ${grouped?`<div class="seg" id="seg">${p._groups.map((g,k)=>`<button class="seg-btn${k?"":" on"}" onclick="selGalGroup(${k})">${g}</button>`).join("")}</div>`:""}
         <div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>
-        ${p.gal.some(g=>g.price==null)?`<div class="note">Za cene pozovite +381 18 553 800 / +381 65 2553 800 ili pišite na <a href="https://wa.me/381652553800" target="_blank" rel="noopener">WhatsApp</a> / partis.trgovina@gmail.com.</div>`:""}
+        ${p.gal.some(g=>g.price==null)?`<div class="note">Za cene pozovite +381 18 553 800 / +381 65 2553 800 ili pišite na <a href="https://wa.me/381652553800" target="_blank" rel="noopener">Viber/WhatsApp</a> / partis.trgovina@gmail.com.</div>`:""}
         ${p.tnote?`<div class="note note-import">${esc(p.tnote)}</div>`:""}
         <div class="note" id="gal-note">Slike menjate strelicama, sličicama ili klikom na red u tabeli.</div>
       </div>
