@@ -83,12 +83,33 @@ for (const k of CORE.productPages(fs.readFileSync(path.join(tplDir, "_proizvod.h
   fs.writeFileSync(path.join(DIST, k.file), k.html);
   pages.push({ file: k.file, noindex: false });
 }
+/* ---------- razgranate adrese: /proizvodi/<kategorija>/<proizvod> ---------- */
+const MAP = CORE.pathMap(D);
+const outPages = [];
+for (const pg of pages) {
+  const old = path.join(DIST, pg.file);
+  const html = CORE.rewriteUrls(fs.readFileSync(old, "utf8"), MAP, SITE).replace("<head>", '<head>\n<base href="/">');
+  const nf = MAP[pg.file] !== undefined ? CORE.fileOf(MAP[pg.file]) : pg.file;
+  if (nf !== pg.file) fs.rmSync(old);
+  fs.mkdirSync(path.dirname(path.join(DIST, nf)), { recursive: true });
+  fs.writeFileSync(path.join(DIST, nf), html);
+  outPages.push({ file: nf, noindex: pg.noindex });
+}
+for (const f of ["data.js", "app.js", "shared.js", "cart.js", "account.js"]) {
+  const fp = path.join(DIST, "assets", f);
+  if (fs.existsSync(fp)) fs.writeFileSync(fp, CORE.rewriteUrls(fs.readFileSync(fp, "utf8"), MAP, ""));
+}
+{
+  const hp = path.join(DIST, ".htaccess");
+  fs.writeFileSync(hp, fs.readFileSync(hp, "utf8").replace("# {{PREUSMERAVANJA}}", "# stare adrese -> nove razgranate (napravljeno automatski)\n" + CORE.redirectRules(MAP, SITE)));
+}
+pages.length = 0; pages.push(...outPages);
 for (const [f, c] of Object.entries(CORE.sitemapRobots(pages, SITE))) fs.writeFileSync(path.join(DIST, f), c);
 
 /* verzija fajlova (da pregledač nikad ne koristi staru keširanu stranicu/stil) */
 const VER = Date.now().toString(36);
-for (const f of fs.readdirSync(DIST).filter(f => f.endsWith(".html"))) {
-  const fp = path.join(DIST, f);
+const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+for (const fp of walk(DIST).filter(f => f.endsWith(".html"))) {
   fs.writeFileSync(fp, fs.readFileSync(fp, "utf8").replace(/(assets\/[a-z0-9-]+\.(?:css|js))(?=["'])/g, `$1?v=${VER}`));
 }
 

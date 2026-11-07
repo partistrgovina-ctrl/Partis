@@ -198,13 +198,43 @@
       const r=renderPage(t,D,site,PARTIS);return {file:p.u,html:r.html,noindex:false};
     });
   }
+
+  /* ---- razgranate adrese: /proizvodi/<kategorija>/.../<proizvod> ----
+     Unutar sajta se i dalje koriste "stari" logički nazivi fajlova; pri izradi se svi zamenjuju pravim putanjama. */
+  const LEGACY={"nastavci-mazalica.html":"kategorija-ostalo.html","proizvod-automat-pritiska-ulja-m14x1.html":"proizvod-automat-pritiska-ulja-m14x1-5.html","kategorija-aksa.html":"kategorija-ak-sa.html","kategorija-automati.html":"kategorija-automati-i-prekidaci.html","kategorija-davaci.html":"kategorija-davaci-temperature-i-pritiska-ulja.html","kategorija-glave.html":"kategorija-glave-spojnice-vazduha.html","kategorija-svetlosna.html":"kategorija-svetlosna-signalizacija.html","kategorija-zvucna.html":"kategorija-zvucna-signalizacija.html"};
+  function pathMap(D){
+    const M={"proizvodi.html":"proizvodi/","hema-aerosol.html":"proizvodi/hema/","armirana-creva.html":"proizvodi/armirana-creva/","pneumatika.html":"proizvodi/pneumatika/","traktorski-program.html":"proizvodi/traktorski-program/","traktorska-roba.html":"proizvodi/traktorski-program/traktorska-roba/","gotova-creva.html":"proizvodi/traktorski-program/gotova-creva/","vase-vozilo.html":"proizvodi/vase-vozilo/"};
+    ["pneumatski-alat-i-nastavci","creva-pneumatike","ojacanja-creva","spojnice-pneumatike"].forEach(f=>{M[f+".html"]="proizvodi/pneumatika/"+f+"/";});
+    const sl=f=>f.replace(/^kategorija-/,"").replace(/\.html$/,""),KS=D.KATS||[];
+    KS.filter(k=>k.roditelj==="traktorska-roba").forEach(k=>{M[k.file]=M["traktorska-roba.html"]+sl(k.file)+"/";});
+    KS.filter(k=>k.roditelj&&k.roditelj!=="traktorska-roba").forEach(k=>{const par=KS.find(x=>x.id===k.roditelj);M[k.file]=((par&&M[par.file])||M["traktorska-roba.html"])+sl(k.file)+"/";});
+    KS.filter(k=>!k.roditelj).forEach(k=>{M[k.file]=(k.id==="tork"?"proizvodi/":"proizvodi/vase-vozilo/")+sl(k.file)+"/";});
+    const PO={pneu:"pneumatski-alat-i-nastavci.html",crevapn:"creva-pneumatike.html",mesing:"ojacanja-creva.html",spojnice:"spojnice-pneumatike.html",crevo:"armirana-creva.html",gotova:"gotova-creva.html",traktor:"traktorska-roba.html"};
+    [...D.HOSES,...D.SPRAYS,...D.ITEMS].forEach(p=>{
+      const cf=p.kind==="crevo"?"armirana-creva.html":p.kind==="sprej"?"hema-aerosol.html":(PO[p.cat]||((KS.find(k=>k.id===p.cat)||{}).file)||"");
+      M[p.u]=(M[cf]||"proizvodi/")+p.u.replace(/^proizvod-/,"").replace(/\.html$/,"");
+    });
+    return M;
+  }
+  const fileOf=u=>u===""?"index.html":u.endsWith("/")?u+"index.html":u+".html";
+  function rewriteUrls(s,M,site){
+    s=s.replace(/(^|[^\w\/.\-])([a-z0-9][a-z0-9-]*\.html)(?![\w])/g,(m,a,t)=>M[t]!==undefined?a+M[t]:m);
+    if(site)s=s.replace(new RegExp(site.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"/([a-z0-9-]+)(?![a-z0-9\\-/.])","g"),(m,t)=>M[t+".html"]!==undefined?site+"/"+M[t+".html"]:m);
+    return s;
+  }
+  function redirectRules(M,site){
+    const all=Object.assign({},M),out=[];
+    Object.entries(LEGACY).forEach(([o,n])=>{if(M[n]!==undefined)all[o]=M[n];});
+    Object.entries(all).forEach(([o,n])=>{const b=o.replace(/\.html$/,"");if(n===b+"/"||n==="")return;out.push(`RewriteRule ^${b.replace(/\./g,"\\.")}(\\.html)?$ ${site}/${n} [L,R=301]`);});
+    return out.join("\n");
+  }
   function sitemapRobots(pages,site){
     const sm=pages.filter(p=>!p.noindex).sort((a,b)=>(a.file==="index.html"?-1:b.file==="index.html"?1:a.file.localeCompare(b.file)))
-      .map(p=>`  <url><loc>${site}/${p.file==="index.html"?"":p.file.replace(/\.html$/,"")}</loc><changefreq>weekly</changefreq><priority>${p.file==="index.html"?"1.0":"0.8"}</priority></url>\n`).join("");
+      .map(p=>`  <url><loc>${site}/${p.file==="index.html"?"":p.file.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")}</loc><changefreq>weekly</changefreq><priority>${p.file==="index.html"?"1.0":"0.8"}</priority></url>\n`).join("");
     return {
       "sitemap.xml":`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sm}</urlset>\n`,
       "robots.txt":`User-agent: *\nAllow: /\nDisallow: /pretraga.html\nDisallow: /admin/\n\nSitemap: ${site}/sitemap.xml\n`
     };
   }
-  return {MULTI:true,POC_DEF,pocMerge,HIDE,model,dataFiles,missingImages,renderPage,katPages,productPages,sitemapRobots};
+  return {MULTI:true,POC_DEF,pocMerge,HIDE,model,dataFiles,missingImages,renderPage,katPages,productPages,sitemapRobots,pathMap,fileOf,rewriteUrls,redirectRules};
 });
