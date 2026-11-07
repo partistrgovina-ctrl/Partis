@@ -413,6 +413,60 @@
       "naziv": "IMR 135",
       "roditelj": "imr",
       "opis": "Artikli za traktor IMR 135: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz",
+      "naziv": "MTZ",
+      "roditelj": "traktorska-roba",
+      "opis": "Delovi i oprema za traktore MTZ Belarus: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Izaberite model traktora ispod da vidite artikle za svoj traktor. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz80",
+      "naziv": "MTZ 80",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 80: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz82",
+      "naziv": "MTZ 82",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 82: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz820",
+      "naziv": "MTZ 820",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 820: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz892",
+      "naziv": "MTZ 892",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 892: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz920",
+      "naziv": "MTZ 920",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 920: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz952",
+      "naziv": "MTZ 952",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 952: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz1025",
+      "naziv": "MTZ 1025",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 1025: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
+      "id": "mtz1221",
+      "naziv": "MTZ 1221",
+      "roditelj": "mtz",
+      "opis": "Artikli za traktor MTZ 1221: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
     }
   ],
   "skrivene": [],

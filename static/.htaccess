@@ -30,6 +30,7 @@ Header set Cache-Control "no-cache"
 
 RewriteRule ^nastavci-mazalica(\.html)?$ https://partis.rs/kategorija-ostalo [L,R=301]
 # stari kratki nazivi kategorija -> puni nazivi
+RewriteRule ^proizvod-automat-pritiska-ulja-m14x1(\.html)?$ https://partis.rs/proizvod-automat-pritiska-ulja-m14x1-5 [L,R=301]
 RewriteRule ^kategorija-aksa(\.html)?$ https://partis.rs/kategorija-ak-sa [L,R=301]
 RewriteRule ^kategorija-automati(\.html)?$ https://partis.rs/kategorija-automati-i-prekidaci [L,R=301]
 RewriteRule ^kategorija-davaci(\.html)?$ https://partis.rs/kategorija-davaci-temperature-i-pritiska-ulja [L,R=301]
