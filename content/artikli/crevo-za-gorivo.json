@@ -438,5 +438,21 @@
     "46 cm",
     "8x46 cm"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "categories": [
+    "traktor",
+    "imt",
+    "imt539",
+    "imt558",
+    "imt560",
+    "imt577",
+    "ursus",
+    "ursusc330",
+    "ursusc360",
+    "utb",
+    "utb445",
+    "imr",
+    "imr60",
+    "imr76"
+  ]
 }
