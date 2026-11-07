@@ -147,7 +147,7 @@ function show(){
   const mc=modal.querySelector(".m-content");
   if(mc&&!mc.querySelector(".pdv-note")&&[...mc.querySelectorAll("td.price")].some(td=>/\d/.test(td.textContent)))mc.insertAdjacentHTML("beforeend",`<div class="pdv-note"><sup class="ast">*</sup> Sve cene su u dinarima (RSD) i iskazane <b>bez PDV-a</b>. U zagradi je cena <b>sa PDV-om (${PARTIS.VAT}%)</b>.</div>`);
   if(PG){const h=modal.querySelector("h2");if(h){const n=document.createElement("h1");n.innerHTML=h.innerHTML;n.className=h.className;h.replaceWith(n);}return;}overlay.classList.add("open");document.body.style.overflow="hidden";}
-function closeModal(){if(PG){if(modal.querySelector(".cart-box"))location.reload();return;}overlay.classList.remove("open");document.body.style.overflow="";}
+function closeModal(){if(PG){if(modal.querySelector(".cart-box"))location.reload();return;}try{if(location.hash.length>1&&REG[location.hash.slice(1)])history.replaceState(null,"",location.pathname+location.search);}catch(e){}overlay.classList.remove("open");document.body.style.overflow="";}
 overlay.addEventListener("click",e=>{if(e.target===overlay)closeModal();});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 
@@ -357,4 +357,6 @@ function openFromHash(){
   if(REG[k]){openFor(REG[k]);}
 }
 window.partisOpenKey=k=>{if(REG[k])openFor(REG[k]);};
-if(!window.PARTIS_OFFLINE&&!PG){openFromHash();window.addEventListener("hashchange",openFromHash);}
+let wasReload=false;try{const nv=performance.getEntriesByType("navigation")[0];wasReload=!!nv&&nv.type==="reload";}catch(e){}
+if(wasReload&&location.hash.length>1&&REG[location.hash.slice(1)]){try{history.replaceState(null,"",location.pathname+location.search);}catch(e){}}
+if(!window.PARTIS_OFFLINE&&!PG){if(!wasReload)openFromHash();window.addEventListener("hashchange",openFromHash);}
