@@ -14,7 +14,7 @@
 
   function paint(){
     if(profile){
-      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="nalog">Moj nalog</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
+      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="nalog">Moj nalog</a><a class="acct-b" href="porudzbine">Porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
       box.querySelector("#acOut").onclick=logout;
       const rs=PARTIS.GROUPS.map(([k,n])=>[n,(profile.rabati||{})[k]]).filter(x=>x[1]>0).map(x=>`${esc(x[0])} <b>${x[1]}%</b>`);
       const all=(profile.rabati||{}).svi>0?`opšti <b>${profile.rabati.svi}%</b>`:"";
@@ -171,6 +171,7 @@
     const P=profile;
     NP.innerHTML=`<div class="m-content cart-box">
       <div class="eng">Nalog kupca</div><h2>Moj nalog</h2>
+      ${navTabs("nalog")}
       <div class="m-sub">Moji podaci</div>
       <form id="nalForm" class="cart-form" onsubmit="return partisSaveProfile(event)">
         <div class="f-grid">
@@ -185,10 +186,7 @@
         <button class="cart-send" type="submit">Sačuvaj izmene</button>
         <p class="cart-note"><a href="#" onclick="event.preventDefault();partisAuth('forgot')">Promena lozinke</a></p>
       </form>
-      <div class="m-sub" style="margin-top:28px">Istorija porudžbina</div>
-      <div id="nalOrders"><p class="cart-note">Učitavam…</p></div>
     </div>`;
-    loadOrders();
   }
   window.partisSaveProfile=async function(e){
     e.preventDefault();const f=e.target,fd=new FormData(f),m=document.getElementById("nalMsg"),b=f.querySelector(".cart-send");
@@ -203,6 +201,15 @@
     }catch(x){m.textContent="Čuvanje nije uspelo. Pokušajte ponovo ili nas pozovite: +381 18 553 800.";m.hidden=false;}
     b.disabled=false;b.textContent="Sačuvaj izmene";return false;
   };
+  const navTabs=a=>`<div class="nal-tabs"><a href="nalog"${a==="nalog"?' class="on"':""}>Moji podaci</a><a href="porudzbine"${a==="porudzbine"?' class="on"':""}>Istorija porudžbina</a></div>`;
+  const OP=document.getElementById("porud-page");
+  const STAT={poslato:"Upit primljen",obrada:"U obradi",poslato_kupcu:"Poslato",isporuceno:"Isporučeno"};
+  async function renderOrders(){
+    if(!OP)return;
+    if(!profile){OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Istorija porudžbina</h2><p class="m-lead">Prijavite se da pregledate svoje porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
+    OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Istorija porudžbina</h2>${navTabs("porudzbine")}<div id="nalOrders"><p class="cart-note">Učitavam…</p></div></div>`;
+    loadOrders();
+  }
   let ORD=[];
   async function loadOrders(){
     const el=document.getElementById("nalOrders");if(!el)return;
@@ -214,13 +221,21 @@
       if(!ORD.length){el.innerHTML=`<p class="cart-note">Još nema porudžbina poslatih sa ovog naloga.</p>`;return;}
       el.innerHTML=ORD.map((o,i)=>{
         const st=Array.isArray(o.stavke)?o.stavke:[];const u=o.ukupno||{};
-        return `<details class="ord"><summary><b>${esc(fmtD(o.created_at))}</b> · ${st.length} ${st.length===1?"stavka":"stavki"}${u.total!=null?` · ${PARTIS.fmt(u.total)} RSD sa PDV-om`:""}</summary>
-          <div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th></tr></thead><tbody>${st.map(x=>`<tr><td><b>${esc(x.n||"")}</b>${x.l?`<small class="cart-l">${esc(x.l)}</small>`:""}</td><td>${esc(String(x.q))} ${esc(x.u||"")}</td></tr>`).join("")}</tbody></table></div>
+        const nema=st.filter(x=>x.nema).length;
+        return `<details class="ord"><summary><b>${esc(fmtD(o.created_at))}</b> · ${st.length} ${st.length===1?"stavka":"stavki"}${u.total!=null?` · ${PARTIS.fmt(u.total)} RSD sa PDV-om`:""} <span class="ord-st st-${esc(o.status||"poslato")}">${esc(STAT[o.status]||STAT.poslato)}</span>${nema?` <span class="ord-nema">${nema} nema na stanju</span>`:""}</summary>
+          <div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th></tr></thead><tbody>${st.map(x=>`<tr><td><b>${esc(x.n||"")}</b>${x.l?`<small class="cart-l">${esc(x.l)}</small>`:""}${x.nema?` <span class="ord-nema">Nema na stanju</span>`:""}</td><td>${esc(String(x.q))} ${esc(x.u||"")}</td></tr>`).join("")}</tbody></table></div>
           ${o.dostava?`<p class="cart-note"><b>Isporuka:</b> ${esc(o.dostava)}</p>`:""}
+          ${o.posiljka?`<p class="cart-note"><b>Pošiljka${o.kurir?" ("+esc(o.kurir)+")":""}:</b> <span class="trk">${esc(o.posiljka)}</span> — ovim brojem pratite pošiljku na sajtu kurirske službe.</p>`:""}
+          ${o.faktura_path?`<p class="cart-note"><a href="#" onclick="event.preventDefault();partisFaktura(${i})">Preuzmi fakturu (PDF)</a></p>`:""}
           <button class="cart-send" type="button" onclick="partisRepeat(${i})">Ponovi porudžbinu</button></details>`;
       }).join("");
     }catch(x){el.innerHTML=`<p class="cart-note">Istorija porudžbina trenutno nije dostupna.</p>`;}
   }
+  window.partisFaktura=async function(i){
+    const o=ORD[i];if(!o||!o.faktura_path)return;
+    try{const c=await client();const {data,error}=await c.storage.from("fakture").createSignedUrl(o.faktura_path,120);if(error)throw error;window.open(data.signedUrl,"_blank","noopener");}
+    catch(e){alert("Faktura trenutno nije dostupna. Pozovite nas: +381 18 553 800.");}
+  };
   window.partisRepeat=function(i){
     const o=ORD[i];if(!o)return;
     let cart=[];try{cart=JSON.parse(localStorage.getItem("partis_korpa_v2")||"[]");}catch(e){}
@@ -228,9 +243,9 @@
     try{localStorage.setItem("partis_korpa_v2",JSON.stringify(cart));}catch(e){}
     location.href="korpa";
   };
-  window.addEventListener("partis-account",renderNalog);
-  if(NP){NP.innerHTML=`<div class="m-content cart-box"><p class="cart-note">Učitavam…</p></div>`;
-    if(!Object.keys(localStorage).some(k=>k.startsWith("sb-")))renderNalog();
-    else setTimeout(()=>{if(NP.textContent.trim()==="Učitavam…")renderNalog();},6000);}
+  window.addEventListener("partis-account",()=>{renderNalog();renderOrders();});
+  [[NP,renderNalog],[OP,renderOrders]].forEach(([el,fn])=>{if(!el)return;el.innerHTML=`<div class="m-content cart-box"><p class="cart-note">Učitavam…</p></div>`;
+    if(!Object.keys(localStorage).some(k=>k.startsWith("sb-")))fn();
+    else setTimeout(()=>{if(el.textContent.trim()==="Učitavam…")fn();},6000);});
   async function logout(){try{const c=await client();await c.auth.signOut();}catch(e){}apply(null);}
 })();

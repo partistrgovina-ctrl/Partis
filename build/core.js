@@ -127,7 +127,7 @@
     }
     /* gornji meni: Početna · Proizvodi · Kontakt · Informacije; kategorije su u levom padajućem meniju */
     const home=pg.id==="home",on=(c)=>c?' class="on" aria-current="page"':"";
-    const cat=!home&&!["pretraga","privatnost","korpa","nalog","kontakt","informacije"].includes(pg.id);
+    const cat=!home&&!["pretraga","privatnost","korpa","nalog","porudzbine","kontakt","informacije"].includes(pg.id);
     const tabs=`<div class="tabs"><a href="index.html"${on(home)}>Početna</a><a href="proizvodi.html"${on(cat)}>Proizvodi</a><a href="kontakt.html"${on(pg.id==="kontakt")}>Kontakt</a><a href="informacije.html"${on(pg.id==="informacije")}>Informacije</a></div>`;
     const btn=`<button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sideMenu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>Kategorije proizvoda</span></button>`;
     const side=`<button type="button" class="menu-fab" id="menuFab" aria-label="Kategorije proizvoda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span>Kategorije proizvoda</span></button><div class="side-ov" id="sideOv"></div><aside class="side-menu" id="sideMenu" aria-label="Kategorije proizvoda" aria-hidden="true"><div class="side-head"><b>Kategorije proizvoda</b><button type="button" class="side-x" id="sideX" aria-label="Zatvori meni">&times;</button></div>${PARTIS.menuHTML(D)}</aside><script>(function(){var b=document.getElementById("menuBtn"),m=document.getElementById("sideMenu"),o=document.getElementById("sideOv"),x=document.getElementById("sideX");if(!b)return;function t(v){document.body.classList.toggle("side-open",v);b.setAttribute("aria-expanded",v);m.setAttribute("aria-hidden",!v);}b.onclick=function(){t(!document.body.classList.contains("side-open"));};var f=document.getElementById("menuFab");if(f)f.onclick=b.onclick;o.onclick=x.onclick=function(){t(false);};document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false);});m.addEventListener("click",function(e){var g=e.target.closest(".s-tg");if(g){var li=g.closest("li"),sb=li.querySelector(".s-subs"),open=sb.hidden;sb.hidden=!open;g.setAttribute("aria-expanded",open);li.classList.toggle("open",open);return;}if(e.target.closest("a"))t(false);});})();</script>`;
@@ -231,7 +231,7 @@
       .map(p=>`  <url><loc>${site}/${p.file==="index.html"?"":p.file.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")}</loc><changefreq>weekly</changefreq><priority>${p.file==="index.html"?"1.0":"0.8"}</priority></url>\n`).join("");
     return {
       "sitemap.xml":`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sm}</urlset>\n`,
-      "robots.txt":`User-agent: *\nAllow: /\nDisallow: /pretraga.html\nDisallow: /korpa\nDisallow: /nalog\nDisallow: /admin/\n\nSitemap: ${site}/sitemap.xml\n`
+      "robots.txt":`User-agent: *\nAllow: /\nDisallow: /pretraga.html\nDisallow: /korpa\nDisallow: /nalog\nDisallow: /porudzbine\nDisallow: /admin/\n\nSitemap: ${site}/sitemap.xml\n`
     };
   }
   return {MULTI:true,POC_DEF,pocMerge,HIDE,model,dataFiles,missingImages,renderPage,katPages,productPages,sitemapRobots,pathMap,fileOf,rewriteUrls,redirectRules};

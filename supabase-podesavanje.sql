@@ -101,3 +101,27 @@ create policy "admin izmena porudzbina" on public.porudzbine for update using (p
 -- postojeći nalozi: PIB iz registracije (ako je poslat) prepiši u profil
 update public.profili p set pib = u.raw_user_meta_data->>'pib'
 from auth.users u where u.id = p.id and p.pib is null and u.raw_user_meta_data->>'pib' is not null;
+
+
+-- =====================================================================
+-- DOPUNA 2 (faktura PDF, broj pošiljke, nema na stanju) — pokrenuti jednom, posle prve dopune
+-- =====================================================================
+alter table public.porudzbine add column if not exists kurir text;
+alter table public.porudzbine add column if not exists posiljka text;
+alter table public.porudzbine add column if not exists faktura_path text;
+
+-- privatni prostor za fakture (putanja: ID-kupca/ID-porudzbine.pdf)
+insert into storage.buckets (id, name, public) values ('fakture', 'fakture', false) on conflict (id) do nothing;
+
+drop policy if exists "fakture citanje" on storage.objects;
+create policy "fakture citanje" on storage.objects for select
+  using (bucket_id = 'fakture' and ((storage.foldername(name))[1] = auth.uid()::text or public.je_admin()));
+drop policy if exists "fakture upis" on storage.objects;
+create policy "fakture upis" on storage.objects for insert
+  with check (bucket_id = 'fakture' and public.je_admin());
+drop policy if exists "fakture izmena" on storage.objects;
+create policy "fakture izmena" on storage.objects for update
+  using (bucket_id = 'fakture' and public.je_admin()) with check (bucket_id = 'fakture' and public.je_admin());
+drop policy if exists "fakture brisanje" on storage.objects;
+create policy "fakture brisanje" on storage.objects for delete
+  using (bucket_id = 'fakture' and public.je_admin());

@@ -169,6 +169,7 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.ordi{display:block;padding:3px 0}.ordi i{color:#777;font-style:normal}
 </style>
 </head>
 <body>
@@ -179,6 +180,7 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
   <button id="bPoc" hidden>Tekst početne</button>
   <button id="bKat" hidden>Kategorije</button>
   <button id="bCust" hidden>Kupci</button>
+  <button id="bOrd" hidden>Porudžbine</button>
   <button id="bSettings" hidden>Domen</button>
   <button id="bFolder" hidden>Promeni folder</button>
   <button id="bPush" class="red" hidden>Objavi na sajt</button>
@@ -331,7 +333,7 @@ async function enter(handle,web){
   if(!CORE.pocMerge||!CORE.katPages||!CORE.MULTI||!(await exists("templates/_kategorija.html"))){
     say("Folder sajta nije ažuran","Ovaj program je noviji od fajlova u izabranom folderu, pa dugmad <b>Tekst početne</b>, <b>Kategorije</b> i izrada sajta neće raditi kako treba.<br><br><b>Rešenje:</b> raspakujte najnoviji ZIP (<b>partis-sajt-program.zip</b>) i njegov sadržaj prekopirajte preko vašeg foldera sajta (na pitanje „Zameni“ odgovorite sa DA). Folderi <b>content</b> i vaši artikli ostaju, ali pre kopiranja napravite rezervnu kopiju foldera <b>content</b>.");
   }
-  ["bPush","bBuild","bFolder","bSettings","bCust","bKat","bPoc"].forEach(i=>$("#"+i).hidden=false);
+  ["bPush","bBuild","bFolder","bSettings","bCust","bOrd","bKat","bPoc"].forEach(i=>$("#"+i).hidden=false);
   if(WEB){$("#bBuild").hidden=true;$("#bFolder").hidden=false;$("#bFolder").textContent="Izlaz";$("#bFolder").onclick=()=>{if(dirty&&!confirm("Imate izmene koje nisu objavljene. Svejedno izaći?"))return;location.reload();};}
   buildTabs();render();counts();
 }
@@ -354,7 +356,7 @@ $("#bPick").onclick=async()=>{
   try{await enter(await showDirectoryPicker({mode:"readwrite"}));}
   catch(e){if(e.name!=="AbortError")$("#startErr").textContent=e.message;}
 };
-$("#bFolder").onclick=()=>{$("#app").hidden=true;$("#start").hidden=false;["bPush","bBuild","bFolder","bSettings","bCust","bKat","bPoc"].forEach(i=>$("#"+i).hidden=true);};
+$("#bFolder").onclick=()=>{$("#app").hidden=true;$("#start").hidden=false;["bPush","bBuild","bFolder","bSettings","bCust","bOrd","bKat","bPoc"].forEach(i=>$("#"+i).hidden=true);};
 (async()=>{
   const h=await idb.get();
   if(h){$("#bResume").hidden=false;$("#bResume").textContent="Nastavi sa folderom „"+h.name+"“";
@@ -731,7 +733,10 @@ let SB=null;
 function loadLib(){return new Promise((res,rej)=>{if(window.supabase)return res();const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js";s.onload=res;s.onerror=()=>rej(new Error("Nema veze sa internetom."));document.head.appendChild(s);});}
 $("#d3X").onclick=()=>$("#dlg3").close();
 const d3=(html,btns)=>{$("#d3Body").innerHTML=html;const f=$("#d3Foot");f.innerHTML="";(btns||[]).forEach(([t,fn,red])=>{const b=document.createElement("button");b.textContent=t;if(red)b.className="red";b.onclick=fn;f.appendChild(b);});if(!$("#dlg3").open)$("#dlg3").showModal();};
-$("#bCust").onclick=async()=>{
+let AFTER=null;
+$("#bCust").onclick=()=>{AFTER=custList;openAdmin();};
+$("#bOrd").onclick=()=>{AFTER=ordList;openAdmin();};
+async function openAdmin(){
   let cfg={};try{cfg=JSON.parse(await readText("site.json"));}catch(e){}
   if(!cfg.supabase_url||!cfg.supabase_key){
     d3(`<p>Za naloge kupaca potreban je besplatan servis <b>Supabase</b> (uputstvo: <b>UPUTSTVO-KUPCI.md</b>). Kada ga napravite, upišite ovde dva podatka iz Supabase → Project Settings → API:</p>
@@ -741,23 +746,23 @@ $("#bCust").onclick=async()=>{
         let tajni=false;try{tajni=/service_role/.test(atob((k.split(".")[1]||"").replace(/-/g,"+").replace(/_/g,"/")));}catch(e){}
         if(tajni)
           {$("#sbE").textContent="Ovo je TAJNI ključ (service_role). Upišite „anon public“ ključ.";return;}
-        cfg.supabase_url=u;cfg.supabase_key=k;await writeFile("site.json",JSON.stringify(cfg,null,2)+"\n");markDirty();$("#dlg3").close();$("#bCust").click();},1],["Otkaži",()=>$("#dlg3").close()]]);
+        cfg.supabase_url=u;cfg.supabase_key=k;await writeFile("site.json",JSON.stringify(cfg,null,2)+"\n");markDirty();$("#dlg3").close();openAdmin();},1],["Otkaži",()=>$("#dlg3").close()]]);
     return;
   }
   try{await loadLib();SB=SB||window.supabase.createClient(cfg.supabase_url,cfg.supabase_key,{auth:{persistSession:true}});
     const {data:{session}}=await SB.auth.getSession();
-    if(session&&await isAdmin())return custList();
+    if(session&&await isAdmin())return AFTER();
     let c=null;try{c=JSON.parse(atob(localStorage.getItem("partis_sb_cred")||""));}catch(e){}
-    if(c&&c.e){const {error}=await SB.auth.signInWithPassword({email:c.e,password:c.p});if(!error&&await isAdmin())return custList();}
+    if(c&&c.e){const {error}=await SB.auth.signInWithPassword({email:c.e,password:c.p});if(!error&&await isAdmin())return AFTER();}
   }catch(e){}
   custLogin();
-};
+}
 async function isAdmin(){const {data:{session}}=await SB.auth.getSession();if(!session)return false;const {data}=await SB.from("profili").select("is_admin").eq("id",session.user.id).single();return !!(data&&data.is_admin);}
 function custLogin(err){
   d3(`<p>Jednokratna prijava nalogom administratora. Program je zapamti u ovom pregledaču, pa se sledeći put otvara odmah. Ovo je neophodno da Supabase zna da samo vi možete da menjate rabate.</p>
     <div class="f"><label>Mejl</label><input type="text" id="cuE"></div><div class="f"><label>Lozinka</label><input type="password" id="cuP"></div><div class="err">${esc(err||"")}</div>`,
     [["Prijavi me",async()=>{const {error}=await SB.auth.signInWithPassword({email:$("#cuE").value.trim(),password:$("#cuP").value});
-      if(error)return custLogin("Pogrešan mejl ili lozinka.");if(!(await isAdmin())){await SB.auth.signOut();return custLogin("Ovaj nalog nije administratorski.");}try{localStorage.setItem("partis_sb_cred",btoa(JSON.stringify({e:$("#cuE").value.trim(),p:$("#cuP").value})));}catch(e){}custList();},1],["Zatvori",()=>$("#dlg3").close()]]);
+      if(error)return custLogin("Pogrešan mejl ili lozinka.");if(!(await isAdmin())){await SB.auth.signOut();return custLogin("Ovaj nalog nije administratorski.");}try{localStorage.setItem("partis_sb_cred",btoa(JSON.stringify({e:$("#cuE").value.trim(),p:$("#cuP").value})));}catch(e){}AFTER();},1],["Zatvori",()=>$("#dlg3").close()]]);
 }
 async function custList(){
   const {data,error}=await SB.from("profili").select("*").order("created_at",{ascending:false});
@@ -794,6 +799,50 @@ async function custList(){
     setTimeout(()=>b.textContent="Sačuvaj",1600);
   });
   body.querySelectorAll(".cc-st").forEach(sel=>sel.onchange=()=>{sel.closest(".cc").classList.toggle("wait",sel.value!=="1");});
+}
+
+/* ---------- porudžbine kupaca: faktura (PDF), broj pošiljke, nema na stanju ---------- */
+const OSTAT=[["poslato","Upit primljen"],["obrada","U obradi"],["poslato_kupcu","Poslato kupcu"],["isporuceno","Isporučeno"]];
+async function ordList(){
+  const [{data:ords,error},{data:profs}]=await Promise.all([SB.from("porudzbine").select("*").order("created_at",{ascending:false}).limit(200),SB.from("profili").select("id,ime,firma,email,telefon")]);
+  if(error)return d3("<p class='warn'>Greška: "+esc(error.message)+"<br>Da li ste u Supabase pokrenuli SQL dopunu (porudzbine)?</p>",[["Zatvori",()=>$("#dlg3").close()]]);
+  const P={};(profs||[]).forEach(p=>P[p.id]=p);
+  const fd=d=>{try{return new Date(d).toLocaleString("sr-Latn-RS",{day:"numeric",month:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"});}catch(e){return d;}};
+  const card=o=>{const p=P[o.user_id]||{},st=Array.isArray(o.stavke)?o.stavke:[],u=o.ukupno||{};
+    return `<div class="cc" data-id="${o.id}" data-u="${o.user_id}" data-s="${esc((p.ime||"")+" "+(p.firma||"")+" "+(p.email||"")).toLowerCase()}">
+      <div class="cc-h"><div class="cc-who"><b>${esc(p.firma||p.ime||"Nepoznat kupac")}</b><span class="cc-f">${esc(fd(o.created_at))}${u.total!=null?" · "+Math.round(u.total).toLocaleString("sr-Latn-RS")+" RSD sa PDV-om":""}</span>
+        <div class="cc-c">${[p.ime,p.email,p.telefon].filter(Boolean).map(esc).join(" · ")}${o.dostava?"<br>Isporuka: "+esc(o.dostava):""}</div></div>
+        <select data-f="status" class="cc-st">${OSTAT.map(([k,n])=>`<option value="${k}" ${o.status===k?"selected":""}>${n}</option>`).join("")}</select></div>
+      <div class="cc-g"><div class="cc-t">Stavke <small>čekirajte one koje nisu na stanju — kupac će videti „Nema na stanju“</small></div>
+        ${st.map((x,i)=>`<label class="ordi"><input type="checkbox" data-nema="${i}" ${x.nema?"checked":""}> ${esc(x.n||"")}${x.l?" — "+esc(x.l):""} <i>${esc(String(x.q))} ${esc(x.u||"")}</i></label>`).join("")}</div>
+      <div class="cc-g"><div class="cc-t">Pošiljka i faktura</div><div class="cc-grid">
+        <label class="rf"><span>Kurir</span><input type="text" data-f="kurir" value="${esc(o.kurir||"")}" placeholder="npr. AKS, D Express"></label>
+        <label class="rf"><span>Broj pošiljke</span><input type="text" data-f="posiljka" value="${esc(o.posiljka||"")}"></label>
+        <label class="rf"><span>Faktura (PDF) ${o.faktura_path?"✓ priložena":""}</span><input type="file" accept="application/pdf" data-f="pdf"></label></div></div>
+      <div class="cc-ft"><button type="button" class="red" data-save>Sačuvaj</button></div></div>`;};
+  d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga po kupcu…"></div>
+    <div class="cc-list">${ords.map(card).join("")||"<p>Još nema porudžbina sa naloga kupaca.</p>"}</div>`,
+    [["Osveži",ordList],["Zatvori",()=>$("#dlg3").close()]]);
+  const body=$("#d3Body");
+  $("#ccQ").oninput=()=>{const q=$("#ccQ").value.trim().toLowerCase();body.querySelectorAll(".cc").forEach(c=>c.hidden=!!q&&!c.dataset.s.includes(q));};
+  body.querySelectorAll("[data-save]").forEach(b=>b.onclick=async()=>{
+    const c=b.closest(".cc"),o=ords.find(x=>x.id===c.dataset.id);b.disabled=true;b.textContent="Čuvam…";
+    try{
+      const stavke=(o.stavke||[]).map((x,i)=>{const y={...x};const on=c.querySelector(`[data-nema="${i}"]`).checked;if(on)y.nema=true;else delete y.nema;return y;});
+      const upd={stavke,status:c.querySelector("[data-f=status]").value,kurir:c.querySelector("[data-f=kurir]").value.trim()||null,posiljka:c.querySelector("[data-f=posiljka]").value.trim()||null};
+      const f=c.querySelector("[data-f=pdf]").files[0];
+      if(f){
+        if(f.type!=="application/pdf"&&!/\.pdf$/i.test(f.name))throw new Error("Faktura mora biti PDF.");
+        if(f.size>10*1024*1024)throw new Error("PDF je veći od 10 MB.");
+        const path=c.dataset.u+"/"+o.id+".pdf";
+        const {error:e1}=await SB.storage.from("fakture").upload(path,f,{upsert:true,contentType:"application/pdf"});
+        if(e1)throw e1;upd.faktura_path=path;
+      }
+      const {error:e2}=await SB.from("porudzbine").update(upd).eq("id",o.id);if(e2)throw e2;
+      Object.assign(o,upd);b.textContent="Sačuvano ✓";
+    }catch(e){b.textContent="Greška";alert(e.message||e);}
+    b.disabled=false;setTimeout(()=>b.textContent="Sačuvaj",1600);
+  });
 }
 window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue="";}});
 </script>
