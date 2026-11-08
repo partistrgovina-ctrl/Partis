@@ -191,10 +191,29 @@
         </div>
         <div id="nalMsg" class="cart-err" hidden></div>
         <button class="cart-send" type="submit">Sačuvaj izmene</button>
-        <p class="cart-note"><a href="#" onclick="event.preventDefault();partisAuth('forgot')">Promena lozinke</a></p>
+      </form>
+      <form id="passForm" class="cart-form" onsubmit="return partisChangePass(event)" style="margin-top:26px">
+        <div class="m-sub">Promena lozinke</div>
+        <div class="f-grid">
+          <label>Nova lozinka * (najmanje 8 znakova)<input name="pass" type="password" required minlength="8" autocomplete="new-password"></label>
+          <label>Ponovite lozinku *<input name="pass2" type="password" required minlength="8" autocomplete="new-password"></label>
+        </div>
+        <div id="passMsg" class="cart-err" hidden></div>
+        <button class="cart-send" type="submit">Promeni lozinku</button>
+        <p class="cart-note">Ako ste zaboravili lozinku, na prijavi izaberite „Zaboravili ste lozinku?“ i sami ćete dobiti vezu na mejl.</p>
       </form>
     </div>`;
   }
+  window.partisChangePass=async function(e){
+    e.preventDefault();const f=e.target,fd=new FormData(f),m=document.getElementById("passMsg"),b=f.querySelector(".cart-send");
+    m.hidden=true;m.style.color="";
+    if(fd.get("pass")!==fd.get("pass2")){m.textContent="Lozinke se ne poklapaju.";m.hidden=false;return false;}
+    b.disabled=true;b.textContent="Čuvam…";
+    try{const c=await client();const {error}=await c.auth.updateUser({password:fd.get("pass")});if(error)throw error;
+      f.reset();m.textContent="Lozinka je promenjena.";m.style.color="#1f8a4c";m.hidden=false;}
+    catch(x){m.textContent=nice(x.message||String(x));m.hidden=false;}
+    b.disabled=false;b.textContent="Promeni lozinku";return false;
+  };
   window.partisSaveProfile=async function(e){
     e.preventDefault();const f=e.target,fd=new FormData(f),m=document.getElementById("nalMsg"),b=f.querySelector(".cart-send");
     b.disabled=true;b.textContent="Čuvam…";m.hidden=true;m.style.color="";
