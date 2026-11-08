@@ -137,6 +137,7 @@
     b.disabled=true;b.textContent="Šaljem…";err.hidden=true;
     fetch(/netlify\.app$/.test(location.hostname)?"/":"porudzbina.php",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data).toString()})
     .then(r=>{if(!r.ok)throw new Error(r.status);
+      try{if(window.partisSaveOrder)window.partisSaveOrder({stavke:JSON.parse(stavke),ukupno:JSON.parse(ukupno),dostava:(fd.get("druga")&&fd.get("d_adresa"))?`${fd.get("d_adresa")} | ${fd.get("d_osoba")}, ${fd.get("d_tel")}`:"",napomena:fd.get("napomena")||""});}catch(e){}
       cart=[];save();badge();
       document.querySelector(".cart-box").innerHTML=`<div class="eng">Upit za ponudu</div><h2>Hvala!</h2><p class="m-lead">Vaš upit je poslat. Javićemo vam se na broj ${esc(data.telefon)} ili na ${esc(data.email)} sa potvrdom cena i dostupnosti.</p><a class="cart-send" href="index.html" style="display:inline-block;text-decoration:none">Nazad na početnu</a>`;})
     .catch(()=>{

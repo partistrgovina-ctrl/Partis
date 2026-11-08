@@ -14,7 +14,7 @@
 
   function paint(){
     if(profile){
-      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><button type="button" class="acct-b" id="acOut">Odjava</button>`;
+      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="nalog">Moj nalog</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
       box.querySelector("#acOut").onclick=logout;
       const rs=PARTIS.GROUPS.map(([k,n])=>[n,(profile.rabati||{})[k]]).filter(x=>x[1]>0).map(x=>`${esc(x[0])} <b>${x[1]}%</b>`);
       const all=(profile.rabati||{}).svi>0?`opšti <b>${profile.rabati.svi}%</b>`:"";
@@ -155,5 +155,82 @@
     catch(x){busy(f,false,"Sačuvaj lozinku");err(nice(x.message||String(x)));}
     return false;
   };
+
+  /* ---------- istorija porudžbina (čuva se uz nalog) ---------- */
+  window.partisSaveOrder=async function(row){
+    try{if(!profile)return;const c=await client();const {data:{session}}=await c.auth.getSession();if(!session)return;
+      await c.from("porudzbine").insert({user_id:session.user.id,stavke:row.stavke,ukupno:row.ukupno,dostava:row.dostava||null,napomena:row.napomena||null});}catch(e){}
+  };
+
+  /* ---------- stranica „Moj nalog" ---------- */
+  const NP=document.getElementById("nalog-page");
+  const fmtD=d=>{try{return new Date(d).toLocaleString("sr-Latn-RS",{day:"numeric",month:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"});}catch(e){return d;}};
+  async function renderNalog(){
+    if(!NP)return;
+    if(!profile){NP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Moj nalog</h2><p class="m-lead">Prijavite se da vidite i menjate svoje podatke i pregledate prethodne porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
+    const P=profile;
+    NP.innerHTML=`<div class="m-content cart-box">
+      <div class="eng">Nalog kupca</div><h2>Moj nalog</h2>
+      <div class="m-sub">Moji podaci</div>
+      <form id="nalForm" class="cart-form" onsubmit="return partisSaveProfile(event)">
+        <div class="f-grid">
+          <label>Ime i prezime *<input name="ime" required value="${esc(P.ime||"")}" autocomplete="name"></label>
+          <label>Firma *<input name="firma" required value="${esc(P.firma||"")}" autocomplete="organization"></label>
+          <label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" value="${esc(P.pib||"")}" placeholder="9 cifara"></label>
+          <label>Telefon *<input name="telefon" type="tel" required value="${esc(P.telefon||"")}" autocomplete="tel"></label>
+          <label class="wide">Adresa sedišta *<input name="adresa" required value="${esc(P.adresa||"")}" autocomplete="street-address"></label>
+          <label class="wide">Mejl (prijava)<input value="${esc(P.email||"")}" disabled></label>
+        </div>
+        <div id="nalMsg" class="cart-err" hidden></div>
+        <button class="cart-send" type="submit">Sačuvaj izmene</button>
+        <p class="cart-note"><a href="#" onclick="event.preventDefault();partisAuth('forgot')">Promena lozinke</a></p>
+      </form>
+      <div class="m-sub" style="margin-top:28px">Istorija porudžbina</div>
+      <div id="nalOrders"><p class="cart-note">Učitavam…</p></div>
+    </div>`;
+    loadOrders();
+  }
+  window.partisSaveProfile=async function(e){
+    e.preventDefault();const f=e.target,fd=new FormData(f),m=document.getElementById("nalMsg"),b=f.querySelector(".cart-send");
+    b.disabled=true;b.textContent="Čuvam…";m.hidden=true;m.style.color="";
+    try{
+      const c=await client();
+      const v={p_ime:fd.get("ime").trim(),p_firma:fd.get("firma").trim(),p_pib:fd.get("pib").trim(),p_telefon:fd.get("telefon").trim(),p_adresa:fd.get("adresa").trim()};
+      const {error}=await c.rpc("azuriraj_profil",v);
+      if(error)throw error;
+      Object.assign(profile,{ime:v.p_ime,firma:v.p_firma,pib:v.p_pib,telefon:v.p_telefon,adresa:v.p_adresa});window.CUSTOMER=profile;paint();
+      m.textContent="Podaci su sačuvani.";m.style.color="#1f8a4c";m.hidden=false;
+    }catch(x){m.textContent="Čuvanje nije uspelo. Pokušajte ponovo ili nas pozovite: +381 18 553 800.";m.hidden=false;}
+    b.disabled=false;b.textContent="Sačuvaj izmene";return false;
+  };
+  let ORD=[];
+  async function loadOrders(){
+    const el=document.getElementById("nalOrders");if(!el)return;
+    try{
+      const c=await client();
+      const {data,error}=await c.from("porudzbine").select("*").order("created_at",{ascending:false}).limit(100);
+      if(error)throw error;
+      ORD=data||[];
+      if(!ORD.length){el.innerHTML=`<p class="cart-note">Još nema porudžbina poslatih sa ovog naloga.</p>`;return;}
+      el.innerHTML=ORD.map((o,i)=>{
+        const st=Array.isArray(o.stavke)?o.stavke:[];const u=o.ukupno||{};
+        return `<details class="ord"><summary><b>${esc(fmtD(o.created_at))}</b> · ${st.length} ${st.length===1?"stavka":"stavki"}${u.total!=null?` · ${PARTIS.fmt(u.total)} RSD sa PDV-om`:""}</summary>
+          <div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th></tr></thead><tbody>${st.map(x=>`<tr><td><b>${esc(x.n||"")}</b>${x.l?`<small class="cart-l">${esc(x.l)}</small>`:""}</td><td>${esc(String(x.q))} ${esc(x.u||"")}</td></tr>`).join("")}</tbody></table></div>
+          ${o.dostava?`<p class="cart-note"><b>Isporuka:</b> ${esc(o.dostava)}</p>`:""}
+          <button class="cart-send" type="button" onclick="partisRepeat(${i})">Ponovi porudžbinu</button></details>`;
+      }).join("");
+    }catch(x){el.innerHTML=`<p class="cart-note">Istorija porudžbina trenutno nije dostupna.</p>`;}
+  }
+  window.partisRepeat=function(i){
+    const o=ORD[i];if(!o)return;
+    let cart=[];try{cart=JSON.parse(localStorage.getItem("partis_korpa_v2")||"[]");}catch(e){}
+    (o.stavke||[]).forEach(x=>{const ex=cart.find(c=>c.n===x.n&&c.l===(x.l||""));if(ex)ex.q=Math.min(99999,ex.q+x.q);else cart.push({n:x.n,l:x.l||"",q:x.q});});
+    try{localStorage.setItem("partis_korpa_v2",JSON.stringify(cart));}catch(e){}
+    location.href="korpa";
+  };
+  window.addEventListener("partis-account",renderNalog);
+  if(NP){NP.innerHTML=`<div class="m-content cart-box"><p class="cart-note">Učitavam…</p></div>`;
+    if(!Object.keys(localStorage).some(k=>k.startsWith("sb-")))renderNalog();
+    else setTimeout(()=>{if(NP.textContent.trim()==="Učitavam…")renderNalog();},6000);}
   async function logout(){try{const c=await client();await c.auth.signOut();}catch(e){}apply(null);}
 })();

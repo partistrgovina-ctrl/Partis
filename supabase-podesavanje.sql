@@ -51,3 +51,53 @@ create trigger on_auth_user_created after insert on auth.users
 
 -- 5) POSLE prve registracije svog naloga na sajtu, pokrenite (sa svojim mejlom) da postanete administrator:
 --    update public.profili set is_admin = true, odobren = true where email = 'VAS-MEJL@gmail.com';
+
+
+-- =====================================================================
+-- DOPUNA (nalog kupca: izmena podataka + istorija porudžbina) — pokrenuti jednom
+-- =====================================================================
+alter table public.profili add column if not exists pib text;
+
+-- trigger sada prenosi i PIB iz registracije
+create or replace function public.novi_korisnik() returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  insert into public.profili (id, email, ime, firma, pib, telefon, adresa)
+  values (new.id, new.email,
+          new.raw_user_meta_data->>'ime', new.raw_user_meta_data->>'firma', new.raw_user_meta_data->>'pib',
+          new.raw_user_meta_data->>'telefon', new.raw_user_meta_data->>'adresa');
+  return new;
+end $$;
+
+-- kupac menja SAMO svoje kontakt podatke (ne rabate, ne odobrenje, ne admin pravo)
+create or replace function public.azuriraj_profil(p_ime text, p_firma text, p_pib text, p_telefon text, p_adresa text)
+returns void language sql security definer set search_path = public as $$
+  update public.profili set ime = left(p_ime,200), firma = left(p_firma,200), pib = left(p_pib,9),
+         telefon = left(p_telefon,50), adresa = left(p_adresa,300)
+  where id = auth.uid();
+$$;
+revoke all on function public.azuriraj_profil(text,text,text,text,text) from public;
+grant execute on function public.azuriraj_profil(text,text,text,text,text) to authenticated;
+
+-- istorija porudžbina
+create table if not exists public.porudzbine (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  stavke jsonb not null default '[]'::jsonb,
+  ukupno jsonb not null default '{}'::jsonb,
+  dostava text,
+  napomena text,
+  status text not null default 'poslato'
+);
+alter table public.porudzbine enable row level security;
+drop policy if exists "svoje citanje" on public.porudzbine;
+create policy "svoje citanje" on public.porudzbine for select using (user_id = auth.uid() or public.je_admin());
+drop policy if exists "svoj upis" on public.porudzbine;
+create policy "svoj upis" on public.porudzbine for insert with check (user_id = auth.uid());
+drop policy if exists "admin izmena porudzbina" on public.porudzbine;
+create policy "admin izmena porudzbina" on public.porudzbine for update using (public.je_admin()) with check (public.je_admin());
+
+-- postojeći nalozi: PIB iz registracije (ako je poslat) prepiši u profil
+update public.profili p set pib = u.raw_user_meta_data->>'pib'
+from auth.users u where u.id = p.id and p.pib is null and u.raw_user_meta_data->>'pib' is not null;
