@@ -188,6 +188,15 @@
     const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([window._partisOff.file],{type:"text/plain;charset=utf-8"}));
     a.download="PARTIS-upit.txt";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
   };
-  window.addEventListener("partis-account",()=>{badge();if(PAGEEL&&document.getElementById("cart-form")&&!document.querySelector(".cart-box h2+.m-lead"))PAGEEL.innerHTML=cartHTML();else if(document.getElementById("cart-list"))refresh();});
+  const acSig=()=>JSON.stringify([window.CUSTOMER?[window.CUSTOMER.ime,window.CUSTOMER.firma,window.CUSTOMER.pib,window.CUSTOMER.telefon,window.CUSTOMER.email,window.CUSTOMER.adresa]:null,window.REBATE||null]);
+  let lastSig=acSig();
+  window.addEventListener("partis-account",()=>{
+    badge();const sg=acSig();if(sg===lastSig)return;lastSig=sg;
+    if(PAGEEL&&document.getElementById("cart-form")&&!document.querySelector(".cart-box h2+.m-lead")){
+      const keep={};PAGEEL.querySelectorAll("input[name],textarea[name]").forEach(i=>{if(i.type==="hidden")return;keep[i.name]=i.type==="checkbox"?i.checked:i.value;});
+      PAGEEL.innerHTML=cartHTML();
+      PAGEEL.querySelectorAll("input[name],textarea[name]").forEach(i=>{if(!(i.name in keep)||i.type==="hidden")return;if(i.type==="checkbox"){i.checked=keep[i.name];if(i.checked)i.dispatchEvent(new Event("change"));}else i.value=keep[i.name];});
+    }else if(document.getElementById("cart-list"))refresh();
+  });
   badge();
 })();

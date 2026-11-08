@@ -51,7 +51,7 @@
   }
   function apply(p){
     profile=p&&p.odobren?p:null;cachedName=null;
-    try{if(profile)localStorage.setItem("partis_acct",JSON.stringify({n:profile.ime||profile.email}));else localStorage.removeItem("partis_acct");}catch(e){}
+    try{if(profile)localStorage.setItem("partis_acct",JSON.stringify({n:profile.ime||profile.email,p:{ime:profile.ime,firma:profile.firma,pib:profile.pib,telefon:profile.telefon,email:profile.email,adresa:profile.adresa,rabati:profile.rabati||{}}}));else localStorage.removeItem("partis_acct");}catch(e){}
     window.CUSTOMER=profile;window.REBATE=profile?(profile.rabati||{}):null;
     paint();window.dispatchEvent(new Event("partis-account"));
     /* ako je artikal otvoren, ponovo ga iscrtaj sa novim cenama */
@@ -172,8 +172,8 @@
   const fmtD=d=>{try{return new Date(d).toLocaleString("sr-Latn-RS",{day:"numeric",month:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"});}catch(e){return d;}};
   async function renderNalog(){
     if(!NP)return;
-    if(!profile){NP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Partis nalog</h2><p class="m-lead">Prijavite se da vidite i menjate svoje podatke i pregledate prethodne porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
-    const P=profile;
+    const P=profile||(cachedName?window.CUSTOMER:null);
+    if(!P){NP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Partis nalog</h2><p class="m-lead">Prijavite se da vidite i menjate svoje podatke i pregledate prethodne porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
     NP.innerHTML=`<div class="m-content cart-box">
       <div class="eng">Nalog kupca</div><h2>Partis nalog</h2>
       ${navTabs("nalog")}
@@ -201,7 +201,7 @@
       const v={p_ime:fd.get("ime").trim(),p_firma:fd.get("firma").trim(),p_pib:fd.get("pib").trim(),p_telefon:fd.get("telefon").trim(),p_adresa:fd.get("adresa").trim()};
       const {error}=await c.rpc("azuriraj_profil",v);
       if(error)throw error;
-      Object.assign(profile,{ime:v.p_ime,firma:v.p_firma,pib:v.p_pib,telefon:v.p_telefon,adresa:v.p_adresa});window.CUSTOMER=profile;paint();
+      if(profile)Object.assign(profile,{ime:v.p_ime,firma:v.p_firma,pib:v.p_pib,telefon:v.p_telefon,adresa:v.p_adresa});window.CUSTOMER=profile||Object.assign({},window.CUSTOMER,{ime:v.p_ime,firma:v.p_firma,pib:v.p_pib,telefon:v.p_telefon,adresa:v.p_adresa});paint();
       m.textContent="Podaci su sačuvani.";m.style.color="#1f8a4c";m.hidden=false;
     }catch(x){m.textContent="Čuvanje nije uspelo. Pokušajte ponovo ili nas pozovite: +381 18 553 800.";m.hidden=false;}
     b.disabled=false;b.textContent="Sačuvaj izmene";return false;
@@ -211,7 +211,7 @@
   const STAT={poslato:"Upit primljen",obrada:"U obradi",poslato_kupcu:"Poslato",isporuceno:"Isporučeno"};
   async function renderOrders(){
     if(!OP)return;
-    if(!profile){OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Moje porudžbine</h2><p class="m-lead">Prijavite se da pregledate svoje porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
+    if(!profile&&!cachedName){OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Moje porudžbine</h2><p class="m-lead">Prijavite se da pregledate svoje porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
     OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Moje porudžbine</h2>${navTabs("porudzbine")}<div id="nalOrders"><p class="cart-note">Učitavam…</p></div></div>`;
     loadOrders();
   }
@@ -249,9 +249,13 @@
     try{localStorage.setItem("partis_korpa_v2",JSON.stringify(cart));}catch(e){}
     location.href="korpa";
   };
-  window.addEventListener("partis-account",()=>{renderNalog();renderOrders();});
-  [[NP,renderNalog],[OP,renderOrders]].forEach(([el,fn])=>{if(!el)return;el.innerHTML=`<div class="m-content cart-box"><p class="cart-note">Učitavam…</p></div>`;
-    if(!Object.keys(localStorage).some(k=>k.startsWith("sb-")))fn();
-    else setTimeout(()=>{if(el.textContent.trim()==="Učitavam…")fn();},6000);});
+  let pageSig="";const psig=()=>JSON.stringify(window.CUSTOMER?[window.CUSTOMER.ime,window.CUSTOMER.firma,window.CUSTOMER.pib,window.CUSTOMER.telefon,window.CUSTOMER.email,window.CUSTOMER.adresa]:null);
+  window.addEventListener("partis-account",()=>{const g=psig();if(g===pageSig)return;pageSig=g;
+    const ae=document.activeElement;if(ae&&ae.closest&&ae.closest("#nalForm"))return;renderNalog();if(!(OP&&document.querySelector("#nalOrders .ord"))&&OP)renderOrders();});
+  pageSig=psig();
+  [[NP,renderNalog],[OP,renderOrders]].forEach(([el,fn])=>{if(!el)return;
+    if(cachedName||!Object.keys(localStorage).some(k=>k.startsWith("sb-")))fn();
+    else{el.innerHTML=`<div class="m-content cart-box"><p class="cart-note">Učitavam…</p></div>`;}
+    setTimeout(()=>{if(el.textContent.trim()==="Učitavam…")fn();},6000);});
   async function logout(){try{const c=await client();await c.auth.signOut();}catch(e){}apply(null);}
 })();
