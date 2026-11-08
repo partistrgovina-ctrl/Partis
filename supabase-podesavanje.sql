@@ -125,3 +125,9 @@ create policy "fakture izmena" on storage.objects for update
 drop policy if exists "fakture brisanje" on storage.objects;
 create policy "fakture brisanje" on storage.objects for delete
   using (bucket_id = 'fakture' and public.je_admin());
+
+
+-- =====================================================================
+-- DOPUNA 3 (predračun: koje stavke ulaze + napomena) — pokrenuti jednom
+-- =====================================================================
+alter table public.porudzbine add column if not exists predracun jsonb;

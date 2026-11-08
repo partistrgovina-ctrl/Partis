@@ -164,7 +164,9 @@
   /* ---------- istorija porudžbina (čuva se uz nalog) ---------- */
   window.partisSaveOrder=async function(row){
     try{if(!profile)return;const c=await client();const {data:{session}}=await c.auth.getSession();if(!session)return;
-      await c.from("porudzbine").insert({user_id:session.user.id,stavke:row.stavke,ukupno:row.ukupno,dostava:row.dostava||null,napomena:row.napomena||null});}catch(e){}
+      const base={user_id:session.user.id,stavke:row.stavke,ukupno:row.ukupno,dostava:row.dostava||null,napomena:row.napomena||null};
+      const r=await c.from("porudzbine").insert({...base,predracun:{ukljuci:row.stavke.map((x,i)=>x.eff!=null?i:-1).filter(i=>i>=0),napomena:""}});
+      if(r&&r.error)await c.from("porudzbine").insert(base);}catch(e){}
   };
 
   /* ---------- stranica „Vaš nalog" ---------- */
