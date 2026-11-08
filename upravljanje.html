@@ -816,11 +816,12 @@ async function ordList(){
       <div class="cc-g"><div class="cc-t">Stavke <small>čekirajte one koje nisu na stanju — kupac će videti „Nema na stanju“</small></div>
         ${st.map((x,i)=>`<label class="ordi"><input type="checkbox" data-nema="${i}" ${x.nema?"checked":""}> ${esc(x.n||"")}${x.l?" — "+esc(x.l):""} <i>${esc(String(x.q))} ${esc(x.u||"")}</i></label>`).join("")}</div>
       <div class="cc-g"><div class="cc-t">Pošiljka i faktura</div><div class="cc-grid">
-        <label class="rf"><span>Kurir</span><input type="text" data-f="kurir" value="${esc(o.kurir||"")}" placeholder="npr. AKS, D Express"></label>
+        <label class="rf"><span>Kurir</span><input type="text" data-f="kurir" list="kuriri" value="${esc(o.kurir||"")}" placeholder="izaberite ili upišite"></label>
         <label class="rf"><span>Broj pošiljke</span><input type="text" data-f="posiljka" value="${esc(o.posiljka||"")}"></label>
         <label class="rf"><span>Faktura (PDF) ${o.faktura_path?"✓ priložena":""}</span><input type="file" accept="application/pdf" data-f="pdf"></label></div></div>
       <div class="cc-ft"><button type="button" class="red" data-save>Sačuvaj</button></div></div>`;};
   d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga po kupcu…"></div>
+    <datalist id="kuriri"><option value="AKS"><option value="D Express"><option value="Post Express"><option value="BEX"><option value="City Express"><option value="Pošta Srbije"><option value="Lično preuzimanje"><option value="Sopstvena dostava"></datalist>
     <div class="cc-list">${ords.map(card).join("")||"<p>Još nema porudžbina sa naloga kupaca.</p>"}</div>`,
     [["Osveži",ordList],["Zatvori",()=>$("#dlg3").close()]]);
   const body=$("#d3Body");
