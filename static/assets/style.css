@@ -916,3 +916,4 @@ header{view-transition-name:site-header}
 .cat-note p{margin:0;line-height:1.55}
 
 .cart-saved{background:#f4f5f7;border-radius:8px;padding:12px 14px;line-height:1.5}.cart-saved small{display:block;color:#777;margin-top:4px}
+.cart-form label.chk{display:flex;align-items:center;gap:8px}.cart-form label.chk input{width:auto;margin:0}
