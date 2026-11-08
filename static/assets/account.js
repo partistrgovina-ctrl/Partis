@@ -12,7 +12,11 @@
   const bar=document.createElement("div");bar.className="acct-bar";bar.hidden=true;
   const hd=document.querySelector("header");if(hd)hd.insertAdjacentElement("afterend",bar);
 
+  const hasSb=()=>{try{return Object.keys(localStorage).some(k=>k.startsWith("sb-"));}catch(e){return false;}};
+  let cachedName=null;try{const c=JSON.parse(localStorage.getItem("partis_acct")||"null");if(c&&c.n&&hasSb())cachedName=c.n;}catch(e){}
+  const inHTML=n=>`<span class="acct-name">${esc(n)}</span><a class="acct-b alt" href="/nalog">Partis nalog</a><a class="acct-b" href="/nalog/porudzbine/">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
   function paint(){
+    if(!profile&&cachedName){box.innerHTML=inHTML(cachedName);box.querySelector("#acOut").onclick=logout;bar.hidden=true;bar.innerHTML="";return;}
     if(profile){
       box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="/nalog">Partis nalog</a><a class="acct-b" href="/nalog/porudzbine/">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
       box.querySelector("#acOut").onclick=logout;
@@ -46,7 +50,8 @@
     return sb;
   }
   function apply(p){
-    profile=p&&p.odobren?p:null;
+    profile=p&&p.odobren?p:null;cachedName=null;
+    try{if(profile)localStorage.setItem("partis_acct",JSON.stringify({n:profile.ime||profile.email}));else localStorage.removeItem("partis_acct");}catch(e){}
     window.CUSTOMER=profile;window.REBATE=profile?(profile.rabati||{}):null;
     paint();window.dispatchEvent(new Event("partis-account"));
     /* ako je artikal otvoren, ponovo ga iscrtaj sa novim cenama */
