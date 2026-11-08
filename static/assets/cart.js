@@ -71,6 +71,37 @@
   function refresh(){const el=document.getElementById("cart-list");if(!el)return;el.innerHTML=listHTML();const f=document.getElementById("cart-form");if(f)f.hidden=!cart.length;}
 
   modal.addEventListener("click",function(e){const a=e.target.closest("a[href]");if(a&&modal.querySelector(".cart-box")){overlay.classList.remove("open");document.body.style.overflow="";const h=(a.getAttribute("href")||"").split("#")[1];const t=h&&/informacije/.test(location.pathname)&&document.getElementById(h);if(t){e.preventDefault();history.replaceState(null,"",location.pathname+"#"+h);requestAnimationFrame(function(){requestAnimationFrame(function(){t.scrollIntoView({block:"start"});});});}}});
+  function formFields(){
+    const C=window.CUSTOMER;
+    if(C&&C.firma){
+      const need=!C.pib;
+      return `<div class="f-grid">
+          <div class="wide cart-saved"><b>${esc(C.firma)}</b>${C.pib?` · PIB ${esc(C.pib)}`:""}<br>${esc(C.ime||"")}${C.telefon?` · ${esc(C.telefon)}`:""} · ${esc(C.email||"")}<br>${esc(C.adresa||"")}<small>Podaci iz vašeg naloga. Ako nešto nije tačno, javite nam.</small></div>
+          <input type="hidden" name="ime" value="${esc(C.ime||"")}"><input type="hidden" name="firma" value="${esc(C.firma||"")}">
+          <input type="hidden" name="telefon" value="${esc(C.telefon||"")}"><input type="hidden" name="email" value="${esc(C.email||"")}"><input type="hidden" name="adresa" value="${esc(C.adresa||"")}">
+          ${need?`<label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>`:`<input type="hidden" name="pib" value="${esc(C.pib)}">`}
+          <label class="wide chk"><input type="checkbox" name="druga" onchange="document.getElementById('druga-box').hidden=!this.checked;document.querySelectorAll('#druga-box input[data-r]').forEach(i=>i.required=this.checked)"> Isporuka na adresu van sedišta firme</label>
+          <div id="druga-box" class="wide f-grid" hidden>
+            <label class="wide">Adresa isporuke *<input name="d_adresa" data-r placeholder="Ulica i broj, mesto, poštanski broj"></label>
+            <label>Kontakt osoba *<input name="d_osoba" data-r autocomplete="off"></label>
+            <label>Kontakt telefon *<input name="d_tel" data-r type="tel" autocomplete="off"></label>
+          </div>
+          <label class="wide">Napomena<textarea name="napomena" rows="3"></textarea></label>
+          <label class="hp" aria-hidden="true">Ne popunjavati<input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </div>`;
+    }
+    return `<div class="f-grid">
+          <label>Ime i prezime *<input name="ime" required autocomplete="name"></label>
+          <label>Firma *<input name="firma" required autocomplete="organization"></label>
+          <label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
+          <p class="cart-note wide cart-partners">Niste registrovano pravno lice? <a href="informacije#partneri">Kliknite ovde</a> da vidite spisak naših poslovnih partnera.<br>Napomena: ne znamo i ne odgovaramo za cene po kojima prodaju naše artikle.</p>
+          <label>Telefon *<input name="telefon" type="tel" required autocomplete="tel"></label>
+          <label>Mejl *<input name="email" type="email" required autocomplete="email"></label>
+          <label class="wide">Adresa za isporuku *<input name="adresa" required autocomplete="street-address" placeholder="Ulica i broj, mesto, poštanski broj"></label>
+          <label class="wide">Napomena<textarea name="napomena" rows="3"></textarea></label>
+          <label class="hp" aria-hidden="true">Ne popunjavati<input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </div>`;
+  }
   function cartHTML(){
     return `<div class="m-content cart-box">
       <div class="eng">Upit za ponudu</div><h2>Korpa</h2>
@@ -79,17 +110,7 @@
         <div class="m-sub">Podaci za odgovor i isporuku</div>
         <p class="cart-note">Ovo je upit, ne i obavezujuća kupovina. Javljamo vam se sa potvrdom cena i dostupnosti. Poštarinu plaćamo za pošiljke čija vrednost prelazi 10.000 dinara.</p>
         <p class="cart-note"><b>Prodaja samo pravnim licima i preduzetnicima — firma i PIB su obavezni.</b></p>
-        <div class="f-grid">
-          <label>Ime i prezime *<input name="ime" required autocomplete="name" value="${esc((window.CUSTOMER||{}).ime||"")}"></label>
-          <label>Firma *<input name="firma" required autocomplete="organization" value="${esc((window.CUSTOMER||{}).firma||"")}"></label>
-          <label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
-          <p class="cart-note wide cart-partners">Niste registrovano pravno lice? <a href="informacije#partneri">Kliknite ovde</a> da vidite spisak naših poslovnih partnera.<br>Napomena: ne znamo i ne odgovaramo za cene po kojima prodaju naše artikle.</p>
-          <label>Telefon *<input name="telefon" type="tel" required autocomplete="tel" value="${esc((window.CUSTOMER||{}).telefon||"")}"></label>
-          <label>Mejl *<input name="email" type="email" required autocomplete="email" value="${esc((window.CUSTOMER||{}).email||"")}"></label>
-          <label class="wide">Adresa za isporuku *<input name="adresa" required autocomplete="street-address" value="${esc((window.CUSTOMER||{}).adresa||"")}" placeholder="Ulica i broj, mesto, poštanski broj"></label>
-          <label class="wide">Napomena<textarea name="napomena" rows="3"></textarea></label>
-          <label class="hp" aria-hidden="true">Ne popunjavati<input name="bot-field" tabindex="-1" autocomplete="off"></label>
-        </div>
+        ${formFields()}
         <div id="cart-err" class="cart-err" hidden></div>
         <button class="cart-send" type="submit">Pošalji upit</button>
       </form>
@@ -111,7 +132,7 @@
     const text=orderText();
     const _t=totals(),_pd=PARTIS.gross(_t.sum)-_t.sum;
     const stavke=JSON.stringify(lines().map(x=>({s:x.sf||"",n:x.p.name,l:x.label||"",q:x.c.q,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rb||0}))),ukupno=JSON.stringify({sum:_t.sum,pdv:_pd,total:_t.sum+_pd,upit:_t.upit,rabat:hasR(),list:_t.list,rabIznos:_t.rab});
-    const data={stavke,ukupno,"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:fd.get("napomena")||"","bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
+    const data={stavke,ukupno,"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:((fd.get("druga")&&fd.get("d_adresa"))?`ISPORUKA NA DRUGU ADRESU: ${fd.get("d_adresa")} | Kontakt: ${fd.get("d_osoba")}, ${fd.get("d_tel")}\n`:"")+(fd.get("napomena")||""),"bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
     if(window.PARTIS_OFFLINE){offlineSend(data,text);return false;}
     b.disabled=true;b.textContent="Šaljem…";err.hidden=true;
     fetch(/netlify\.app$/.test(location.hostname)?"/":"porudzbina.php",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams(data).toString()})
@@ -166,6 +187,6 @@
     const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([window._partisOff.file],{type:"text/plain;charset=utf-8"}));
     a.download="PARTIS-upit.txt";document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
   };
-  window.addEventListener("partis-account",()=>{badge();if(document.getElementById("cart-list"))refresh();});
+  window.addEventListener("partis-account",()=>{badge();if(PAGEEL&&document.getElementById("cart-form")&&!document.querySelector(".cart-box h2+.m-lead"))PAGEEL.innerHTML=cartHTML();else if(document.getElementById("cart-list"))refresh();});
   badge();
 })();
