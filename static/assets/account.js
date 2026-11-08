@@ -14,11 +14,11 @@
 
   const hasSb=()=>{try{return Object.keys(localStorage).some(k=>k.startsWith("sb-"));}catch(e){return false;}};
   let cachedName=null;try{const c=JSON.parse(localStorage.getItem("partis_acct")||"null");if(c&&c.n&&hasSb())cachedName=c.n;}catch(e){}
-  const inHTML=n=>`<span class="acct-name">${esc(n)}</span><a class="acct-b alt" href="/nalog">Partis nalog</a><a class="acct-b" href="/nalog/porudzbine/">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
+  const inHTML=n=>`<span class="acct-name">${esc(n)}</span><a class="acct-b alt" href="/nalog">Vaš nalog</a><a class="acct-b" href="/nalog/porudzbine/">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
   function paint(){
     if(!profile&&cachedName){box.innerHTML=inHTML(cachedName);box.querySelector("#acOut").onclick=logout;bar.hidden=true;bar.innerHTML="";return;}
     if(profile){
-      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="/nalog">Partis nalog</a><a class="acct-b" href="/nalog/porudzbine/">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
+      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="/nalog">Vaš nalog</a><a class="acct-b" href="/nalog/porudzbine/">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
       box.querySelector("#acOut").onclick=logout;
       const rs=PARTIS.GROUPS.map(([k,n])=>[n,(profile.rabati||{})[k]]).filter(x=>x[1]>0).map(x=>`${esc(x[0])} <b>${x[1]}%</b>`);
       const all=(profile.rabati||{}).svi>0?`opšti <b>${profile.rabati.svi}%</b>`:"";
@@ -167,15 +167,15 @@
       await c.from("porudzbine").insert({user_id:session.user.id,stavke:row.stavke,ukupno:row.ukupno,dostava:row.dostava||null,napomena:row.napomena||null});}catch(e){}
   };
 
-  /* ---------- stranica „Partis nalog" ---------- */
+  /* ---------- stranica „Vaš nalog" ---------- */
   const NP=document.getElementById("nalog-page");
   const fmtD=d=>{try{return new Date(d).toLocaleString("sr-Latn-RS",{day:"numeric",month:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"});}catch(e){return d;}};
   async function renderNalog(){
     if(!NP)return;
     const P=profile||(cachedName?window.CUSTOMER:null);
-    if(!P){NP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Partis nalog</h2><p class="m-lead">Prijavite se da vidite i menjate svoje podatke i pregledate prethodne porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
+    if(!P){NP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Vaš nalog</h2><p class="m-lead">Prijavite se da vidite i menjate svoje podatke i pregledate prethodne porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
     NP.innerHTML=`<div class="m-content cart-box">
-      <div class="eng">Nalog kupca</div><h2>Partis nalog</h2>
+      <div class="eng">Nalog kupca</div><h2>Vaš nalog</h2>
       ${navTabs("nalog")}
       <div class="m-sub">Moji podaci</div>
       <form id="nalForm" class="cart-form" onsubmit="return partisSaveProfile(event)">
@@ -206,7 +206,7 @@
     }catch(x){m.textContent="Čuvanje nije uspelo. Pokušajte ponovo ili nas pozovite: +381 18 553 800.";m.hidden=false;}
     b.disabled=false;b.textContent="Sačuvaj izmene";return false;
   };
-  const navTabs=a=>`<div class="nal-tabs"><a href="/nalog"${a==="nalog"?' class="on"':""}>Partis nalog</a><a href="/nalog/porudzbine/"${a==="porudzbine"?' class="on"':""}>Moje porudžbine</a></div>`;
+  const navTabs=a=>`<div class="nal-tabs"><a href="/nalog"${a==="nalog"?' class="on"':""}>Vaš nalog</a><a href="/nalog/porudzbine/"${a==="porudzbine"?' class="on"':""}>Moje porudžbine</a></div>`;
   const OP=document.getElementById("porud-page");
   const STAT={poslato:"Upit primljen",obrada:"U obradi",poslato_kupcu:"Poslato",isporuceno:"Isporučeno"};
   async function renderOrders(){
