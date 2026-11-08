@@ -14,7 +14,7 @@
 
   function paint(){
     if(profile){
-      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="nalog">Moj nalog</a><a class="acct-b" href="porudzbine">Porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
+      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="nalog">Partis nalog</a><a class="acct-b" href="porudzbine">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
       box.querySelector("#acOut").onclick=logout;
       const rs=PARTIS.GROUPS.map(([k,n])=>[n,(profile.rabati||{})[k]]).filter(x=>x[1]>0).map(x=>`${esc(x[0])} <b>${x[1]}%</b>`);
       const all=(profile.rabati||{}).svi>0?`opšti <b>${profile.rabati.svi}%</b>`:"";
@@ -162,15 +162,15 @@
       await c.from("porudzbine").insert({user_id:session.user.id,stavke:row.stavke,ukupno:row.ukupno,dostava:row.dostava||null,napomena:row.napomena||null});}catch(e){}
   };
 
-  /* ---------- stranica „Moj nalog" ---------- */
+  /* ---------- stranica „Partis nalog" ---------- */
   const NP=document.getElementById("nalog-page");
   const fmtD=d=>{try{return new Date(d).toLocaleString("sr-Latn-RS",{day:"numeric",month:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"});}catch(e){return d;}};
   async function renderNalog(){
     if(!NP)return;
-    if(!profile){NP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Moj nalog</h2><p class="m-lead">Prijavite se da vidite i menjate svoje podatke i pregledate prethodne porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
+    if(!profile){NP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Partis nalog</h2><p class="m-lead">Prijavite se da vidite i menjate svoje podatke i pregledate prethodne porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
     const P=profile;
     NP.innerHTML=`<div class="m-content cart-box">
-      <div class="eng">Nalog kupca</div><h2>Moj nalog</h2>
+      <div class="eng">Nalog kupca</div><h2>Partis nalog</h2>
       ${navTabs("nalog")}
       <div class="m-sub">Moji podaci</div>
       <form id="nalForm" class="cart-form" onsubmit="return partisSaveProfile(event)">
@@ -201,13 +201,13 @@
     }catch(x){m.textContent="Čuvanje nije uspelo. Pokušajte ponovo ili nas pozovite: +381 18 553 800.";m.hidden=false;}
     b.disabled=false;b.textContent="Sačuvaj izmene";return false;
   };
-  const navTabs=a=>`<div class="nal-tabs"><a href="nalog"${a==="nalog"?' class="on"':""}>Moji podaci</a><a href="porudzbine"${a==="porudzbine"?' class="on"':""}>Istorija porudžbina</a></div>`;
+  const navTabs=a=>`<div class="nal-tabs"><a href="nalog"${a==="nalog"?' class="on"':""}>Partis nalog</a><a href="porudzbine"${a==="porudzbine"?' class="on"':""}>Moje porudžbine</a></div>`;
   const OP=document.getElementById("porud-page");
   const STAT={poslato:"Upit primljen",obrada:"U obradi",poslato_kupcu:"Poslato",isporuceno:"Isporučeno"};
   async function renderOrders(){
     if(!OP)return;
-    if(!profile){OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Istorija porudžbina</h2><p class="m-lead">Prijavite se da pregledate svoje porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
-    OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Istorija porudžbina</h2>${navTabs("porudzbine")}<div id="nalOrders"><p class="cart-note">Učitavam…</p></div></div>`;
+    if(!profile){OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Moje porudžbine</h2><p class="m-lead">Prijavite se da pregledate svoje porudžbine.</p><button class="cart-send" type="button" onclick="partisAuth('login')">Prijava</button></div>`;return;}
+    OP.innerHTML=`<div class="m-content cart-box"><div class="eng">Nalog kupca</div><h2>Moje porudžbine</h2>${navTabs("porudzbine")}<div id="nalOrders"><p class="cart-note">Učitavam…</p></div></div>`;
     loadOrders();
   }
   let ORD=[];
@@ -230,7 +230,7 @@
           ${o.faktura_path?`<p class="cart-note"><a href="#" onclick="event.preventDefault();partisFaktura(${i})">Preuzmi fakturu (PDF)</a></p>`:""}
           <button class="cart-send" type="button" onclick="partisRepeat(${i})">Ponovi porudžbinu</button></details>`;
       }).join("");
-    }catch(x){el.innerHTML=`<p class="cart-note">Istorija porudžbina trenutno nije dostupna.</p>`;}
+    }catch(x){el.innerHTML=`<p class="cart-note">Porudžbine trenutno nisu dostupne.</p>`;}
   }
   window.partisFaktura=async function(i){
     const o=ORD[i];if(!o||!o.faktura_path)return;
