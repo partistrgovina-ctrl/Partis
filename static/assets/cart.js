@@ -74,12 +74,11 @@
   function formFields(){
     const C=window.CUSTOMER;
     if(C&&C.firma){
-      const need=!C.pib;
       return `<div class="f-grid">
           <div class="wide cart-saved"><b>${esc(C.firma)}</b>${C.pib?` · PIB ${esc(C.pib)}`:""}<br>${esc(C.ime||"")}${C.telefon?` · ${esc(C.telefon)}`:""} · ${esc(C.email||"")}<br>${esc(C.adresa||"")}<small>Podaci iz vašeg naloga. Ako nešto nije tačno, javite nam.</small></div>
           <input type="hidden" name="ime" value="${esc(C.ime||"")}"><input type="hidden" name="firma" value="${esc(C.firma||"")}">
           <input type="hidden" name="telefon" value="${esc(C.telefon||"")}"><input type="hidden" name="email" value="${esc(C.email||"")}"><input type="hidden" name="adresa" value="${esc(C.adresa||"")}">
-          ${need?`<label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>`:`<input type="hidden" name="pib" value="${esc(C.pib)}">`}
+          <label>Potvrdite PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
           <label class="wide chk"><input type="checkbox" name="druga" onchange="document.getElementById('druga-box').hidden=!this.checked;document.querySelectorAll('#druga-box input[data-r]').forEach(i=>i.required=this.checked)"> Isporuka na adresu van sedišta firme</label>
           <div id="druga-box" class="wide f-grid" hidden>
             <label class="wide">Adresa isporuke *<input name="d_adresa" data-r placeholder="Ulica i broj, mesto, poštanski broj"></label>
@@ -129,6 +128,7 @@
     const f=document.getElementById("cart-form"),fd=new FormData(f),err=document.getElementById("cart-err"),b=f.querySelector(".cart-send");
     if(!cart.length)return false;
     if(fd.get("bot-field"))return false;
+    if(window.CUSTOMER&&window.CUSTOMER.pib&&String(fd.get("pib")).trim()!==String(window.CUSTOMER.pib)){err.textContent="PIB se ne poklapa sa PIB-om vašeg naloga. Proverite unos.";err.hidden=false;return false;}
     const text=orderText();
     const _t=totals(),_pd=PARTIS.gross(_t.sum)-_t.sum;
     const stavke=JSON.stringify(lines().map(x=>({s:x.sf||"",n:x.p.name,l:x.label||"",q:x.c.q,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rb||0}))),ukupno=JSON.stringify({sum:_t.sum,pdv:_pd,total:_t.sum+_pd,upit:_t.upit,rabat:hasR(),list:_t.list,rabIznos:_t.rab});
