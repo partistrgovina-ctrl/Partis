@@ -14,7 +14,7 @@
 
   function paint(){
     if(profile){
-      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="nalog">Partis nalog</a><a class="acct-b" href="porudzbine">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
+      box.innerHTML=`<span class="acct-name">${esc(profile.ime||profile.email)}</span><a class="acct-b alt" href="/nalog">Partis nalog</a><a class="acct-b" href="/nalog/porudzbine/">Moje porudžbine</a><button type="button" class="acct-b" id="acOut">Odjava</button>`;
       box.querySelector("#acOut").onclick=logout;
       const rs=PARTIS.GROUPS.map(([k,n])=>[n,(profile.rabati||{})[k]]).filter(x=>x[1]>0).map(x=>`${esc(x[0])} <b>${x[1]}%</b>`);
       const all=(profile.rabati||{}).svi>0?`opšti <b>${profile.rabati.svi}%</b>`:"";
@@ -201,7 +201,7 @@
     }catch(x){m.textContent="Čuvanje nije uspelo. Pokušajte ponovo ili nas pozovite: +381 18 553 800.";m.hidden=false;}
     b.disabled=false;b.textContent="Sačuvaj izmene";return false;
   };
-  const navTabs=a=>`<div class="nal-tabs"><a href="nalog"${a==="nalog"?' class="on"':""}>Partis nalog</a><a href="porudzbine"${a==="porudzbine"?' class="on"':""}>Moje porudžbine</a></div>`;
+  const navTabs=a=>`<div class="nal-tabs"><a href="/nalog"${a==="nalog"?' class="on"':""}>Partis nalog</a><a href="/nalog/porudzbine/"${a==="porudzbine"?' class="on"':""}>Moje porudžbine</a></div>`;
   const OP=document.getElementById("porud-page");
   const STAT={poslato:"Upit primljen",obrada:"U obradi",poslato_kupcu:"Poslato",isporuceno:"Isporučeno"};
   async function renderOrders(){

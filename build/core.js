@@ -201,7 +201,7 @@
      Unutar sajta se i dalje koriste "stari" logički nazivi fajlova; pri izradi se svi zamenjuju pravim putanjama. */
   const LEGACY={"nastavci-mazalica.html":"kategorija-ostalo.html","proizvod-automat-pritiska-ulja-m14x1.html":"proizvod-automat-pritiska-ulja-m14x1-5.html","kategorija-aksa.html":"kategorija-ak-sa.html","kategorija-automati.html":"kategorija-automati-i-prekidaci.html","kategorija-davaci.html":"kategorija-davaci-temperature-i-pritiska-ulja.html","kategorija-glave.html":"kategorija-glave-spojnice-vazduha.html","kategorija-svetlosna.html":"kategorija-svetlosna-signalizacija.html","kategorija-zvucna.html":"kategorija-zvucna-signalizacija.html"};
   function pathMap(D){
-    const M={"proizvodi.html":"proizvodi/","hema-aerosol.html":"proizvodi/hema/","armirana-creva.html":"proizvodi/armirana-creva/","pneumatika.html":"proizvodi/pneumatika/","traktorski-program.html":"proizvodi/traktorski-program/","traktorska-roba.html":"proizvodi/traktorski-program/traktorska-roba/","gotova-creva.html":"proizvodi/traktorski-program/gotova-creva/","vase-vozilo.html":"proizvodi/vase-vozilo/"};
+    const M={"nalog.html":"nalog/","porudzbine.html":"nalog/porudzbine/","proizvodi.html":"proizvodi/","hema-aerosol.html":"proizvodi/hema/","armirana-creva.html":"proizvodi/armirana-creva/","pneumatika.html":"proizvodi/pneumatika/","traktorski-program.html":"proizvodi/traktorski-program/","traktorska-roba.html":"proizvodi/traktorski-program/traktorska-roba/","gotova-creva.html":"proizvodi/traktorski-program/gotova-creva/","vase-vozilo.html":"proizvodi/vase-vozilo/"};
     ["pneumatski-alat-i-nastavci","creva-pneumatike","ojacanja-creva","spojnice-pneumatike"].forEach(f=>{M[f+".html"]="proizvodi/pneumatika/"+f+"/";});
     const sl=f=>f.replace(/^kategorija-/,"").replace(/\.html$/,""),KS=D.KATS||[];
     KS.filter(k=>k.roditelj==="traktorska-roba").forEach(k=>{M[k.file]=M["traktorska-roba.html"]+sl(k.file)+"/";});
@@ -231,7 +231,7 @@
       .map(p=>`  <url><loc>${site}/${p.file==="index.html"?"":p.file.replace(/(^|\/)index\.html$/,"$1").replace(/\.html$/,"")}</loc><changefreq>weekly</changefreq><priority>${p.file==="index.html"?"1.0":"0.8"}</priority></url>\n`).join("");
     return {
       "sitemap.xml":`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sm}</urlset>\n`,
-      "robots.txt":`User-agent: *\nAllow: /\nDisallow: /pretraga.html\nDisallow: /korpa\nDisallow: /nalog\nDisallow: /porudzbine\nDisallow: /admin/\n\nSitemap: ${site}/sitemap.xml\n`
+      "robots.txt":`User-agent: *\nAllow: /\nDisallow: /pretraga.html\nDisallow: /korpa\nDisallow: /nalog\nDisallow: /admin/\n\nSitemap: ${site}/sitemap.xml\n`
     };
   }
   return {MULTI:true,POC_DEF,pocMerge,HIDE,model,dataFiles,missingImages,renderPage,katPages,productPages,sitemapRobots,pathMap,fileOf,rewriteUrls,redirectRules};
