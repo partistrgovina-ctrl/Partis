@@ -87,11 +87,13 @@
         <p class="cart-note"><a href="#" onclick="event.preventDefault();partisAuth('forgot')">Zaboravili ste lozinku?</a></p>
       </form>`;
     else if(mode==="register")inner=`${tabs("register")}
+      <p class="cart-note"><b>Prodaja samo pravnim licima i preduzetnicima — firma i PIB su obavezni.</b></p>
       <p class="cart-note">Registrovani kupci dobijaju svoje rabate. <b>Nalog aktivira prodavnica</b> — kada ga odobrimo, možete da se prijavite. Javljamo se na mejl ili telefon.</p>
       <form id="acForm" class="cart-form" onsubmit="return partisRegister(event)">
         <div class="f-grid">
           <label>Ime i prezime *<input name="ime" required autocomplete="name"></label>
-          <label>Firma (neobavezno)<input name="firma" autocomplete="organization"></label>
+          <label>Firma *<input name="firma" required autocomplete="organization"></label>
+          <label>PIB *<input name="pib" required inputmode="numeric" maxlength="9" pattern="[0-9]{9}" autocomplete="off" placeholder="9 cifara" title="PIB ima 9 cifara"></label>
           <label>Telefon *<input name="telefon" type="tel" required autocomplete="tel"></label>
           <label>Mejl *<input name="email" type="email" required autocomplete="email"></label>
           <label class="wide">Adresa *<input name="adresa" required autocomplete="street-address" placeholder="Ulica i broj, mesto, poštanski broj"></label>
@@ -131,7 +133,7 @@
     e.preventDefault();const f=e.target,fd=new FormData(f);err("");busy(f,true,"Šaljem…");
     try{
       const c=await client();
-      const {data,error}=await c.auth.signUp({email:fd.get("email").trim(),password:fd.get("pass"),options:{data:{ime:fd.get("ime").trim(),firma:(fd.get("firma")||"").trim(),telefon:fd.get("telefon").trim(),adresa:fd.get("adresa").trim()}}});
+      const {data,error}=await c.auth.signUp({email:fd.get("email").trim(),password:fd.get("pass"),options:{data:{ime:fd.get("ime").trim(),firma:(fd.get("firma")||"").trim(),pib:(fd.get("pib")||"").trim(),telefon:fd.get("telefon").trim(),adresa:fd.get("adresa").trim()}}});
       if(error)throw error;
       if(data&&data.session)await c.auth.signOut();   /* dok nalog ne odobrimo, nema prijave */
       apply(null);
