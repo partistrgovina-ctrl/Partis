@@ -83,7 +83,7 @@ $html = '<!DOCTYPE html><html><body style="margin:0;padding:16px;background:#f4f
   . '<table style="border-collapse:collapse;width:100%;font-size:14px"><tr style="background:#16140f;color:#fff"><th style="padding:8px 10px;text-align:left">Artikal</th><th style="padding:8px 10px;text-align:right">Količina</th></tr>' . $red . '</table>'
   . (isset($uk['total']) ? '<p style="text-align:right;margin:10px 0 0">Ukupno sa PDV-om: <b>' . rsd($uk['total']) . ' RSD</b></p>' : '')
   . ($pdf !== null ? '<p style="margin:16px 0 0">Faktura je u prilogu ovog mejla (PDF).</p>' : '')
-  . '<p style="margin:18px 0 0">Sve porudžbine i fakture možete da pregledate na <a href="https://partis.rs/porudzbine" style="color:#c2241f">partis.rs/porudzbine</a> (prijavom na vaš nalog).</p>'
+  . '<p style="margin:18px 0 0">Sve porudžbine i fakture možete da pregledate na <a href="https://partis.rs/nalog/porudzbine/" style="color:#c2241f">partis.rs/nalog/porudzbine</a> (prijavom na vaš nalog).</p>'
   . '<p style="margin:18px 0 0;color:#555;font-size:13px">PARTIS Niš &middot; Bulevar Nemanjića 103, lokal 8 &middot; <a href="tel:+38118553800" style="color:#555">+381 18 553 800</a> &middot; <a href="mailto:partis.trgovina@gmail.com" style="color:#555">partis.trgovina@gmail.com</a></p>'
   . '</div></div></body></html>';
 $txt = "Poštovani/poštovana $ime,\n\njavljamo novosti u vezi sa porudžbinom od $datum. Status: $status.\n"
