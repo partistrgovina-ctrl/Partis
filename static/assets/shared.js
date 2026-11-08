@@ -134,6 +134,7 @@
   /* procenat rabata za artikal: rabat grupe, a ako nije upisan — opšti rabat ("svi") */
   function rebateFor(p,R){
     if(!R)return 0;
+    if(p&&p.gal&&p.promo!==false&&priced(p))return 0; /* artikli na akciji ne ulaze u rabat */
     const g=Number(R[groupOf(p)]),a=Number(R.svi);
     const v=R[groupOf(p)]!==undefined&&R[groupOf(p)]!==""&&!isNaN(g)?g:(!isNaN(a)?a:0);
     return v>0&&v<100?v:0;
