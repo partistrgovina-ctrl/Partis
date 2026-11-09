@@ -304,6 +304,34 @@ dialog{border:0;border-radius:16px;box-shadow:0 24px 70px rgba(22,20,15,.3)}
 .ct th{text-transform:none;letter-spacing:0}
 .cc-t{text-transform:none;letter-spacing:0}
 @media(max-width:700px){.sel{max-width:none;min-width:100%}}
+
+/* ===== tasteri kao na sajtu, bez senki ===== */
+button,.btn,.dd summary{font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1px solid #bdb5a1;border-radius:999px;background:var(--paper);color:var(--ink);padding:9px 18px;box-shadow:none;transition:background-color .25s,color .25s,border-color .25s}
+button:hover,.dd summary:hover,.dd[open] summary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+button.red,header button.red{background:var(--red);border-color:var(--red);color:#fff}
+button.red:hover,header button.red:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+header button{background:var(--paper);border-radius:999px}
+header button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+header button.red{background:var(--red);border-color:var(--red);color:#fff}
+.dd-m{box-shadow:none;border:1px solid #bdb5a1;background:var(--paper)}
+.dd-m button{border:0;border-radius:8px;text-transform:none;letter-spacing:0;font-family:'IBM Plex Sans',sans-serif;font-weight:500;background:none;color:var(--ink);padding:9px 12px}
+.dd-m button:hover{background:var(--ink);color:var(--paper)}
+.row .ed,.vh2 button,.cc-ft button,.df button,.dh button,#start button,.tg{border-radius:999px}
+.tg{background:none;border:0;padding:0;font-family:'IBM Plex Sans';text-transform:none;letter-spacing:0;font-size:13px;font-weight:600;text-decoration:underline}
+.tg:hover{background:none;color:var(--red)}
+.dh button{background:var(--paper);padding:6px 12px}
+.cc-chips button{padding:6px 14px;font-size:12.5px}
+.cc-chips button.on{background:var(--red);border-color:var(--red);color:#fff}
+.rw0,.grp,.cc,.cc:hover,.rw0:hover,dialog,#start,.note,.dd-m{box-shadow:none!important}
+.rw0,.grp,.cc{border-color:#d2cbba}
+.rw0:hover,.cc:hover{border-color:var(--ink)}
+dialog{border:1px solid #bdb5a1}
+dialog::backdrop{background:rgba(22,20,15,.5)}
+.sw input:checked+i,.sw i{box-shadow:none}
+button:hover,button:active{transform:none!important;box-shadow:none!important}
+header{box-shadow:none!important;border-bottom:1px solid #d2cbba!important}
+input:focus,select:focus,textarea:focus{box-shadow:none!important;border-color:var(--red)!important}
+.sw i,.sw i::after{box-shadow:none}
 </style>
 </head>
 <body>
