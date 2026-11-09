@@ -41,11 +41,11 @@ function slovima($n) {
   $n = (int)$n; if ($n === 0) return 'nula';
   $j = ['', 'jedan', 'dva', 'tri', 'četiri', 'pet', 'šest', 'sedam', 'osam', 'devet', 'deset', 'jedanaest', 'dvanaest', 'trinaest', 'četrnaest', 'petnaest', 'šesnaest', 'sedamnaest', 'osamnaest', 'devetnaest'];
   $d = ['', '', 'dvadeset', 'trideset', 'četrdeset', 'pedeset', 'šezdeset', 'sedamdeset', 'osamdeset', 'devedeset'];
-  $s = ['', 'sto', 'dvesta', 'trista', 'četristo', 'petsto', 'šesto', 'sedamsto', 'osamsto', 'devetsto'];
+  $s = ['', 'sto', 'dvesta', 'trista', 'četristo', 'petsto', 'šeststo', 'sedamsto', 'osamsto', 'devetsto'];
   $f = function ($x, $zen) use ($j, $d, $s) {
     $o = $s[intdiv($x, 100)]; $r = $x % 100;
-    if ($r < 20) { $t = $j[$r]; if ($zen) $t = str_replace(['jedan', 'dva'], ['jedna', 'dve'], $t); $o .= $t; }
-    else { $t = $j[$r % 10]; if ($zen) $t = str_replace(['jedan', 'dva'], ['jedna', 'dve'], $t); $o .= $d[intdiv($r, 10)] . $t; }
+    if ($r < 20) { $t = $j[$r]; if ($zen) $t = preg_replace(['/^jedan$/', '/^dva$/'], ['jedna', 'dve'], $t); $o .= $t; }
+    else { $t = $j[$r % 10]; if ($zen) $t = preg_replace(['/^jedan$/', '/^dva$/'], ['jedna', 'dve'], $t); $o .= $d[intdiv($r, 10)] . $t; }
     return $o;
   };
   $out = '';
