@@ -2,7 +2,7 @@
   "title": "Poliamidno (PA) crevo, crno – uvoz iz Turske (Gapex)",
   "category": "crevapn",
   "order": 24,
-  "in_stock": false,
+  "in_stock": true,
   "image": "/assets/img/crevo_pa.png",
   "description": "Crno poliamidno (PA 12) crevo za vazdušne instalacije. Čvršće je od poliuretanskog, otporno na pritisak, habanje i vremenske uslove. Uvoz iz Turske (Gapex). Dobavljamo jednom nedeljno, kotur od 100 metara.",
   "promo": false,
@@ -23,62 +23,77 @@
   "variants": [
     {
       "label": "2x4 mm",
+      "price": 20,
       "note": "po metru"
     },
     {
       "label": "2.5x4 mm",
+      "price": 19,
       "note": "po metru"
     },
     {
       "label": "3x5 mm",
+      "price": 23,
       "note": "po metru"
     },
     {
       "label": "3.3x5 mm",
+      "price": 23,
       "note": "po metru"
     },
     {
       "label": "4x6 mm",
+      "price": 29,
       "note": "po metru"
     },
     {
       "label": "6x8 mm",
+      "price": 39,
       "note": "po metru"
     },
     {
       "label": "7.5x10 mm",
+      "price": 54,
       "note": "po metru"
     },
     {
       "label": "8x10 mm",
+      "price": 51,
       "note": "po metru"
     },
     {
       "label": "9x12 mm",
+      "price": 91,
       "note": "po metru"
     },
     {
       "label": "10x12 mm",
+      "price": 68,
       "note": "po metru"
     },
     {
       "label": "10x14 mm",
+      "price": 136,
       "note": "po metru"
     },
     {
       "label": "11x14 mm",
+      "price": 122,
       "note": "po metru"
     },
     {
       "label": "12x15 mm",
+      "price": 113,
       "note": "po metru"
     },
     {
       "label": "12x16 mm",
+      "price": 190,
       "note": "po metru"
     },
     {
       "label": "13x16 mm",
+      "price": 177,
       "note": "po metru"
     }
   ]
