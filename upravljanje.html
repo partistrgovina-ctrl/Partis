@@ -989,7 +989,7 @@ async function custList(){
       <div class="cc-g"><div class="cc-t">Opšti rabat <small>važi za sve što nema poseban rabat</small></div><div class="cc-grid">${g([["svi","Svi artikli"]])}</div></div>
       <div class="cc-g"><div class="cc-t">Po grupama</div><div class="cc-grid">${g(base)}</div></div>
       ${nove.length?`<div class="cc-g"><div class="cc-t">Po kategorijama</div><div class="cc-grid">${g(nove)}</div></div>`:""}
-      <div class="cc-ft"><button type="button" class="red" data-save>Sačuvaj</button></div></div>`;};
+      <div class="cc-ft"><button type="button" class="red" data-save>Sačuvaj</button> <button type="button" data-del title="Trajno briše ovu porudžbinu">Obriši</button></div></div>`;};
   const wait=data.filter(p=>!p.odobren).length;
   d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga kupaca…"><div class="cc-chips"><button type="button" class="on" data-flt="">Svi (${data.length})</button><button type="button" data-flt="wait">Čekaju odobrenje (${wait})</button></div></div>
     <p class="cc-hint">Rabat je u procentima. Prazno polje = bez rabata (važi opšti). Kupac ne može da se prijavi dok mu nalog nije <b>Odobren</b>.</p>
@@ -1036,11 +1036,30 @@ async function ordList(){
         <label class="rf"><span>Faktura (PDF) ${o.faktura_path?"✓ priložena":""}</span><input type="file" accept="application/pdf" data-f="pdf"></label></div></div>
       <div class="cc-g"><div class="cc-t">Mejl kupcu <small>šalje se na ${esc(p.email||"—")} (sa fakturom u prilogu, ako je priložena — prvo sačuvajte)</small></div><textarea data-f="poruka" rows="2" placeholder="Kratka poruka kupcu (nije obavezno)" style="width:100%;font:inherit;padding:6px"></textarea></div>
       <div class="cc-ft"><button type="button" data-prev>Pregled predračuna</button> <button type="button" data-mail>Pošalji mejl kupcu</button> <button type="button" data-mail="predracun">Pošalji predračun</button> <button type="button" class="red" data-save>Sačuvaj</button></div></div>`;};
-  d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga po kupcu…"><div class="cc-chips"><button type="button" data-of="open" class="${ORDF==="open"?"on":""}">Otvorene (${nOpen})</button><button type="button" data-of="sent" class="${ORDF==="sent"?"on":""}">Poslate (${nSent})</button><button type="button" data-of="all" class="${ORDF==="all"?"on":""}">Sve</button></div></div>
+  d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga po kupcu…"><div class="cc-chips"><button type="button" data-of="open" class="${ORDF==="open"?"on":""}">Otvorene (${nOpen})</button><button type="button" data-of="sent" class="${ORDF==="sent"?"on":""}">Poslate (${nSent})</button><button type="button" data-of="all" class="${ORDF==="all"?"on":""}">Sve</button></div>${shown.length?`<button type="button" id="ordDelAll">Obriši sve u ovoj listi (${shown.length})</button>`:""}</div>
     <datalist id="kuriri"><option value="AKS"><option value="D Express"><option value="Post Express"><option value="BEX"><option value="City Express"><option value="Pošta Srbije"><option value="Lično preuzimanje"><option value="Sopstvena dostava"></datalist>
     <div class="cc-list">${shown.map(card).join("")||"<p>"+(ORDF==="open"?"Nema otvorenih porudžbina.":"Nema porudžbina u ovoj listi.")+"</p>"}</div>`,
     [["Osveži",ordList],["Zatvori",()=>$("#dlg3").close()]]);
   const body=$("#d3Body");
+  const delOrders=async list=>{
+    const ids=list.map(o=>o.id),paths=list.map(o=>o.faktura_path).filter(Boolean);
+    const {error:e1}=await SB.from("porudzbine").delete().in("id",ids);if(e1)throw e1;
+    const {data:chk}=await SB.from("porudzbine").select("id").in("id",ids);
+    if(chk&&chk.length)throw new Error("Baza nije dozvolila brisanje. Pokrenite SQL dopunu za brisanje porudžbina (SUPABASE-DOPUNA-BRISANJE.txt) u Supabase SQL Editoru.");
+    if(paths.length){try{await SB.storage.from("fakture").remove(paths);}catch(e){}}
+  };
+  body.querySelectorAll("[data-del]").forEach(b=>b.onclick=async()=>{
+    const c=b.closest(".cc"),o=ords.find(x=>x.id===c.dataset.id),p=P[o.user_id]||{};
+    if(!confirm("TRAJNO obrisati porudžbinu kupca „"+(p.firma||p.ime||"?")+"“ od "+fd(o.created_at)+"? Ovo se ne može vratiti.\n(Kupac je više neće videti u svom nalogu.)"))return;
+    b.disabled=true;
+    try{await delOrders([o]);ordList();}catch(e){alert("Brisanje nije uspelo: "+(e.message||e));b.disabled=false;}
+  });
+  const da=$("#ordDelAll");if(da)da.onclick=async()=>{
+    if(!confirm("TRAJNO obrisati SVE porudžbine iz ove liste ("+shown.length+")? Ovo se ne može vratiti, a kupci ih više neće videti u svom nalogu."))return;
+    if(!confirm("Još jednom: obrisati "+shown.length+" porudžbina zauvek?"))return;
+    da.disabled=true;
+    try{await delOrders(shown);ordList();}catch(e){alert("Brisanje nije uspelo: "+(e.message||e));da.disabled=false;}
+  };
   body.querySelectorAll("[data-of]").forEach(b=>b.onclick=()=>{ORDF=b.dataset.of;ordList();});
   $("#ccQ").oninput=()=>{const q=$("#ccQ").value.trim().toLowerCase();body.querySelectorAll(".cc").forEach(c=>c.hidden=!!q&&!c.dataset.s.includes(q));};
   const saveCard=async(c)=>{

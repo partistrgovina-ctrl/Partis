@@ -131,3 +131,7 @@ create policy "fakture brisanje" on storage.objects for delete
 -- DOPUNA 3 (predračun: koje stavke ulaze + napomena) — pokrenuti jednom
 -- =====================================================================
 alter table public.porudzbine add column if not exists predracun jsonb;
+
+-- DOPUNA 4: administrator moze da brise porudzbine
+drop policy if exists "admin brisanje porudzbina" on public.porudzbine;
+create policy "admin brisanje porudzbina" on public.porudzbine for delete using (public.je_admin());
