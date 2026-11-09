@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
-<title>PARTIS — upravljanje artiklima</title>
+<title>PARTIS — upravljanje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#16140f;--paper:#f1ede4;--red:#c8261c;--line:#cfc8b8;--ok:#1f8a4c;--white:#fff}
 *{box-sizing:border-box}
@@ -170,21 +173,95 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 .ordi{display:block;padding:3px 0}.ordi label{margin-right:8px;font-size:12px;white-space:nowrap}.ordi code{background:#eee;padding:0 4px}.ordi i{color:#777;font-style:normal}
+
+/* ================= IZGLED KAO NA SAJTU ================= */
+:root{--paper:#f4f1ea;--ink:#16140f;--muted:#6b665c;--line:#d8d2c4;--red:#c2241f;--photo:#dcdddf;--card:#fbf9f4;--r:0}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--paper) radial-gradient(var(--line) 0.5px,transparent 0.5px) 0 0/22px 22px;color:var(--ink)}
+header{background:var(--paper);color:var(--ink);padding:0;display:block;position:static;box-shadow:none;border-bottom:1.5px solid var(--ink)}
+.head-inner{max-width:1180px;margin:0 auto;padding:22px 28px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-logo{width:52px;height:auto;display:block}
+.brand-txt .bn{display:block;font-family:'Archivo';font-weight:900;font-size:32px;letter-spacing:2px;line-height:1}
+.brand-txt p{font-family:'IBM Plex Mono';font-size:12.5px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+.head-act{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+header .stat{flex:none;order:0;font-family:'IBM Plex Mono';font-size:12.5px;color:var(--muted);opacity:1;max-width:420px;text-align:right}
+.head-nav{max-width:1180px;margin:0 auto;padding:0 28px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.head-nav:not(:has(button:not([hidden]))){display:none}
+button,.btn{font-family:'IBM Plex Mono';font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:600;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);border-radius:0;padding:9px 16px;box-shadow:none;transition:.18s}
+button:hover{background:var(--ink);color:var(--paper);transform:none;box-shadow:none}
+button:active{transform:none}
+button.red,header button.red{background:var(--red);border-color:var(--red);color:#fff}
+button.red:hover,header button.red:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+header button{background:var(--paper);color:var(--ink);border-color:var(--ink);border-radius:0}
+header button:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+main{max-width:1180px;padding:26px 28px 90px}
+.ptag{font-family:'IBM Plex Mono';font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:600}
+.ptitle{font-family:'Archivo';font-weight:800;font-size:clamp(28px,4.5vw,44px);line-height:1;letter-spacing:-1px;margin:10px 0 20px}
+.ptitle em{font-style:normal;color:var(--red)}
+.tabs{gap:10px;margin-bottom:16px}
+.tabs button,.tabs button.pill{border-radius:0;border:1.5px solid var(--ink);background:var(--paper);padding:9px 16px;box-shadow:none}
+.tabs button:hover{background:var(--ink);color:var(--paper)}
+.tabs button.on,.tabs button.active{background:var(--red);border-color:var(--red);color:#fff;box-shadow:none}
+.bar{gap:10px;margin:0 0 6px;padding-top:4px}
+.bar input,.bar select,.f input[type=text],.f input[type=number],.f textarea,.f select,.tbl input,.ct input[type=number],.ct select,.cks,.cc-top input,.rin input{border-radius:0;border:1.5px solid var(--ink);background:var(--card);font-family:'IBM Plex Sans',sans-serif}
+.bar input:focus,.bar select:focus,.f input:focus,.f textarea:focus,.f select:focus,.tbl input:focus,.ct input:focus,.ct select:focus,.cc-top input:focus,.rin input:focus{border-color:var(--red);box-shadow:none;outline:0}
+.sec-label{display:flex;align-items:center;gap:14px;margin:30px 0 16px;font-family:'IBM Plex Mono';font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:400}
+.sec-label b{color:var(--ink);font-weight:600;font-size:16px}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.note{border-radius:0;box-shadow:none;background:#fff3c4;border:1.5px solid var(--ink);animation:none}
+.rw0{border-radius:0;box-shadow:none;background:var(--card);border:1.5px solid var(--ink);margin-bottom:10px;overflow:visible;transition:transform .2s,box-shadow .2s}
+.rw0:hover{transform:translateY(-2px);box-shadow:6px 6px 0 var(--ink)}
+.row{border:0;border-radius:0;background:var(--card);padding:10px 14px;grid-template-columns:78px 1fr auto auto;gap:16px}
+.row:hover{background:var(--card)}
+.row.park{background:#e7e3d9;opacity:1}
+.row.park b{color:var(--muted)}
+.row .th{width:78px;height:78px;border:1px solid var(--line);border-radius:0;background:var(--photo)}
+.row .th img{mix-blend-mode:multiply}
+.row:hover .th img{transform:none}
+.row b{font-family:'Archivo';font-weight:700;font-size:17px;line-height:1.2;margin-bottom:3px}
+.row small{font-family:'IBM Plex Mono';font-size:12.5px;color:var(--muted)}
+.vars{border-top:1.5px solid var(--ink);background:#f0ece1;border-radius:0}
+.vr{border-radius:0}.vr:hover{background:#e9e4d6}
+.sw i{border-radius:12px}
+.cc,.cc-chips button{border-radius:0}.cc{border:1.5px solid var(--ink);box-shadow:none;background:var(--card)}.cc:hover{box-shadow:6px 6px 0 var(--ink)}
+.cc.wait{background:#fff7d6}.cc-st{border-radius:0;font-family:'IBM Plex Mono';text-transform:uppercase;letter-spacing:.5px;font-size:12px}
+.cc-t{font-family:'IBM Plex Mono';letter-spacing:1.5px}
+.cc-chips button.on{background:var(--ink);color:var(--paper)}
+dialog{border:1.5px solid var(--ink);border-radius:0;background:var(--paper);box-shadow:10px 10px 0 var(--ink)}
+dialog[open]{animation:none}
+dialog::backdrop{backdrop-filter:none;background:rgba(22,20,15,.6)}
+.dh{background:var(--ink);color:var(--paper);padding:14px 22px}.dh h2{font-family:'Archivo';font-weight:800;letter-spacing:.5px}
+.df{background:var(--card);border-top:1.5px solid var(--ink)}
+.imgbox .pv{border-radius:0;background:var(--photo)}
+.ct th{background:var(--card);font-family:'IBM Plex Mono';letter-spacing:1px;text-transform:uppercase}
+.ct tbody tr:hover{background:#f0ece1}
+#start{border-radius:0;border:1.5px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--card);animation:none}
+#start h2{font-family:'Archivo';font-weight:800;font-size:28px}
+.cks-br{border-radius:0;background:#f0ece1}
+@media(max-width:700px){.head-inner{padding:16px}.head-nav{padding:0 16px 14px}main{padding:18px 16px 80px}.row{grid-template-columns:56px 1fr auto}.row .th{width:56px;height:56px}header .stat{text-align:left}}
 </style>
 </head>
 <body>
 <header>
-  <h1>PARTIS · upravljanje artiklima</h1>
-  <span class="stat" id="stat"></span>
-  <span class="sp"></span>
-  <button id="bPoc" hidden>Tekst početne</button>
-  <button id="bKat" hidden>Kategorije</button>
-  <button id="bCust" hidden>Kupci</button>
-  <button id="bOrd" hidden>Porudžbine</button>
-  <button id="bSettings" hidden>Domen</button>
-  <button id="bFolder" hidden>Promeni folder</button>
-  <button id="bPush" class="red" hidden>Objavi na sajt</button>
-  <button id="bBuild" hidden>Napravi sajt za objavu</button>
+  <div class="head-inner">
+    <div class="brand">
+      <img class="brand-logo" src="https://partis.rs/assets/img/partis-logo.png" alt="PARTIS" width="52" height="54" onerror="this.style.display='none'">
+      <div class="brand-txt"><span class="bn">PARTIS</span><p>Upravljanje sajtom</p></div>
+    </div>
+    <div class="head-act">
+      <span class="stat" id="stat"></span>
+      <button id="bPush" class="red" hidden>Objavi na sajt</button>
+      <button id="bBuild" hidden>Napravi sajt za objavu</button>
+    </div>
+  </div>
+  <nav class="head-nav" id="hnav">
+    <button id="bPoc" hidden>Tekst početne</button>
+    <button id="bKat" hidden>Kategorije</button>
+    <button id="bCust" hidden>Kupci</button>
+    <button id="bOrd" hidden>Porudžbine</button>
+    <button id="bSettings" hidden>Domen</button>
+    <button id="bFolder" hidden>Promeni folder</button>
+  </nav>
 </header>
 <main>
   <div id="start">
@@ -198,6 +275,8 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
     <p class="warn" id="startErr"></p>
   </div>
   <div id="app" hidden>
+    <div class="ptag">Artikli</div>
+    <h1 class="ptitle">Šta je na <em>sajtu</em></h1>
     <div class="tabs" id="tabs"></div>
     <div class="note" id="note"><b>Izmene još nisu na sajtu.</b> Kada završite, kliknite „Objavi na sajt“ — sajt se sam osveži za oko minut.</div>
     <div class="bar">
@@ -384,7 +463,7 @@ function tabRows(t){const o=[];t.parts.forEach(p=>DB[p.col].forEach(e=>{if(p.cat
 function curT(){const T=tabsDef();return T.find(x=>x.id===curTab)||T[0];}
 function buildTabs(){
   const T=tabsDef();if(!T.some(x=>x.id===curTab))curTab=T[0].id;
-  $("#tabs").innerHTML=T.map(t=>`<button data-k="${t.id}" class="${t.id===curTab?"on":""}">${esc(t.label)} (${tabRows(t).length})${t.g&&SKR.includes(t.g)?" · skrivena":""}</button>`).join("");
+  $("#tabs").innerHTML=T.map(t=>`<button data-k="${t.id}" class="pill ${t.id===curTab?"on active":""}">${esc(t.label)} (${tabRows(t).length})${t.g&&SKR.includes(t.g)?" · skrivena":""}</button>`).join("");
   $("#tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{curTab=b.dataset.k;$("#fCat").value="";buildTabs();render();});
   const t=curT(),cats=[...new Set(t.parts.flatMap(p=>p.col==="artikli"?(p.cats||[]):[]))];
   $("#fCat").hidden=cats.length<2;
@@ -414,9 +493,13 @@ function render(){
     if(fs==="in"&&d.in_stock===false)return false;if(fs==="out"&&d.in_stock!==false)return false;return true;});
   const L=$("#list");L.innerHTML="";
   if(!rows.length)L.innerHTML='<p>Nema artikala za prikaz.</p>';
-  let lastH;
-  rows.forEach(({col,e,h})=>{
-    if(h&&h!==lastH){const hh=document.createElement("h3");hh.textContent=h;hh.style.cssText="margin:18px 0 6px";L.appendChild(hh);}lastH=h;
+  let lastH,lastG;
+  const multi=T.parts.some(p=>p.col==="artikli"&&(p.cats||[]).length>1);
+  if(multi){const ord=T.parts.flatMap(p=>p.col==="artikli"?(p.cats||[]):[]);const gk=r=>{const cs=catsOf(r.e.data);const i=ord.findIndex(c=>cs.includes(c));return i<0?999:i;};rows.sort((a,b)=>gk(a)-gk(b));rows.forEach(r=>{const cs=catsOf(r.e.data),c=ord.find(c=>cs.includes(c));r.g=c?(CATS[c]||c):"Ostalo";});}
+  const cnt={};rows.forEach(r=>{if(r.g)cnt[r.g]=(cnt[r.g]||0)+1;});
+  rows.forEach(({col,e,h,g})=>{
+    if(h&&h!==lastH){const hh=document.createElement("h2");hh.className="sec-label";hh.innerHTML="<b>"+esc(h)+"</b>";L.appendChild(hh);}lastH=h;
+    if(g&&g!==lastG){const hh=document.createElement("h2");hh.className="sec-label";hh.innerHTML="<b>"+esc(g)+"</b> · "+cnt[g];L.appendChild(hh);}lastG=g;
     const d=e.data,on=d.in_stock!==false,C=COLS[col],vs=d[C.vk]||[],nOn=vs.filter(v=>v.in_stock!==false).length,allOff=vs.length>0&&nOn===0;
     const wrap=document.createElement("div");wrap.className="rw0";
     const r=document.createElement("div");r.className="row"+(on&&!allOff?"":" park");
