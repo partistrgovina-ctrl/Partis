@@ -239,6 +239,71 @@ dialog::backdrop{backdrop-filter:none;background:rgba(22,20,15,.6)}
 #start h2{font-family:'Archivo';font-weight:800;font-size:28px}
 .cks-br{border-radius:0;background:#f0ece1}
 @media(max-width:700px){.head-inner{padding:16px}.head-nav{padding:0 16px 14px}main{padding:18px 16px 80px}.row{grid-template-columns:56px 1fr auto}.row .th{width:56px;height:56px}header .stat{text-align:left}}
+
+/* ===== blaži izgled + padajući meniji ===== */
+:root{--rad:12px;--soft:0 2px 10px rgba(22,20,15,.07);--line2:#e2dccd}
+button,.btn{border-width:1px;border-radius:10px;letter-spacing:.4px;text-transform:none;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:14px;padding:9px 15px;background:#fff;border-color:#d8d2c4}
+button:hover{background:#efeadd;color:var(--ink);border-color:#c9c1ad}
+button.red,header button.red{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}
+button.red:hover,header button.red:hover{background:#a81e18;border-color:#a81e18;color:#fff}
+header{border-bottom:1px solid var(--line2);background:rgba(244,241,234,.92)}
+header button{background:#fff;border-color:#d8d2c4;border-radius:10px}
+header button:hover{background:#efeadd;color:var(--ink);border-color:#c9c1ad}
+.brand-txt p{letter-spacing:.8px;text-transform:none;font-family:'IBM Plex Sans'}
+.head-nav{align-items:center}
+.dd{position:relative}
+.dd summary{list-style:none;cursor:pointer;border:1px solid #d8d2c4;background:#fff;border-radius:10px;padding:9px 15px;font-size:14px;font-weight:500;user-select:none}
+.dd summary::-webkit-details-marker{display:none}
+.dd summary i,.grp summary i{font-style:normal;color:var(--muted);margin-left:6px;font-size:12px}
+.dd summary:hover{background:#efeadd}
+.dd[open] summary{background:#efeadd}
+.dd-m{position:absolute;z-index:50;top:calc(100% + 6px);left:0;min-width:210px;background:#fff;border:1px solid var(--line2);border-radius:var(--rad);box-shadow:0 10px 30px rgba(22,20,15,.16);padding:6px;display:flex;flex-direction:column;gap:2px}
+.dd-m button{text-align:left;border:0;background:none;border-radius:8px;padding:9px 12px;width:100%}
+.dd-m button:hover{background:#f1ede4}
+.dd-m button[hidden]{display:none}
+.ptag{letter-spacing:1.5px;text-transform:none;font-family:'IBM Plex Sans';font-size:14px}
+.ptitle{letter-spacing:-.5px;font-size:clamp(26px,4vw,36px);margin:6px 0 16px}
+.tabs{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px;align-items:flex-end}
+.sel{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);min-width:200px;flex:1;max-width:320px}
+.sel[hidden]{display:none}
+.sel select,.bar input{font:inherit;font-size:15px;color:var(--ink);padding:10px 12px;border:1px solid #d8d2c4;border-radius:10px;background:#fff;box-shadow:none;width:100%}
+.sel select{appearance:auto;cursor:pointer}
+.bar input{border-radius:10px;border:1px solid #d8d2c4;background:#fff}
+.f input[type=text],.f input[type=number],.f textarea,.f select,.tbl input,.ct input[type=number],.ct select,.cks,.cc-top input,.rin input{border-radius:10px;border:1px solid #d8d2c4;background:#fff}
+.bar{margin:6px 0 10px}
+.grp{background:#fff;border:1px solid var(--line2);border-radius:var(--rad);margin:0 0 10px;box-shadow:var(--soft);overflow:hidden}
+.grp>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:13px 16px;font-size:16px;user-select:none}
+.grp>summary::-webkit-details-marker{display:none}
+.grp>summary b{font-family:'Archivo';font-weight:700}
+.grp>summary .gc{background:#efeadd;border-radius:999px;font-size:12.5px;padding:2px 10px;color:var(--muted)}
+.grp>summary i{margin-left:auto;transition:transform .2s}
+.grp[open]>summary i{transform:rotate(180deg)}
+.grp[open]>summary{border-bottom:1px solid var(--line2)}
+.grp>.gb{padding:10px 12px 4px;background:#faf8f3}
+.rw0{border:1px solid var(--line2);border-radius:var(--rad);box-shadow:var(--soft);background:#fff;overflow:hidden;margin-bottom:8px}
+.rw0:hover{transform:none;box-shadow:0 4px 16px rgba(22,20,15,.1)}
+.row{background:#fff}.row:hover{background:#fff}
+.row.park{background:#f1ede4}
+.row .th{border-radius:10px;border:1px solid var(--line2);overflow:hidden}
+.row b{font-family:'IBM Plex Sans';font-weight:600;font-size:16px}
+.row small{font-family:'IBM Plex Sans';font-size:13px}
+.vars{border-top:1px solid var(--line2);background:#faf8f3;border-radius:0}
+.cc{border:1px solid var(--line2);border-radius:var(--rad);box-shadow:var(--soft)}
+.cc:hover{box-shadow:0 4px 16px rgba(22,20,15,.1)}
+.cc-st{border-radius:999px;text-transform:none;font-family:'IBM Plex Sans';letter-spacing:0}
+.cc-chips button{border-radius:999px}
+.cc-chips button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+dialog{border:0;border-radius:16px;box-shadow:0 24px 70px rgba(22,20,15,.3)}
+.dh{background:#fff;color:var(--ink);border-bottom:1px solid var(--line2);border-radius:16px 16px 0 0}
+.dh h2{font-family:'Archivo';font-weight:800}
+.dh button{background:#f1ede4}
+.df{background:#faf8f3;border-top:1px solid var(--line2);border-radius:0 0 16px 16px}
+.note{border:1px solid #e8d98a;border-radius:var(--rad)}
+#start{border:1px solid var(--line2);border-radius:16px;box-shadow:0 12px 40px rgba(22,20,15,.12)}
+.imgbox .pv{border-radius:10px}
+.ct th{text-transform:none;letter-spacing:0}
+.cc-t{text-transform:none;letter-spacing:0}
+@media(max-width:700px){.sel{max-width:none;min-width:100%}}
 </style>
 </head>
 <body>
@@ -255,12 +320,14 @@ dialog::backdrop{backdrop-filter:none;background:rgba(22,20,15,.6)}
     </div>
   </div>
   <nav class="head-nav" id="hnav">
-    <button id="bPoc" hidden>Tekst početne</button>
-    <button id="bKat" hidden>Kategorije</button>
-    <button id="bCust" hidden>Kupci</button>
+    <button id="bCust" hidden>Kupci i rabati</button>
     <button id="bOrd" hidden>Porudžbine</button>
-    <button id="bSettings" hidden>Domen</button>
-    <button id="bFolder" hidden>Promeni folder</button>
+    <details class="dd" id="ddSet"><summary>Sajt i podešavanja <i>▾</i></summary><div class="dd-m">
+      <button id="bPoc" hidden>Tekst početne</button>
+      <button id="bKat" hidden>Kategorije</button>
+      <button id="bSettings" hidden>Domen</button>
+      <button id="bFolder" hidden>Promeni folder</button>
+    </div></details>
   </nav>
 </header>
 <main>
@@ -277,12 +344,10 @@ dialog::backdrop{backdrop-filter:none;background:rgba(22,20,15,.6)}
   <div id="app" hidden>
     <div class="ptag">Artikli</div>
     <h1 class="ptitle">Šta je na <em>sajtu</em></h1>
-    <div class="tabs" id="tabs"></div>
+    <div class="tabs" id="tabs"><label class="sel"><span>Kategorija</span><select id="fTab"></select></label><label class="sel" id="fCatW"><span>Potkategorija / traktor</span><select id="fCat"></select></label><label class="sel"><span>Prikaz</span><select id="fStock"><option value="">Svi artikli</option><option value="in">Na stanju</option><option value="out">Parkirani</option></select></label></div>
     <div class="note" id="note"><b>Izmene još nisu na sajtu.</b> Kada završite, kliknite „Objavi na sajt“ — sajt se sam osveži za oko minut.</div>
     <div class="bar">
       <input type="search" id="q" placeholder="Pretraga artikala…">
-      <select id="fCat"></select>
-      <select id="fStock"><option value="">Svi</option><option value="in">Na stanju</option><option value="out">Parkirani</option></select>
       <button class="red" id="bNew">+ Novi artikal</button>
       <button class="red" id="bNew2" hidden>+ Nova oprema</button>
     </div>
@@ -461,13 +526,38 @@ function tabsDef(){
 const catsOf=d=>[d.category,...(Array.isArray(d.categories)?d.categories:[])].filter((c,i,a)=>c&&a.indexOf(c)===i);
 function tabRows(t){const o=[];t.parts.forEach(p=>DB[p.col].forEach(e=>{if(p.cats&&!catsOf(e.data).some(c=>p.cats.includes(c)))return;o.push({col:p.col,e,h:p.h});}));return o;}
 function curT(){const T=tabsDef();return T.find(x=>x.id===curTab)||T[0];}
+function catSummary(d){
+  const cs=catsOf(d),by={};KAT.forEach(k=>by[k.id]=k);
+  const brandOf=id=>{let k=by[id];while(k&&k.roditelj&&k.roditelj!=="traktorska-roba")k=by[k.roditelj];return k&&k.roditelj==="traktorska-roba"?k:null;};
+  const types=[],brands=[];
+  cs.forEach(c=>{const b=brandOf(c);if(b){if(!brands.includes(b.naziv))brands.push(b.naziv);}else types.push(CATS[c]||c);});
+  return types.join(" + ")+(brands.length?(types.length?" · ":"")+"Traktori: "+brands.join(", "):"");
+}
+function descIds(id){const o=[id];KAT.filter(k=>k.roditelj===id).forEach(k=>o.push(...descIds(k.id)));return o;}
+function subOpts(t){
+  const cats=[...new Set(t.parts.flatMap(p=>p.col==="artikli"?(p.cats||[]):[]))];
+  let h="";
+  if(cats.length>1)h+='<optgroup label="Vrsta artikla">'+cats.map(id=>`<option value="${id}">${esc(CATS[id]||id)}</option>`).join("")+'</optgroup>';
+  else if(cats.length===1&&!cats.some(c=>c==="traktor"))h+="";
+  if(cats.includes("traktor")){
+    KAT.filter(k=>k.roditelj==="traktorska-roba").forEach(br=>{
+      const ms=KAT.filter(k=>k.roditelj===br.id);
+      h+=`<optgroup label="${esc(br.naziv)}"><option value="${br.id}">${esc(br.naziv)} — svi modeli</option>`+ms.map(m=>`<option value="${m.id}">${esc(br.naziv)} ${esc(m.naziv)}</option>`).join("")+'</optgroup>';
+    });
+  }
+  return h;
+}
 function buildTabs(){
   const T=tabsDef();if(!T.some(x=>x.id===curTab))curTab=T[0].id;
-  $("#tabs").innerHTML=T.map(t=>`<button data-k="${t.id}" class="pill ${t.id===curTab?"on active":""}">${esc(t.label)} (${tabRows(t).length})${t.g&&SKR.includes(t.g)?" · skrivena":""}</button>`).join("");
-  $("#tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{curTab=b.dataset.k;$("#fCat").value="";buildTabs();render();});
-  const t=curT(),cats=[...new Set(t.parts.flatMap(p=>p.col==="artikli"?(p.cats||[]):[]))];
-  $("#fCat").hidden=cats.length<2;
-  $("#fCat").innerHTML='<option value="">Sve potkategorije</option>'+cats.map(id=>`<option value="${id}">${esc(CATS[id]||id)}</option>`).join("");
+  const built=T.filter(t=>!t.custom&&t.id!=="_ostalo"),more=T.filter(t=>t.custom||t.id==="_ostalo");
+  const op=t=>`<option value="${t.id}" ${t.id===curTab?"selected":""}>${esc(t.label)} (${tabRows(t).length})${t.g&&SKR.includes(t.g)?" · skrivena":""}</option>`;
+  $("#fTab").innerHTML='<optgroup label="Glavne kategorije">'+built.map(op).join("")+'</optgroup>'+(more.length?'<optgroup label="Ostale kategorije">'+more.map(op).join("")+'</optgroup>':"");
+  $("#fTab").onchange=()=>{curTab=$("#fTab").value;$("#fCat").value="";buildTabs();render();};
+  const t=curT(),so=subOpts(t);
+  const prev=$("#fCat").value;
+  $("#fCatW").hidden=!so;
+  $("#fCat").innerHTML='<option value="">Sve u ovoj kategoriji</option>'+so;
+  if(prev&&[...$("#fCat").options].some(o=>o.value===prev))$("#fCat").value=prev;
   const two=t.parts.length>1;
   $("#bNew").textContent=two?"+ Novo crevo":(t.parts[0].col==="hema"?"+ Novi sprej":"+ Novi artikal");
   $("#bNew2").hidden=!two;$("#bNew2").textContent="+ Nova oprema";
@@ -485,26 +575,35 @@ async function thumbURL(d){
   if(thumbs.has(d.image))return thumbs.get(d.image);
   try{const f=await readFile("static"+d.image);const u=URL.createObjectURL(f);thumbs.set(d.image,u);return u;}catch(e){return "";}
 }
+const GOPEN=new Set();
 function render(){
   const q=norm($("#q").value),fc=$("#fCat").value,fs=$("#fStock").value;
   const T=curT(),rows=tabRows(T).filter(({e})=>{const d=e.data;
     if(q&&!norm(d.title+" "+(d.aliases||[]).join(" ")).includes(q))return false;
-    if(fc&&!catsOf(d).includes(fc))return false;
+    if(fc&&!descIds(fc).some(c=>catsOf(d).includes(c)))return false;
     if(fs==="in"&&d.in_stock===false)return false;if(fs==="out"&&d.in_stock!==false)return false;return true;});
   const L=$("#list");L.innerHTML="";
   if(!rows.length)L.innerHTML='<p>Nema artikala za prikaz.</p>';
-  let lastH,lastG;
+  let lastG,cont=L;const filt=!!(q||fc||fs);
   const multi=T.parts.some(p=>p.col==="artikli"&&(p.cats||[]).length>1);
   if(multi){const ord=T.parts.flatMap(p=>p.col==="artikli"?(p.cats||[]):[]);const gk=r=>{const cs=catsOf(r.e.data);const i=ord.findIndex(c=>cs.includes(c));return i<0?999:i;};rows.sort((a,b)=>gk(a)-gk(b));rows.forEach(r=>{const cs=catsOf(r.e.data),c=ord.find(c=>cs.includes(c));r.g=c?(CATS[c]||c):"Ostalo";});}
   const cnt={};rows.forEach(r=>{if(r.g)cnt[r.g]=(cnt[r.g]||0)+1;});
+  if(rows.some(r=>r.h)&&!multi){/* grupe po naslovu dela (creva / oprema) */}
   rows.forEach(({col,e,h,g})=>{
-    if(h&&h!==lastH){const hh=document.createElement("h2");hh.className="sec-label";hh.innerHTML="<b>"+esc(h)+"</b>";L.appendChild(hh);}lastH=h;
-    if(g&&g!==lastG){const hh=document.createElement("h2");hh.className="sec-label";hh.innerHTML="<b>"+esc(g)+"</b> · "+cnt[g];L.appendChild(hh);}lastG=g;
+    const gl=g||h;
+    if(gl&&gl!==lastG){
+      const key=curTab+"|"+gl,dt=document.createElement("details");dt.className="grp";
+      const many=Object.keys(cnt).length>1||!!h;
+      dt.open=!many||filt||GOPEN.has(key);
+      dt.innerHTML=`<summary><b>${esc(gl)}</b><span class="gc">${g?cnt[g]:rows.filter(x=>x.h===h).length}</span><i>▾</i></summary><div class="gb"></div>`;
+      dt.addEventListener("toggle",()=>{if(filt)return;dt.open?GOPEN.add(key):GOPEN.delete(key);});
+      L.appendChild(dt);cont=dt.querySelector(".gb");lastG=gl;
+    }
     const d=e.data,on=d.in_stock!==false,C=COLS[col],vs=d[C.vk]||[],nOn=vs.filter(v=>v.in_stock!==false).length,allOff=vs.length>0&&nOn===0;
     const wrap=document.createElement("div");wrap.className="rw0";
     const r=document.createElement("div");r.className="row"+(on&&!allOff?"":" park");
     const vInfo=vs.length>1?` · <button type="button" class="tg">${open.has(col+e.file)?"▾":"▸"} varijante: ${nOn} / ${vs.length} na stanju</button>`:(vs.length===1?" · "+esc(priceTxt(d,col)):"");
-    r.innerHTML=`<div class="th"></div><div><b>${esc(d.title)}</b><small>${col==="artikli"?esc(catsOf(d).map(c=>CATS[c]||c).join(" + "))+(vs.length>1?"":" · "+esc(priceTxt(d,col))):(vs.length>1?"":esc(priceTxt(d,col)))}${vs.length>1?vInfo:""}${allOff?' · <span class="allp">sve varijante parkirane — nije na sajtu</span>':""}</small></div><label class="sw"><input type="checkbox" ${on?"checked":""}><i></i><span>${on?"Na stanju":"Parkirano"}</span></label><div><button class="ed">Izmeni</button></div>`;
+    r.innerHTML=`<div class="th"></div><div><b>${esc(d.title)}</b><small>${col==="artikli"?esc(catSummary(d))+(vs.length>1?"":" · "+esc(priceTxt(d,col))):(vs.length>1?"":esc(priceTxt(d,col)))}${vs.length>1?vInfo:""}${allOff?' · <span class="allp">sve varijante parkirane — nije na sajtu</span>':""}</small></div><label class="sw"><input type="checkbox" ${on?"checked":""}><i></i><span>${on?"Na stanju":"Parkirano"}</span></label><div><button class="ed">Izmeni</button></div>`;
     thumbURL(d).then(u=>{if(u)r.querySelector(".th").innerHTML=`<img src="${u}" alt="">`;});
     r.querySelector(".sw input").onchange=async ev=>{
       d.in_stock=ev.target.checked;
@@ -526,7 +625,7 @@ function render(){
         wrap.appendChild(box);
       }
     }
-    L.appendChild(wrap);
+    cont.appendChild(wrap);
   });
 }
 function markDirty(){dirty=true;$("#note").classList.add("show");}
@@ -967,6 +1066,8 @@ async function ordList(){
     b.disabled=false;setTimeout(()=>b.textContent=lab,2500);
   });
 }
+
+document.addEventListener("click",ev=>{const dd=$("#ddSet");if(dd&&dd.open&&(!dd.contains(ev.target)||ev.target.closest(".dd-m button")))dd.open=false;});
 window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue="";}});
 </script>
 </body>
