@@ -731,7 +731,7 @@ function openPoc(){
 $("#bPoc").onclick=openPoc;
 
 /* ---------- domen ---------- */
-$("#bSettings").onclick=async()=>{
+$("#bSettings").onclick=async()=>{$("#dlg3 .dh h2").textContent="Podešavanja sajta";
   let cfg={domen:"https://VASDOMEN.rs"};try{cfg=JSON.parse(await readText("site.json"));}catch(e){}
   say("Adresa sajta (domen)",`Upišite adresu kada je budete imali (npr. https://partis.rs). Koristi se za Google (mapa sajta). Ako je još nemate, ostavite kako jeste.<br><br><input type="text" id="domIn" style="width:100%;padding:8px;font:inherit;border:1.5px solid #16140f" value="${esc(cfg.domen)}">`,
    [["Sačuvaj",async()=>{let v=$("#domIn").value.trim().replace(/\/+$/,"");if(v&&!/^https?:\/\//.test(v))v="https://"+v;cfg.domen=v||"https://VASDOMEN.rs";await writeFile("site.json",JSON.stringify(cfg,null,2)+"\n");markDirty();$("#dlg2").close();},1],["Otkaži",()=>$("#dlg2").close(),0]]);
@@ -817,8 +817,8 @@ function loadLib(){return new Promise((res,rej)=>{if(window.supabase)return res(
 $("#d3X").onclick=()=>$("#dlg3").close();
 const d3=(html,btns)=>{$("#d3Body").innerHTML=html;const f=$("#d3Foot");f.innerHTML="";(btns||[]).forEach(([t,fn,red])=>{const b=document.createElement("button");b.textContent=t;if(red)b.className="red";b.onclick=fn;f.appendChild(b);});if(!$("#dlg3").open)$("#dlg3").showModal();};
 let AFTER=null;
-$("#bCust").onclick=()=>{AFTER=custList;openAdmin();};
-$("#bOrd").onclick=()=>{AFTER=ordList;openAdmin();};
+$("#bCust").onclick=()=>{$("#dlg3 .dh h2").textContent="Kupci i rabati";AFTER=custList;openAdmin();};
+$("#bOrd").onclick=()=>{$("#dlg3 .dh h2").textContent="Porudžbine";AFTER=ordList;openAdmin();};
 async function openAdmin(){
   let cfg={};try{cfg=JSON.parse(await readText("site.json"));}catch(e){}
   if(!cfg.supabase_url||!cfg.supabase_key){
@@ -886,10 +886,14 @@ async function custList(){
 
 /* ---------- porudžbine kupaca: faktura (PDF), broj pošiljke, nema na stanju ---------- */
 const OSTAT=[["poslato","Upit primljen"],["obrada","U obradi"],["poslato_kupcu","Poslato kupcu"],["isporuceno","Isporučeno"]];
+let ORDF="open";
 async function ordList(){
   const [{data:ords,error},{data:profs}]=await Promise.all([SB.from("porudzbine").select("*").order("created_at",{ascending:false}).limit(200),SB.from("profili").select("id,ime,firma,email,telefon")]);
   if(error)return d3("<p class='warn'>Greška: "+esc(error.message)+"<br>Da li ste u Supabase pokrenuli SQL dopunu (porudzbine)?</p>",[["Zatvori",()=>$("#dlg3").close()]]);
   const P={};(profs||[]).forEach(p=>P[p.id]=p);
+  const isOpen=o=>!o.status||o.status==="poslato"||o.status==="obrada";
+  const nOpen=ords.filter(isOpen).length,nSent=ords.length-nOpen;
+  const shown=ords.filter(o=>ORDF==="all"||(ORDF==="open")===isOpen(o));
   const fd=d=>{try{return new Date(d).toLocaleString("sr-Latn-RS",{day:"numeric",month:"numeric",year:"numeric",hour:"2-digit",minute:"2-digit"});}catch(e){return d;}};
   const card=o=>{const p=P[o.user_id]||{},st=Array.isArray(o.stavke)?o.stavke:[],u=o.ukupno||{};
     return `<div class="cc" data-id="${o.id}" data-u="${o.user_id}" data-s="${esc((p.ime||"")+" "+(p.firma||"")+" "+(p.email||"")).toLowerCase()}">
@@ -905,11 +909,12 @@ async function ordList(){
         <label class="rf"><span>Faktura (PDF) ${o.faktura_path?"✓ priložena":""}</span><input type="file" accept="application/pdf" data-f="pdf"></label></div></div>
       <div class="cc-g"><div class="cc-t">Mejl kupcu <small>šalje se na ${esc(p.email||"—")} (sa fakturom u prilogu, ako je priložena — prvo sačuvajte)</small></div><textarea data-f="poruka" rows="2" placeholder="Kratka poruka kupcu (nije obavezno)" style="width:100%;font:inherit;padding:6px"></textarea></div>
       <div class="cc-ft"><button type="button" data-prev>Pregled predračuna</button> <button type="button" data-mail>Pošalji mejl kupcu</button> <button type="button" data-mail="predracun">Pošalji predračun</button> <button type="button" class="red" data-save>Sačuvaj</button></div></div>`;};
-  d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga po kupcu…"></div>
+  d3(`<div class="cc-top"><input type="search" id="ccQ" placeholder="Pretraga po kupcu…"><div class="cc-chips"><button type="button" data-of="open" class="${ORDF==="open"?"on":""}">Otvorene (${nOpen})</button><button type="button" data-of="sent" class="${ORDF==="sent"?"on":""}">Poslate (${nSent})</button><button type="button" data-of="all" class="${ORDF==="all"?"on":""}">Sve</button></div></div>
     <datalist id="kuriri"><option value="AKS"><option value="D Express"><option value="Post Express"><option value="BEX"><option value="City Express"><option value="Pošta Srbije"><option value="Lično preuzimanje"><option value="Sopstvena dostava"></datalist>
-    <div class="cc-list">${ords.map(card).join("")||"<p>Još nema porudžbina sa naloga kupaca.</p>"}</div>`,
+    <div class="cc-list">${shown.map(card).join("")||"<p>"+(ORDF==="open"?"Nema otvorenih porudžbina.":"Nema porudžbina u ovoj listi.")+"</p>"}</div>`,
     [["Osveži",ordList],["Zatvori",()=>$("#dlg3").close()]]);
   const body=$("#d3Body");
+  body.querySelectorAll("[data-of]").forEach(b=>b.onclick=()=>{ORDF=b.dataset.of;ordList();});
   $("#ccQ").oninput=()=>{const q=$("#ccQ").value.trim().toLowerCase();body.querySelectorAll(".cc").forEach(c=>c.hidden=!!q&&!c.dataset.s.includes(q));};
   const saveCard=async(c)=>{
       const o=ords.find(x=>x.id===c.dataset.id);
@@ -929,7 +934,7 @@ async function ordList(){
   };
   body.querySelectorAll("[data-save]").forEach(b=>b.onclick=async()=>{
     b.disabled=true;b.textContent="Čuvam…";
-    try{await saveCard(b.closest(".cc"));b.textContent="Sačuvano ✓";}catch(e){b.textContent="Greška";alert(e.message||e);}
+    try{const c=b.closest(".cc");await saveCard(c);b.textContent="Sačuvano ✓";const oo=ords.find(x=>x.id===c.dataset.id);if(ORDF!=="all"&&isOpen(oo)!==(ORDF==="open")){setTimeout(ordList,900);return;}}catch(e){b.textContent="Greška";alert(e.message||e);}
     b.disabled=false;setTimeout(()=>b.textContent="Sačuvaj",1600);
   });
   body.querySelectorAll("[data-prev]").forEach(b=>b.onclick=async()=>{
@@ -957,6 +962,7 @@ async function ordList(){
       const r=await fetch("https://partis.rs/obavesti.php",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams({token:session.access_token,order_id:o.id,poruka:c.querySelector("[data-f=poruka]").value.trim(),tip:pr?"predracun":"obavestenje"}).toString()});
       const t=await r.text();if(!r.ok)throw new Error(t);
       b.textContent="Poslato ✓";
+      if(isOpen(o)){const {error:e3}=await SB.from("porudzbine").update({status:"poslato_kupcu"}).eq("id",o.id);if(!e3){o.status="poslato_kupcu";setTimeout(ordList,1100);return;}}
     }catch(e){b.textContent="Greška";alert("Slanje nije uspelo: "+(e.message||e));}
     b.disabled=false;setTimeout(()=>b.textContent=lab,2500);
   });
