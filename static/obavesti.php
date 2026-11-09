@@ -14,7 +14,7 @@ const PRODAVAC = 'Natalija Milić PR, Trgovinska radnja PARTIS';
 const PRODAVAC_ADR = 'Bulevar Nemanjića 103, lokal 8, Niš';
 const PRODAVAC_PIB = '110019220';
 const PRODAVAC_MB = '64587544';
-const RACUNI = [['205-526323-85', 'NLB Komercijalna'], ['325-9500700039819-48', 'OTP'], ['165-7019478135-54', 'Addiko Bank']];
+const RACUNI = [['325-9500700039819-48', 'OTP'], ['205-526323-85', 'NLB Komercijalna'], ['165-7019478135-54', 'Addiko Bank']];
 const TEL = '018 553 800'; const MOB = '065 2 553 800'; const MAIL_PRODAVCA = 'partis.trgovina@gmail.com';
 const ROK_DANA = 7;        // rok važenja predračuna u danima
 const PDV = 20;
