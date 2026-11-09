@@ -1,0 +1,75 @@
+{
+  "title": "Poliuretansko (PU) crevo, plavo – uvoz iz Turske (Gapex)",
+  "category": "crevapn",
+  "order": 23,
+  "in_stock": false,
+  "image": "/assets/img/crevo_pu.png",
+  "description": "Plavo poliuretansko (PU) crevo za pneumatske instalacije, alate i automatiku. Veoma je fleksibilno, otporno na ulja i savijanje. Uvoz iz Turske (Gapex). Dobavljamo jednom nedeljno, kotur od 100 metara.",
+  "promo": false,
+  "col_label": "Unutrašnji x spoljni (mm)",
+  "table_note": "Cene su po metru, bez PDV-a. Uvoz iz Turske (Gapex): dobavljamo jednom nedeljno, prodaje se kotur od 100 metara. U zagradi je iznos sa PDV-om.",
+  "aliases": [
+    "poliuretansko crevo",
+    "pu crevo",
+    "plavo crevo",
+    "pneumatsko crevo",
+    "crevo za vazduh",
+    "pu cev",
+    "gapex",
+    "turska creva"
+  ],
+  "variants": [
+    {
+      "label": "2x3 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "2x4 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "2.5x4 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "3x5 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "4x6 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "5x8 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "6x8 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "6.5x10 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "7x10 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "8x12 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "9x12 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "10x14 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "12x16 mm",
+      "note": "po metru"
+    }
+  ]
+}

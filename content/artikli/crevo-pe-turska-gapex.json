@@ -1,0 +1,91 @@
+{
+  "title": "Polietilensko (PE) crevo, belo – uvoz iz Turske (Gapex)",
+  "category": "crevapn",
+  "order": 25,
+  "in_stock": false,
+  "image": "/assets/img/crevo_pe.png",
+  "description": "Belo polietilensko (PE) crevo za vazdušne instalacije i opštu primenu. Uvoz iz Turske (Gapex). Dobavljamo jednom nedeljno, kotur od 100 metara.",
+  "promo": false,
+  "col_label": "Unutrašnji x spoljni (mm)",
+  "table_note": "Cene su po metru, bez PDV-a. Uvoz iz Turske (Gapex): dobavljamo jednom nedeljno, prodaje se kotur od 100 metara. U zagradi je iznos sa PDV-om.",
+  "aliases": [
+    "polietilensko crevo",
+    "pe crevo",
+    "belo crevo",
+    "pneumatsko crevo",
+    "crevo za vazduh",
+    "pe cev",
+    "gapex",
+    "turska creva"
+  ],
+  "variants": [
+    {
+      "label": "2x4 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "2.5x4 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "3x5 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "4x6 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "5x8 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "6x8 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "6.5x10 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "7.5x10 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "8x10 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "8x12 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "9x12 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "10x12 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "12x15 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "13x16 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "16x20 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "19x23 mm",
+      "note": "po metru"
+    },
+    {
+      "label": "25x32 mm",
+      "note": "po metru"
+    }
+  ]
+}
