@@ -23,7 +23,13 @@
     "20-32 mm",
     "selna 20-32 mm",
     "tork 20-32 mm",
-    "obujmica 20-32 mm"
+    "obujmica 20-32 mm",
+    "pusna selna",
+    "stega",
+    "pužna stega",
+    "pusna stega",
+    "stezaljka",
+    "stezaljka za crevo"
   ],
   "hint": "Izaberite opseg u koji staje prečnik creva ili priključka koji pritežete."
 }

@@ -23,7 +23,13 @@
     "50-70 mm",
     "selna 50-70 mm",
     "tork 50-70 mm",
-    "obujmica 50-70 mm"
+    "obujmica 50-70 mm",
+    "pusna selna",
+    "stega",
+    "pužna stega",
+    "pusna stega",
+    "stezaljka",
+    "stezaljka za crevo"
   ],
   "hint": "Izaberite opseg u koji staje prečnik creva ili priključka koji pritežete."
 }

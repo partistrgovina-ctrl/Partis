@@ -13,7 +13,18 @@
     "prekidac akumulatora",
     "masa prekidac mini",
     "rastavljac akumulatora",
-    "prekidac struje 100a"
+    "prekidac struje 100a",
+    "odvajac mase",
+    "prekidac baterije",
+    "iskljucivac mase",
+    "iskljucivac akumulatora",
+    "master switch",
+    "battery switch",
+    "battery cut off",
+    "battery isolator",
+    "izolator akumulatora",
+    "rucica mase",
+    "prekidac struje"
   ],
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
   "categories": [

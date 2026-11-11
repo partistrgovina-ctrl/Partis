@@ -1,17 +1,28 @@
 {
- "title": "Automat migavca Mitsubishi Fuso 5P",
- "category": "automati",
- "order": 1059,
- "in_stock": true,
- "image": "/assets/img/kat/k061.jpg",
- "description": "Automat migavaca sa 5 izvoda (5P) za Mitsubishi Fuso. Upravlja treptanjem pokazivača pravca.",
- "promo": false,
- "price": 1300.0,
- "aliases": [
-  "flaser migavaca fuso",
-  "rele migavaca mitsubishi",
-  "fuso canter migavac",
-  "trepcuce 5 pina"
- ],
- "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "title": "Automat migavca Mitsubishi Fuso 5P",
+  "category": "automati",
+  "order": 1059,
+  "in_stock": true,
+  "image": "/assets/img/kat/k061.jpg",
+  "description": "Automat migavaca sa 5 izvoda (5P) za Mitsubishi Fuso. Upravlja treptanjem pokazivača pravca.",
+  "promo": false,
+  "price": 1300.0,
+  "aliases": [
+    "flaser migavaca fuso",
+    "fuso canter migavac",
+    "trepcuce 5 pina",
+    "migavac",
+    "migavci",
+    "prekidac migavca",
+    "prekidac za migavce",
+    "automat migavaca",
+    "automat migavca",
+    "blinker",
+    "blinker relay",
+    "flasher",
+    "flasher relay",
+    "flasher unit",
+    "prekidac zmigavca"
+  ],
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

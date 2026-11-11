@@ -12,7 +12,25 @@
     "auto relej",
     "12v 5p 20/30a",
     "relej 12v 5p 20/30a",
-    "rele 12v 5p 20/30a"
+    "rele 12v 5p 20/30a",
+    "relej",
+    "relay",
+    "bosch relej",
+    "relej za kamion",
+    "relej za traktor",
+    "kockica",
+    "kontaktor",
+    "elektromagnetni prekidac",
+    "relej za far",
+    "relej za sirenu",
+    "relej za pumpu",
+    "5 pina",
+    "5 nozica",
+    "relej sa 5 nozica",
+    "prebacivacki relej",
+    "change over relej",
+    "87a",
+    "normalno zatvoreni relej"
   ],
   "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

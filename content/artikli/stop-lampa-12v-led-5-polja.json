@@ -1,18 +1,32 @@
 {
- "title": "Štop lampa 12V LED 5 polja",
- "category": "svetlosna",
- "order": 1048,
- "in_stock": true,
- "image": "/assets/img/kat/k050.jpg",
- "description": "LED štop lampa 12V sa 5 polja.",
- "promo": false,
- "price": 660.0,
- "aliases": [
-  "led stop lampa",
-  "zadnja led lampa",
-  "stop svetlo led",
-  "led zadnje svetlo",
-  "stop lampa 5 polja"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Štop lampa 12V LED 5 polja",
+  "category": "svetlosna",
+  "order": 1048,
+  "in_stock": true,
+  "image": "/assets/img/kat/k050.jpg",
+  "description": "LED štop lampa 12V sa 5 polja.",
+  "promo": false,
+  "price": 660.0,
+  "aliases": [
+    "led stop lampa",
+    "zadnja led lampa",
+    "stop svetlo led",
+    "led zadnje svetlo",
+    "stop lampa 5 polja",
+    "stop svetlo",
+    "stop svetla",
+    "stopovi",
+    "zadnje svetlo",
+    "zadnja lampa",
+    "zadnji far",
+    "svetlo za kocenje",
+    "lampa za prikolicu",
+    "svetlo za prikolicu",
+    "tail light",
+    "rear lamp",
+    "brake light",
+    "lampa za kamion",
+    "zadnja lampa kamion"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -1,19 +1,30 @@
 {
- "title": "Poklopac rezervoara sa ključem, metalni 78 mm, Mercedes",
- "category": "brave",
- "order": 1503,
- "in_stock": true,
- "image": "/assets/img/kat/k113.jpg",
- "description": "Metalni poklopac rezervoara goriva sa ključem, prečnik 78 mm, za Mercedes.",
- "promo": false,
- "price": 900.0,
- "aliases": [
-  "cep rezervoara",
-  "poklopac tanka",
-  "zatvarac rezervoara",
-  "cep tanka mercedes",
-  "poklopac goriva sa kljucem",
-  "cep goriva"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Poklopac rezervoara sa ključem, metalni 78 mm, Mercedes",
+  "category": "brave",
+  "order": 1503,
+  "in_stock": true,
+  "image": "/assets/img/kat/k113.jpg",
+  "description": "Metalni poklopac rezervoara goriva sa ključem, prečnik 78 mm, za Mercedes.",
+  "promo": false,
+  "price": 900.0,
+  "aliases": [
+    "cep rezervoara",
+    "poklopac tanka",
+    "zatvarac rezervoara",
+    "cep tanka mercedes",
+    "poklopac goriva sa kljucem",
+    "cep goriva",
+    "cep za rezervoar",
+    "cep za gorivo",
+    "poklopac goriva",
+    "poklopac za gorivo",
+    "poklopac za tank",
+    "poklopac rezervoara goriva",
+    "poklopac sa kljucem",
+    "poklopac rezervoara sa kljucem",
+    "poklopac tanka sa kljucem",
+    "zakljucavajuci poklopac",
+    "zakljucavajuci cep"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

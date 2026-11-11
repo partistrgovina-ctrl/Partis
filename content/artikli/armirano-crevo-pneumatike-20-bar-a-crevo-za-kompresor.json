@@ -79,7 +79,13 @@
     "utikač 10",
     "hvatac 10",
     "utikac 10",
-    "kuglica"
+    "kuglica",
+    "crevo za vazduh",
+    "crevo za pneumatiku",
+    "crevo za pneumatski alat",
+    "crevo za pistolj",
+    "crevo za farbanje",
+    "crevo za sprej pistolj"
   ],
   "categories": [
     "crevapn"

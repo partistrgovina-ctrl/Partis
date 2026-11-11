@@ -1,18 +1,29 @@
 {
- "title": "FAP/Mercedes automat migavca, 11 izvoda",
- "category": "automati",
- "order": 1057,
- "in_stock": true,
- "image": "/assets/img/kat/k059.jpg",
- "description": "Automat migavaca sa 11 izvoda za vozila FAP i Mercedes.",
- "promo": false,
- "price": 700.0,
- "aliases": [
-  "flaser migavaca fap",
-  "rele migavaca mercedes",
-  "trepcuce fap",
-  "automat migavaca 11 pinova",
-  "fap mercedes flaser"
- ],
- "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "title": "FAP/Mercedes automat migavca, 11 izvoda",
+  "category": "automati",
+  "order": 1057,
+  "in_stock": true,
+  "image": "/assets/img/kat/k059.jpg",
+  "description": "Automat migavaca sa 11 izvoda za vozila FAP i Mercedes.",
+  "promo": false,
+  "price": 700.0,
+  "aliases": [
+    "flaser migavaca fap",
+    "trepcuce fap",
+    "automat migavaca 11 pinova",
+    "fap mercedes flaser",
+    "migavac",
+    "migavci",
+    "prekidac migavca",
+    "prekidac za migavce",
+    "automat migavaca",
+    "automat migavca",
+    "blinker",
+    "blinker relay",
+    "flasher",
+    "flasher relay",
+    "flasher unit",
+    "prekidac zmigavca"
+  ],
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

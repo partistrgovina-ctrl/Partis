@@ -1,19 +1,29 @@
 {
- "title": "Regler alternatora 24V",
- "category": "automati",
- "order": 1065,
- "in_stock": true,
- "image": "/assets/img/kat/k067.jpg",
- "description": "Regler (regulator napona) alternatora za 24V.",
- "promo": false,
- "price": 450.0,
- "aliases": [
-  "regulator alternatora",
-  "regulator napona",
-  "regler napona",
-  "punjenje akumulatora",
-  "regler dinama",
-  "regulator struje punjenja"
- ],
- "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "title": "Regler alternatora 24V",
+  "category": "automati",
+  "order": 1065,
+  "in_stock": true,
+  "image": "/assets/img/kat/k067.jpg",
+  "description": "Regler (regulator napona) alternatora za 24V.",
+  "promo": false,
+  "price": 450.0,
+  "aliases": [
+    "regulator alternatora",
+    "regulator napona",
+    "regler napona",
+    "punjenje akumulatora",
+    "regler dinama",
+    "regulator struje punjenja",
+    "anlaser automat",
+    "automat za anlaser",
+    "solenoid",
+    "solenoid anlasera",
+    "starter solenoid",
+    "elektromagnet anlasera",
+    "kontaktor anlasera",
+    "automat startera",
+    "automat za starter",
+    "starter automat"
+  ],
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

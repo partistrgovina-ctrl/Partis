@@ -13,7 +13,17 @@
     "pozicija svetlo bocno",
     "gabaritno svetlo",
     "bocna lampa",
-    "zuti gabarit"
+    "zuti gabarit",
+    "gabaritna lampa",
+    "bocno svetlo",
+    "marker lampa",
+    "side marker",
+    "zuta lampa",
+    "pozicija bocna",
+    "lampa za prikolicu",
+    "lampa za kamion",
+    "lampa za autobus",
+    "bocna lampica"
   ],
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

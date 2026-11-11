@@ -1,18 +1,32 @@
 {
- "title": "Štop lampa 24V LED 3 polja",
- "category": "svetlosna",
- "order": 1045,
- "in_stock": true,
- "image": "/assets/img/kat/k045.jpg",
- "description": "LED štop lampa 24V sa 3 polja, za kamione i autobuse.",
- "promo": false,
- "price": 860.0,
- "aliases": [
-  "led stop lampa 24v",
-  "zadnja led lampa",
-  "stop svetlo led",
-  "led zadnje svetlo kamion",
-  "stop lampa 3 polja"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Štop lampa 24V LED 3 polja",
+  "category": "svetlosna",
+  "order": 1045,
+  "in_stock": true,
+  "image": "/assets/img/kat/k045.jpg",
+  "description": "LED štop lampa 24V sa 3 polja, za kamione i autobuse.",
+  "promo": false,
+  "price": 860.0,
+  "aliases": [
+    "led stop lampa 24v",
+    "zadnja led lampa",
+    "stop svetlo led",
+    "led zadnje svetlo kamion",
+    "stop lampa 3 polja",
+    "stop svetlo",
+    "stop svetla",
+    "stopovi",
+    "zadnje svetlo",
+    "zadnja lampa",
+    "zadnji far",
+    "svetlo za kocenje",
+    "lampa za prikolicu",
+    "svetlo za prikolicu",
+    "tail light",
+    "rear lamp",
+    "brake light",
+    "lampa za kamion",
+    "zadnja lampa kamion"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

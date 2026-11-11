@@ -1,19 +1,30 @@
 {
- "title": "Pištolj za izduvavanje",
- "category": "aksa",
- "order": 2014,
- "in_stock": true,
- "image": "/assets/img/kat/k109.jpg",
- "description": "Pištolj za izduvavanje (produvavanje) komprimovanim vazduhom.",
- "promo": false,
- "price": 250.0,
- "aliases": [
-  "pistolj za produvavanje",
-  "pistolj za vazduh",
-  "produvavanje",
-  "pistolj za izduvavanje",
-  "vazdusni pistolj",
-  "izduvni pistolj"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Pištolj za izduvavanje",
+  "category": "aksa",
+  "order": 2014,
+  "in_stock": true,
+  "image": "/assets/img/kat/k109.jpg",
+  "description": "Pištolj za izduvavanje (produvavanje) komprimovanim vazduhom.",
+  "promo": false,
+  "price": 250.0,
+  "aliases": [
+    "pistolj za produvavanje",
+    "pistolj za vazduh",
+    "produvavanje",
+    "pistolj za izduvavanje",
+    "vazdusni pistolj",
+    "izduvni pistolj",
+    "air blow gun",
+    "air gun",
+    "blow gun",
+    "duvaljka",
+    "duvaljka za vazduh",
+    "pistolj za ciscenje vazduhom",
+    "pistolj za ciscenje",
+    "duvaljka za kompresor",
+    "pistolj za kompresor",
+    "pistolj za duvanje",
+    "pistolj za cisccenje"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

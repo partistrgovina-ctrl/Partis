@@ -210,7 +210,7 @@ function startRotation(){
 /* ================= FUZZY SEARCH ================= */
 const norm=s=>String(s).toLowerCase().replace(/đ/g,"dj").normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[×*]/g,"x").replace(/[^a-z0-9]+/g," ").trim();
 const stem=w=>w.length>4?w.replace(/[aeiou]$/,""):w;
-const SYN={sprej:["aerosol"],aerosol:["sprej"],spray:["sprej"],cev:["crev"],hose:["crev"],crev:["cev"],vijak:["sraf"],sraf:["vijak"],kompresor:["pneumatsk"],mast:["mazivo"],mazivo:["mast"],spojnic:["konektor","prikljucak"],konektor:["spojnic"],nipl:["nipla"],redukcij:["reducir"],reducir:["redukcij"]};
+const SYN={sprej:["aerosol"],aerosol:["sprej"],spray:["sprej"],cev:["crev"],hose:["crev"],crev:["cev"],vijak:["sraf"],sraf:["vijak"],kompresor:["pneumatsk"],mast:["mazivo"],mazivo:["mast"],spojnic:["konektor","prikljucak"],konektor:["spojnic"],nipl:["nipla"],redukcij:["reducir"],reducir:["redukcij"],obujmic:["selna","stega"],selna:["obujmic"],stega:["obujmic"],zarulj:["sijalic"],sijalic:["zarulj"],rele:["relej"],relej:["rele"],cijev:["crev"],cevi:["crev"],creva:["crev"],wd40:["wd 40"],akumulator:["akumulatorsk"],prikljucak:["spojnic","konektor"]};
 function lev(a,b,max){
   if(Math.abs(a.length-b.length)>max)return max+1;
   let prev=Array.from({length:b.length+1},(_,i)=>i);

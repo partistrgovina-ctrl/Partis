@@ -1,22 +1,33 @@
 {
- "title": "Drenažni ventil 22x1,5",
- "category": "glave",
- "order": 1506,
- "in_stock": true,
- "image": "/assets/img/kat/k116.jpg",
- "description": "Drenažni ventil navoja 22x1,5 za ispuštanje kondenzata iz vazdušnih rezervoara kočionog sistema.",
- "promo": false,
- "price": 250.0,
- "aliases": [
-  "ispusni ventil rezervoara",
-  "ventil za ispust vode",
-  "drenaza rezervoara",
-  "ventil rezervoara vazduha",
-  "ispust kondenzata",
-  "22x1.5"
- ],
- "categories": [
-  "spojnice"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Drenažni ventil 22x1,5",
+  "category": "glave",
+  "order": 1506,
+  "in_stock": true,
+  "image": "/assets/img/kat/k116.jpg",
+  "description": "Drenažni ventil navoja 22x1,5 za ispuštanje kondenzata iz vazdušnih rezervoara kočionog sistema.",
+  "promo": false,
+  "price": 250.0,
+  "aliases": [
+    "ispusni ventil rezervoara",
+    "ventil za ispust vode",
+    "drenaza rezervoara",
+    "ventil rezervoara vazduha",
+    "ispust kondenzata",
+    "22x1.5",
+    "drenazni ventil",
+    "ventil za drenazu",
+    "ventil za ispustanje",
+    "ventil za ispust",
+    "ventil za ispuštanje vode",
+    "ventil za kondenzat",
+    "ispust vode",
+    "odvodni ventil",
+    "odvodnik kondenzata",
+    "odvodnik vode",
+    "slavina za kondenzat"
+  ],
+  "categories": [
+    "spojnice"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -1,19 +1,31 @@
 {
- "title": "Prekidač migavca APU-8 (Mercedes)",
- "category": "automati",
- "order": 1062,
- "in_stock": true,
- "image": "/assets/img/kat/k064.jpg",
- "description": "Prekidač migavaca APU-8 za Mercedes.",
- "promo": false,
- "price": 5000.0,
- "aliases": [
-  "migavac prekidac mercedes",
-  "prekidac pokazivaca pravca",
-  "ručica migavaca",
-  "prekidac migavaca",
-  "apu8",
-  "komandna rucica migavca"
- ],
- "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "title": "Prekidač migavca APU-8 (Mercedes)",
+  "category": "automati",
+  "order": 1062,
+  "in_stock": true,
+  "image": "/assets/img/kat/k064.jpg",
+  "description": "Prekidač migavaca APU-8 za Mercedes.",
+  "promo": false,
+  "price": 5000.0,
+  "aliases": [
+    "migavac prekidac mercedes",
+    "prekidac pokazivaca pravca",
+    "ručica migavaca",
+    "prekidac migavaca",
+    "apu8",
+    "komandna rucica migavca",
+    "migavac",
+    "migavci",
+    "prekidac migavca",
+    "prekidac za migavce",
+    "automat migavaca",
+    "automat migavca",
+    "blinker",
+    "blinker relay",
+    "flasher",
+    "flasher relay",
+    "flasher unit",
+    "prekidac zmigavca"
+  ],
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

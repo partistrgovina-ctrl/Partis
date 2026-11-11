@@ -12,7 +12,23 @@
     "auto relej",
     "12v 4p 30a",
     "relej 12v 4p 30a",
-    "rele 12v 4p 30a"
+    "rele 12v 4p 30a",
+    "relej",
+    "relay",
+    "bosch relej",
+    "relej za kamion",
+    "relej za traktor",
+    "kockica",
+    "kontaktor",
+    "elektromagnetni prekidac",
+    "relej za far",
+    "relej za sirenu",
+    "relej za pumpu",
+    "4 pina",
+    "4 nozice",
+    "relej sa 4 nozice",
+    "normalno otvoreni relej",
+    "87 85 86 30"
   ],
   "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
 }

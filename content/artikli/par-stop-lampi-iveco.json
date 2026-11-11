@@ -1,17 +1,30 @@
 {
- "title": "Par štop lampi - IVECO",
- "category": "svetlosna",
- "order": 1039,
- "in_stock": true,
- "image": "/assets/img/kat/k039.jpg",
- "description": "Par zadnjih štop lampi za vozila Iveco.",
- "promo": false,
- "price": 3200.0,
- "aliases": [
-  "stop lampe iveco",
-  "zadnja svetla iveco",
-  "zadnje lampe iveco",
-  "stop svetla"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Par štop lampi - IVECO",
+  "category": "svetlosna",
+  "order": 1039,
+  "in_stock": true,
+  "image": "/assets/img/kat/k039.jpg",
+  "description": "Par zadnjih štop lampi za vozila Iveco.",
+  "promo": false,
+  "price": 3200.0,
+  "aliases": [
+    "stop lampe iveco",
+    "zadnja svetla iveco",
+    "zadnje lampe iveco",
+    "stop svetla",
+    "stop svetlo",
+    "stopovi",
+    "zadnje svetlo",
+    "zadnja lampa",
+    "zadnji far",
+    "svetlo za kocenje",
+    "lampa za prikolicu",
+    "svetlo za prikolicu",
+    "tail light",
+    "rear lamp",
+    "brake light",
+    "lampa za kamion",
+    "zadnja lampa kamion"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

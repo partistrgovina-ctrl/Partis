@@ -23,7 +23,13 @@
     "40-60 mm",
     "selna 40-60 mm",
     "tork 40-60 mm",
-    "obujmica 40-60 mm"
+    "obujmica 40-60 mm",
+    "pusna selna",
+    "stega",
+    "pužna stega",
+    "pusna stega",
+    "stezaljka",
+    "stezaljka za crevo"
   ],
   "hint": "Izaberite opseg u koji staje prečnik creva ili priključka koji pritežete."
 }

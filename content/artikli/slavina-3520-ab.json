@@ -1,22 +1,35 @@
 {
- "title": "Slavina 3520 AB",
- "category": "glave",
- "order": 1507,
- "in_stock": true,
- "image": "/assets/img/kat/k117.jpg",
- "description": "Slavina 3520 AB za vazdušni sistem.",
- "promo": false,
- "price": 2750.0,
- "aliases": [
-  "slavina za vazduh",
-  "ventil slavina",
-  "slavina kocnice",
-  "3520ab",
-  "slavina rezervoara",
-  "vazdusna slavina"
- ],
- "categories": [
-  "spojnice"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Slavina 3520 AB",
+  "category": "glave",
+  "order": 1507,
+  "in_stock": true,
+  "image": "/assets/img/kat/k117.jpg",
+  "description": "Slavina 3520 AB za vazdušni sistem.",
+  "promo": false,
+  "price": 2750.0,
+  "aliases": [
+    "slavina za vazduh",
+    "ventil slavina",
+    "slavina kocnice",
+    "3520ab",
+    "slavina rezervoara",
+    "vazdusna slavina",
+    "drenazni ventil",
+    "ventil za drenazu",
+    "ventil za ispustanje",
+    "ventil za ispust",
+    "ventil za ispuštanje vode",
+    "ventil za ispust vode",
+    "ventil za kondenzat",
+    "ispust kondenzata",
+    "ispust vode",
+    "odvodni ventil",
+    "odvodnik kondenzata",
+    "odvodnik vode",
+    "slavina za kondenzat"
+  ],
+  "categories": [
+    "spojnice"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

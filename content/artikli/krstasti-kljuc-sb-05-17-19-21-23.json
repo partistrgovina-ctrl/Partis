@@ -1,19 +1,29 @@
 {
- "title": "Krstasti ključ SB-05 (17, 19, 21, 23)",
- "category": "ostalo",
- "order": 1501,
- "in_stock": true,
- "image": "/assets/img/kat/k111.jpg",
- "description": "Krstasti ključ za točkove sa nasadnicima 17, 19, 21 i 23 mm.",
- "promo": false,
- "price": 1000.0,
- "aliases": [
-  "kljuc za tockove",
-  "krstasti kljuc",
-  "kljuc za felne",
-  "kljuc za tocak",
-  "kljuc 17 19 21 23",
-  "kriz kljuc"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Krstasti ključ SB-05 (17, 19, 21, 23)",
+  "category": "ostalo",
+  "order": 1501,
+  "in_stock": true,
+  "image": "/assets/img/kat/k111.jpg",
+  "description": "Krstasti ključ za točkove sa nasadnicima 17, 19, 21 i 23 mm.",
+  "promo": false,
+  "price": 1000.0,
+  "aliases": [
+    "kljuc za tockove",
+    "krstasti kljuc",
+    "kljuc za felne",
+    "kljuc za tocak",
+    "kljuc 17 19 21 23",
+    "kriz kljuc",
+    "kljuc za tockove kamiona",
+    "kljuc za felne kamiona",
+    "kljuc za tockove 17 19 21 23",
+    "cross wrench",
+    "wheel wrench",
+    "wheel brace",
+    "lug wrench",
+    "tire iron",
+    "kljuc krst",
+    "kljuc u obliku krsta"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

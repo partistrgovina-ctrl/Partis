@@ -97,7 +97,10 @@
     "crevo manometar IMT",
     "crevo uljnog manometra",
     "manometar ulja crevo",
-    "crevo za uljni manometar"
+    "crevo za uljni manometar",
+    "crevo za manometar",
+    "crevo za davac pritiska ulja",
+    "crevo za kontrolu pritiska ulja"
   ],
   "categories": [
     "traktor",

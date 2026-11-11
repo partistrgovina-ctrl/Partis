@@ -13,7 +13,18 @@
     "zatvarac rezervoara",
     "cep goriva sa kljucem",
     "poklopac goriva",
-    "cep tanka"
+    "cep tanka",
+    "cep za rezervoar",
+    "cep goriva",
+    "cep za gorivo",
+    "poklopac za gorivo",
+    "poklopac za tank",
+    "poklopac rezervoara goriva",
+    "poklopac sa kljucem",
+    "poklopac rezervoara sa kljucem",
+    "poklopac tanka sa kljucem",
+    "zakljucavajuci poklopac",
+    "zakljucavajuci cep"
   ],
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

@@ -12,7 +12,18 @@
     "davac ulja m12",
     "sonda pritiska ulja",
     "davac manometra ulja",
-    "pritisak ulja m12"
+    "pritisak ulja m12",
+    "davac pritiska ulja",
+    "davac ulja",
+    "senzor pritiska ulja",
+    "prekidac pritiska ulja",
+    "oil pressure sensor",
+    "oil pressure switch",
+    "oil pressure sender",
+    "davac za manometar ulja",
+    "davac za kontrolnu lampu ulja",
+    "davac za instrument",
+    "pritisak ulja"
   ],
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

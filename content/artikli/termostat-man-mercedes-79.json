@@ -1,18 +1,29 @@
 {
- "title": "Termostat MAN/Mercedes 79°",
- "category": "termostati",
- "order": 1067,
- "in_stock": true,
- "image": "/assets/img/kat/k069.jpg",
- "description": "Termostat 79° za vozila MAN i Mercedes.",
- "promo": false,
- "price": 700.0,
- "aliases": [
-  "termostat man",
-  "termostat mercedes",
-  "termostat 79",
-  "termostat motora",
-  "ventil rashladne tecnosti"
- ],
- "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "title": "Termostat MAN/Mercedes 79°",
+  "category": "termostati",
+  "order": 1067,
+  "in_stock": true,
+  "image": "/assets/img/kat/k069.jpg",
+  "description": "Termostat 79° za vozila MAN i Mercedes.",
+  "promo": false,
+  "price": 700.0,
+  "aliases": [
+    "termostat man",
+    "termostat mercedes",
+    "termostat 79",
+    "termostat motora",
+    "ventil rashladne tecnosti",
+    "termostat",
+    "termostat hladjenja",
+    "termostat za hladnjak",
+    "termostat za vodu",
+    "termostat za kamion",
+    "termostat za traktor",
+    "termostat iveco",
+    "termostat scania",
+    "thermostat",
+    "engine thermostat",
+    "coolant thermostat"
+  ],
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
 }

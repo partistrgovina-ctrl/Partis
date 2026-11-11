@@ -23,7 +23,13 @@
     "16-25 mm",
     "selna 16-25 mm",
     "tork 16-25 mm",
-    "obujmica 16-25 mm"
+    "obujmica 16-25 mm",
+    "pusna selna",
+    "stega",
+    "pužna stega",
+    "pusna stega",
+    "stezaljka",
+    "stezaljka za crevo"
   ],
   "hint": "Izaberite opseg u koji staje prečnik creva ili priključka koji pritežete."
 }

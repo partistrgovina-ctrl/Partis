@@ -23,7 +23,13 @@
     "8-12 mm",
     "selna 8-12 mm",
     "tork 8-12 mm",
-    "obujmica 8-12 mm"
+    "obujmica 8-12 mm",
+    "pusna selna",
+    "stega",
+    "pužna stega",
+    "pusna stega",
+    "stezaljka",
+    "stezaljka za crevo"
   ],
   "hint": "Izaberite opseg u koji staje prečnik creva ili priključka koji pritežete."
 }
