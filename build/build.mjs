@@ -88,14 +88,18 @@ for (const k of CORE.productPages(fs.readFileSync(path.join(tplDir, "_proizvod.h
 {
   const sp = P("content/seo-tekstovi.json");
   const SEO = fs.existsSync(sp) ? JSON.parse(fs.readFileSync(sp, "utf8")) : {};
+  const bp = P("content/proizvodjaci.json");
+  const BR = fs.existsSync(bp) ? JSON.parse(fs.readFileSync(bp, "utf8")) : {};
   const eh = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   for (const pg of pages) {
     const fp = path.join(DIST, pg.file);
     let h = fs.readFileSync(fp, "utf8");
     const m = h.match(/<script>window\.PAGE=\{"id": "([a-z0-9]+)"/);
     const e = m && SEO[m[1]];
-    if (!e) continue;
-    const blk = `<section class="seo-txt"><p>${eh(e.t)}</p>` + (e.q || []).map(q => `<details><summary>${eh(q[0])}</summary><p>${eh(q[1])}</p></details>`).join("") + `</section>\n`;
+    const bl = m && BR.stranice && BR.stranice[m[1]];
+    const brStrip = bl ? `<section class="brend-strip"><h2>Proizvođači</h2><ul>` + bl.map(k => `<li><img src="assets/img/brend/${k}.png" alt="${eh(BR.brendovi[k].naziv)}" height="35" loading="lazy"><span>${eh(BR.brendovi[k].opis)}</span></li>`).join("") + `</ul></section>\n` : "";
+    if (!e && !brStrip) continue;
+    const blk = brStrip + (!e ? "" : `<section class="seo-txt"><p>${eh(e.t)}</p>` + (e.q || []).map(q => `<details><summary>${eh(q[0])}</summary><p>${eh(q[1])}</p></details>`).join("") + `</section>\n`);
     h = h.replace('<script>window.PAGE=', () => blk + '<script>window.PAGE=');
     fs.writeFileSync(fp, h);
   }

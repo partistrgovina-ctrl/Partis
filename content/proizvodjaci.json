@@ -1,0 +1,16 @@
+{
+"brendovi": {
+ "gapex": {"naziv":"Gapex","opis":"Turska · creva za pneumatiku (PA, PE, PU)"},
+ "winfit": {"naziv":"Winfit","opis":"Turska · spojnice za pneumatiku"},
+ "crox": {"naziv":"Crox","opis":"Turska · spojnice za pneumatiku"},
+ "laize": {"naziv":"Laize","opis":"Kina · spojnice za pneumatiku"},
+ "sentek": {"naziv":"Sentek","opis":"Turska · gumena creva"}
+},
+"stranice": {
+ "home": ["gapex","winfit","crox","laize","sentek"],
+ "pneumatika": ["gapex","winfit","crox","laize"],
+ "crevapn": ["gapex"],
+ "spojnice": ["winfit","crox","laize"],
+ "crevo": ["sentek"]
+}
+}

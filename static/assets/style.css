@@ -932,3 +932,9 @@ a.acct-b{text-decoration:none}
 .seo-txt details{border-top:1px solid rgba(128,128,128,.25);padding:.45rem 0}
 .seo-txt summary{cursor:pointer;font-weight:500;color:inherit}
 .seo-txt details p{margin:.4rem 0 0}
+.brend-strip{max-width:900px;margin:1.2rem 0 .6rem;padding:0 28px}
+.brend-strip h2{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;margin:0 0 .6rem;opacity:.7}
+.brend-strip ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:flex-end}
+.brend-strip li{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.brend-strip img{height:35px;width:auto;max-width:130px;object-fit:contain;object-position:left bottom}
+.brend-strip span{font-size:.76rem;opacity:.65}
