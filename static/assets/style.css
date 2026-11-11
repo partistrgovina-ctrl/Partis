@@ -926,3 +926,4 @@ a.acct-b{text-decoration:none}
 .ord-nema{display:inline-block;font-size:12px;padding:2px 8px;border-radius:10px;background:#f7d6d3;color:#9c1c14;margin-left:6px}.trk{font-family:"IBM Plex Mono",monospace;font-weight:600}
 
 #cart-page,#nalog-page,#porud-page{min-height:70vh}#nalOrders{min-height:140px}
+.m-alt{font-size:.92rem;color:var(--mute,#6b7280);margin:-.2rem 0 .8rem}

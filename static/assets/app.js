@@ -47,7 +47,7 @@ function openSpray(p){
         <div class="eng">HEMA Kimya aerosol</div>
         <h2>${esc(p.name)}</h2>
         
-        <p class="m-lead">${esc(p.desc)}</p>
+        <p class="m-lead">${esc(p.desc)}</p>${p.alt&&p.alt.length?`<p class="m-alt">Alternativni nazivi: ${esc(p.alt.join(", "))}</p>`:""}
         <div class="props">
           <div class="prop"><div class="k">Namena</div><div class="v">${esc(p.use)}</div></div>
                     <div class="prop"><div class="k">Brend</div><div class="v">HEMA Aerosol</div></div>
@@ -68,7 +68,7 @@ function openItem(p){
       <div class="m-content">
         <div class="eng">${esc(p.catName)}</div>
         <h2>${esc(p.name)}</h2>
-        <p class="m-lead">${esc(p.desc)}</p>
+        <p class="m-lead">${esc(p.desc)}</p>${p.alt&&p.alt.length?`<p class="m-alt">Alternativni nazivi: ${esc(p.alt.join(", "))}</p>`:""}
         ${p.hint?`<p class="m-hint">${esc(p.hint)}</p>`:""}
         ${p.spec?`<div class="props"><div class="prop"><div class="k">${esc(p.specLabel||"Navoj")}</div><div class="v">${esc(p.spec)}</div></div></div>`:""}
         <div class="m-sub">Cena</div>
@@ -99,7 +99,7 @@ function openGal(p){
       <div class="m-content">
         <div class="eng">${p.catName}</div>
         <h2>${esc(p.name)}</h2>
-        <p class="m-lead">${esc(p.desc)}</p>
+        <p class="m-lead">${esc(p.desc)}</p>${p.alt&&p.alt.length?`<p class="m-alt">Alternativni nazivi: ${esc(p.alt.join(", "))}</p>`:""}
         ${p.hint?`<p class="m-hint">${esc(p.hint)}</p>`:""}
         <div class="m-sub">${(p.promo===false||!PARTIS.priced(p))?(n>1?"Dimenzije i cene":"Cena"):(n>1?"Dimenzije i akcijske cene":"Akcijska cena")}</div>
         ${grouped?`<div class="seg" id="seg">${p._groups.map((g,k)=>`<button class="seg-btn${k?"":" on"}" onclick="selGalGroup(${k})">${g}</button>`).join("")}</div>`:""}
