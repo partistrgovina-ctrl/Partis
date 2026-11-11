@@ -84,6 +84,22 @@ for (const k of CORE.productPages(fs.readFileSync(path.join(tplDir, "_proizvod.h
   pages.push({ file: k.file, noindex: false });
 }
 /* ---------- razgranate adrese: /proizvodi/<kategorija>/<proizvod> ---------- */
+/* kratki SEO tekst + pitanja ispod proizvoda na kategorijama (content/seo-tekstovi.json) */
+{
+  const sp = P("content/seo-tekstovi.json");
+  const SEO = fs.existsSync(sp) ? JSON.parse(fs.readFileSync(sp, "utf8")) : {};
+  const eh = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  for (const pg of pages) {
+    const fp = path.join(DIST, pg.file);
+    let h = fs.readFileSync(fp, "utf8");
+    const m = h.match(/<script>window\.PAGE=\{"id": "([a-z0-9]+)"/);
+    const e = m && SEO[m[1]];
+    if (!e) continue;
+    const blk = `<section class="seo-txt"><p>${eh(e.t)}</p>` + (e.q || []).map(q => `<details><summary>${eh(q[0])}</summary><p>${eh(q[1])}</p></details>`).join("") + `</section>\n`;
+    h = h.replace('<script>window.PAGE=', () => blk + '<script>window.PAGE=');
+    fs.writeFileSync(fp, h);
+  }
+}
 const MAP = CORE.pathMap(D);
 const outPages = [];
 for (const pg of pages) {
