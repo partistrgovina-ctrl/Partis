@@ -23,10 +23,15 @@
   "tork": {
    "naziv": "TORK",
    "opis": "Turska · pužne šelne (obujmice)"
+  },
+  "hema": {
+   "naziv": "HEMA Kimya",
+   "opis": "Turska · aerosoli i hemija za vozila"
   }
  },
  "stranice": {
   "home": [
+   "hema",
    "gapex",
    "winfit",
    "crox",
@@ -53,6 +58,9 @@
   ],
   "tork": [
    "tork"
+  ],
+  "sprej": [
+   "hema"
   ]
  }
 }
