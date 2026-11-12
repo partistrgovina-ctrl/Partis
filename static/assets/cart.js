@@ -107,6 +107,7 @@
       <div id="cart-list">${listHTML()}</div>
       <form id="cart-form" class="cart-form" ${cart.length?"":"hidden"} onsubmit="return cartSend(event)">
         <div class="m-sub">Podaci za odgovor i isporuku</div>
+        <p class="cart-note"><b>Registrovani kupac pri prvoj kupovini ostvaruje 10% popusta, osim na artikle sa oznakom „Akcija“.</b></p>
         <p class="cart-note">Ovo je upit, ne i obavezujuća kupovina. Javljamo vam se sa potvrdom cena i dostupnosti. Poštarinu plaćamo za pošiljke čija vrednost prelazi 10.000 dinara.</p>
         <p class="cart-note"><b>Prodaja samo pravnim licima i preduzetnicima — firma i PIB su obavezni.</b></p>
         ${formFields()}
