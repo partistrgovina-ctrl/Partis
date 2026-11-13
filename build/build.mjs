@@ -129,6 +129,13 @@ for (const [f, c] of Object.entries(CORE.sitemapRobots(pages, SITE))) fs.writeFi
 /* verzija fajlova (da pregledač nikad ne koristi staru keširanu stranicu/stil) */
 const VER = Date.now().toString(36);
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
+/* unutrašnji linkovi na stranice bez ".html" (inače ih Apache preusmerava 301 pa Google javlja "stranica sa preusmeravanjem") */
+const FLAT = /(["'(=])\/?(kontakt|informacije|privatnost|korpa)\.html(?=["'#?)])/g;
+for (const fp of walk(DIST).filter(f => /\.(html|js)$/.test(f) && !f.includes(path.sep + "admin" + path.sep))) {
+  const t = fs.readFileSync(fp, "utf8"), n = t.replace(FLAT, "$1/$2");
+  if (n !== t) fs.writeFileSync(fp, n);
+}
+
 for (const fp of walk(DIST).filter(f => f.endsWith(".html"))) {
   fs.writeFileSync(fp, fs.readFileSync(fp, "utf8").replace(/(assets\/[a-z0-9-]+\.(?:css|js))(?=["'])/g, `$1?v=${VER}`));
 }
