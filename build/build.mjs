@@ -123,6 +123,9 @@ for (const f of ["data.js", "app.js", "shared.js", "cart.js", "account.js"]) {
   const hp = path.join(DIST, ".htaccess");
   fs.writeFileSync(hp, fs.readFileSync(hp, "utf8").replace("# {{PREUSMERAVANJA}}", "# stare adrese -> nove razgranate (napravljeno automatski)\n" + CORE.redirectRules(MAP, SITE)));
 }
+/* stari folder premeštene kategorije ostaje na hostingu (FTP alat ne ume da ga obriše);
+   posetioci se sa njega ionako preusmeravaju pravilom iz .htaccess */
+for (const d of ["proizvodi/vase-vozilo/ak-sa"]) { fs.mkdirSync(path.join(DIST, d), { recursive: true }); fs.writeFileSync(path.join(DIST, d, "premesteno.txt"), "Premesteno na /proizvodi/ak-sa/\n"); }
 pages.length = 0; pages.push(...outPages);
 for (const [f, c] of Object.entries(CORE.sitemapRobots(pages, SITE))) fs.writeFileSync(path.join(DIST, f), c);
 
