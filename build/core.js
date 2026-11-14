@@ -128,8 +128,8 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
     s=s.replace(/\{\{TRAK_BRANDS\}\}/g,()=>(D.KATS||[]).filter(k=>k.roditelj==="traktorska-roba").map(k=>'<a class="pill sub" href="'+k.file+'">'+k.naziv+'</a>').join(""));
     (D.HIDDENFILES||[]).forEach(f=>{s=s.replace(new RegExp('<a [^>]*href="'+f.replace(/\./g,"\\.")+'"[^>]*>[\\s\\S]*?</a>',"g"),"");});
     {
-      const KS=D.KATS||[],kt=KS.find(k=>k.id==="tork");
-      const L=[["hema-aerosol.html","HEMA aerosol"],["armirana-creva.html","Armirana creva i oprema"],["pneumatika.html","Pneumatika"],["traktorski-program.html","Traktorski program"],["vase-vozilo.html","Vaše vozilo, naš deo"],...(kt?[[kt.file,kt.naziv]]:[])]
+      const KS=D.KATS||[],kt=KS.filter(k=>PARTIS.STAND.includes(k.id)&&!k.roditelj);
+      const L=[["hema-aerosol.html","HEMA aerosol"],["armirana-creva.html","Armirana creva i oprema"],["pneumatika.html","Pneumatika"],["traktorski-program.html","Traktorski program"],["vase-vozilo.html","Vaše vozilo, naš deo"],...kt.map(k=>[k.file,k.naziv])]
         .filter(l=>!(D.HIDDENFILES||[]).includes(l[0])).map(l=>`<a href="${l[0]}">${l[1]}</a>`).join("");
       s=s.replace(/(<div class="foot-nav">\s*<div class="muted">KATEGORIJE<\/div>\s*)[\s\S]*?(\n\s*<\/div>)/,(_,x,y)=>x+L+y);
     }
@@ -162,7 +162,7 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
       const par=k.roditelj?byId(k.roditelj):null,brand=par&&par.roditelj?par:(k.roditelj==="traktorska-roba"?k:null),isTr=!!k.roditelj;
       let crumb='<a href="proizvodi.html">Proizvodi</a> &rsaquo; ';
       if(isTr){crumb+='<a href="traktorski-program.html">Traktorski program</a> &rsaquo; <a href="traktorska-roba.html">Traktorska roba</a> &rsaquo; '+(par&&par.roditelj?'<a href="'+par.file+'">'+eh(par.naziv)+'</a> &rsaquo; ':"");}
-      else if(k.id!=="tork")crumb+='<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ';
+      else if(!PARTIS.STAND.includes(k.id))crumb+='<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ';
       let subs="";
       if(isTr){
         const BR=KS.filter(x=>x.roditelj==="traktorska-roba");
@@ -171,7 +171,7 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
         if(brand){const MO=KS.filter(x=>x.roditelj===brand.id);
           subs+='<nav class="filters subfilters" aria-label="Modeli: '+eh(brand.naziv)+'"><span class="sub-lbl">'+eh(brand.naziv)+' &rsaquo;</span>'+pill(brand.file,"Svi modeli",k.id===brand.id)+MO.map(m=>pill(m.file,m.naziv.replace(brand.naziv+" ",""),m.id===k.id)).join("")+'</nav>';}
       }
-      const ttl=k.naslov||(isTr?(k.roditelj==="traktorska-roba"?k.naziv+" traktori — delovi i oprema":k.naziv+" — delovi i oprema za traktor"):k.naziv+" — Vaše vozilo, naš deo");
+      const ttl=k.naslov||(isTr?(k.roditelj==="traktorska-roba"?k.naziv+" traktori — delovi i oprema":k.naziv+" — delovi i oprema za traktor"):PARTIS.STAND.includes(k.id)?k.naziv:k.naziv+" — Vaše vozilo, naš deo");
       const t=tpl.replace(/\{\{KAT_SUBS\}\}/g,()=>subs).replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_CRUMB\}\}/g,()=>crumb).replace(/\{\{KAT_TAG\}\}/g,()=>eh(isTr?"Traktorski program \u00b7 "+(brand&&brand.id!==k.id?brand.naziv:"Traktorska roba"):k.naziv)).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_TITLE\}\}/g,()=>eh(ttl)).replace(/\{\{KAT_META\}\}/g,()=>{const o=(k.opis||k.naziv+" — PARTIS Niš.").replace(/\s+/g," ");if(o.length<=158)return eh(o);const c=o.slice(0,155),i=Math.max(c.lastIndexOf(" "),c.lastIndexOf(","));return eh(c.slice(0,i>80?i:155).replace(/[,;:\s]+$/,"")+"…");}).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
       const r=renderPage(t,D,site,PARTIS);return {file:k.file,html:r.html,noindex:r.noindex};
     });
@@ -200,7 +200,7 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
          :{"@type":"AggregateOffer",url:u,priceCurrency:"RSD",lowPrice:lo.toFixed(2),highPrice:hi.toFixed(2),offerCount:prices.length,availability:"https://schema.org/InStock",hasMerchantReturnPolicy:{"@type":"MerchantReturnPolicy",applicableCountry:"RS",returnPolicyCategory:"https://schema.org/MerchantReturnNotPermitted"},shippingDetails:{"@type":"OfferShippingDetails",shippingDestination:{"@type":"DefinedRegion",addressCountry:"RS"},deliveryTime:{"@type":"ShippingDeliveryTime",handlingTime:{"@type":"QuantitativeValue",minValue:0,maxValue:1,unitCode:"DAY"},transitTime:{"@type":"QuantitativeValue",minValue:2,maxValue:5,unitCode:"DAY"}}}};}}
       const stat=`<h1>${eh(p.name)}</h1>${p.img?`<img src="${eh(p.img)}" alt="${eh(p.name)}" width="400">`:""}<p>${eh(desc)}</p>`+(p.alt&&p.alt.length?`<p>Alternativni nazivi: ${eh(p.alt.join(", "))}</p>`:"")+(p.hint?`<p>${eh(p.hint)}</p>`:"")+(vlist.length?`<ul>${vlist.map(v=>`<li>${eh(v)}</li>`).join("")}</ul>`:"")+`<p>Cena na upit: <a href="tel:+38118553800">+381 18 553 800</a> / <a href="tel:+381652553800">+381 65 2553 800</a></p>`;
       const t=tpl.replace(/\{\{P_KEY\}\}/g,p._k).replace(/\{\{P_FILE\}\}/g,p.u).replace(/\{\{P_TITLE\}\}/g,()=>eh(p.name)).replace(/\{\{P_DESC\}\}/g,()=>eh(dsc)).replace(/\{\{P_IMG\}\}/g,()=>eh(img||site+"/assets/img/nu40.jpg"))
-        .replace(/\{\{P_PARENT\}\}/g,PAR[catFile]?'<a href="'+PAR[catFile][0]+'">'+PAR[catFile][1]+'</a> &rsaquo; ':(/^kategorija-/.test(catFile)&&catFile!=="kategorija-tork.html"?'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ':"")).replace(/\{\{P_CATNAME\}\}/g,()=>eh(catName)).replace(/\{\{P_CATFILE\}\}/g,catFile).replace(/\{\{P_LD\}\}/g,()=>`<script type="application/ld+json">${j(ld).replace(/</g,"\\u003c")}</script>`).replace(/\{\{P_STATIC\}\}/g,()=>stat);
+        .replace(/\{\{P_PARENT\}\}/g,PAR[catFile]?'<a href="'+PAR[catFile][0]+'">'+PAR[catFile][1]+'</a> &rsaquo; ':(/^kategorija-/.test(catFile)&&!(D.KATS||[]).some(k=>k.file===catFile&&PARTIS.STAND.includes(k.id))?'<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ':"")).replace(/\{\{P_CATNAME\}\}/g,()=>eh(catName)).replace(/\{\{P_CATFILE\}\}/g,catFile).replace(/\{\{P_LD\}\}/g,()=>`<script type="application/ld+json">${j(ld).replace(/</g,"\\u003c")}</script>`).replace(/\{\{P_STATIC\}\}/g,()=>stat);
       const r=renderPage(t,D,site,PARTIS);return {file:p.u,html:r.html,noindex:false};
     });
   }
@@ -208,13 +208,14 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
   /* ---- razgranate adrese: /proizvodi/<kategorija>/.../<proizvod> ----
      Unutar sajta se i dalje koriste "stari" logički nazivi fajlova; pri izradi se svi zamenjuju pravim putanjama. */
   const LEGACY={"nastavci-mazalica.html":"kategorija-ostalo.html","proizvod-automat-pritiska-ulja-m14x1.html":"proizvod-automat-pritiska-ulja-m14x1-5.html","kategorija-aksa.html":"kategorija-ak-sa.html","kategorija-automati.html":"kategorija-automati-i-prekidaci.html","kategorija-davaci.html":"kategorija-davaci-temperature-i-pritiska-ulja.html","kategorija-glave.html":"kategorija-glave-spojnice-vazduha.html","kategorija-svetlosna.html":"kategorija-svetlosna-signalizacija.html","kategorija-zvucna.html":"kategorija-zvucna-signalizacija.html"};
+  const STANDK=["tork","aksa"]; /* isto kao PARTIS.STAND u shared.js */
   function pathMap(D){
     const M={"nalog.html":"nalog/","porudzbine.html":"nalog/porudzbine/","proizvodi.html":"proizvodi/","hema-aerosol.html":"proizvodi/hema/","armirana-creva.html":"proizvodi/armirana-creva/","pneumatika.html":"proizvodi/pneumatika/","traktorski-program.html":"proizvodi/traktorski-program/","traktorska-roba.html":"proizvodi/traktorski-program/traktorska-roba/","gotova-creva.html":"proizvodi/traktorski-program/gotova-creva/","vase-vozilo.html":"proizvodi/vase-vozilo/"};
     ["pneumatski-alat-i-nastavci","creva-pneumatike","ojacanja-creva","spojnice-pneumatike"].forEach(f=>{M[f+".html"]="proizvodi/pneumatika/"+f+"/";});
     const sl=f=>f.replace(/^kategorija-/,"").replace(/\.html$/,""),KS=D.KATS||[];
     KS.filter(k=>k.roditelj==="traktorska-roba").forEach(k=>{M[k.file]=M["traktorska-roba.html"]+sl(k.file)+"/";});
     KS.filter(k=>k.roditelj&&k.roditelj!=="traktorska-roba").forEach(k=>{const par=KS.find(x=>x.id===k.roditelj);M[k.file]=((par&&M[par.file])||M["traktorska-roba.html"])+sl(k.file)+"/";});
-    KS.filter(k=>!k.roditelj).forEach(k=>{M[k.file]=(k.id==="tork"?"proizvodi/":"proizvodi/vase-vozilo/")+sl(k.file)+"/";});
+    KS.filter(k=>!k.roditelj).forEach(k=>{M[k.file]=(STANDK.includes(k.id)?"proizvodi/":"proizvodi/vase-vozilo/")+sl(k.file)+"/";});
     const PO={pneu:"pneumatski-alat-i-nastavci.html",crevapn:"creva-pneumatike.html",mesing:"ojacanja-creva.html",spojnice:"spojnice-pneumatike.html",crevo:"armirana-creva.html",gotova:"gotova-creva.html",traktor:"traktorska-roba.html"};
     [...D.HOSES,...D.SPRAYS,...D.ITEMS].forEach(p=>{
       const cf=p.kind==="crevo"?"armirana-creva.html":p.kind==="sprej"?"hema-aerosol.html":(PO[p.cat]||((KS.find(k=>k.id===p.cat)||{}).file)||"");
@@ -232,6 +233,8 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
     const all=Object.assign({},M),out=[];
     Object.entries(LEGACY).forEach(([o,n])=>{if(M[n]!==undefined)all[o]=M[n];});
     Object.entries(all).forEach(([o,n])=>{const b=o.replace(/\.html$/,"");if(n===b+"/"||n==="")return;out.push(`RewriteRule ^${b.replace(/\./g,"\\.")}(\\.html)?$ ${site}/${n} [L,R=301]`);});
+    /* kategorije izdvojene iz "Vaše vozilo, naš deo": stare adrese /proizvodi/vase-vozilo/<kat>/... -> /proizvodi/<kat>/... */
+    Object.entries(M).forEach(([o,n])=>{const m=/^kategorija-.+\.html$/.test(o)&&/^proizvodi\/([a-z0-9-]+)\/$/.exec(n);if(m)out.push(`RewriteRule ^proizvodi/vase-vozilo/${m[1]}(/.*)?$ ${site}/proizvodi/${m[1]}$1 [L,R=301]`);});
     return out.join("\n");
   }
   function sitemapRobots(pages,site){

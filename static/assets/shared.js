@@ -91,11 +91,13 @@
     });
     return html;
   }
+  /* samostalne kategorije (nisu pod "Vaše vozilo, naš deo") */
+  const STAND=["tork","aksa"];
   function metaHTML(P,D){return rename(D,metaHTML0(P,D));}
   function metaHTML0(P,D){
     if(P.id==="home")return `<span><b>${totalProducts(D)}</b> Proizvoda</span><span><b>${tiles(D).length}</b> Kategorija</span>`;
     if(P.id==="pneumatika"){const t=groupN(D,PNEU);return `<span><b>${t}</b> Proizvoda u kategoriji Pneumatika</span><span><b>4</b> Potkategorije</span>`;}
-    if(P.id==="vozilo"){const t=groupN(D,(D.KATS||[]).filter(k=>k.id!=="tork"&&!k.roditelj).map(k=>k.id));return `<span><b>${t}</b> Proizvoda u kategoriji Vaše vozilo, naš deo</span><span><b>${(D.KATS||[]).filter(k=>k.id!=="tork"&&!k.roditelj).length}</b> Potkategorija</span>`;}
+    if(P.id==="vozilo"){const t=groupN(D,(D.KATS||[]).filter(k=>!STAND.includes(k.id)&&!k.roditelj).map(k=>k.id));return `<span><b>${t}</b> Proizvoda u kategoriji Vaše vozilo, naš deo</span><span><b>${(D.KATS||[]).filter(k=>!STAND.includes(k.id)&&!k.roditelj).length}</b> Potkategorija</span>`;}
     if(P.id==="traktorski"){const t=groupN(D,TRAK);return `<span><b>${t}</b> Proizvoda u kategoriji Traktorski program</span><span><b>2</b> Potkategorije</span>`;}
     const id=P.secs[0],tk=(D.KATS||[]).some(k=>k.id===id&&k.roditelj)||TRAK.includes(id);
     return `<span><b>${secN(D,id)}</b> Proizvoda u ${PNEU.includes(id)||tk?"potkategoriji":"kategoriji"} ${secTitle(D,id)}${PNEU.includes(id)?" (Pneumatika)":tk?" (Traktorski program)":""}</span>`;
@@ -103,7 +105,7 @@
   /* pločice na početnoj */
   function tiles(D){
     const sum=ids=>groupN(D,ids);
-    const STAND=["tork"],ALLK=(D.KATS||[]);const KS=ALLK.filter(k=>!STAND.includes(k.id)&&!k.roditelj);const kf=KS.map(k=>D.ITEMS.find(x=>inCat(x,k.id)&&x.img)).find(Boolean);
+    const ALLK=(D.KATS||[]);const KS=ALLK.filter(k=>!STAND.includes(k.id)&&!k.roditelj);const kf=KS.map(k=>D.ITEMS.find(x=>inCat(x,k.id)&&x.img)).find(Boolean);
     const vz={t:"Vaše vozilo, naš deo",pool:KS.map(k=>k.id),u:"vase-vozilo.html",src:kf?kf.img:"",d:"Sijalice, elektrika, signalizacija, brave, releji i drugi delovi za vozila.",n:sum(KS.map(k=>k.id)),subs:KS.map(k=>[esc(k.naziv),k.file])};
     return [
      {t:"HEMA aerosol",pool:["sprej"],u:"hema-aerosol.html",img:"nu40",d:((D.POC&&D.POC.opisi&&D.POC.opisi.hema)||"Podmazivanje, zaštita, čišćenje, uklanjanje rđe i hitne popravke."),n:secN(D,"sprej")},
@@ -145,5 +147,5 @@
     return r>0?`<s class="old">${fmt(price)}</s> <b class="newp">${fmt(discounted(price,r))}</b> <span class="rb">\u2212${r}%</span>`:fmt(price);
   }
   function priceHTML2(price,r){const n=r>0?discounted(price,r):price;return priceHTML(price,r)+` <span class="vat">(${fmt(gross(n))})</span>`;}
-  return {GROUPS,groupOf,rebateFor,discounted,priceHTML:priceHTML2,gross,VAT,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,menuHTML,totalProducts,rename,OLDN};
+  return {STAND,GROUPS,groupOf,rebateFor,discounted,priceHTML:priceHTML2,gross,VAT,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,menuHTML,totalProducts,rename,OLDN};
 });
