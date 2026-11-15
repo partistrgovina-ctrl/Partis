@@ -31,5 +31,7 @@
     "sijalica za dugo svetlo",
     "sijalica za dodatni far"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE H1, grlo P14.5s",
+  "spec_label": "Tip"
 }

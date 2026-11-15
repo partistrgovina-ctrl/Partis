@@ -25,5 +25,7 @@
     "engine thermostat",
     "coolant thermostat"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "MAN, Mercedes · MAN 51.06402-0061 / -0064 / -0067 / -0069",
+  "spec_label": "Odgovara za"
 }

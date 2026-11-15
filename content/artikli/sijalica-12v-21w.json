@@ -32,5 +32,7 @@
     "auto sijalica",
     "sijalica za kamion"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE P21W, grlo BA15s",
+  "spec_label": "Tip"
 }

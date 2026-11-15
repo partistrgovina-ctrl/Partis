@@ -36,5 +36,7 @@
     "dvokrajna sijalica",
     "halogena h4"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE H4 (60/55W), grlo P43t",
+  "spec_label": "Tip"
 }

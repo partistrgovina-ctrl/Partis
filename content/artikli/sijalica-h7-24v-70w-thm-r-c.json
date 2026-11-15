@@ -31,5 +31,7 @@
     "sijalica 70w",
     "sijalica za kamion 24v"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE H7 24V, grlo PX26d · kamioni i autobusi",
+  "spec_label": "Tip"
 }

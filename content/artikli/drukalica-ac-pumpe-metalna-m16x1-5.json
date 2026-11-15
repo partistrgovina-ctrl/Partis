@@ -28,5 +28,7 @@
     "pritisna drukalica",
     "dugme pumpe"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Ursus C-355, C-360; Zetor (Monarch AC pumpa); IMT; Torpedo",
+  "spec_label": "Odgovara za"
 }

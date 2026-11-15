@@ -27,5 +27,7 @@
     "flasher unit",
     "prekidac zmigavca"
   ],
-  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela.",
+  "spec": "Mercedes, FAP",
+  "spec_label": "Odgovara za"
 }

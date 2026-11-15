@@ -32,5 +32,7 @@
     "sijalica za pomocni far",
     "sijalica za radni far"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE H3, grlo PK22s",
+  "spec_label": "Tip"
 }

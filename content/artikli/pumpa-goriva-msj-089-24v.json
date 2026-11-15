@@ -26,5 +26,7 @@
     "lift pump",
     "feed pump"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Pumpa za pretakanje dizela 24V, 60 W, 25 l/min (za burad, rezervoare, mašine)",
+  "spec_label": "Tip"
 }

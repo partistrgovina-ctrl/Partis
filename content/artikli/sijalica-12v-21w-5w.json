@@ -39,5 +39,7 @@
     "sijalica stop i gabarit",
     "1157"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE P21/5W, grlo BAY15d",
+  "spec_label": "Tip"
 }

@@ -31,5 +31,7 @@
     "sijalica za kratko svetlo",
     "sijalica za xenon"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE H7, grlo PX26d",
+  "spec_label": "Tip"
 }
