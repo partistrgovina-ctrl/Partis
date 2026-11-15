@@ -28,5 +28,7 @@
     "lampa za kamion",
     "zadnja lampa kamion"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Mercedes T1/T2, prikolice i teretna vozila (tip Hella 2SD/2SE 001 680) · migavac, štop, poziciono · 12/24V, sijalice P21W/R10W · oko 201x71 mm",
+  "spec_label": "Odgovara za"
 }

@@ -26,5 +26,7 @@
     "lampa za kamion",
     "zadnja lampa kamion"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Iveco · 302 x 129,5 mm, dubina 79,5 mm, razmak šrafova 189 mm · bez sijalica",
+  "spec_label": "Odgovara za"
 }

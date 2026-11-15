@@ -27,5 +27,7 @@
     "lampa za kamion",
     "zadnja lampa kamion"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Iveco Daily (kiper, šasija), Eurocargo · oko 303 x 130 mm · štop, poziciono, migavac, magla, rikverc i katadioptar · 12/24V, bez sijalica",
+  "spec_label": "Odgovara za"
 }

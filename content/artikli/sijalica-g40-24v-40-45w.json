@@ -34,5 +34,7 @@
     "asimetricna sijalica",
     "sijalica za kamion 24v"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "ECE R2 (Bilux), grlo P45t-41",
+  "spec_label": "Tip"
 }

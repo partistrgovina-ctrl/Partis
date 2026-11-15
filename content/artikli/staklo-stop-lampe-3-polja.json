@@ -28,5 +28,7 @@
     "lampa za kamion",
     "zadnja lampa kamion"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Štop lampa 3 polja, tip Hella 001 680 (Mercedes T1/T2, prikolice)",
+  "spec_label": "Odgovara za"
 }
