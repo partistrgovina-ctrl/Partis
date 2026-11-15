@@ -26,5 +26,7 @@
     "zakljucavajuci poklopac",
     "zakljucavajuci cep"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Mercedes · unutrašnji prečnik 78 mm, sa ključem",
+  "spec_label": "Odgovara za"
 }

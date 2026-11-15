@@ -26,5 +26,7 @@
     "reflektor za traktor",
     "led bar"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "12–24V, 27W, 9 LED",
+  "spec_label": "Tip"
 }

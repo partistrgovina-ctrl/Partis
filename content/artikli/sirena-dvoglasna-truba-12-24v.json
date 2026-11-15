@@ -30,5 +30,7 @@
     "sirena za traktor",
     "sirena za autobus"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Vazdušna, 2 trube (22,5 i 28,7 cm) · elektromagnetni ventil radi na 12V i 24V · vazduh iz kompresora vozila · komplet za montažu",
+  "spec_label": "Tip"
 }
