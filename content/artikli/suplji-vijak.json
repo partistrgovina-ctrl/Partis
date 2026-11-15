@@ -17,7 +17,7 @@
       "label": "M8x1",
       "price": 20,
       "image": "/assets/img/sv8.jpg",
-      "note": "Preliv brizgaljki — Ursus C-330, C-355, C-360, C-385, Zetor, MTZ; crevo kompresora IMT 539 (oko 8)",
+      "note": "Preliv brizgaljki — Ursus C-330 – C-385, Zetor, MTZ; kompresor IMT 539",
       "modeli": [
         "imt",
         "imt539",
@@ -66,7 +66,7 @@
       "label": "M10x1",
       "price": 25,
       "image": "/assets/img/sv10.jpg",
-      "note": "Prelivna cev goriva IMT 533, 539; creva manometra ulja/vazduha (IMT, IMR, Zetor, MTZ)",
+      "note": "Prelivna cev goriva IMT 533, 539; creva manometra (IMT, IMR, Zetor, MTZ)",
       "modeli": [
         "imt",
         "imt533",
@@ -139,7 +139,7 @@
       "label": "M14x1.5",
       "price": 35,
       "image": "/assets/img/sv14.jpg",
-      "note": "AC pumpe PTZ/FDR — IMT 533, 539, 540, 542, 549, 558, 560, 565, 577, 5100–5136, IMR 47, 60, 65, Zetor; preliv goriva Ursus C-330 – C-385",
+      "note": "AC pumpe PTZ/FDR — IMT, IMR 47, 60, 65, Zetor; preliv goriva Ursus C-330 – C-385",
       "modeli": [
         "imt",
         "imt533",
