@@ -29,5 +29,7 @@
   "categories": [
     "spojnice"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Zamena za WABCO 934 300 003 0 · Mercedes 004 320 607 / 004 320 807; Iveco 1001551 / 550081; Renault 0024624008 / 500443694; Volvo 1581425",
+  "spec_label": "Odgovara za"
 }
