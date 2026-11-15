@@ -27,6 +27,10 @@
   "hema": {
    "naziv": "HEMA Kimya",
    "opis": "Turska · aerosoli i hemija za vozila"
+  },
+  "aksa": {
+   "naziv": "AKSA",
+   "opis": "Turska · osigurači, prekidači, tasteri i kontrolne lampe"
   }
  },
  "stranice": {
@@ -37,7 +41,8 @@
    "crox",
    "laize",
    "sentek",
-   "tork"
+   "tork",
+   "aksa"
   ],
   "pneumatika": [
    "gapex",
@@ -61,6 +66,9 @@
   ],
   "sprej": [
    "hema"
+  ],
+  "aksa": [
+   "aksa"
   ]
  }
 }
