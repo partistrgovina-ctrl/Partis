@@ -26,5 +26,7 @@
     "engine thermostat",
     "coolant thermostat"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Scania · dupli termostat, 83°C",
+  "spec_label": "Odgovara za"
 }

@@ -25,5 +25,7 @@
     "flasher unit",
     "prekidac zmigavca"
   ],
-  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela.",
+  "spec": "Termički automat migavca 24V, 3 izvoda · univerzalni",
+  "spec_label": "Tip"
 }

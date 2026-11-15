@@ -4,7 +4,7 @@
   "order": 1021,
   "in_stock": true,
   "image": "/assets/img/kat/k020.jpg",
-  "description": "Kutija sa mestima za 8 ubodnih osigurača, za razvod i zaštitu električnih kola.",
+  "description": "Kutija sa mestima za 8 torpedo (keramičkih) osigurača, za razvod i zaštitu električnih kola.",
   "promo": false,
   "price": 350.0,
   "aliases": [
@@ -28,5 +28,7 @@
     "plosnati osigurac",
     "blade fuse"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "8 polja za torpedo (keramičke) osigurače, providni poklopac · univerzalna",
+  "spec_label": "Tip"
 }

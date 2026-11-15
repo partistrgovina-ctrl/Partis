@@ -28,5 +28,7 @@
     "buksna taster",
     "taster na volanu"
   ],
-  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj."
+  "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
+  "spec": "Univerzalni taster bez zadrške (sirena ili start)",
+  "spec_label": "Tip"
 }

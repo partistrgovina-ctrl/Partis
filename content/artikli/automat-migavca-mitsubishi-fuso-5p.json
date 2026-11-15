@@ -24,5 +24,7 @@
     "flasher unit",
     "prekidac zmigavca"
   ],
-  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela.",
+  "spec": "Mitsubishi Fuso · 24V, 5 izvoda · Mitsubishi MC-848790 / Denso 066500-2080",
+  "spec_label": "Odgovara za"
 }
