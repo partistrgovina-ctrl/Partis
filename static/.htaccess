@@ -29,6 +29,9 @@ Header set Cache-Control "no-cache"
 </FilesMatch>
 
 RewriteRule ^proizvod-automat-pritiska-ulja-m14x1(\.html)?$ https://partis.rs/proizvod-automat-pritiska-ulja-m14x1-5 [L,R=301]
+# artikli premešteni u drugu kategoriju (ručno)
+RewriteRule ^proizvodi/pneumatika/pneumatski-alat-i-nastavci/prigusnik-buke-podesivi-1-4$ https://partis.rs/proizvodi/pneumatika/spojnice-pneumatike/prigusnik-buke-podesivi-1-4 [L,R=301]
+
 # {{PREUSMERAVANJA}}
 
 # /index.html i /kategorija/index.html -> adresa bez "index"
