@@ -86,6 +86,7 @@ function openGal(p){
   const grouped=p.gal.some(g=>g.grp);
   p._groups=grouped?[...new Set(p.gal.map(g=>g.grp))]:null;
   p._v=p.gal.map((_,i)=>i).filter(i=>!grouped||p.gal[i].grp===p._groups[0]);
+  p._mf=null;{const mq=new URLSearchParams(location.search).get("model");if(mq&&p.gal.some(g=>g.mods)){const f=p._v.filter(i=>(p.gal[i].mods||[]).includes(mq));if(f.length){p._v=f;const km=(typeof KATS!=="undefined"?KATS:[]).find(k=>k.id===mq);p._mf=km?km.naziv:mq;}}}
   const n=p.gal.length;
   modal.className="modal spray";
   modal.innerHTML=`
@@ -103,7 +104,7 @@ function openGal(p){
         ${p.hint?`<p class="m-hint">${esc(p.hint)}</p>`:""}
         <div class="m-sub">${(p.promo===false||!PARTIS.priced(p))?(n>1?"Dimenzije i cene":"Cena"):(n>1?"Dimenzije i akcijske cene":"Akcijska cena")}</div>
         ${grouped?`<div class="seg" id="seg">${p._groups.map((g,k)=>`<button class="seg-btn${k?"":" on"}" onclick="selGalGroup(${k})">${g}</button>`).join("")}</div>`:""}
-        <div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>
+        ${p._mf?`<div class="note note-model">Prikazane su samo dimenzije koje odgovaraju za <b>${esc(p._mf)}</b>. <a href="${location.pathname}">Prikaži sve dimenzije</a></div>`:""}<div class="tbl-wrap"><table><thead><tr><th>${p.colLabel||"Dimenzija"}</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody id="gal-tbody"></tbody></table></div>
         ${p.gal.some(g=>g.price==null)?`<div class="note">Za cene pozovite +381 18 553 800 / +381 65 2553 800 ili pišite na <a href="https://wa.me/381652553800" target="_blank" rel="noopener">Viber/WhatsApp</a> / partis.trgovina@gmail.com.</div>`:""}
         ${p.tnote?`<div class="note note-import">${esc(p.tnote)}</div>`:""}
         <div class="note" id="gal-note">Slike menjate strelicama, sličicama ili klikom na red u tabeli.</div>

@@ -67,7 +67,7 @@
       const extra=(Array.isArray(a.categories)?a.categories:[]).map(String).filter(c=>c&&c!==a.category&&CATNAME[c]);
       const o={hint:txt(a.hint)||undefined,tnote:txt(a.table_note)||undefined,cat:a.category,cats:extra.length?extra:undefined,catName:CATNAME[a.category]||a.category,name:a.title,img:main,price:vs.length?null:num(a.price),desc:txt(a.description,"Opis u pripremi."),
         spec:txt(a.spec)||null,short:txt(a.card_text)||undefined,colLabel:txt(a.col_label)||undefined,specLabel:txt(a.spec_label)||undefined,sf:txt(a.sifra)||undefined,_a:[...(a.aliases||[]),a.sifra,...(a.variants||[]).map(v=>v.sifra)]};
-      if(vs.length){o.promo=a.promo!==false;o.gal=vs.map(v=>({grp:txt(v.group)||undefined,label:txt(v.label),price:num(v.price),sf:txt(v.sifra)||undefined,note:txt(v.note)||undefined,img:img(v.image)||main}));}
+      if(vs.length){o.promo=a.promo!==false;o.gal=vs.map(v=>({grp:txt(v.group)||undefined,label:txt(v.label),price:num(v.price),sf:txt(v.sifra)||undefined,note:txt(v.note)||undefined,mods:Array.isArray(v.modeli)&&v.modeli.length?v.modeli.map(String):undefined,img:img(v.image)||main}));}
       if(!CATNAME[a.category])warn.push(`Artikal "${a.title}": nepoznata kategorija "${a.category}"`);
       return strip(o);
     });

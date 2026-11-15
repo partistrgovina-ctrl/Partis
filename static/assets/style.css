@@ -948,3 +948,4 @@ a.acct-b{text-decoration:none}
 .brend-strip li{display:flex;flex-direction:column;gap:.3rem;min-width:0}
 .brend-strip img{height:35px;width:auto;max-width:130px;object-fit:contain;object-position:left bottom}
 .brend-strip span{font-size:.76rem;opacity:.65}
+.note.note-model{display:block;line-height:1.5;margin-bottom:10px}.note.note-model a{color:var(--red);font-weight:600;margin-left:4px}

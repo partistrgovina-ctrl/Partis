@@ -32,7 +32,7 @@
     let price;
     if(p.gal){
       if(!pr)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: +381 18 553 800</span>`;
-      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${p.gal.length} ${plr(p.gal.length,"dimenzija","dimenzije","dimenzija")}</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD<sup class="ast">*</sup></b> <span class="vat">(${fmt(gross(p.gal[0].price))} sa PDV-om)</span></div>`;
+      else if(!promo)price=p.gal.length>1?`<div class="opt"><b>${/[?&]model=/.test(p.u||"")&&p.gal.length<=4?p.gal.map(g=>esc(g.label)).join(" · "):p.gal.length+" "+plr(p.gal.length,"dimenzija","dimenzije","dimenzija")}</b></div><span class="pdv">cene u detaljima</span>`:`<div class="opt"><b>${fmt(p.gal[0].price)} RSD<sup class="ast">*</sup></b> <span class="vat">(${fmt(gross(p.gal[0].price))} sa PDV-om)</span></div>`;
       else price=`<div class="opt"><b class="promo-t">Akcijske cene</b></div><span class="pdv">cene u detaljima</span>`;
     }else if(p.price==null)price=`<div class="opt"><b>Cena na upit</b></div><span class="pdv">Kontakt: +381 18 553 800</span>`;
     else price=`<div class="opt"><b>${fmt(p.price)} RSD<sup class="ast">*</sup></b> <span class="vat">(${fmt(gross(p.price))} sa PDV-om)</span></div>`;
@@ -58,7 +58,11 @@
       return pick.map(([L,re])=>L.find(x=>re.test(x.name))).filter(Boolean);
     }
     if(id==="crevapn")return [...D.ITEMS.filter(x=>inCat(x,id)),...D.HOSES.filter(h=>/vazduh/i.test(h.name))];
-    return D.ITEMS.filter(x=>inCat(x,id));
+    const L=D.ITEMS.filter(x=>inCat(x,id));
+    /* stranice traktora: kod artikala sa primenom po dimenziji ostaju samo dimenzije za taj model/proizvođača */
+    const isTr=(D.KATS||[]).some(k=>k.id===id&&k.roditelj);
+    if(!isTr)return L;
+    return L.map(x=>{if(!x.gal||!x.gal.some(g=>g.mods))return x;const g=x.gal.filter(v=>(v.mods||[]).includes(id));return g.length?Object.assign({},x,{gal:g,u:x.u+(x.u.includes("?")?"&":"?")+"model="+id}):null;}).filter(Boolean);
   }
   const gridHTML=(D,id)=>sectionList(D,id).map((p,i)=>cardHTML(p,i)).join("");
 
@@ -72,7 +76,7 @@
   function secN(D,id){
     if(id==="crevo")return D.HOSES.reduce((a,h)=>a+h.variants.length,0)+D.ITEMS.filter(x=>inCat(x,"crevo")).reduce((a,x)=>a+itemCount(x),0);
     if(id==="sprej")return D.SPRAYS.length;
-    return D.ITEMS.filter(x=>inCat(x,id)).reduce((a,x)=>a+itemCount(x),0);
+    return sectionList(D,id).reduce((a,x)=>a+itemCount(x),0);
   }
   /* zbir za grupu kategorija: artikal u dve kategorije iste grupe se broji jednom */
   const groupN=(D,ids)=>D.ITEMS.filter(x=>ids.some(id=>inCat(x,id))).reduce((a,x)=>a+itemCount(x),0);
