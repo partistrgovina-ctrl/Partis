@@ -10,12 +10,14 @@
   "variants": [
     {
       "label": "M6x1",
-      "price": 18
+      "price": 18,
+      "note": "Preliv brizgaljki (Bosch brizgaljke, Perkins)"
     },
     {
       "label": "M8x1",
       "price": 20,
-      "image": "/assets/img/sv8.jpg"
+      "image": "/assets/img/sv8.jpg",
+      "note": "Preliv brizgaljki — Ursus C-330, C-355, C-360, C-385, Zetor, MTZ"
     },
     {
       "label": "M8x1.5",
@@ -25,22 +27,26 @@
     {
       "label": "M10x1",
       "price": 25,
-      "image": "/assets/img/sv10.jpg"
+      "image": "/assets/img/sv10.jpg",
+      "note": "Prelivna cev goriva IMT 533, 539; creva manometra ulja/vazduha (IMT, IMR, Zetor, MTZ)"
     },
     {
       "label": "M12x1.5",
       "price": 32,
-      "image": "/assets/img/sv12.jpg"
+      "image": "/assets/img/sv12.jpg",
+      "note": "AC pumpa Zetor 8011 (klipna); AC pumpe za Fiat motore"
     },
     {
       "label": "M14x1.5",
       "price": 35,
-      "image": "/assets/img/sv14.jpg"
+      "image": "/assets/img/sv14.jpg",
+      "note": "AC pumpe PTZ/FDR — IMT 533, 539, 540, 542, 549, 558, 560, 565, 577, 5100–5136, IMR 47, 60, 65, Zetor; preliv goriva Ursus C-330 – C-385"
     },
     {
       "label": "M16x1.5",
       "price": 50,
-      "image": "/assets/img/sv16.jpg"
+      "image": "/assets/img/sv16.jpg",
+      "note": "Nosač filtera goriva i ručna pumpica (Bosch sistem) — Ursus, Zetor"
     }
   ],
   "aliases": [
@@ -109,8 +115,17 @@
     "imr",
     "imr47",
     "imr60",
-    "imr65"
+    "imr65",
+    "mtz",
+    "mtz80",
+    "mtz82",
+    "mtz820",
+    "mtz892",
+    "mtz920",
+    "mtz952",
+    "mtz1025",
+    "mtz1221"
   ],
-  "spec": "M14x1,5: AC pumpe PTZ/FDR i preliv goriva — IMT 533 (PTZ 6165), IMT 539, 540, 542, 549, 558, 560, 565, 577 i IMR 47, 60, 65 (PTZ 6166), IMT 5100–5136 (PTZ 6151), Ursus C-330, C-355, C-360, C-385, Zetor · M12x1,5: Zetor 8011 (klipna AC pumpa)",
+  "spec": "Primena zavisi od navoja — za svaku dimenziju u tabeli piše gde se koristi",
   "spec_label": "Odgovara za"
 }
