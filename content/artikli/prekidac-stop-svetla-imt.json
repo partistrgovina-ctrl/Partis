@@ -25,17 +25,16 @@
     "imt539",
     "imt540",
     "imt542",
-    "imt549",
-    "imt550",
-    "imt555",
     "imt558",
     "imt560",
-    "imt565",
     "imt577",
-    "imt579",
-    "imt5100",
-    "imt5106",
-    "imt5130",
-    "imt5136"
-  ]
+    "utb",
+    "utb445",
+    "utb530",
+    "utb550",
+    "utb640",
+    "utb650"
+  ],
+  "spec": "IMT 533, 539, 540, 542, 558, 560, 577 i UTB · kat. br. 555.08.030",
+  "spec_label": "Odgovara za"
 }

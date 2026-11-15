@@ -35,7 +35,12 @@
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
   "categories": [
     "utb",
-    "utb650",
-    "utb445"
-  ]
+    "utb445",
+    "utb530",
+    "utb550",
+    "utb640",
+    "utb650"
+  ],
+  "spec": "UTB 445, 530, 550, 640, 650",
+  "spec_label": "Odgovara za"
 }

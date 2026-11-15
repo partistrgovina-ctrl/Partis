@@ -34,20 +34,8 @@
   "categories": [
     "imt",
     "imt533",
-    "imt539",
-    "imt540",
-    "imt542",
-    "imt549",
-    "imt550",
-    "imt555",
-    "imt558",
-    "imt560",
-    "imt565",
-    "imt577",
-    "imt579",
-    "imt5100",
-    "imt5106",
-    "imt5130",
-    "imt5136"
-  ]
+    "imt539"
+  ],
+  "spec": "IMT 533, 539 · kat. br. 533.28.140",
+  "spec_label": "Odgovara za"
 }

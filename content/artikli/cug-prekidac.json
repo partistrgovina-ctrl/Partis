@@ -70,19 +70,6 @@
     "zetor7711",
     "zetor7745",
     "zetor8011",
-    "utb",
-    "utb445",
-    "utb530",
-    "utb550",
-    "utb640",
-    "utb650",
-    "imr",
-    "imr47",
-    "imr60",
-    "imr65",
-    "imr76",
-    "imr120",
-    "imr135",
     "mtz",
     "mtz80",
     "mtz82",
@@ -92,5 +79,7 @@
     "mtz952",
     "mtz1025",
     "mtz1221"
-  ]
+  ],
+  "spec": "IMT, Ursus, Zetor, MTZ",
+  "spec_label": "Odgovara za"
 }

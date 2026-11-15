@@ -33,14 +33,11 @@
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
   "categories": [
     "imt",
+    "imt560",
     "imt577",
-    "imr",
-    "imr76",
-    "ursus",
-    "ursusc330",
-    "ursusc360",
-    "ursusc385",
     "zetor",
+    "zetor2511",
+    "zetor3011",
     "zetor4911",
     "zetor5011",
     "zetor5211",
@@ -56,6 +53,9 @@
     "zetor7211",
     "zetor7245",
     "zetor7711",
-    "zetor7745"
-  ]
+    "zetor7745",
+    "zetor8011"
+  ],
+  "spec": "IMT 560, 577; Zetor (kat. br. 86350972)",
+  "spec_label": "Odgovara za"
 }
