@@ -11,13 +11,27 @@
     {
       "label": "5x900 mm",
       "price": 405,
-      "note": "Oko - Holender 8 - M10x1 · IMT 533, 539, 542, 558 · kat. br.: IMT 533 – 533.06.350, 533.06.340; IMT 539 – 800.049"
+      "note": "Oko - Holender 8 - M10x1 · IMT 533, 539, 542, 558 · kat. br.: IMT 533 – 533.06.350, 533.06.340; IMT 539 – 800.049",
+      "modeli": [
+        "imt",
+        "imt533",
+        "imt539",
+        "imt542",
+        "imt558"
+      ]
     },
     {
       "label": "5x1100 mm",
       "price": 420,
       "note": "Oko - Holender 10 - M10x1 · IMT 577/Ursus · kat. br. 800049/1",
-      "image": "/assets/img/gc_man1100.jpg"
+      "image": "/assets/img/gc_man1100.jpg",
+      "modeli": [
+        "imt",
+        "imt577",
+        "ursus",
+        "ursusc330",
+        "ursusc360"
+      ]
     },
     {
       "label": "5x1000 mm",
@@ -109,11 +123,9 @@
     "imt539",
     "imt542",
     "imt558",
-    "imt560",
     "imt577",
     "ursus",
     "ursusc330",
-    "ursusc360",
-    "imr"
+    "ursusc360"
   ]
 }

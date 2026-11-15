@@ -12,19 +12,44 @@
       "group": "Oko - Oko 14 - 14",
       "label": "8x300 mm · Oko-Oko",
       "price": 330,
-      "note": "Zetor 3011, 4911, 5011, 6011, 7011 (pumpa – filter) · kat. br. 950843"
+      "note": "Zetor 3011, 4911, 5011, 6011, 7011 (pumpa – filter) · kat. br. 950843",
+      "modeli": [
+        "zetor",
+        "zetor3011",
+        "zetor4911",
+        "zetor5011",
+        "zetor6011",
+        "zetor7011"
+      ]
     },
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x350 mm · Oko-Oko",
       "price": 340,
-      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660"
+      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660",
+      "modeli": [
+        "ursus",
+        "ursusc360"
+      ]
     },
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x400 mm · Oko-Oko",
       "price": 350,
-      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660 · MTZ kat. br. GMP HH-027/14/40"
+      "note": "Ursus C-360 (pumpa – filter) · kat. br. 46408660 · MTZ kat. br. GMP HH-027/14/40",
+      "modeli": [
+        "ursus",
+        "ursusc360",
+        "mtz",
+        "mtz80",
+        "mtz82",
+        "mtz820",
+        "mtz892",
+        "mtz920",
+        "mtz952",
+        "mtz1025",
+        "mtz1221"
+      ]
     },
     {
       "group": "Oko - Oko 14 - 14",
@@ -34,7 +59,18 @@
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x460 mm · Oko-Oko",
-      "note": "MTZ · kat. br. GMP HH-027/14/46"
+      "note": "MTZ · kat. br. GMP HH-027/14/46",
+      "modeli": [
+        "mtz",
+        "mtz80",
+        "mtz82",
+        "mtz820",
+        "mtz892",
+        "mtz920",
+        "mtz952",
+        "mtz1025",
+        "mtz1221"
+      ]
     },
     {
       "group": "Oko - Oko 14 - 14",
@@ -45,7 +81,18 @@
       "group": "Oko - Oko 14 - 14",
       "label": "8x600 mm · Oko-Oko",
       "price": 385,
-      "note": "MTZ · kat. br. GMP HH-027/14/60"
+      "note": "MTZ · kat. br. GMP HH-027/14/60",
+      "modeli": [
+        "mtz",
+        "mtz80",
+        "mtz82",
+        "mtz820",
+        "mtz892",
+        "mtz920",
+        "mtz952",
+        "mtz1025",
+        "mtz1221"
+      ]
     },
     {
       "group": "Oko - Oko 14 - 14",
@@ -61,7 +108,18 @@
       "group": "Oko - Oko 14 - 14",
       "label": "8x1000 mm · Oko-Oko",
       "price": 465,
-      "note": "MTZ · kat. br. GMP HH-027/14/100"
+      "note": "MTZ · kat. br. GMP HH-027/14/100",
+      "modeli": [
+        "mtz",
+        "mtz80",
+        "mtz82",
+        "mtz820",
+        "mtz892",
+        "mtz920",
+        "mtz952",
+        "mtz1025",
+        "mtz1221"
+      ]
     },
     {
       "group": "Holender - Holender M16x1.5",
@@ -128,7 +186,11 @@
       "label": "8x350 mm · Oko-Holender",
       "price": 330,
       "image": "/assets/img/gc_oh.jpg",
-      "note": "IMT 539 (rotaciona pumpa, od filtera do pumpe) · kat. br. 802392 ili 702505"
+      "note": "IMT 539 (rotaciona pumpa, od filtera do pumpe) · kat. br. 802392 ili 702505",
+      "modeli": [
+        "imt",
+        "imt539"
+      ]
     },
     {
       "group": "Oko - Holender 14 - M16x1.5",
@@ -147,7 +209,11 @@
       "label": "8x500 mm · Oko-Holender",
       "price": 365,
       "image": "/assets/img/gc_oh.jpg",
-      "note": "IMT 539 (rotaciona pumpa, od filtera do pumpe) · kat. br. 802392 ili 702505"
+      "note": "IMT 539 (rotaciona pumpa, od filtera do pumpe) · kat. br. 802392 ili 702505",
+      "modeli": [
+        "imt",
+        "imt539"
+      ]
     },
     {
       "group": "Oko - Holender 14 - M16x1.5",
@@ -177,7 +243,11 @@
       "group": "Oko - Oko 12x14",
       "label": "8x600 mm · UTB 445",
       "price": 400,
-      "image": "/assets/img/gc_utb.jpg"
+      "image": "/assets/img/gc_utb.jpg",
+      "modeli": [
+        "utb",
+        "utb445"
+      ]
     },
     {
       "group": "Oko - Oko 12x14",
@@ -463,23 +533,24 @@
     "traktor",
     "imt",
     "imt539",
-    "imt558",
-    "imt560",
-    "imt577",
     "ursus",
-    "ursusc330",
     "ursusc360",
-    "utb",
-    "utb445",
-    "imr",
-    "imr60",
-    "imr76",
-    "mtz",
     "zetor",
     "zetor3011",
     "zetor4911",
     "zetor5011",
     "zetor6011",
-    "zetor7011"
+    "zetor7011",
+    "utb",
+    "utb445",
+    "mtz",
+    "mtz80",
+    "mtz82",
+    "mtz820",
+    "mtz892",
+    "mtz920",
+    "mtz952",
+    "mtz1025",
+    "mtz1221"
   ]
 }
