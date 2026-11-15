@@ -124,7 +124,7 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
     s=s.replace("<!--ITEMLIST-->",()=>ld).replace(/\{\{SITE\}\}/g,site);
     s=PARTIS.rename(D,s);
     s=s.replace(/<div class="grid"/,()=>'<p class="pdv-note pdv-top"><sup class="ast">*</sup> Cene su u dinarima (RSD) i iskazane bez PDV-a; u zagradi je cena sa PDV-om ('+PARTIS.VAT+'%).</p><div class="grid"');
-    s=s.replace(/\{\{TRAK_PICK\}\}/g,()=>{const BR=(D.KATS||[]).filter(k=>k.roditelj==="traktorska-roba");if(!BR.length)return "";return '<section class="trk-pick"><h2>Izaberite vaš traktor</h2><div class="trk-cards">'+BR.map(b=>{const MO=(D.KATS||[]).filter(m=>m.roditelj===b.id);return '<a class="trk-card" href="'+b.file+'"><b>'+b.naziv+'</b><span>'+MO.length+' modela</span><small>'+MO.slice(0,5).map(m=>m.naziv.replace(b.naziv+" ","")).join(" · ")+(MO.length>5?" …":"")+'</small></a>';}).join("")+'</div></section>';});
+    s=s.replace(/\{\{TRAK_PICK\}\}/g,()=>{const BR=(D.KATS||[]).filter(k=>k.roditelj==="traktorska-roba");if(!BR.length)return "";return '<section class="trk-pick"><h2>Izaberite vaš traktor</h2><div class="trk-cards">'+BR.map(b=>{const MO=(D.KATS||[]).filter(m=>m.roditelj===b.id);const n=PARTIS.secN(D,b.id);return '<a class="trk-card" href="'+b.file+'"><b>'+b.naziv+'</b><span>'+n+' proizvoda · '+MO.length+' modela</span><small>'+MO.slice(0,5).map(m=>m.naziv.replace(b.naziv+" ","")).join(" · ")+(MO.length>5?" …":"")+'</small></a>';}).join("")+'</div></section>';});
     s=s.replace(/\{\{TRAK_BRANDS\}\}/g,()=>(D.KATS||[]).filter(k=>k.roditelj==="traktorska-roba").map(k=>'<a class="pill sub" href="'+k.file+'">'+k.naziv+'</a>').join(""));
     (D.HIDDENFILES||[]).forEach(f=>{s=s.replace(new RegExp('<a [^>]*href="'+f.replace(/\./g,"\\.")+'"[^>]*>[\\s\\S]*?</a>',"g"),"");});
     {
@@ -165,11 +165,17 @@ const dia=w=>{if(OV[w])return OV[w];const o=DI[w];return o?Object.entries(o).sor
       else if(!PARTIS.STAND.includes(k.id))crumb+='<a href="vase-vozilo.html">Vaše vozilo, naš deo</a> &rsaquo; ';
       let subs="";
       if(isTr){
-        const BR=KS.filter(x=>x.roditelj==="traktorska-roba");
-        subs+='<nav class="filters subfilters" aria-label="Potkategorije: Traktorski program"><span class="sub-lbl">Traktorski program &rsaquo;</span>'+pill("traktorski-program.html","Sve u traktorskom programu",false)+pill("traktorska-roba.html","Traktorska roba",true)+pill("gotova-creva.html","Gotova creva",false)+'</nav>';
-        subs+='<nav class="filters subfilters" aria-label="Potkategorije: Traktorska roba"><span class="sub-lbl">Traktorska roba &rsaquo;</span>'+BR.map(b=>pill(b.file,b.naziv,brand&&b.id===brand.id)).join("")+'</nav>';
+        const BR=KS.filter(x=>x.roditelj==="traktorska-roba"),cnt=id=>PARTIS.secN(D,id);
+        const sw='<nav class="trk-switch" aria-label="Proizvođači traktora"><span class="sub-lbl">Proizvođač</span>'+BR.map(b=>pill(b.file,b.naziv,brand&&b.id===brand.id)).join("")+'</nav>';
         if(brand){const MO=KS.filter(x=>x.roditelj===brand.id);
-          subs+='<nav class="filters subfilters" aria-label="Modeli: '+eh(brand.naziv)+'"><span class="sub-lbl">'+eh(brand.naziv)+' &rsaquo;</span>'+pill(brand.file,"Svi modeli",k.id===brand.id)+MO.map(m=>pill(m.file,m.naziv.replace(brand.naziv+" ",""),m.id===k.id)).join("")+'</nav>';}
+          if(k.id===brand.id){
+            subs+=sw+'<section class="trk-pick trk-models"><h2>Izaberite model '+eh(brand.naziv)+'</h2><div class="trk-cards mo">'+MO.map(m=>{const n=cnt(m.id);return '<a class="trk-card" href="'+m.file+'"><b>'+eh(m.naziv.replace(brand.naziv+" ",""))+'</b><span>'+n+' '+(n%10===1&&n%100!==11?'proizvod':'proizvoda')+'</span></a>';}).join("")+'</div></section>';
+            subs+='<h2 class="trk-list-h">Svi artikli za '+eh(brand.naziv)+' traktore</h2>';
+          }else{
+            subs+='<section class="trk-model"><a class="trk-back" href="'+brand.file+'">&larr; Svi '+eh(brand.naziv)+' modeli</a><nav class="trk-mpills" aria-label="Modeli: '+eh(brand.naziv)+'"><span class="sub-lbl">Model</span>'+MO.map(m=>pill(m.file,m.naziv.replace(brand.naziv+" ",""),m.id===k.id)).join("")+'</nav></section>';
+            subs+='<h2 class="trk-list-h">Artikli za '+eh(k.naziv)+'</h2>';
+          }
+        }
       }
       const ttl=k.naslov||(isTr?(k.roditelj==="traktorska-roba"?k.naziv+" traktori — delovi i oprema":k.naziv+" — delovi i oprema za traktor"):PARTIS.STAND.includes(k.id)?k.naziv:k.naziv+" — Vaše vozilo, naš deo");
       const t=tpl.replace(/\{\{KAT_SUBS\}\}/g,()=>subs).replace(/\{\{KAT_ID\}\}/g,k.id).replace(/\{\{KAT_FILE\}\}/g,k.file).replace(/\{\{KAT_CRUMB\}\}/g,()=>crumb).replace(/\{\{KAT_TAG\}\}/g,()=>eh(isTr?"Traktorski program \u00b7 "+(brand&&brand.id!==k.id?brand.naziv:"Traktorska roba"):k.naziv)).replace(/\{\{KAT_NAZIV\}\}/g,()=>eh(k.naziv)).replace(/\{\{KAT_TITLE\}\}/g,()=>eh(ttl)).replace(/\{\{KAT_META\}\}/g,()=>{const o=(k.opis||k.naziv+" — PARTIS Niš.").replace(/\s+/g," ");if(o.length<=158)return eh(o);const c=o.slice(0,155),i=Math.max(c.lastIndexOf(" "),c.lastIndexOf(","));return eh(c.slice(0,i>80?i:155).replace(/[,;:\s]+$/,"")+"…");}).replace(/\{\{KAT_OPIS\}\}/g,()=>eh(k.opis||k.naziv+" — PARTIS Niš."));
