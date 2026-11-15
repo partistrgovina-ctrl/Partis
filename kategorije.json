@@ -181,6 +181,12 @@
       "opis": "Artikli za traktor Ursus C-330: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
     },
     {
+      "id": "ursusc355",
+      "naziv": "Ursus C-355",
+      "roditelj": "ursus",
+      "opis": "Artikli za traktor Ursus C-355: svetla i sijalice, prekidači, brave, sirene, releji, kleme i kablovi, creva i drugo. Artikli su univerzalni ili se koriste na više traktora. Ako niste sigurni da odgovara vašem traktoru, pošaljite fotografiju starog dela ili kataloški broj i proverićemo."
+    },
+    {
       "id": "ursusc360",
       "naziv": "Ursus C-360",
       "roditelj": "ursus",

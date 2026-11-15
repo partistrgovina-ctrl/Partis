@@ -45,6 +45,7 @@
     "imt5136",
     "ursus",
     "ursusc330",
+    "ursusc355",
     "ursusc360",
     "ursusc385",
     "ursus1204",
@@ -94,6 +95,6 @@
     "mtz1025",
     "mtz1221"
   ],
-  "spec": "Kamioni, autobusi i radne mašine (univerzalna brava sa ručicom)",
+  "spec": "Traktori, kamioni, autobusi i radne mašine (univerzalna brava sa ručicom)",
   "spec_label": "Odgovara za"
 }
