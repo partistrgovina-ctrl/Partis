@@ -30,5 +30,7 @@
     "normalno otvoreni relej",
     "87 85 86 30"
   ],
-  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela.",
+  "spec": "Zamena za Bosch 0 332 019 150 / Hella 4RA 003 510-081 · sva 12V vozila i traktori (IMT, Zetor, Ursus, MTZ, automobili): farovi, sirena, ventilator, pumpa goriva, grejači",
+  "spec_label": "Odgovara za"
 }

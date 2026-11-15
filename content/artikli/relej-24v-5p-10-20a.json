@@ -32,5 +32,7 @@
     "87a",
     "normalno zatvoreni relej"
   ],
-  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela."
+  "hint": "Pre porudžbine proverite napon (12V ili 24V) i broj izvoda; ako niste sigurni, pošaljite fotografiju starog dela.",
+  "spec": "Zamena za Bosch 0 332 209 203 / 0 986 332 203 · prebacivački 24V: MAN, Mercedes-Benz, Steyr, Magirus-Deutz",
+  "spec_label": "Odgovara za"
 }
