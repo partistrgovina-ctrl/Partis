@@ -1,9 +1,9 @@
 /* PARTIS — izbor jezika. Tekstovi na sajtu su srpski; prevodi se učitavaju samo za izabrani jezik (assets/lang/XX.js)
    i primenjuju na prikazani tekst. Porudžbine i upiti koji stižu prodavnici uvek ostaju na srpskom. */
 (function(){
-  var LANGS=[["sr","Srpski"],["en","English"],["de","Deutsch"],["it","Italiano"],["fr","Français"],["hu","Magyar"],["ro","Română"],["bg","Български"],["mk","Македонски"],["sq","Shqip"],["el","Ελληνικά"],["tr","Türkçe"],["pl","Polski"],["sl","Slovenščina"]];
+  var LANGS=[["sr","Srpski"],["en","English"],["de","Deutsch"],["it","Italiano"],["fr","Français"],["hu","Magyar"],["ro","Română"],["bg","Български"],["mk","Македонски"],["sq","Shqip"],["el","Ελληνικά"],["tr","Türkçe"],["pl","Polski"],["sl","Slovenščina"],["ru","Русский"],["uk","Українська"],["be","Беларуская"]];
   var KEY="partis_lang",cur="sr",dict=null,H=document.documentElement;
-  var AV=["sr","en","de","it","fr","hu","ro","pl","sl","tr","bg","mk","sq","el"];
+  var AV=["sr","en","de","it","fr","hu","ro","pl","sl","tr","bg","mk","sq","el","ru","uk","be"];
   LANGS=LANGS.filter(function(l){return AV.indexOf(l[0])>=0;});
   var codes=LANGS.map(function(l){return l[0];});
   try{var m=/[?&]lang=([a-z]{2})/.exec(location.search);if(m&&codes.indexOf(m[1])>=0){localStorage.setItem(KEY,m[1]);}
@@ -14,8 +14,25 @@
 
   /* ---------- prevođenje jednog teksta ---------- */
   var NUM=/\d+(?:[.,]\d+)?/g;
+  /* marke traktora se ne prevode: "Artikli za Zetor 5011" i "Artikli za IMT 539" dele isti prevod ("Artikli za @ #") */
+  var BRANDS=/\b(MTZ Belarus|IMT|IMR|MTZ|UTB|Ursus|Zetor)\b/g;
   function lookup(t){
     if(!dict)return null;
+    var r=lookup0(t);if(r!=null)return r;
+    var b=t.match(BRANDS);
+    if(b){r=lookup0(t.replace(BRANDS,"@"));if(r!=null){var i=0;return r.replace(/@/g,function(){return b[i++]||"";});}}
+    /* skraćeni opis (kartica, meta …): prevod punog teksta, skraćen */
+    if(t.length>50){r=pfx(t);if(r==null&&b){r=pfx(t.replace(BRANDS,"@"));if(r!=null){var j=0;r=r.replace(/@/g,function(){return b[j++]||"";});}}if(r!=null)return r;}
+    return null;
+  }
+  function pfx(t){
+    var p=t.replace(/\u2026$/,"").replace(/[\s,;:.]+$/,""),pn=p.replace(NUM,"#"),nums=p.match(NUM)||[];
+    for(var k in dict){if(k.length<=p.length)continue;var v=null;
+      if(k.indexOf(p)===0)v=dict[k];else if(pn!==p&&k.indexOf(pn)===0){var n=0;v=dict[k].replace(/#/g,function(){return n<nums.length?nums[n++]:"#";});}
+      if(v!=null){var c=v.slice(0,Math.max(40,Math.round(v.length*p.length/k.length)));return c.replace(/\s+\S*$/,"")+"\u2026";}}
+    return null;
+  }
+  function lookup0(t){
     if(Object.prototype.hasOwnProperty.call(dict,t))return dict[t];
     if(/\d/.test(t)){
       var nums=t.match(NUM),k=t.replace(NUM,"#");
@@ -26,7 +43,7 @@
     }
     return null;
   }
-  var SEPS=[" | "," \u2014 "," \u203A "," \u00B7 "];
+  var SEPS=[" | "," \u2014 "," \u203A "," \u00B7 ",": "];
   function tr(t){
     var a=lookup(t);if(a!=null)return a;
     for(var i=0;i<SEPS.length;i++){
@@ -96,7 +113,7 @@
   function build(){
     var host=document.querySelector(".navbar .nav-inner")||document.querySelector("header .head-inner");if(!host||document.getElementById("langSel"))return;
     var wrap=document.createElement("div");wrap.className="lang-wrap";
-    var FL={sr:"rs",en:"gb",de:"de",it:"it",fr:"fr",hu:"hu",ro:"ro",pl:"pl",sl:"si",tr:"tr",bg:"bg",mk:"mk",sq:"al",el:"el"};
+    var FL={sr:"rs",en:"gb",de:"de",it:"it",fr:"fr",hu:"hu",ro:"ro",pl:"pl",sl:"si",tr:"tr",bg:"bg",mk:"mk",sq:"al",el:"el",ru:"ru",uk:"ua",be:"by"};
     var fi=function(c){return '<img class="lang-flag" src="assets/flags/'+(FL[c]||"rs")+'.svg" alt="" width="24" height="18">';};
     var pick=function(c){try{localStorage.setItem(KEY,c);}catch(e){}
       var u=location.href.replace(/([?&])lang=[a-z]{2}&?/,"$1").replace(/[?&]$/,"");location.href=u;};
