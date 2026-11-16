@@ -9,18 +9,15 @@
   "variants": [
     {
       "label": "M6",
-      "price": 13.5,
-      "in_stock": true
+      "price": 13.5
     },
     {
       "label": "M8",
-      "price": 13.5,
-      "in_stock": true
+      "price": 13.5
     },
     {
       "label": "M10",
-      "price": 13.5,
-      "in_stock": true
+      "price": 13.5
     }
   ],
   "promo": false,
@@ -45,5 +42,8 @@
     "zerk",
     "zerk mazalica",
     "nipl za mast"
+  ],
+  "categories": [
+    "mazalice"
   ]
 }
