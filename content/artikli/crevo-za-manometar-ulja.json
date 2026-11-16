@@ -11,7 +11,7 @@
     {
       "label": "5x900 mm",
       "price": 405,
-      "note": "Oko - Holender 8 - M10x1 · IMT 533, 539, 542, 558 · kat. br.: IMT 533 – 533.06.350, 533.06.340; IMT 539 – 800.049",
+      "note": "Oko - Holender 8 - M10x1 · IMT 533, 539, 542, 558 · kat. br.: IMT 533 – 533.06.350, 533.06.340; IMT 539 – 800.049; IMT 558 – 034 05 990",
       "modeli": [
         "imt",
         "imt533",
@@ -114,7 +114,9 @@
     "crevo za uljni manometar",
     "crevo za manometar",
     "crevo za davac pritiska ulja",
-    "crevo za kontrolu pritiska ulja"
+    "crevo za kontrolu pritiska ulja",
+    "034 05 990",
+    "034.05.990"
   ],
   "categories": [
     "traktor",
