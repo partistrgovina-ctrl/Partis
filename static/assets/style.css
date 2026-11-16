@@ -949,3 +949,11 @@ a.acct-b{text-decoration:none}
 .brend-strip img{height:35px;width:auto;max-width:130px;object-fit:contain;object-position:left bottom}
 .brend-strip span{font-size:.76rem;opacity:.65}
 .note.note-model{display:block;line-height:1.5;margin-bottom:10px}.note.note-model a{color:var(--red);font-weight:600;margin-left:4px}
+
+/* obaveštenje o kolačićima (fiksno, bez animacije) */
+#ck-bar{position:fixed;left:0;right:0;bottom:0;z-index:80;background:#16140f;color:#f4f1ea;display:flex;gap:18px;align-items:center;justify-content:center;flex-wrap:wrap;padding:14px max(18px,env(safe-area-inset-left,0px)) max(14px,env(safe-area-inset-bottom,0px));font:15px/1.45 "IBM Plex Sans",system-ui,sans-serif;box-shadow:0 -2px 10px rgba(0,0,0,.25)}
+#ck-bar p{margin:0;max-width:820px}
+#ck-bar a{color:#f4f1ea;text-decoration:underline}
+#ck-bar .ck-btns{display:flex;gap:10px}
+#ck-bar button{font:600 15px "IBM Plex Sans",system-ui,sans-serif;padding:9px 20px;border-radius:999px;border:1.5px solid #f4f1ea;background:transparent;color:#f4f1ea;cursor:pointer}
+#ck-bar #ck-yes{background:#f4f1ea;color:#16140f}

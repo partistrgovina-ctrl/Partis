@@ -105,13 +105,14 @@ for (const k of CORE.productPages(fs.readFileSync(path.join(tplDir, "_proizvod.h
   }
 }
 const GTM_ID = "GTM-N93HR8KV";
-const GTM_HEAD = `<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');</script>`;
+const GTM_HEAD = `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});try{if(localStorage.getItem('partis_cookie')==='granted')gtag('consent','update',{analytics_storage:'granted'})}catch(e){}</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');</script>`;
 const GTM_BODY = `<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
 const MAP = CORE.pathMap(D);
 const outPages = [];
 for (const pg of pages) {
   const old = path.join(DIST, pg.file);
-  const html = CORE.rewriteUrls(fs.readFileSync(old, "utf8"), MAP, SITE).replace("<head>", '<head>\n<base href="/">\n' + GTM_HEAD).replace(/<body([^>]*)>/, (m) => m + "\n" + GTM_BODY);
+  const html = CORE.rewriteUrls(fs.readFileSync(old, "utf8"), MAP, SITE).replace("<head>", '<head>\n<base href="/">\n' + GTM_HEAD).replace(/<body([^>]*)>/, (m) => m + "\n" + GTM_BODY).replace("</body>", '<script src="/assets/cookie.js"></script>\n</body>');
   const nf = MAP[pg.file] !== undefined ? CORE.fileOf(MAP[pg.file]) : pg.file;
   if (nf !== pg.file) fs.rmSync(old);
   fs.mkdirSync(path.dirname(path.join(DIST, nf)), { recursive: true });
