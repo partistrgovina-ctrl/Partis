@@ -12,14 +12,15 @@
       "group": "Oko - Oko 14 - 14",
       "label": "8x300 mm · Oko-Oko",
       "price": 330,
-      "note": "Zetor 3011, 4911, 5011, 6011, 7011 (pumpa – filter) · kat. br. 950843",
+      "note": "Zetor 3011, 4911, 5011, 6011, 7011 (pumpa – filter) · kat. br. 950843 · Bosch 7001 0886 · IMT, IMR (prema dužini)",
       "modeli": [
         "zetor",
         "zetor3011",
         "zetor4911",
         "zetor5011",
         "zetor6011",
-        "zetor7011"
+        "zetor7011",
+        "imt"
       ]
     },
     {
@@ -97,18 +98,26 @@
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x650 mm · Oko-Oko",
-      "price": 395
+      "price": 395,
+      "note": "IMT (prema dužini)",
+      "modeli": [
+        "imt"
+      ]
     },
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x800 mm · Oko-Oko",
-      "price": 425
+      "price": 425,
+      "note": "IMT, IMR (prema dužini)",
+      "modeli": [
+        "imt"
+      ]
     },
     {
       "group": "Oko - Oko 14 - 14",
       "label": "8x1000 mm · Oko-Oko",
       "price": 465,
-      "note": "MTZ · kat. br. GMP HH-027/14/100",
+      "note": "MTZ · kat. br. GMP HH-027/14/100 · IMT (prema dužini)",
       "modeli": [
         "mtz",
         "mtz80",
@@ -118,7 +127,8 @@
         "mtz920",
         "mtz952",
         "mtz1025",
-        "mtz1221"
+        "mtz1221",
+        "imt"
       ]
     },
     {
@@ -149,7 +159,11 @@
       "group": "Holender - Holender M16x1.5",
       "label": "8x500 mm · Holender-Holender",
       "price": 355,
-      "image": "/assets/img/gc_hh.jpg"
+      "image": "/assets/img/gc_hh.jpg",
+      "note": "IMT, IMR (sa navrtkama, prema dužini)",
+      "modeli": [
+        "imt"
+      ]
     },
     {
       "group": "Holender - Holender M16x1.5",
@@ -219,7 +233,11 @@
       "group": "Oko - Holender 14 - M16x1.5",
       "label": "8x600 mm · Oko-Holender",
       "price": 375,
-      "image": "/assets/img/gc_oh.jpg"
+      "image": "/assets/img/gc_oh.jpg",
+      "note": "IMT (sa navrtkom M14x1,5, prema dužini)",
+      "modeli": [
+        "imt"
+      ]
     },
     {
       "group": "Oko - Holender 14 - M16x1.5",
@@ -247,6 +265,14 @@
       "modeli": [
         "utb",
         "utb445"
+      ]
+    },
+    {
+      "group": "Oko - Oko 12x14",
+      "label": "8x400 mm · Zetor",
+      "note": "Zetor 6211, 6245, 7211, 7245, 7245H, 7711, 7745, 3320, 3340, 4320, 4340, 5320, 5340, 6320, 6340, 7320, 7340 (filter – Bosch pumpa) · Bosch 7001 0887",
+      "modeli": [
+        "zetor"
       ]
     },
     {
@@ -526,7 +552,15 @@
     "diesel hose",
     "diesel line",
     "petrol hose",
-    "petrol line"
+    "petrol line",
+    "7001 0886",
+    "70010886",
+    "7001 0887",
+    "70010887",
+    "IMR",
+    "zetor 7245",
+    "zetor 6245",
+    "zetor 7745"
   ],
   "hint": "Ako niste sigurni da odgovara vašem vozilu ili mašini, pošaljite fotografiju starog dela ili kataloški broj.",
   "categories": [
