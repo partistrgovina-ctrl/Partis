@@ -135,3 +135,7 @@ alter table public.porudzbine add column if not exists predracun jsonb;
 -- DOPUNA 4: administrator moze da brise porudzbine
 drop policy if exists "admin brisanje porudzbina" on public.porudzbine;
 create policy "admin brisanje porudzbina" on public.porudzbine for delete using (public.je_admin());
+
+
+-- DOPUNA 5 (napomena uz kupca u programu za upravljanje) — pokrenuti jednom; ako kolona već postoji, ništa se ne menja
+alter table public.profili add column if not exists napomena text;
