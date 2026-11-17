@@ -2,7 +2,7 @@
 // PARTIS - prijem porudzbine/upita iz korpe i slanje na mejl. Radi na Mint.rs (cPanel) hostingu.
 header('Content-Type: text/plain; charset=utf-8');
 const PRIMALAC = 'partis.trgovina@gmail.com';
-const POSILJALAC = 'upit@partis.rs';   // adresa na domenu sajta (mora da postoji ili da hosting dozvoljava slanje)
+const POSILJALAC = 'info@partis.rs';   // postoji u cPanel-u (Email Accounts)
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); exit('Method not allowed'); }
 if (!empty($_POST['bot-field'])) { exit('ok'); }            // zamka za botove
