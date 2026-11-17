@@ -2,6 +2,7 @@
 const {fmt,esc}=PARTIS;
 const D={HOSES,SPRAYS,ITEMS,CATS,IMG,KATS:(typeof KATS!=="undefined"?KATS:[]),HIDDENFILES:(typeof HIDDENFILES!=="undefined"?HIDDENFILES:[]),NAZIVI:(typeof NAZIVI!=="undefined"?NAZIVI:{}),POC:(typeof POC!=="undefined"?POC:null)};
 /* cena sa rabatom prijavljenog kupca (window.REBATE postavlja account.js) */
+const bxNote=(p,o)=>{if(!o.box||!window.REBATE)return "";const rp=PARTIS.rebateFor(p,window.REBATE),rk=PARTIS.rebateBox(p,window.REBATE);return rk>rp?`<small class="bx-n">Cela kutija (${o.box} kom): −${rk}% po komadu</small>`:"";};
 const pr=(p,price)=>price==null?"":PARTIS.priceHTML(price,PARTIS.rebateFor(p,window.REBATE));
 const cardEl=(r,i)=>{const t=document.createElement("template");t.innerHTML=PARTIS.cardHTML(r,i).trim();return t.content.firstElementChild;};
 
@@ -53,7 +54,7 @@ function openSpray(p){
                     <div class="prop"><div class="k">Brend</div><div class="v">HEMA Aerosol</div></div>
         </div>
         <div class="m-sub">Ambalaža i cena</div>
-        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr${o.img?` class="gal-row" onclick="spSet(${vi})"`:""}><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD</small><sup class="ast">*</sup></td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Ambalaža</th><th>Cena bez PDV-a (sa PDV-om)</th><th></th></tr></thead><tbody>${p.opts.map((o,vi)=>`<tr${o.img?` class="gal-row" onclick="spSet(${vi})"`:""}><td><b>${esc(o.pack)}</b></td><td class="price">${pr(p,o.price)} <small>RSD</small><sup class="ast">*</sup>${bxNote(p,o)}</td><td class="addc">${addBtn(p._k,vi)}</td></tr>`).join("")}</tbody></table></div>
       </div>
     </div>`;
   show();

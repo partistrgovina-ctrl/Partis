@@ -957,3 +957,6 @@ a.acct-b{text-decoration:none}
 #ck-bar .ck-btns{display:flex;gap:10px}
 #ck-bar button{font:600 15px "IBM Plex Sans",system-ui,sans-serif;padding:9px 20px;border-radius:999px;border:1.5px solid #f4f1ea;background:transparent;color:#f4f1ea;cursor:pointer}
 #ck-bar #ck-yes{background:#f4f1ea;color:#16140f}
+
+.bx-n{display:block;color:#1f7a3a;font-size:12px;font-weight:600;margin-top:2px}
+.cart-bx{color:#1f7a3a!important;font-weight:600}

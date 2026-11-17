@@ -137,13 +137,26 @@
     if(["traktor","gotova"].includes(p.cat))return "traktorski";
     return p.cat==="mazalice"?"mazalice":(["pneu","crevapn","mesing","spojnice","crevo","traktor","gotova"].includes(p.cat)?"pneumatika":(p.cat||"ostalo"));
   }
-  /* procenat rabata za artikal: rabat grupe, a ako nije upisan — opšti rabat ("svi") */
+  /* procenat rabata za artikal: poseban rabat artikla (R.art[naziv].p; 0 = nikad rabat), pa rabat grupe, pa opšti ("svi") */
+  const okp=v=>{const n=Number(v);return v!==undefined&&v!==null&&v!==""&&!isNaN(n)?(n>0&&n<100?n:0):undefined;};
+  const artOf=(p,R)=>R&&R.art&&p&&R.art[p.name]||null;
   function rebateFor(p,R){
     if(!R)return 0;
     if(p&&p.gal&&p.promo!==false&&priced(p))return 0; /* artikli na akciji ne ulaze u rabat */
-    const g=Number(R[groupOf(p)]),a=Number(R.svi);
-    const v=R[groupOf(p)]!==undefined&&R[groupOf(p)]!==""&&!isNaN(g)?g:(!isNaN(a)?a:0);
+    const a=artOf(p,R),ap=a?okp(a.p):undefined;
+    if(ap!==undefined)return ap;
+    const g=Number(R[groupOf(p)]),s=Number(R.svi);
+    const v=R[groupOf(p)]!==undefined&&R[groupOf(p)]!==""&&!isNaN(g)?g:(!isNaN(s)?s:0);
     return v>0&&v<100?v:0;
+  }
+  /* rabat za CELE KUTIJE (samo sprejevi): R.art[naziv].k, pa (ako artikal ima svoj rabat) taj rabat, pa R.hema_kutija, pa običan rabat */
+  function rebateBox(p,R){
+    if(!R)return 0;
+    if(p&&p.gal&&p.promo!==false&&priced(p))return 0;
+    const a=artOf(p,R);
+    if(a){const k=okp(a.k);if(k!==undefined)return k;const ap=okp(a.p);if(ap!==undefined)return ap;}
+    if(groupOf(p)==="hema"){const k=okp(R.hema_kutija);if(k!==undefined)return k;}
+    return rebateFor(p,R);
   }
   const discounted=(price,r)=>Math.round(price*(100-r))/100;
   /* HTML cene sa rabatom: precrtana stara cena + nova */
@@ -151,5 +164,5 @@
     return r>0?`<s class="old">${fmt(price)}</s> <b class="newp">${fmt(discounted(price,r))}</b> <span class="rb">\u2212${r}%</span>`:fmt(price);
   }
   function priceHTML2(price,r){const n=r>0?discounted(price,r):price;return priceHTML(price,r)+` <span class="vat">(${fmt(gross(n))})</span>`;}
-  return {STAND,GROUPS,groupOf,rebateFor,discounted,priceHTML:priceHTML2,gross,VAT,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,menuHTML,totalProducts,rename,OLDN};
+  return {STAND,GROUPS,groupOf,rebateFor,rebateBox,discounted,priceHTML:priceHTML2,gross,VAT,fmt,esc,priced,itemCount,cardHTML,gridHTML,sectionList,secN,metaHTML,tilesHTML,menuHTML,totalProducts,rename,OLDN};
 });

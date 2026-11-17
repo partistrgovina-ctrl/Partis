@@ -160,6 +160,11 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
 .cc-ta{width:100%;box-sizing:border-box;font:inherit;padding:9px 12px;border:1.5px solid #b9b19f;border-radius:8px;background:#fff;resize:vertical}
 .cc-ta:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,38,28,.15);outline:0}
 .cc-body[hidden]{display:none}
+.ar-add{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}.ar-sel{font:inherit;padding:8px 10px;border:1.5px solid #b9b19f;border-radius:8px;background:#fff;min-width:240px;max-width:100%}
+.ar-f{display:flex;flex-direction:column;font-size:12px;font-weight:700;color:#555;gap:2px}.ar-f input{width:96px;font:inherit;padding:8px 10px;border:1.5px solid #b9b19f;border-radius:8px}
+.ar-n{display:flex;align-items:center;gap:6px;font-size:13px;padding-bottom:8px}.ar-btn{padding:8px 16px}
+.ar-list{margin-top:8px;display:flex;flex-direction:column;gap:6px}.ar-row{display:flex;align-items:center;gap:12px;background:#f6f2e8;border:1px solid #e1dbcb;border-radius:8px;padding:6px 10px}
+.ar-row b{flex:1}.ar-row span{color:#444;font-size:13px}.ar-x{background:none;border:0;cursor:pointer;font-size:15px;color:#a00;padding:2px 6px}
 .cc-st{font:inherit;font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;border:1.5px solid var(--ok);color:var(--ok);background:#eef8f1;cursor:pointer}
 .cc.wait .cc-st{border-color:#c9a400;color:#7a6200;background:#fff3c4}
 .cc-g{margin-top:12px}
@@ -688,7 +693,7 @@ const SCHEMA={
   {k:"title",l:"Naziv",t:"text",req:1},{k:"in_stock",l:"Na stanju",t:"bool",def:true},
   {k:"eng",l:"Engleski naziv",t:"text"},{k:"image",l:"Slika",t:"image",h:"Uspravna slika flaše na beloj pozadini."},
   {k:"card_text",l:"Kratak tekst na kartici",t:"text"},{k:"description",l:"Opis",t:"area"},{k:"use",l:"Namena",t:"area"},
-  {k:"packs",l:"Pakovanja i cene",t:"table",cols:[["in_stock","Na stanju","bool"],["sifra","Šifra"],["pack","Pakovanje (npr. 400 ml)"],["price","Cena (RSD)","num"]]},
+  {k:"packs",l:"Pakovanja i cene",t:"table",cols:[["in_stock","Na stanju","bool"],["sifra","Šifra"],["pack","Pakovanje (npr. 400 ml)"],["price","Cena (RSD)","num"],["box","Komada u kutiji","num"]]},
   {k:"order",l:"Redosled",t:"int"},{k:"aliases",l:"Alternativni nazivi",t:"tags",h:"Odvojeno zarezom."}],
  creva:[
   {k:"title",l:"Naziv",t:"text",req:1},{k:"in_stock",l:"Na stanju",t:"bool",def:true},
@@ -981,6 +986,15 @@ function custLogin(err){
     [["Prijavi me",async()=>{const {error}=await SB.auth.signInWithPassword({email:$("#cuE").value.trim(),password:$("#cuP").value});
       if(error)return custLogin("Pogrešan mejl ili lozinka.");if(!(await isAdmin())){await SB.auth.signOut();return custLogin("Ovaj nalog nije administratorski.");}try{localStorage.setItem("partis_sb_cred",btoa(JSON.stringify({e:$("#cuE").value.trim(),p:$("#cuP").value})));}catch(e){}AFTER();},1],["Zatvori",()=>$("#dlg3").close()]]);
 }
+function artOpts(){
+  const grp=(l,k)=>{const t=DB[k].map(x=>x.data.title).filter(Boolean).sort((a,b)=>String(a).localeCompare(String(b),"sr"));return t.length?`<optgroup label="${esc(l)}">${t.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join("")}</optgroup>`:"";};
+  return `<option value="">Izaberi artikal…</option>`+grp("HEMA aerosol","hema")+grp("Artikli","artikli")+grp("Armirana creva","creva");
+}
+function artRow(n,a){
+  const nik=Number(a.p)===0&&(a.k===undefined||Number(a.k)===0);
+  const txt=nik?"nikad rabat":[a.p!==undefined&&a.p!==""?"komadi "+a.p+"%":"",a.k!==undefined&&a.k!==""?"cela kutija "+a.k+"%":""].filter(Boolean).join(" · ");
+  return `<div class="ar-row" data-n="${esc(n)}" data-p="${a.p===undefined?"":esc(a.p)}" data-k="${a.k===undefined?"":esc(a.k)}"><b>${esc(n)}</b><span>${esc(txt)}</span><button type="button" class="ar-x" aria-label="Ukloni">✕</button></div>`;
+}
 async function custList(){
   const {data,error}=await SB.from("profili").select("*").order("created_at",{ascending:false});
   if(error)return d3("<p class='warn'>Greška: "+esc(error.message)+"</p>",[["Zatvori",()=>$("#dlg3").close()]]);
@@ -996,7 +1010,10 @@ async function custList(){
       <div class="cc-body" hidden>
       <div class="cc-g"><div class="cc-t">Napomena <small>vidite samo vi, kupac je ne vidi na sajtu</small></div><textarea data-f="napomena" rows="2" class="cc-ta" placeholder="Npr. dogovoren rok plaćanja, kontakt osoba, šta ga zanima…">${esc(p.napomena||"")}</textarea></div>
       <div class="cc-g"><div class="cc-t">Opšti rabat <small>važi za sve što nema poseban rabat</small></div><div class="cc-grid">${g([["svi","Svi artikli"]])}</div></div>
-      <div class="cc-g"><div class="cc-t">Po grupama</div><div class="cc-grid">${g(base)}</div></div>
+      <div class="cc-g"><div class="cc-t">Po grupama</div><div class="cc-grid">${g(base)}${g([["hema_kutija","HEMA — cela kutija"]])}</div><p class="cc-hint" style="margin:6px 0 0">„HEMA aerosol“ važi za komade, a „HEMA — cela kutija“ za svaku punu kutiju (broj komada u kutiji se upisuje uz pakovanje u artiklima). Prazno = isti rabat kao za komade.</p></div>
+      <div class="cc-g"><div class="cc-t">Po artiklima <small>poseban rabat za jedan artikal; ima prednost nad grupom</small></div>
+        <div class="ar-add"><select class="ar-sel" aria-label="Artikal">${artOpts()}</select><label class="ar-f"><span>Komadi %</span><input type="number" min="0" max="99" step="0.5" class="ar-p" placeholder="—"></label><label class="ar-f"><span>Cela kutija %</span><input type="number" min="0" max="99" step="0.5" class="ar-k" placeholder="—"></label><label class="ar-n"><input type="checkbox" class="ar-no"> Nikad rabat</label><button type="button" class="ar-btn">Dodaj</button></div>
+        <div class="ar-list">${Object.entries(R.art||{}).map(([n,a])=>artRow(n,a)).join("")}</div></div>
       ${nove.length?`<div class="cc-g"><div class="cc-t">Po kategorijama</div><div class="cc-grid">${g(nove)}</div></div>`:""}
       <div class="cc-ft"><button type="button" class="red" data-save>Sačuvaj</button></div></div></div>`;};
   const wait=data.filter(p=>!p.odobren).length;
@@ -1015,12 +1032,24 @@ async function custList(){
     const odob=tr.querySelector("[data-f=odobren]").value==="1";
     b.disabled=true;b.textContent="Čuvam…";
     const nap=(tr.querySelector("[data-f=napomena]").value||"").trim();
+    const art={};tr.querySelectorAll(".ar-row").forEach(r=>{const o={};if(r.dataset.p!=="")o.p=Number(r.dataset.p);if(r.dataset.k!=="")o.k=Number(r.dataset.k);if(Object.keys(o).length)art[r.dataset.n]=o;});if(Object.keys(art).length)rab.art=art;
     const {error}=await SB.from("profili").update({odobren:odob,rabati:rab,napomena:nap||null}).eq("id",tr.dataset.id);
     b.disabled=false;b.textContent=error?"Greška":"Sačuvano ✓";if(error)alert(error.message);else{tr.classList.toggle("wait",!odob);let np=tr.querySelector(".cc-np");if(nap){if(!np){np=document.createElement("div");np.className="cc-np";tr.querySelector(".cc-who").appendChild(np);}np.textContent="📝 "+nap.split("\n")[0].slice(0,90);}else if(np)np.remove();}
     setTimeout(()=>b.textContent="Sačuvaj",1600);
   });
   const tg=h=>{const c=h.closest(".cc"),b=c.querySelector(".cc-body"),o=b.hidden;b.hidden=!o;c.classList.toggle("open",o);h.setAttribute("aria-expanded",o?"true":"false");};
   body.querySelectorAll("[data-tg]").forEach(h=>{h.onclick=e=>{if(e.target.closest(".cc-st"))return;tg(h);};h.onkeydown=e=>{if((e.key==="Enter"||e.key===" ")&&!e.target.closest(".cc-st")){e.preventDefault();tg(h);}};});
+  body.querySelectorAll(".ar-btn").forEach(b=>b.onclick=()=>{
+    const c=b.closest(".cc"),sel=c.querySelector(".ar-sel"),n=sel.value;if(!n)return alert("Izaberite artikal.");
+    const no=c.querySelector(".ar-no").checked,pv=c.querySelector(".ar-p").value.trim().replace(",","."),kv=c.querySelector(".ar-k").value.trim().replace(",",".");
+    let a={};if(no){a={p:0,k:0};}else{if(pv!=="")a.p=Number(pv);if(kv!=="")a.k=Number(kv);}
+    if(!Object.keys(a).length)return alert("Upišite rabat za komade ili za celu kutiju, ili označite „Nikad rabat“.");
+    if(Object.values(a).some(v=>isNaN(v)||v<0||v>=100))return alert("Rabat mora biti od 0 do 99.");
+    const list=c.querySelector(".ar-list");list.querySelectorAll(".ar-row").forEach(r=>{if(r.dataset.n===n)r.remove();});
+    list.insertAdjacentHTML("afterbegin",artRow(n,a));sel.value="";c.querySelector(".ar-p").value="";c.querySelector(".ar-k").value="";c.querySelector(".ar-no").checked=false;
+    c.querySelector("[data-save]").textContent="Sačuvaj *";
+  });
+  body.addEventListener("click",e=>{const x=e.target.closest(".ar-x");if(!x)return;const c=x.closest(".cc");x.closest(".ar-row").remove();c.querySelector("[data-save]").textContent="Sačuvaj *";});
   body.querySelectorAll(".cc-st").forEach(sel=>sel.onchange=()=>{sel.closest(".cc").classList.toggle("wait",sel.value!=="1");});
 }
 

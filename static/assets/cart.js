@@ -11,11 +11,19 @@
   function find(n,l){
     const p=Object.values(REG).find(x=>x.name===n);if(!p)return null;
     if(p.kind==="crevo"){const v=p.variants.find(x=>x.dim===l);return v?{p,label:v.dim,price:v.price,unit:"m",sf:v.sf}:null;}
-    if(p.kind==="sprej"){const o=p.opts.find(x=>x.pack===l);return o?{p,label:o.pack,price:o.price,unit:"kom",sf:o.sf}:null;}
+    if(p.kind==="sprej"){const o=p.opts.find(x=>x.pack===l);return o?{p,label:o.pack,price:o.price,unit:"kom",sf:o.sf,box:o.box||0}:null;}
     if(p.gal){const g=p.gal.find(x=>x.label===l);return g?{p,label:g.label,price:g.price,unit:"kom",sf:g.sf}:null;}
     return {p,label:"",price:p.price,unit:"kom",sf:p.sf};
   }
-  function lines(){return cart.map(c=>{const r=find(c.n,c.l);if(!r)return null;const rb=PARTIS.rebateFor(r.p,window.REBATE);return {...r,c,rb,eff:r.price==null?null:PARTIS.discounted(r.price,rb)};}).filter(Boolean);}
+  /* rabat po stavci: komadi po običnom rabatu, a cele kutije (ako artikal ima kutiju) po rabatu za kutije */
+  function lines(){return cart.map(c=>{const r=find(c.n,c.l);if(!r)return null;
+    const rp=PARTIS.rebateFor(r.p,window.REBATE),rk=r.box?PARTIS.rebateBox(r.p,window.REBATE):rp;
+    const B=r.box||0,nb=B&&rk!==rp?Math.floor(c.q/B):0,pcs=c.q-nb*B;
+    const up=r.price==null?null:PARTIS.discounted(r.price,rp),uk=r.price==null?null:PARTIS.discounted(r.price,rk);
+    const sum=r.price==null?null:Math.round((up*pcs+uk*nb*B)*100)/100;
+    const rb=r.price==null||!r.price?0:(nb?Math.round((1-sum/(r.price*c.q))*1000)/10:rp);
+    const next=B&&rk>rp&&nb===0&&c.q<B?B-c.q:(B&&rk>rp?B-(c.q%B):0);
+    return {...r,c,rb,rp,rk,nb,B,pcs,eff:up,sum,next};}).filter(Boolean);}
   function clean(){cart=cart.filter(c=>find(c.n,c.l));save();}
 
   /* dugme u uglu */
@@ -43,15 +51,15 @@
 
   function totals(){
     let sum=0,upit=0,list=0;
-    lines().forEach(x=>{if(x.price==null)upit++;else{sum+=x.eff*x.c.q;list+=x.price*x.c.q;}});
+    lines().forEach(x=>{if(x.price==null)upit++;else{sum+=x.sum;list+=x.price*x.c.q;}});
     return {sum,upit,list,rab:Math.max(0,list-sum)};
   }
   function orderText(){
     const t=totals();
-    const rows=lines().map((x,i)=>`${i+1}. ${x.sf?"["+x.sf+"] ":""}${x.p.name}${x.label?" — "+x.label:""} — ${x.c.q} ${x.unit}`+(x.price==null?" — cena na upit":` × ${fmt(x.eff)}${x.rb?` (cenovnik ${fmt(x.price)}, rabat ${x.rb}%)`:""} = ${fmt(x.eff*x.c.q)} RSD`));
+    const rows=lines().map((x,i)=>`${i+1}. ${x.sf?"["+x.sf+"] ":""}${x.p.name}${x.label?" — "+x.label:""} — ${x.c.q} ${x.unit}`+(x.price==null?" — cena na upit":(x.nb?` — ${x.pcs} kom × ${fmt(x.eff)} (rabat ${x.rp}%) + ${x.nb} kutija (${x.B} kom) × ${fmt(PARTIS.discounted(x.price,x.rk))} po komadu (rabat ${x.rk}%; cenovnik ${fmt(x.price)}) = ${fmt(x.sum)} RSD`:` × ${fmt(x.eff)}${x.rb?` (cenovnik ${fmt(x.price)}, rabat ${x.rb}%)`:""} = ${fmt(x.sum)} RSD`)));
     const pd=PARTIS.gross(t.sum)-t.sum;return rows.join("\n")+(hasR()?`\n\nIznos po cenovniku: ${fmt(t.list)} RSD\nRabat: −${fmt(t.rab)} RSD`:"")+`\n\nIznos bez PDV-a${hasR()?" (sa rabatom)":""}: ${fmt(t.sum)} RSD\nPDV (${PARTIS.VAT}%): ${fmt(pd)} RSD\nUkupno sa PDV-om: ${fmt(t.sum+pd)} RSD`+(t.upit?` (+ ${t.upit} ${(n=>{const m=n%100,d=n%10;return (d===1&&m!==11)?"stavka":(d>=2&&d<=4&&(m<12||m>14))?"stavke":"stavki"})(t.upit)} sa cenom na upit)`:"");
   }
-  const hasR=()=>lines().some(x=>x.rb>0);
+  const hasR=()=>lines().some(x=>x.rb>0||x.rp>0||x.nb>0);
   function acctLine(){
     if(window.CUSTOMER)return "";
     return `<div class="cart-acct">Imate nalog? <a href="#" onclick="event.preventDefault();window.partisAuth&&partisAuth('login')">Prijavite se</a> da vidite svoj rabat.</div>`;
@@ -61,7 +69,7 @@
     const L=lines();
     if(!L.length)return `<p class="cart-empty">Korpa je prazna. Izaberite artikal i kliknite „+ U korpu".</p>`;
     const t=totals();
-    return `<div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody>${L.map((x,i)=>`<tr><td><b>${esc(x.p.name)}</b>${x.label?`<small class="cart-l">${esc(x.label)}</small>`:""}</td><td><div class="qty"><button type="button" class="qb" onclick="cartQty(${i},-1)" aria-label="Manje">−</button><input type="text" inputmode="numeric" pattern="[0-9]*" class="qin" value="${x.c.q}" maxlength="5" aria-label="Količina" onfocus="this.select()" onchange="cartSet(${i},this.value)" onkeydown="if(event.key==='Enter'){this.blur();}"><button type="button" class="qb" onclick="cartQty(${i},1)" aria-label="Više">+</button><span class="qu">${x.unit}</span></div></td><td class="price">${x.price==null?"Cena na upit":x.rb?`<s class="old">${fmt(x.price*x.c.q)}</s> <b class="newp">${fmt(x.eff*x.c.q)}</b> <small>RSD · −${x.rb}%</small>`:`${fmt(x.price*x.c.q)} <small>RSD</small>`}</td><td><button type="button" class="cart-x" onclick="cartDel(${i})" aria-label="Ukloni">✕</button></td></tr>`).join("")}</tbody></table></div>
+    return `<div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th><th>Cena (bez PDV-a)</th><th></th></tr></thead><tbody>${L.map((x,i)=>`<tr><td><b>${esc(x.p.name)}</b>${x.label?`<small class="cart-l">${esc(x.label)}</small>`:""}${x.nb?`<small class="cart-l cart-bx">${x.nb} ${x.nb===1?"kutija":"kutije"} (${x.B} kom) po rabatu ${x.rk}%, ostalo ${x.pcs} kom po ${x.rp}%</small>`:""}${x.next&&window.CUSTOMER?`<small class="cart-l cart-bx">Još ${x.next} kom do pune kutije (${x.B} kom): rabat ${x.rk}% umesto ${x.rp}%</small>`:""}</td><td><div class="qty"><button type="button" class="qb" onclick="cartQty(${i},-1)" aria-label="Manje">−</button><input type="text" inputmode="numeric" pattern="[0-9]*" class="qin" value="${x.c.q}" maxlength="5" aria-label="Količina" onfocus="this.select()" onchange="cartSet(${i},this.value)" onkeydown="if(event.key==='Enter'){this.blur();}"><button type="button" class="qb" onclick="cartQty(${i},1)" aria-label="Više">+</button><span class="qu">${x.unit}</span></div></td><td class="price">${x.price==null?"Cena na upit":x.rb?`<s class="old">${fmt(x.price*x.c.q)}</s> <b class="newp">${fmt(x.sum)}</b> <small>RSD · −${x.rb}%</small>`:`${fmt(x.price*x.c.q)} <small>RSD</small>`}</td><td><button type="button" class="cart-x" onclick="cartDel(${i})" aria-label="Ukloni">✕</button></td></tr>`).join("")}</tbody></table></div>
     ${acctLine()}<div class="cart-sum">${hasR()?`<div class="cs-r"><span>Iznos po cenovniku</span><b>${fmt(t.list)} RSD</b></div><div class="cs-r cs-rab"><span>Vaš rabat</span><b>−${fmt(t.rab)} RSD</b></div>`:""}<div class="cs-r"><span>Iznos bez PDV-a${hasR()?" (sa vašim rabatom)":""}</span><b>${fmt(t.sum)} RSD</b></div><div class="cs-r"><span>PDV (${PARTIS.VAT}%)</span><b>${fmt(PARTIS.gross(t.sum)-t.sum)} RSD</b></div><div class="cs-r cs-t"><span>Ukupno sa PDV-om</span><b>${fmt(PARTIS.gross(t.sum))} RSD</b></div>${t.upit?`<small>+ ${t.upit} ${(n=>{const m=n%100,d=n%10;return (d===1&&m!==11)?"stavka":(d>=2&&d<=4&&(m<12||m>14))?"stavke":"stavki"})(t.upit)} sa cenom na upit — cenu potvrđujemo u odgovoru.</small>`:""}</div>`;
   }
   const lineIdx=i=>{const L=lines();return L[i]?cart.indexOf(L[i].c):-1;};
@@ -132,7 +140,7 @@
     if(window.CUSTOMER&&window.CUSTOMER.pib&&String(fd.get("pib")).trim()!==String(window.CUSTOMER.pib)){err.textContent="PIB se ne poklapa sa PIB-om vašeg naloga. Proverite unos.";err.hidden=false;return false;}
     const text=orderText();
     const _t=totals(),_pd=PARTIS.gross(_t.sum)-_t.sum;
-    const stavke=JSON.stringify(lines().map(x=>({s:x.sf||"",n:x.p.name,l:x.label||"",q:x.c.q,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rb||0}))),ukupno=JSON.stringify({sum:_t.sum,pdv:_pd,total:_t.sum+_pd,upit:_t.upit,rabat:hasR(),list:_t.list,rabIznos:_t.rab});
+    const stavke=JSON.stringify(lines().flatMap(x=>x.nb?[{s:x.sf||"",n:x.p.name,l:(x.label||"")+" · kutija ("+x.B+" kom)",q:x.nb*x.B,u:x.unit||"",cena:x.price,eff:PARTIS.discounted(x.price,x.rk),rb:x.rk||0}].concat(x.pcs?[{s:x.sf||"",n:x.p.name,l:(x.label||"")+" · komadi",q:x.pcs,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rp||0}]:[]):[{s:x.sf||"",n:x.p.name,l:x.label||"",q:x.c.q,u:x.unit||"",cena:x.price,eff:x.eff,rb:x.rb||0}])),ukupno=JSON.stringify({sum:_t.sum,pdv:_pd,total:_t.sum+_pd,upit:_t.upit,rabat:hasR(),list:_t.list,rabIznos:_t.rab});
     const data={stavke,ukupno,"form-name":"porudzbenica",ime:fd.get("ime"),firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon"),email:fd.get("email"),adresa:fd.get("adresa"),napomena:((fd.get("druga")&&fd.get("d_adresa"))?`ISPORUKA NA DRUGU ADRESU: ${fd.get("d_adresa")} | Kontakt: ${fd.get("d_osoba")}, ${fd.get("d_tel")}\n`:"")+(fd.get("napomena")||""),"bot-field":"",porudzbina:text,kupac:window.CUSTOMER?`${window.CUSTOMER.email} (registrovan kupac)`:"gost (bez naloga)",rabati:window.CUSTOMER?JSON.stringify(window.REBATE||{}):""};
     if(window.PARTIS_OFFLINE){offlineSend(data,text);return false;}
     b.disabled=true;b.textContent="Šaljem…";err.hidden=true;
