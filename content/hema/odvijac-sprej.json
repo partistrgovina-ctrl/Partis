@@ -10,11 +10,13 @@
   "packs": [
     {
       "pack": "200 ml",
-      "price": 200
+      "price": 200,
+      "box": 24
     },
     {
       "pack": "400 ml",
-      "price": 285
+      "price": 285,
+      "box": 24
     }
   ],
   "aliases": [

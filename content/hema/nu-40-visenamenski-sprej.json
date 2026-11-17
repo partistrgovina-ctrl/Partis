@@ -11,12 +11,14 @@
     {
       "pack": "200 ml",
       "price": 190,
-      "image": "/assets/img/nu40-200.png"
+      "image": "/assets/img/nu40-200.png",
+      "box": 36
     },
     {
       "pack": "400 ml",
       "price": 270,
-      "image": "/assets/img/nu40.png"
+      "image": "/assets/img/nu40.png",
+      "box": 24
     }
   ],
   "aliases": [
