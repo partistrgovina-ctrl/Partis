@@ -140,6 +140,7 @@
       const c=await client();
       const {data,error}=await c.auth.signUp({email:fd.get("email").trim(),password:fd.get("pass"),options:{data:{ime:fd.get("ime").trim(),firma:(fd.get("firma")||"").trim(),pib:(fd.get("pib")||"").trim(),telefon:fd.get("telefon").trim(),adresa:fd.get("adresa").trim()}}});
       if(error)throw error;
+      try{fetch("nalog-obavestenje.php",{method:"POST",keepalive:true,headers:{"Content-Type":"application/x-www-form-urlencoded"},body:new URLSearchParams({ime:fd.get("ime")||"",firma:fd.get("firma")||"",pib:fd.get("pib")||"",telefon:fd.get("telefon")||"",adresa:fd.get("adresa")||"",email:fd.get("email")||""}).toString()}).catch(function(){})}catch(_){}
       if(data&&data.session)await c.auth.signOut();   /* dok nalog ne odobrimo, nema prijave */
       apply(null);
       msg("Vaš zahtev za nalog je primljen. Kada ga odobrimo, javićemo vam se na mejl ili telefon i moći ćete da se prijavite. Do tada kupujete po redovnim cenama.");
