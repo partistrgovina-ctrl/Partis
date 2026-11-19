@@ -248,9 +248,9 @@
       if(!ORD.length){el.innerHTML=`<p class="cart-note">Još nema porudžbina poslatih sa ovog naloga.</p>`;return;}
       el.innerHTML=ORD.map((o,i)=>{
         const st=Array.isArray(o.stavke)?o.stavke:[];const u=o.ukupno||{};
-        const nema=st.filter(x=>x.nema).length;
+        const nema=st.filter(x=>x.nema||x.nedostaje>0).length;
         return `<details class="ord"><summary><b>${esc(fmtD(o.created_at))}</b> · ${st.length} ${st.length===1?"stavka":"stavki"}${u.total!=null?` · ${PARTIS.fmt(u.total)} RSD sa PDV-om`:""} <span class="ord-st st-${esc(o.status||"poslato")}">${esc(STAT[o.status]||STAT.poslato)}</span>${nema?` <span class="ord-nema">${nema} nema na stanju</span>`:""}</summary>
-          <div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th></tr></thead><tbody>${st.map(x=>`<tr><td><b>${esc(x.n||"")}</b>${x.l?`<small class="cart-l">${esc(x.l)}</small>`:""}${x.nema?` <span class="ord-nema">Nema na stanju</span>`:""}</td><td>${esc(String(x.q))} ${esc(x.u||"")}</td></tr>`).join("")}</tbody></table></div>
+          <div class="tbl-wrap"><table class="cart-t"><thead><tr><th>Artikal</th><th>Količina</th></tr></thead><tbody>${st.map(x=>`<tr><td><b>${esc(x.n||"")}</b>${x.l?`<small class="cart-l">${esc(x.l)}</small>`:""}${x.nema?` <span class="ord-nema">Nema na stanju</span>`:(x.nedostaje>0?` <span class="ord-nema">Nedostaje ${esc(String(x.nedostaje))} ${esc(x.u||"")}</span>`:"")}</td><td>${esc(String(x.q))} ${esc(x.u||"")}</td></tr>`).join("")}</tbody></table></div>
           ${o.dostava?`<p class="cart-note"><b>Isporuka:</b> ${esc(o.dostava)}</p>`:""}
           ${o.posiljka?`<p class="cart-note"><b>Kurirska služba:</b> ${esc(o.kurir||"—")}<br><b>Broj pošiljke:</b> <span class="trk">${esc(o.posiljka)}</span> — ovim brojem pratite pošiljku na sajtu kurirske službe.</p>`:""}
           ${(o.kurir&&!o.posiljka)?`<p class="cart-note"><b>Kurirska služba:</b> ${esc(o.kurir)}</p>`:""}

@@ -88,7 +88,7 @@ foreach ($stavke as $i => $s) {
   $nema = !empty($s['nema']);
   $bg = $i % 2 ? '#f7f5ef' : '#ffffff';
   $red .= '<tr style="background:' . $bg . '"><td style="padding:8px 10px;border-bottom:1px solid #e3ded0">' . h($s['n'] ?? '') . (!empty($s['l']) ? '<br><span style="color:#777;font-size:12px">' . h($s['l']) . '</span>' : '')
-        . ($nema ? '<br><span style="display:inline-block;margin-top:3px;padding:2px 8px;background:#f7d6d3;color:#9c1c14;font-size:12px;border-radius:9px">Nema na stanju</span>' : '')
+        . ($nema ? '<br><span style="display:inline-block;margin-top:3px;padding:2px 8px;background:#f7d6d3;color:#9c1c14;font-size:12px;border-radius:9px">Nema na stanju</span>' : (!empty($s['nedostaje']) ? '<br><span style="display:inline-block;margin-top:3px;padding:2px 8px;background:#f7d6d3;color:#9c1c14;font-size:12px;border-radius:9px">Nedostaje ' . h($s['nedostaje'] . ' ' . ($s['u'] ?? '')) . '</span>' : ''))
         . '</td><td style="padding:8px 10px;border-bottom:1px solid #e3ded0;white-space:nowrap;text-align:right">' . h(($s['q'] ?? '') . ' ' . ($s['u'] ?? '')) . '</td></tr>';
   $tekst .= '- ' . ($s['n'] ?? '') . (!empty($s['l']) ? ' (' . $s['l'] . ')' : '') . ' — ' . ($s['q'] ?? '') . ' ' . ($s['u'] ?? '') . ($nema ? ' — NEMA NA STANJU' : '') . "\n";
 }
@@ -134,6 +134,7 @@ if ($tip === 'predracun' || $tip === 'pregled') {
     if (!is_array($s)) continue;
     $opis = ($s['n'] ?? '') . (!empty($s['l']) ? ' (' . $s['l'] . ')' : '') . ' — ' . ($s['q'] ?? '') . ' ' . ($s['u'] ?? '');
     if (!empty($s['nema'])) { $nemaL[] = $opis; continue; }
+    if (!empty($s['nedostaje']) && (float)$s['nedostaje'] > 0) { $nemaL[] = ($s['n'] ?? '') . (!empty($s['l']) ? ' (' . $s['l'] . ')' : '') . ' — nedostaje ' . $s['nedostaje'] . ' ' . ($s['u'] ?? '') . ' (isporučujemo ' . ($s['q'] ?? '') . ')'; }
     $inc = $ukl !== null ? in_array($i, $ukl, true) : (isset($s['eff']) && $s['eff'] !== null);
     if (!$inc) { $drugo[] = $opis . (!isset($s['eff']) || $s['eff'] === null ? ' — cena na upit' : ''); continue; }
     $q = (float)($s['q'] ?? 0); $eff = isset($s['eff']) && $s['eff'] !== null ? (float)$s['eff'] : null;
