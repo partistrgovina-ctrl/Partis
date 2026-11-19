@@ -184,7 +184,7 @@ dialog::backdrop{background:rgba(22,20,15,.55);backdrop-filter:blur(3px);animati
 @keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-.ordi{display:block;padding:3px 0}.ordi label{margin-right:8px;font-size:12px;white-space:nowrap}.ordi code{background:#eee;padding:0 4px}.ordi i{color:#777;font-style:normal}
+.ordp{display:block;margin:2px 0 0 0;font-size:12px}.ordp label{margin-right:10px}.ordp input{width:84px;padding:2px 4px;font:inherit}.ordg{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:2px 0 8px;padding:6px 8px;background:#f4f1ea;border:1px solid #d8d2c4;font-size:12px}.ordg input{width:64px;padding:2px 4px;font:inherit}.ordi{display:block;padding:3px 0}.ordi label{margin-right:8px;font-size:12px;white-space:nowrap}.ordi code{background:#eee;padding:0 4px}.ordi i{color:#777;font-style:normal}
 
 /* ================= IZGLED KAO NA SAJTU ================= */
 :root{--paper:#f4f1ea;--ink:#16140f;--muted:#6b665c;--line:#d8d2c4;--red:#c2241f;--photo:#dcdddf;--card:#fbf9f4;--r:0}
@@ -1060,6 +1060,9 @@ async function ordList(){
   const [{data:ords,error},{data:profs}]=await Promise.all([SB.from("porudzbine").select("*").order("created_at",{ascending:false}).limit(200),SB.from("profili").select("id,ime,firma,email,telefon")]);
   if(error)return d3("<p class='warn'>Greška: "+esc(error.message)+"<br>Da li ste u Supabase pokrenuli SQL dopunu (porudzbine)?</p>",[["Zatvori",()=>$("#dlg3").close()]]);
   const P={};(profs||[]).forEach(p=>P[p.id]=p);
+  const ITM={};try{const M=CORE.model({creva:DB.creva,hema:DB.hema,artikli:DB.artikli,categories:CATBASE,custom:KAT,hidden:SKR,nazivi:NAZ,pocetna:POCT,imgFiles:[],uploadFiles:[]});(M.D.ITEMS||[]).forEach(it=>{ITM[it.name]=it;});}catch(e){}
+  const GN={};SHARED.GROUPS.forEach(([k,n])=>GN[k]=n);(KAT||[]).forEach(k=>{if(!GN[k.id])GN[k.id]=k.naziv;});
+  const grpOf=x=>{const it=ITM[x.n];return it?SHARED.groupOf(it):"ostalo";};
   const isOpen=o=>!o.status||o.status==="poslato"||o.status==="obrada";
   const nOpen=ords.filter(isOpen).length,nSent=ords.length-nOpen;
   const shown=ords.filter(o=>ORDF==="all"||(ORDF==="open")===isOpen(o));
@@ -1069,8 +1072,10 @@ async function ordList(){
       <div class="cc-h"><div class="cc-who"><b>${esc(p.firma||p.ime||"Nepoznat kupac")}</b><span class="cc-f">${esc(fd(o.created_at))}${u.total!=null?" · "+Math.round(u.total).toLocaleString("sr-Latn-RS")+" RSD sa PDV-om":""}</span>
         <div class="cc-c">${[p.ime,p.email,p.telefon].filter(Boolean).map(esc).join(" · ")}${o.dostava?"<br>Isporuka: "+esc(o.dostava):""}</div></div>
         <select data-f="status" class="cc-st">${OSTAT.map(([k,n])=>`<option value="${k}" ${o.status===k?"selected":""}>${n}</option>`).join("")}</select></div>
-      <div class="cc-g"><div class="cc-t">Stavke <small>„Nema“ = nije na stanju (kupac vidi oznaku). „Predračun“ = ulazi u predračun; ostale idu u napomenu predračuna.</small></div>
-        ${st.map((x,i)=>{const pj=o.predracun&&Array.isArray(o.predracun.ukljuci);const inc=pj?o.predracun.ukljuci.includes(i):(x.eff!=null&&!x.nema);return `<div class="ordi"><label title="Nema na stanju"><input type="checkbox" data-nema="${i}" ${x.nema?"checked":""}> nema</label> <label title="Ulazi u predračun"><input type="checkbox" data-pr="${i}" ${inc&&!x.nema?"checked":""}> predračun</label> ${x.s?`<code>${esc(x.s)}</code> `:""}${esc(x.n||"")}${x.l?" — "+esc(x.l):""} <i>${esc(String(x.q))} ${esc(x.u||"")}${x.eff==null?" · cena na upit":" · "+Math.round(x.eff*100)/100+" RSD"}</i></div>`;}).join("")}
+      <div class="cc-g"><div class="cc-t">Stavke <small>„Nema“ = nije na stanju (kupac vidi oznaku). „Predračun“ = ulazi u predračun; ostale idu u napomenu predračuna. Za artikle sa cenom na upit upišite cenu; rabat možete dati po grupi ili po artiklu.</small></div>
+        ${(()=>{const gs=[...new Set(st.map(grpOf))];return gs.length?`<div class="ordg"><b>Rabat po grupi (%):</b>${gs.map(g=>`<label>${esc(GN[g]||g)} <input type="number" min="0" max="99" step="0.5" data-g="${esc(g)}" placeholder="—"></label>`).join("")}<label>Svi artikli <input type="number" min="0" max="99" step="0.5" data-g="*" placeholder="—"></label></div>`:"";})()}
+        ${st.map((x,i)=>{const pj=o.predracun&&Array.isArray(o.predracun.ukljuci);const inc=pj?o.predracun.ukljuci.includes(i):(x.eff!=null&&!x.nema);return `<div class="ordi"><label title="Nema na stanju"><input type="checkbox" data-nema="${i}" ${x.nema?"checked":""}> nema</label> <label title="Ulazi u predračun"><input type="checkbox" data-pr="${i}" ${inc&&!x.nema?"checked":""}> predračun</label> ${x.s?`<code>${esc(x.s)}</code> `:""}${esc(x.n||"")}${x.l?" — "+esc(x.l):""} <i>${esc(String(x.q))} ${esc(x.u||"")}${x.eff==null?" · cena na upit":" · "+Math.round(x.eff*100)/100+" RSD"}</i>
+          <span class="ordp"><label>Cena (RSD, bez PDV-a) <input type="number" min="0" step="0.01" data-pc="${i}" data-g="${esc(grpOf(x))}" value="${x.cena!=null?esc(String(x.cena)):""}" placeholder="na upit"></label><label>Rabat % <input type="number" min="0" max="99" step="0.5" data-rb="${i}" value="${x.rb?esc(String(x.rb)):""}" placeholder="—"></label></span></div>`;}).join("")}
         <label class="rf" style="margin-top:8px"><span>Napomena na predračunu (uz automatski spisak stavki koje nisu u predračunu)</span><textarea data-f="prn" rows="2" style="width:100%;font:inherit;padding:6px">${esc((o.predracun&&o.predracun.napomena)||"")}</textarea></label></div>
       <div class="cc-g"><div class="cc-t">Pošiljka i faktura</div><div class="cc-grid">
         <label class="rf"><span>Kurir</span><input type="text" data-f="kurir" list="kuriri" value="${esc(o.kurir||"")}" placeholder="izaberite ili upišite"></label>
@@ -1104,11 +1109,22 @@ async function ordList(){
   };
   body.querySelectorAll("[data-of]").forEach(b=>b.onclick=()=>{ORDF=b.dataset.of;ordList();});
   $("#ccQ").oninput=()=>{const q=$("#ccQ").value.trim().toLowerCase();body.querySelectorAll(".cc").forEach(c=>c.hidden=!!q&&!c.dataset.s.includes(q));};
+  body.querySelectorAll(".ordg input").forEach(gi=>gi.oninput=()=>{const c=gi.closest(".cc"),k=gi.dataset.g;c.querySelectorAll("[data-rb]").forEach(r=>{const pc=c.querySelector(`[data-pc="${r.dataset.rb}"]`);if(pc&&(k==="*"||pc.dataset.g===k))r.value=gi.value;});});
+  body.querySelectorAll("[data-pc]").forEach(pc=>pc.oninput=()=>{const c=pc.closest(".cc"),i=pc.dataset.pc,o=ords.find(x=>x.id===c.dataset.id),x=(o.stavke||[])[i],ck=c.querySelector(`[data-pr="${i}"]`);if(x&&x.eff==null&&ck&&pc.value.trim()!=="")ck.checked=true;});
   const saveCard=async(c)=>{
       const o=ords.find(x=>x.id===c.dataset.id);
-      const stavke=(o.stavke||[]).map((x,i)=>{const y={...x};const on=c.querySelector(`[data-nema="${i}"]`).checked;if(on)y.nema=true;else delete y.nema;return y;});
+      const stavke=(o.stavke||[]).map((x,i)=>{const y={...x};const on=c.querySelector(`[data-nema="${i}"]`).checked;if(on)y.nema=true;else delete y.nema;
+        const pc=c.querySelector(`[data-pc="${i}"]`),rbI=c.querySelector(`[data-rb="${i}"]`);
+        if(pc&&rbI){const pv=pc.value.trim().replace(",","."),rv=rbI.value.trim().replace(",",".");
+          const cena=pv===""?null:Number(pv),rb=rv===""?0:Number(rv);
+          if(cena!==null&&(isNaN(cena)||cena<0))throw new Error("Neispravna cena kod stavke: "+(x.n||""));
+          if(isNaN(rb)||rb<0||rb>=100)throw new Error("Rabat mora biti od 0 do 99 (stavka: "+(x.n||"")+").");
+          if(cena===null){y.cena=null;y.eff=null;y.rb=0;}else{y.cena=cena;y.rb=rb;y.eff=Math.round(cena*(100-rb))/100;}}
+        return y;});
+      const act=stavke.filter(x=>!x.nema),sum=Math.round(act.reduce((a,x)=>a+(x.eff!=null?x.eff*(Number(x.q)||0):0),0)*100)/100,list=Math.round(act.reduce((a,x)=>a+(x.cena!=null?x.cena*(Number(x.q)||0):0),0)*100)/100,pd=Math.round((SHARED.gross(sum)-sum)*100)/100;
+      const ukupno={...(o.ukupno||{}),sum,pdv:pd,total:Math.round((sum+pd)*100)/100,upit:act.filter(x=>x.eff==null).length,rabat:list>sum,list,rabIznos:Math.round((list-sum)*100)/100};
       const ukljuci=stavke.map((x,i)=>i).filter(i=>!stavke[i].nema&&c.querySelector(`[data-pr="${i}"]`).checked);
-      const upd={stavke,predracun:{ukljuci,napomena:c.querySelector("[data-f=prn]").value.trim()},status:c.querySelector("[data-f=status]").value,kurir:c.querySelector("[data-f=kurir]").value.trim()||null,posiljka:c.querySelector("[data-f=posiljka]").value.trim()||null};
+      const upd={stavke,ukupno,predracun:{ukljuci,napomena:c.querySelector("[data-f=prn]").value.trim()},status:c.querySelector("[data-f=status]").value,kurir:c.querySelector("[data-f=kurir]").value.trim()||null,posiljka:c.querySelector("[data-f=posiljka]").value.trim()||null};
       const f=c.querySelector("[data-f=pdf]").files[0];
       if(f){
         if(f.type!=="application/pdf"&&!/\.pdf$/i.test(f.name))throw new Error("Faktura mora biti PDF.");
